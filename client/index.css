@@ -1,1 +1,113 @@
-/* CSS declarations go here */
+html, body {
+  height: 100%;
+  background: #e9eaed;
+}
+
+core-scaffold .core-header-panel {
+  background: #383938; /*#fb9737;*/
+  color: #424242;
+  height: 100%;
+}
+
+core-scaffold .core-header-panel #section {
+  background: #e9eaed !important;
+}
+
+core-scaffold #scrim {
+  z-index: 10000;
+}
+
+core-scaffold::shadow core-toolbar { background: white; }
+core-scaffold core-toolbar { background: white; }
+
+core-scaffold::shadow core-header-panel {  background: #e9eaed; }
+core-scaffold core-header-panel {  background: #e9eaed; }
+
+core-scaffold core-toolbar #bottomBar{
+  background: white;
+  padding: 0px;
+  margin: 0px;
+}
+
+core-scaffold #mainContainer {
+  background:  #383938;
+  color: #424242;
+  height: 100%;
+}
+
+core-scaffold .core-toolbar{
+  position: absolute;
+  width: 100%;
+  background: black; /*#80e3ea*/
+}
+
+core-scaffold .search-header { color: #424242; }
+core-scaffold::shadow .search-header { color: #424242; }
+
+core-scaffold #menuButton { color: #424242; }
+core-scaffold::shadow #menuButton { color: #424242; }
+
+core-scaffold .sentiment-cards-section {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background: #e9eaed;
+}
+
+::content > * {
+  margin: 0;
+}
+
+core-scaffold .header-title {
+  font-weight: 100;
+  font-family: 'Roboto','Helvetica', sans-serif;
+  font-size: 58px;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  width: 100%;
+  color: #424242;
+  padding: 15px;
+  display: inline;
+}
+
+.stopselect{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+core-scaffold .paper-tabs {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  color: black;
+}
+
+core-scaffold paper-tabs {
+  font-weight: 400;
+  background: white;
+  font-family: 'Roboto','Helvetica', sans-serif;
+  color: black;
+}
+core-scaffold paper-tab { width: 150px;}
+core-scaffold paper-tab #ink { color: #2d2e2d; cursor: pointer; }
+core-scaffold paper-tab::shadow #ink { color: #2d2e2d; cursor: pointer; }
+
+core-scaffold paper-tabs #selectionBar { background-color: #2d2e2d;  height: 4px; }
+core-scaffold paper-tabs::shadow #selectionBar { background-color: #2d2e2d;  height: 4px; }

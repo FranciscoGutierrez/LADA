@@ -1,10 +1,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <title>Dashboard</title>
-
   <link href='//fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>
   <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
@@ -21,12 +19,11 @@
   <link rel="import" href="bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
   <link rel="import" href="bower_components/paper-item/paper-item.html">
   <link rel="import" href="bower_components/core-menu/core-menu.html">
-
   <link rel="import" href="bower_components/core-icons/core-icons.html">
 </head>
 
 <body>
-  <core-scaffold fit>
+  <core-scaffold fit drawerWidth="50px">
     <core-header-panel navigation mode="seamed" class="core-header-panel">
     </core-header-panel>
     <core-toolbar class="medium-tall">
@@ -34,7 +31,7 @@
         <div class="header-title stopselect">Dashboard</div>
       </div>
       <div class="bottom">
-        <paper-tabs class="paper-tabs" selected="1" role="tablist">
+        <paper-tabs class="paper-tabs" selected="0" role="tablist">
           <paper-tab role="tab" class="core-selected">Calculator</paper-tab>
           <paper-tab role="tab">Explorer</paper-tab>
         </paper-tabs>
