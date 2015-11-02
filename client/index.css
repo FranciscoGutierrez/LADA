@@ -3,7 +3,7 @@
 }
 
 paper-toolbar {
-  background: white !important;
+  background: none !important;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
 }
 
@@ -54,4 +54,7 @@ paper-tab.paper-tab-0 #ink.paper-tab {color: #424242;}
 paper-icon-button{ color: #424242}
 
 
-paper-toolbar.tall { height: 400px; }
+paper-toolbar {
+  min-height: 280px;
+  max-height: 280px;
+}
