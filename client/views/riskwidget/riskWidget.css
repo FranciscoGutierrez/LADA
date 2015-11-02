@@ -1,0 +1,12 @@
+#contentd3 {
+  height: 175px;
+  width:  175px;
+  display: flex;
+}
+
+.progress-meter text{
+  font-family: Roboto, Helvetica;
+  font-size: 62px;
+  font-weight: 100;
+  color: #424242;
+}
