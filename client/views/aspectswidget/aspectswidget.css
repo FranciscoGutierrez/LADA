@@ -1,0 +1,32 @@
+.aspects-content .title-aspects {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.aspects-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: #424242;
+  width: 200px;
+}
+
+#aspects-content-viz {
+  height: 165px;
+  width:  165px;
+}
+
+#aspects-content-viz .progress-meter text{
+  font-family: 'Roboto', Helvetica, Arial;
+  font-size: 62px;
+  font-weight: 100;
+  color: #424242;
+}
+
+#aspects-content-viz .progress-meter .subtext-aspects {
+  font-family: 'Roboto', Helvetica, Arial;
+  font-size: 15px;
+  font-weight: 900;
+}

@@ -1,0 +1,1 @@
+Template.aspectswidget.rendered = function(){};

@@ -73,7 +73,8 @@ Template.qualitywidget.rendered = function(){
   .attr('fill', '#9F9F9F')
   .attr('text-anchor', 'middle')
   .attr("y",22)
-  .attr("class", "subtext-quality");
+  .attr("class", "subtext-quality")
+  .text("CASES");
 
 
   function updateProgress(progress) {
@@ -82,23 +83,18 @@ Template.qualitywidget.rendered = function(){
     numberText.text(progress.toFixed(2)*100|0);
     if(progress > 0.00) {
       front.attr('fill','#d9dfe4');
-      wordText.text("DOUBTFUL");
     }
     if(progress > 0.20) {
       front.attr('fill','#92A4AE');
-      wordText.text("INACCURATE");
     }
     if(progress > 0.40) {
       front.attr('fill','#637D8B');
-      wordText.text("TRUSTY");
     }
     if(progress > 0.60) {
       front.attr('fill','#475A64');
-      wordText.text("TRUSTWORHTY");
     }
     if(progress > 0.80) {
       front.attr('fill','#273238');
-      wordText.text("EXCELLENT");
     }
   }
 
