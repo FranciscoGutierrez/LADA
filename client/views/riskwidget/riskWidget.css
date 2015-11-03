@@ -1,12 +1,32 @@
 #contentd3 {
   height: 175px;
   width:  175px;
-  display: flex;
 }
 
 .progress-meter text{
-  font-family: Roboto, Helvetica;
+  font-family: 'Roboto', Helvetica, Arial;
   font-size: 62px;
   font-weight: 100;
   color: #424242;
+}
+
+#contentd3 .subtext-risk {
+  font-family: 'Roboto', Helvetica, Arial;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.risk-content .title-risk {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.risk-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: #424242;
+  width: 200px;
 }

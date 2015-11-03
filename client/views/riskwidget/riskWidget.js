@@ -1,15 +1,17 @@
 Template.riskWidget.rendered = function(){
 
   var colors = {
-    'pink': '#607D8B',
-    'yellow': '#f0ff08',
-    'green': '#47e495'
+    'red':    '#E74C3C',
+    'orange': '#E67E22',
+    'yellow': '#F1C40F',
+    'lime':   '#27AE60',
+    'green':  '#25A085'
   };
   var parent = d3.select('div#contentd3');
 
-  var color   = colors.pink;
+  var color   = colors.green;
   var radius  = parent.node().getBoundingClientRect().width/2;
-  var border  = 5;
+  var border  = 10;
   var padding = 0;
   var startPercent = 0;
   var endPercent = 0.85;
@@ -70,23 +72,47 @@ Template.riskWidget.rendered = function(){
   var numberText = meter.append('text')
   .attr('fill', '#424242')
   .attr('text-anchor', 'middle');
-  /*.attr('dy', '.35em');*/
+
+  var wordText = meter.append('text')
+  .attr('fill', '#9F9F9F')
+  .attr('text-anchor', 'middle')
+  .attr("y",22)
+  .attr("class", "subtext-risk");
 
   function updateProgress(progress) {
     foreground.attr('d', arc.endAngle(twoPi * progress));
     front.attr('d', arc.endAngle(twoPi * progress));
     numberText.text(progress.toFixed(2)*100|0);
+    if(progress > 0.00) {
+      front.attr('fill','rgb(231, 76, 60)');
+      wordText.text("VERY HARD");
+    }
+    if(progress > 0.20) {
+      front.attr('fill','rgb(230, 126, 34)');
+      wordText.text("HARD");
+    }
+    if(progress > 0.40) {
+      front.attr('fill','rgb(241, 196, 15)');
+      wordText.text("HARD WORK");
+    }
+    if(progress > 0.60) {
+      front.attr('fill','rgb(39, 174, 96)');
+      wordText.text("EASY");
+    }
+    if(progress > 0.80) {
+      front.attr('fill','rgb(37,160,133)');
+      wordText.text("VERY EASY");
+    }
   }
 
   var progress = startPercent;
 
   (function loops() {
     updateProgress(progress);
-
     if (count > 0) {
       count--;
       progress += step;
-      setTimeout(loops, 10);
+      setTimeout(loops, 50);
     }
   })();
 };

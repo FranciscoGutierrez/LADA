@@ -58,3 +58,5 @@ paper-toolbar {
   min-height: 280px;
   max-height: 280px;
 }
+
+paper-toolbar #topBar { display: none;}
