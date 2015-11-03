@@ -1,21 +1,19 @@
-Template.riskwidget.rendered = function(){
-
+Template.qualitywidget.rendered = function(){
   var colors = {
-    'red':    '#E74C3C',
-    'orange': '#E67E22',
-    'yellow': '#F1C40F',
-    'lime':   '#27AE60',
-    'green':  '#25A085'
+    'dark':      '#273238',
+    'bluegrey':  '#475A64',
+    'grey':      '#637D8B',
+    'softgrey':  '#92A4AE',
+    'white':     '#25A085'
   };
+  var parent = d3.select('div#prediction-quality-viz');
 
-  var parent = d3.select('div#risk-content-viz');
-
-  var color   = colors.green;
+  var color   = colors.dark;
   var radius  = parent.node().getBoundingClientRect().width/2;
   var border  = 10;
   var padding = 0;
   var startPercent = 0;
-  var endPercent = 0.85;
+  var endPercent = 0.73;
 
   var twoPi = Math.PI * 2;
   var formatPercent = d3.format("s");
@@ -75,33 +73,32 @@ Template.riskwidget.rendered = function(){
   .attr('fill', '#9F9F9F')
   .attr('text-anchor', 'middle')
   .attr("y",22)
-  .attr("class", "subtext-risk");
+  .attr("class", "subtext-quality");
 
 
   function updateProgress(progress) {
     foreground.attr('d', arc.endAngle(twoPi * progress));
     front.attr('d', arc.endAngle(twoPi * progress));
     numberText.text(progress.toFixed(2)*100|0);
-
     if(progress > 0.00) {
-      front.attr('fill','rgb(231, 76, 60)');
-      wordText.text("VERY HARD");
+      front.attr('fill','#d9dfe4');
+      wordText.text("DOUBTFUL");
     }
     if(progress > 0.20) {
-      front.attr('fill','rgb(230, 126, 34)');
-      wordText.text("HARD");
+      front.attr('fill','#92A4AE');
+      wordText.text("INACCURATE");
     }
     if(progress > 0.40) {
-      front.attr('fill','rgb(241, 196, 15)');
-      wordText.text("HARDWORK");
+      front.attr('fill','#637D8B');
+      wordText.text("TRUSTY");
     }
     if(progress > 0.60) {
-      front.attr('fill','rgb(39, 174, 96)');
-      wordText.text("EASY");
+      front.attr('fill','#475A64');
+      wordText.text("TRUSTWORHTY");
     }
     if(progress > 0.80) {
-      front.attr('fill','rgb(37,160,133)');
-      wordText.text("VERY EASY");
+      front.attr('fill','#273238');
+      wordText.text("EXCELLENT");
     }
   }
 

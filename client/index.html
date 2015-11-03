@@ -23,7 +23,10 @@
     <paper-header-panel mode="seamed">
       <!-- Main Toolbar -->
       <paper-toolbar class="tall">
-        {{> riskWidget}}
+        <div class="topbar">
+          {{> riskwidget}}
+          {{> qualitywidget}}
+        </div>
         <paper-tabs selected="0" class="bottom">
           <paper-tab class="bottom" active>Calculator</paper-tab>
           <paper-tab class="bottom">Explorer</paper-tab>
