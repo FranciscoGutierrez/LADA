@@ -2,9 +2,8 @@
   "name": "my-app",
   "version": "0.0.1",
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.2.0",
-    "paper-elements": "polymerelements/paper-elements#~1.0.5",
-    "iron-elements": "polymerelements/iron-elements#~1.0.4"
-  },
-  "private": true
+    "polymer": "~1.2.1",
+    "paper-elements": "PolymerElements/paper-elements#~1.0.5",
+    "iron-elements": "PolymerElements/iron-elements#~1.0.4"
+  }
 }
