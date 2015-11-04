@@ -84,7 +84,7 @@ Template.riskwidget.rendered = function(){
   *
   ****/
 
-  var width = (radius*2)-10;
+  var width = radius*2;
 
   var x = d3.scale.linear()
   .domain([1, 100])

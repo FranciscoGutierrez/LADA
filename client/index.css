@@ -15,6 +15,7 @@ paper-toolbar {
 
 paper-toolbar .topbar {
   display: flex;
+  align-items: flex-start;
 }
 
 .main-content {
