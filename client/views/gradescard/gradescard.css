@@ -30,9 +30,6 @@
 .card-settings-icon {
   position: absolute;
   right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .card-settings-icon iron-icon {
@@ -43,12 +40,4 @@
 .card-settings-icon iron-icon > svg {
   margin-left: 5px;
   fill: #a3456b;
-}
-
-paper-toggle-button {
-  margin-left: 5px;
-}
-
-paper-toggle-button > .toggle-label {
-  display: none !important;
 }

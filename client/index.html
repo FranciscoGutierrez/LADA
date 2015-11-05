@@ -11,12 +11,15 @@
     --paper-tab-ink: #424242;
     --iron-icon-width: 18px;
     --iron-icon-fill-color: #c6c6c6;
+    --paper-toggle-button-checked-bar-color: #B25D7E;
+    --paper-toggle-button-checked-button-color: #B25D7E;
   }
   </style>
   <!-- <link href='//fonts.googleapis.com/css?family=Roboto:900,400,300,100' rel='stylesheet' type='text/css'> -->
   <link rel="import" href="bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
   <link rel="import" href="bower_components/paper-tabs/paper-tab.html">
+  <link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html">
   <link rel="import" href="bower_components/paper-drawer-panel/paper-drawer-panel.html">
   <link rel="import" href="bower_components/paper-material/paper-material.html">
   <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
@@ -36,7 +39,8 @@
   </paper-toolbar>
   <div class="content">
     {{> coursescard}}
-    <paper-material></paper-material>
+    {{> gradescard}}
+    {{> historicalcard}}
   </div>
 </paper-header-panel>
 </body>
