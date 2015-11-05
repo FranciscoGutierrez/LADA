@@ -1,0 +1,1 @@
+Template.coursescard.rendered = function(){};
