@@ -23,7 +23,7 @@ paper-header-panel{
 }
 
 paper-material {
-  height:    420px;
+  height:    400px;
   min-width: 390px;
   max-width: 390px;
   margin:    9px;
@@ -44,51 +44,19 @@ paper-toolbar #middleBar .middle {
   flex-flow: row;
   align-items: flex-start;
   justify-content: space-around;
+  margin-top: 30px;
 }
 
-
-
-/*paper-toolbar #topBar    { display: none; }*/
-/*
-paper-toolbar #bottomBar { align-items: flex-bottom; }
-
-paper-material {
-height:    420px;
-min-width: 390px;
-max-width: 390px;
-margin:    9px;
-background-color: #fff;
+.widget-title {
+  display: flex;
+  margin-bottom: 5px;
 }
 
-paper-tabs[align-bottom] {
-box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.15);
+.widget-title-text {
+  font-size: 20px;
+  font-weight: 300;
 }
 
-paper-tab {
-height: 100%;
-text-align: center;
+.widget-title-icon {
+  margin-left: 5px;
 }
-
-paper-tabs {
-width: 300px;
-height: 35px;
-position: absolute;
-bottom: 0;
-color: #424242;
-}
-paper-tab.paper-tab-0 #ink.paper-tab {color: #ececec;}
-
-paper-tab .iron-selected {
-color: red;
-text-decoration: underline;
-}
-
-#bottomBar {
-height: 35px;
-border-top: 1px solid #E2E2E2;
-}
-
-.paper-tabs-0 #selectionBar.paper-tabs {
-background-color: #ffff8d;
-}
-*/

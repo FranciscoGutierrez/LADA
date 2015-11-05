@@ -1,41 +1,43 @@
 Template.aspectswidget.rendered = function(){
 
-  /***
-  * Bar D3 Code
-  ****/
-  var parent = d3.select('.aspects-content');
-  var height  = parent.node().getBoundingClientRect().height*0.75;
+  setTimeout(function() {
 
-  var x = d3.scale.linear()
-  .domain([1, 100])
-  .range([0, height])
-  .clamp(true);
+    /***
+    * Bar D3 Code
+    ****/
+    var parent = d3.select('.aspects-content');
+    var height  = parent.node().getBoundingClientRect().height*0.75;
 
-  var dispatch = d3.dispatch("barChange");
+    var x = d3.scale.linear()
+    .domain([1, 100])
+    .range([0, height])
+    .clamp(true);
 
-  var bar = d3.select(".aspects-bar")
-  .style("height", height + "px");
+    var dispatch = d3.dispatch("barChange");
 
-  var barTray = bar.append("div")
-  .attr("class", "bar-tray");
+    var bar = d3.select(".aspects-bar")
+    .style("height", height + "px");
 
-  var barHandle = bar.append("div")
-  .attr("class", "bar-handle");
+    var barTray = bar.append("div")
+    .attr("class", "bar-tray");
 
-  barHandle.append("div")
-  .attr("class", "bar-handle-icon");
+    var barHandle = bar.append("div")
+    .attr("class", "bar-handle");
 
-  bar.call(d3.behavior.drag()
-  .on("dragstart", function() {
-    dispatch.barChange(x.invert(d3.mouse(barTray.node())[0]));
-    d3.event.sourceEvent.preventDefault();
-  })
-  .on("drag", function() {
-    dispatch.barChange(x.invert(d3.mouse(barTray.node())[0]));
-  }));
+    barHandle.append("div")
+    .attr("class", "bar-handle-icon");
 
-  dispatch.on("barChange.bar", function(value) {
-    barHandle.style("left", x(value) + "px")
-  });
+    bar.call(d3.behavior.drag()
+    .on("dragstart", function() {
+      dispatch.barChange(x.invert(d3.mouse(barTray.node())[0]));
+      d3.event.sourceEvent.preventDefault();
+    })
+    .on("drag", function() {
+      dispatch.barChange(x.invert(d3.mouse(barTray.node())[0]));
+    }));
 
+    dispatch.on("barChange.bar", function(value) {
+      barHandle.style("left", x(value) + "px")
+    });
+  },500);
 };
