@@ -1,0 +1,19 @@
+.card-content-middle {
+  height: 200px;
+  background: #F2F2F2;
+}
+
+.card-content-bottom {
+  display: flex;
+  flex-flow: column;
+}
+
+.control-title {
+  color: #424242;
+  font-size: 16px;
+  padding-top: 8px;
+}
+
+.card-content-columns {
+  display: flex;
+}

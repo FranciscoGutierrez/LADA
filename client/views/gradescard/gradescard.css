@@ -13,18 +13,21 @@
 
 .card-title {
   display: flex;
-  font-size: 32px;
+  font-size: 28px;
   color: #424242;
 }
 
 .card-subtitle {
-  font-size: 20px;
+  font-size: 18px;
   color: #424242;
   opacity: 0.6;
 }
 
 .card-content {
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-settings-icon {

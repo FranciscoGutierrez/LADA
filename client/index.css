@@ -23,9 +23,9 @@ paper-header-panel{
 }
 
 paper-material {
-  height:    400px;
-  min-width: 390px;
-  max-width: 390px;
+  height:    500px;
+  min-width: 350px;
+  max-width: 350px;
   margin:    9px;
   background-color: #fff;
 }
@@ -59,4 +59,31 @@ paper-toolbar #middleBar .middle {
 
 .widget-title-icon {
   margin-left: 5px;
+}
+
+/* Icons */
+
+iron-icon {
+  cursor: pointer;
+  transition: -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+iron-icon:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+paper-checkbox {
+  padding-top: 5px;
+}
+
+paper-checkbox > #checkboxLabel {
+  font-size: 14px;
+  color: #424242;
+  opacity: 0.6;
+}
+
+paper-slider {
+  width: 100%;
 }
