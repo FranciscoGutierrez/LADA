@@ -17,6 +17,10 @@
   color: #424242;
 }
 
+.card-title-text {
+  margin-right: 5px;
+}
+
 .card-subtitle {
   font-size: 18px;
   color: #424242;
@@ -27,7 +31,6 @@
   padding: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .card-settings-icon {
@@ -44,3 +47,18 @@
   margin-left: 5px;
   fill: #a3456b;
 }
+
+.good-grades > #checkboxContainer > #checkbox { border-color: #27AE60; }
+.good-grades /deep/ .checked { background: #27AE60 !important; }
+
+.best-grades > #checkboxContainer > #checkbox { border-color: #25A085; }
+.best-grades /deep/ .checked { background: #25A085 !important; }
+
+.bad-grades > #checkboxContainer > #checkbox { border-color: #E74C3C; }
+.bad-grades /deep/ .checked { background: #E74C3C !important; }
+
+.lazy-grades > #checkboxContainer > #checkbox { border-color: #E67D22; }
+.lazy-grades /deep/ .checked { background: #E67D22 !important; }
+
+.regular-grades > #checkboxContainer > #checkbox { border-color: #F0C30E; }
+.regular-grades /deep/ .checked { background: #F0C30E !important; }
