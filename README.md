@@ -1,4 +1,4 @@
-# UncertaintyDashboard
+# Uncertainty Dashboard
 
 Our visualization proposes a generic representation of prediction systems using WebComponents to guide decision makers to understand the implicit uncertainty that is present among machine-learning prediction systems.
 
