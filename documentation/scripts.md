@@ -1,4 +1,6 @@
-# Meteor Commands
+# Documentation
+The following are useful scripts for the development of the visualization.
+
 ## Dealing with database
 ``` Bash
 # Database stuff
