@@ -1,14 +1,52 @@
 <head>
-  <title>uncertaintyDashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <title>Dashboard</title>
+  <style is="custom-style">
+  :root {
+    --paper-toolbar-background: #fefefe;
+    --paper-tabs-selection-bar-color: #424242;
+    --paper-tab-ink: #424242;
+    --iron-icon-width: 18px;
+    --iron-icon-fill-color: #c6c6c6;
+    --paper-toggle-button-checked-bar-color: #B25D7E;
+    --paper-toggle-button-checked-button-color: #B25D7E;
+    --paper-checkbox-checked-color:  #B25D7E;
+    --paper-checkbox-unchecked-color: #B25D7E;
+    --paper-slider-active-color: #B25D7E;
+    --paper-slider-knob-color: #B25D7E;
+    --paper-slider-pin-color: #B25D7E;
+  }
+  </style>
+  <!-- <link href='//fonts.googleapis.com/css?family=Roboto:900,400,300,100' rel='stylesheet' type='text/css'> -->
+  <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+  <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+  <link rel="import" href="bower_components/paper-tabs/paper-tab.html">
+  <link rel="import" href="bower_components/paper-slider/paper-slider.html">
+  <link rel="import" href="bower_components/paper-checkbox/paper-checkbox.html">
+  <link rel="import" href="bower_components/paper-toggle-button/paper-toggle-button.html">
+  <link rel="import" href="bower_components/paper-drawer-panel/paper-drawer-panel.html">
+  <link rel="import" href="bower_components/paper-material/paper-material.html">
+  <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
 </head>
-
-<body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+<body class="fullbleed layout vertical">
+  <paper-header-panel mode="seamed">
+    <paper-toolbar class="tall">
+      <div class="middle">
+      {{> riskwidget}}
+      {{> qualitywidget}}
+      {{> aspectswidget}}
+    </div>
+    <paper-tabs selected="0" class="bottom self-end" style="width: 300px;">
+      <paper-tab>CALCULATOR</paper-tab>
+      <paper-tab>EXPLORER</paper-tab>
+    </paper-tabs>
+  </paper-toolbar>
+  <div class="content">
+    {{> coursescard}}
+    {{> gradescard}}
+    {{> historicalcard}}
+  </div>
+</paper-header-panel>
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>

@@ -1,0 +1,84 @@
+.aspects-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  color: #424242;
+  width:  200px;
+}
+
+.aspects-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  align-content:  center;
+}
+
+.aspects-list {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  font-size: 12px;
+  z-index: 1;
+}
+
+.aspect {
+  display: flex;
+  flex-direction: row;
+  margin-top:  5px;
+}
+
+.aspect-bullet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  min-width:  20px;
+  min-height: 20px;
+  max-width:  20px;
+  max-height: 20px;
+  background: #475a64;
+  border-radius: 50%;
+  font-size: 10px;
+}
+.aspect-text {
+  margin-left: 5px;
+}
+
+/* Title */
+.aspects-content .title-aspects {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+/* Bar */
+.aspects-bar {
+  display:  flex;
+  position: relative;
+}
+
+.bar-tray {
+  width:  20px;
+  height: 100%;
+  border-radius: 10px;
+  background-color: #475A64;
+  background: linear-gradient(to bottom, #273238 0%, #273238 20%, #475A64 20%, #475A64 40%, #637D8B 40%, #637D8B 60%, #92A4AE 60%, #92A4AE 80%, #ECEFF1 80%, #ECEFF1 99%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e74c3c', endColorstr='#25a085',GradientType=1 ); /* IE6-9 */
+}
+
+.bar-handle {
+  position: absolute;
+  top: 5px;
+  display: none;
+}
+
+.bar-handle-icon {
+  width: 24px; height: 24px;
+  top: 7px; left: -10px;
+  position: absolute;
+  border-radius: 20px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.50);
+  opacity: 0.95;
+}

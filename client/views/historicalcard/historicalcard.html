@@ -1,0 +1,47 @@
+<template name="historicalcard">
+  <paper-material class="card-content">
+    <!-- Top Content -->
+    <div class="card-content-top">
+      <div class="card-content-top-text">
+        <div class="card-title">
+          <div class="card-title-text">
+            Historical Data
+          </div>
+          <iron-icon icon="icons:info"></iron-icon>
+        </div>
+        <div class="card-subtitle">
+          Strong Influence
+        </div>
+      </div>
+      <div class="card-settings-icon">
+        <iron-icon icon="icons:settings"></iron-icon>
+        <paper-toggle-button checked></paper-toggle-button>
+      </div>
+    </div>
+    <!-- Middle Content -->
+    <div class="card-content-middle"></div>
+    <!-- Bottom Content -->
+    <div class="card-content-bottom">
+      <div class="card-content-control0">
+        <div class="control-title">Records</div>
+        <div class="card-content-columns">
+          <div>
+            <paper-checkbox checked>Program</paper-checkbox>
+            <paper-checkbox checked>Sylabus</paper-checkbox>
+          </div>
+          <div>
+            <paper-checkbox checked>Evaluation</paper-checkbox>
+            <paper-checkbox checked>Instructors</paper-checkbox>
+          </div>
+        </div>
+      </div>
+      <div class="card-content-control1">
+        <div class="control-title">Compliance</div>
+        <paper-slider pin value="20"></paper-slider>
+      </div>
+      <div class="card-fullscreen-icon">
+        <iron-icon icon="icons:fullscreen"></iron-icon>
+      </div>
+    </div>
+  </paper-material>
+</template>

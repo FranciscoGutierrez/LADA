@@ -1,0 +1,1 @@
+Template.historicalcard.rendered = function(){};

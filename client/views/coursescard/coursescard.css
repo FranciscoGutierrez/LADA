@@ -1,0 +1,55 @@
+
+.card-content-top {
+  width: 100%;
+  position: relative;
+  display:  flex;
+  flex-flow:row;
+}
+
+.card-content-top-text {
+  display: flex;
+  flex-flow: column;
+}
+
+.card-title {
+  display: flex;
+  font-size: 32px;
+  color: #424242;
+}
+
+.card-subtitle {
+  font-size: 20px;
+  color: #424242;
+  opacity: 0.6;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-settings-icon {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-settings-icon iron-icon {
+  width:  30px !important;
+  height: 30px !important;
+  align-items: flex-end;
+}
+
+.card-settings-icon iron-icon > svg {
+  margin-left: 5px;
+  fill: #a3456b;
+}
+
+paper-toggle-button {
+  margin-left: 5px;
+}
+
+paper-toggle-button > .toggle-label {
+  display: none !important;
+}

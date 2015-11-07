@@ -1,1 +1,101 @@
-/* CSS declarations go here */
+* {
+  font-family: 'Roboto', Helvetica, sans-serif;
+  color: #424242;
+  /*stopselect*/
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+paper-header-panel{
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  padding:0px;
+  margin: 0px;
+  width:  100%;
+  height: 100%;
+  display:   flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: scroll;
+  background: #eeeeee;
+}
+
+paper-material {
+  height:    450px;
+  min-width: 350px;
+  max-width: 350px;
+  margin:    9px;
+  background-color: #fff;
+}
+
+paper-toolbar {
+  min-height: 280px;
+  max-height: 280px;
+  /*background: white !important;*/
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+paper-toolbar #middleBar .middle {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.widget-title {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.widget-title-text {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.widget-title-icon {
+  margin-left: 5px;
+}
+
+paper-tabs {
+  height: 35px;
+}
+
+/* Icons */
+
+iron-icon {
+  cursor: pointer;
+  transition: -webkit-transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+iron-icon:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+paper-checkbox {
+  padding-top: 5px;
+}
+
+paper-checkbox > #checkboxLabel {
+  font-size: 14px;
+  color: #424242;
+  opacity: 0.6;
+}
+
+paper-slider {
+  width: 100%;
+}

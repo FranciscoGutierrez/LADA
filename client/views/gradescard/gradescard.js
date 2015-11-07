@@ -1,0 +1,1 @@
+Template.gradescard.rendered = function(){};
