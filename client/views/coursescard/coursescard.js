@@ -1,5 +1,5 @@
 Template.coursescard.events({
-  "click .card-settings-icon": function (event,template) {
+  "click .settings-icon": function (event,template) {
     if(!template.$(".card-settings-icon").hasClass("opened")) {
       template.$(".card-settings-icon").addClass("opened");
       template.$(".card-content").animate({"min-width":"+=350px"},"slow", function(){
