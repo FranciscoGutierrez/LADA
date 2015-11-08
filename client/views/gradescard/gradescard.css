@@ -33,21 +33,6 @@
   flex-direction: column;
 }
 
-.card-settings-icon {
-  position: absolute;
-  right: 0;
-}
-
-.card-settings-icon iron-icon {
-  width: 30px !important;
-  align-items: flex-end;
-}
-
-.card-settings-icon iron-icon > svg {
-  margin-left: 5px;
-  fill: #a3456b;
-}
-
 .good-grades > #checkboxContainer > #checkbox { border-color: #27AE60; }
 .good-grades /deep/ .checked { background: #27AE60 !important; }
 

@@ -1,4 +1,7 @@
-
+.chart-content {
+  min-width: 350px;
+  max-width: 350px;
+}
 .card-content-top {
   width: 100%;
   position: relative;
@@ -29,7 +32,8 @@
 
 .card-settings-icon {
   position: absolute;
-  right: 0;
+  right: 15px;
+  top: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
