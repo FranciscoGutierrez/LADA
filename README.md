@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/FranciscoGutierrez/uncertaintyDashboard.svg?branch=master)](https://travis-ci.org/FranciscoGutierrez/uncertaintyDashboard)
+
 # Uncertainty Dashboard
 
 Our visualization proposes a reusable representation of prediction systems to guide decision makers to understand the implicit *uncertainty* that is present on *machine-learning* prediction systems.
