@@ -10,7 +10,7 @@ db.courses.find()
 # Destroy database and reload proyect dependencies and stuff...
 meteor reset
 ```
-## MongoDB Commands
+## Import Data
 
 ``` Bash
 mongoimport --db meteor --collection courses --file courses.json --host=127.0.0.1:3001
