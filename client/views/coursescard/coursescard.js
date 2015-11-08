@@ -28,10 +28,24 @@ Template.coursescard.events({
       });
     }
   },
-  "keyup #search-box": _.throttle(function(e) {
+  "keyup #search-box, click #input": _.throttle(function(e,template) {
+    template.$(".search-results").show();
     var text = $(e.target).val().trim();
     PackageSearch.search(text);
   }, 200),
+  "click": function(event,template){
+    template.$(".search-results").hide();
+  },
+  "click .result-course": function(event,template) {
+    // Object {_id: "FIEC00299", alpha: "1.259211886", beta: "-0.301567033", skewness: "-0.9503573", name: "Digital <b>S</b>y<b>s</b>tem<b>s</b> I"}
+    template.$(".selected-courses").append(
+    "<div class='selected-course'>"+
+    "<paper-checkbox checked></paper-checkbox>"+
+    "<div class='selected-course-meta'>"+
+    "<div class='course-name'>"+ this.name.replace(/<(?:.|\n)*?>/gm, '') + "</div>" +
+    "<div class='course-id'>"  + this._id + "</div>" +
+    "</div></div>");
+  }
 });
 
 Template.coursescard.helpers({

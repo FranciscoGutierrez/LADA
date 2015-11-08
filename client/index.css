@@ -8,7 +8,6 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  cursor: default;
 }
 
 paper-header-panel{
@@ -70,6 +69,7 @@ paper-toolbar #middleBar .middle {
 }
 
 paper-tabs {
+  color: #424242;
   height: 35px;
 }
 
@@ -84,10 +84,6 @@ iron-icon {
 iron-icon:hover {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
-}
-
-paper-checkbox {
-  padding-top: 5px;
 }
 
 paper-checkbox > #checkboxLabel {
