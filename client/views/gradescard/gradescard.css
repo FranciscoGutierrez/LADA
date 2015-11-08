@@ -1,16 +1,4 @@
 
-.card-content-top {
-  width: 100%;
-  position: relative;
-  display:  flex;
-  flex-flow:row;
-}
-
-.card-content-top-text {
-  display: flex;
-  flex-flow: column;
-}
-
 .card-title {
   display: flex;
   font-size: 28px;
@@ -25,12 +13,6 @@
   font-size: 18px;
   color: #424242;
   opacity: 0.6;
-}
-
-.card-content {
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
 }
 
 .good-grades > #checkboxContainer > #checkbox { border-color: #27AE60; }

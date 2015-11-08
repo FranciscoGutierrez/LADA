@@ -1,3 +1,50 @@
+.search-results {
+  position: absolute;
+  top: 100px;
+  left: 30px;
+  background: white;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 5px;
+  border-radius: 5px;
+  color: #424242;
+  width: 80%;
+}
+
+.search-results .result-course {
+  background: #f2f2f2;
+  padding: 7px;
+  margin-top: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.result-course paper-ripple {
+  color: #d9aebf;
+}
+
+.search-results .result-course:hover {
+  background: #c07a95;
+  color: white !important;
+  cursor: pointer;
+}
+
+.search-results .result-name { font-size: 12px; }
+.search-results .result-desc { font-size: 10px; opacity: 0.6;}
+.search-results .result-desc b {color: #202020;}
+.search-results .result-name:hover { cursor: pointer; }
+.search-results .result-desc:hover { cursor: pointer; }
+.search-results .result-desc b:hover { cursor: pointer; }
+
+.settings-content {
+  display: none;
+  /*justify-content: center;*/
+  /*align-items: center;*/
+  width: 100%;
+  flex-direction: column;
+}
+.settings-content paper-input {
+  width: 80%;
+}
 .chart-content {
   min-width: 350px;
   max-width: 350px;
@@ -12,6 +59,7 @@
 .card-content-top-text {
   display: flex;
   flex-flow: column;
+  width: 100%;
 }
 
 .card-title {
@@ -26,7 +74,16 @@
   opacity: 0.6;
 }
 
+.card-subtitle-tool {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .card-content {
+  display: flex;
+  flex-direction: row;
   padding: 15px;
 }
 
@@ -37,6 +94,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 
 .card-settings-icon iron-icon {

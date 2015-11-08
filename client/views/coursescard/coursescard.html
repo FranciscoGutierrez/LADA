@@ -34,5 +34,37 @@
         </div>
       </div>
     </div>
+    <div class="settings-content">
+      <div class="card-content-top">
+        <div class="card-content-top-text">
+          <div class="card-title">
+            <div class="card-title-text">
+              Settings
+            </div>
+            <iron-icon icon="icons:info"></iron-icon>
+          </div>
+          <div class="card-subtitle-tool">
+            <paper-input label="Search for a Course" id="search-box">
+              <iron-icon icon="search" prefix></iron-icon>
+              <paper-icon-button suffix class="clear-search" icon="clear" alt="clear" title="clear" tabindex="0" style="color: red;"></paper-icon-button>
+            </paper-input>
+            <div class="search-results">
+              {{#each getCourses}}
+              <div class="result-course" style="position: relative">
+                <div class="result-name">{{{name}}}</div>
+                <div class="result-desc">{{{_id}}}</div>
+                <paper-ripple></paper-ripple>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="card-content-middle"></div> -->
+      <div class="card-content-bottom">
+        <div class="control-title">Selected Courses</div>
+      </div>
+    </div>
   </paper-material>
 </template>
