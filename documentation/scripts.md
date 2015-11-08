@@ -12,10 +12,12 @@ meteor reset
 ```
 # MongoDB Commands
 
+``` Bash
 mongoimport --db meteor --collection courses --file courses.json --host=127.0.0.1:3001
+```
 
 # Python Converters
-
+## Option 1
 ``` Python
 import csv
 import json
@@ -28,7 +30,9 @@ reader = csv.DictReader( csvfile, fieldnames)
 for row in reader:
     json.dump(row, jsonfile)
     jsonfile.write('\n')
-
+```
+## Option 2
+``` Python
 import csvmapper
 jsonfile = open('courses.json', 'w')
 # parser instance
