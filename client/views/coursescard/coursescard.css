@@ -134,20 +134,29 @@ paper-toggle-button > .toggle-label {
   display: flex;
   background: #f2f2f2;
   margin-top:  5px;
-  padding: 6px;
-  border-radius: 5px;
+  padding: 4px;
+  border-radius: 3px;
   justify-content: flex-start;
   flex-direction: row;
-  align-items: flex-start;
-  max-width: 160px;
-  min-width: 160px;
+  align-items: center;
+  max-width: 155px;
+  min-width: 155px;
+  max-height: 35px;
+  min-height: 35px;
+  cursor: pointer;
 }
 .selected-course .course-name {
   font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap; /* Don't forget this one */
+  text-overflow: ellipsis;
 }
 .selected-course .course-id {
   font-size: 10px;
   opacity: 0.6;
+  overflow: hidden;
+  white-space: nowrap; /* Don't forget this one */
+  text-overflow: ellipsis;
 }
 
 .selected-course-meta {
