@@ -127,23 +127,30 @@ paper-toggle-button > .toggle-label {
 /****** **************** ******/
 .selected-courses {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  flex-flow: column;
   justify-content: space-between;
 }
 .selected-course {
   display: flex;
   background: #f2f2f2;
-  margin-top:  5px;
-  padding: 4px;
+  margin-top: 2px;
+  padding: 1px;
   border-radius: 3px;
   justify-content: flex-start;
   flex-direction: row;
   align-items: center;
-  max-width: 155px;
-  min-width: 155px;
+  /*max-width: 160px;
+  min-width: 160px;*/
+  width: 100%;
   max-height: 35px;
   min-height: 35px;
   cursor: pointer;
+  position: relative;
+}
+
+.selected-course:hover {
+  background: #f7f7f7;
 }
 .selected-course .course-name {
   font-size: 12px;
@@ -166,5 +173,26 @@ paper-toggle-button > .toggle-label {
 }
 .selected-course-checkbox {
   padding: 0px;
-  margin:  0px;
+  margin-left:  10px;
+  align-self: center;
+}
+
+.remove-selected-course {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  /*display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border-radius: 50%;
+  min-width: 25px;
+  max-width: 25px;
+  min-height: 25px;
+  max-height: 25px;
+  margin-left: 5px;*/
+}
+
+.remove-selected-course > iron-icon {
+  fill: #b25d7e;
 }

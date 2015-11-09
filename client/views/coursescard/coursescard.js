@@ -37,30 +37,37 @@ Template.coursescard.events({
     template.$(".search-results").hide();
   },
   "click .result-course": function(event,template) {
-    // Object {_id: "FIEC00299", alpha: "1.259211886", beta: "-0.301567033", skewness: "-0.9503573", name: "Digital <b>S</b>y<b>s</b>tem<b>s</b> I"}
     template.$(".selected-courses").append(
-    "<div class='selected-course'>"+
-    "<paper-checkbox checked></paper-checkbox>"+
-    "<div class='selected-course-meta'>"+
-    "<div class='course-name'>"+ this.name.replace(/<(?:.|\n)*?>/gm, '') + "</div>" +
-    "<div class='course-id'>"  + this._id + "</div>" +
-    "</div></div>");
-  }
-});
+      "<div class='selected-course'>"+
+      "<paper-checkbox class='selected-course-checkbox' checked></paper-checkbox>"+
+      "<div class='selected-course-meta'>"+
+      "<div class='course-name'>"+ this.name.replace(/<(?:.|\n)*?>/gm, '') + "</div>" +
+      "<div class='course-id'>"  + this._id + "</div></div>"+
+      "<div class='remove-selected-course'><iron-icon icon='icons:close'></iron-icon></div>" +
+      "</div>");
+    }
+    // ,
+    // "mouseenter .selected-course": function(event,template){
+    //   $(event.target).find(".remove-selected-course").css("display","flex");
+    // },
+    // "mouseleave .selected-course": function(event,template){
+    //   $(event.target).find(".remove-selected-course").hide();
+    // }
+  });
 
-Template.coursescard.helpers({
-  getCourses: function() {
-    return PackageSearch.getData({
-      transform: function(matchText, regExp) {
-        return matchText.replace(regExp, "<b>$&</b>")
-      },
-      sort: {isoScore: -1}
-    });
-  },
-  isLoading: function() {
-    return PackageSearch.getStatus().loading;
-  },
-  courses: function () {
-    return Courses.find({});
-  }
-});
+  Template.coursescard.helpers({
+    getCourses: function() {
+      return PackageSearch.getData({
+        transform: function(matchText, regExp) {
+          return matchText.replace(regExp, "<b>$&</b>")
+        },
+        sort: {isoScore: -1}
+      });
+    },
+    isLoading: function() {
+      return PackageSearch.getStatus().loading;
+    },
+    courses: function () {
+      return Courses.find({});
+    }
+  });

@@ -1,7 +1,5 @@
 Template.aspectswidget.rendered = function(){
-
   setTimeout(function() {
-
     /***
     * Bar D3 Code
     ****/
@@ -14,7 +12,6 @@ Template.aspectswidget.rendered = function(){
     .clamp(true);
 
     var dispatch = d3.dispatch("barChange");
-
     var bar = d3.select(".aspects-bar")
     .style("height", height + "px");
 
@@ -39,5 +36,5 @@ Template.aspectswidget.rendered = function(){
     dispatch.on("barChange.bar", function(value) {
       barHandle.style("left", x(value) + "px")
     });
-  },500);
+  },1000);
 };

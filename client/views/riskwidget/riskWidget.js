@@ -147,6 +147,6 @@ Template.riskwidget.rendered = function(){
       }
     })();
 
-  },500);
+  },1000);
 
 };

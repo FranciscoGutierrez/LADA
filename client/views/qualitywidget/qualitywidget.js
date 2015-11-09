@@ -112,6 +112,6 @@ Template.qualitywidget.rendered = function(){
       }
     })();
 
-  },500);
+  },1000);
 
 };
