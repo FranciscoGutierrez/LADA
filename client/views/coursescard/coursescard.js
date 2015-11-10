@@ -39,17 +39,23 @@ Template.coursescard.events({
   "click .result-course": function(event,template) {
     if( $(".selected-courses").children().length < 7) {
       template.$(".selected-courses").append(
-        "<div class='selected-course'>"+
-        "<paper-checkbox class='selected-course-checkbox' checked>"+
+        "<div class='selected-container'>" +
+        "<paper-checkbox class='selected-course' checked>"+
         "<div class='selected-course-meta'>"+
         "<div class='course-name'>"+ this.name.replace(/<(?:.|\n)*?>/gm, '') + "</div>" +
-        "<div class='course-id'>"  + this._id + "</div></div></paper-checkbox>"+
-        "<div class='remove-selected-course'><iron-icon icon='icons:close'></iron-icon></div>" +
-        "</div>");
+        "<div class='course-id'>"  + this._id + "</div></div>"+
+        "</paper-checkbox>"+
+        "<iron-icon class='remove-selected-course' icon='icons:close'></iron-icon></div>");
       }
     },
     "click .remove-selected-course": function(event,template) {
-      console.log("Removing");
+       $(event.target).parent().fadeOut('slow', function (){
+         $(this).remove();
+       });
+    },
+    "click .selected-course": function(event,template) {
+      //  switch to grayout template
+      //  $(event.target).css("background", "none");
     }
     // ,
     // "mouseenter .selected-course": function(event,template){
