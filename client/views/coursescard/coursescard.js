@@ -37,14 +37,19 @@ Template.coursescard.events({
     template.$(".search-results").hide();
   },
   "click .result-course": function(event,template) {
-    template.$(".selected-courses").append(
-      "<div class='selected-course'>"+
-      "<paper-checkbox class='selected-course-checkbox' checked></paper-checkbox>"+
-      "<div class='selected-course-meta'>"+
-      "<div class='course-name'>"+ this.name.replace(/<(?:.|\n)*?>/gm, '') + "</div>" +
-      "<div class='course-id'>"  + this._id + "</div></div>"+
-      "<div class='remove-selected-course'><iron-icon icon='icons:close'></iron-icon></div>" +
-      "</div>");
+    if( $(".selected-courses").children().length < 7) {
+      template.$(".selected-courses").append(
+        "<div class='selected-course'>"+
+        "<paper-checkbox class='selected-course-checkbox' checked>"+
+        "<div class='selected-course-meta'>"+
+        "<div class='course-name'>"+ this.name.replace(/<(?:.|\n)*?>/gm, '') + "</div>" +
+        "<div class='course-id'>"  + this._id + "</div></div></paper-checkbox>"+
+        "<div class='remove-selected-course'><iron-icon icon='icons:close'></iron-icon></div>" +
+        "</div>");
+      }
+    },
+    "click .remove-selected-course": function(event,template) {
+      console.log("Removing");
     }
     // ,
     // "mouseenter .selected-course": function(event,template){

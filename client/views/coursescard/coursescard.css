@@ -175,6 +175,7 @@ paper-toggle-button > .toggle-label {
   padding: 0px;
   margin-left:  10px;
   align-self: center;
+  width: 100%;
 }
 
 .remove-selected-course {
