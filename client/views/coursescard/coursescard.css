@@ -162,7 +162,7 @@ paper-toggle-button > .toggle-label {
 }
 
 .selected-course {
-  padding: 5px;
+  padding: 3px;
   align-self: center;
   width: 100%;
   background: #f2f2f2;
@@ -170,13 +170,11 @@ paper-toggle-button > .toggle-label {
 
   display: flex;
   background: #f2f2f2;
-  margin-top: 2px;
+  margin-top: 1px;
   justify-content: flex-start;
 
   flex-direction: row;
   align-items: center;
-  /*max-width: 160px;
-  min-width: 160px;*/
   max-height: 35px;
   min-height: 35px;
   cursor: pointer;

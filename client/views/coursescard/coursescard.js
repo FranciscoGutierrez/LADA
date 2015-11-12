@@ -1,10 +1,18 @@
-var options = {
-  keepHistory: 1000 * 60 * 5,
-  localSearch: true
-};
+/*
+* Instant search (Global values for client, NOT part of this template life cycle)
+*/
 var fields = ['name'];
+var options = {keepHistory: 1000 * 60 * 5,localSearch: true};
 PackageSearch = new SearchSource('courses', fields, options);
 
+/*
+* This temaplate is using sessions:
+*/
+Session.set('selected-courses',[]);
+
+/*
+* Template life Cycle (Events)
+*/
 Template.coursescard.events({
   "click .clear-search": function(event,template){
     template.$("#search-box").find("#input").val('');
@@ -38,20 +46,36 @@ Template.coursescard.events({
   },
   "click .result-course": function(event,template) {
     if( $(".selected-courses").children().length < 7) {
+      var simpleName = this.name.replace(/<(?:.|\n)*?>/gm,'');
       template.$(".selected-courses").append(
         "<div class='selected-container'>" +
         "<paper-checkbox class='selected-course' checked>"+
         "<div class='selected-course-meta'>"+
-        "<div class='course-name'>"+ this.name.replace(/<(?:.|\n)*?>/gm, '') + "</div>" +
+        "<div class='course-name'>"+ simpleName + "</div>" +
         "<div class='course-id'>"  + this._id + "</div></div>"+
         "</paper-checkbox>"+
         "<iron-icon class='remove-selected-course' icon='icons:close'></iron-icon></div>");
+
+        var courses = Session.get('selected-courses');
+        var course  = {name:this.name,id: this._id};
+
+        var m = Session.get("selected-courses");
+        m = _.extend([], m);
+        m.push({name: simpleName, id: this._id});
+        Session.set("selected-courses", m);
       }
     },
     "click .remove-selected-course": function(event,template) {
-       $(event.target).parent().fadeOut('slow', function (){
-         $(this).remove();
-       });
+      $(event.target).parent().fadeOut('slow', function (){
+        $(this).remove();
+
+        var m = Session.get("selected-courses");
+        m = _.extend([], m);
+        m.push({name: simpleName, id: this._id});
+        Session.set("selected-courses", m);
+        console.log(courses);
+
+      });
     },
     "click .selected-course": function(event,template) {
       //  switch to grayout template
@@ -66,6 +90,9 @@ Template.coursescard.events({
     // }
   });
 
+  /*
+  * Template life Cycle (Helpers)
+  */
   Template.coursescard.helpers({
     getCourses: function() {
       return PackageSearch.getData({
@@ -82,3 +109,7 @@ Template.coursescard.events({
       return Courses.find({});
     }
   });
+
+  /*
+  * Template life Cycle (rendered)
+  */
