@@ -1,0 +1,57 @@
+.cc-chart-container {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  display: inline-flex;
+}
+.cc-nothing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f6f6f6;
+  flex-direction: column;
+  color: #a5a5a5;
+  width:  100%;
+  height: 100%;
+}
+
+.cc-nothing-add {
+  text-decoration: underline;
+  color: #a3456b;
+  font-size: 12px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.cc-course {
+  padding: 4px;
+}
+
+.cc-squares {
+  max-height: 150px;
+  background: rebeccapurple;
+}
+
+.cc-meta {
+  text-align: center;
+  flex-direction: column;
+  font-size: 12px;
+  min-width: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cc-name {
+  font-size: 10px;
+  color: #424242;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cc-id {
+  font-size: 8px;
+  color: #9F9F9F;
+}
