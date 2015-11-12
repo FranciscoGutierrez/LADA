@@ -8,7 +8,7 @@ PackageSearch = new SearchSource('courses', fields, options);
 /*
 * This temaplate is using sessions:
 */
-Session.set('selected-courses',[]);
+Session.set('sessionCourses',[]);
 
 /*
 * Template life Cycle (Events)
@@ -17,7 +17,7 @@ Template.coursescard.events({
   "click .clear-search": function(event,template){
     template.$("#search-box").find("#input").val('');
   },
-  "click .settings-icon": function (event,template) {
+  "click .settings-icon, click .cc-nothing-add": function (event,template) {
     if(!template.$(".card-settings-icon").hasClass("opened")) {
       template.$(".card-settings-icon").addClass("opened");
       template.$(".card-content").animate({"min-width":"+=350px"},"slow", function(){
@@ -56,25 +56,25 @@ Template.coursescard.events({
         "</paper-checkbox>"+
         "<iron-icon class='remove-selected-course' icon='icons:close'></iron-icon></div>");
 
-        var courses = Session.get('selected-courses');
-        var course  = {name:this.name,id: this._id};
+        var courses = Session.get('sessionCourses');
+        var course  = this;
 
-        var m = Session.get("selected-courses");
+        var m = Session.get("sessionCourses");
         m = _.extend([], m);
-        m.push({name: simpleName, id: this._id});
-        Session.set("selected-courses", m);
+        m.push(this);
+        Session.set("sessionCourses", m);
+        console.log(Session.get("sessionCourses"));
       }
     },
     "click .remove-selected-course": function(event,template) {
       $(event.target).parent().fadeOut('slow', function (){
         $(this).remove();
-
-        var m = Session.get("selected-courses");
-        m = _.extend([], m);
-        m.push({name: simpleName, id: this._id});
-        Session.set("selected-courses", m);
-        console.log(courses);
-
+        var m = Session.get("sessionCourses");
+        Session.set("sessionCourses", "");
+        // m = _.extend([], m);
+        // m.push({name: simpleName, id: this._id});
+        // Session.set("selected-courses", m);
+        // console.log(courses);
       });
     },
     "click .selected-course": function(event,template) {
@@ -97,7 +97,8 @@ Template.coursescard.events({
     getCourses: function() {
       return PackageSearch.getData({
         transform: function(matchText, regExp) {
-          return matchText.replace(regExp, "<b>$&</b>")
+          // return matchText.replace(regExp, "<b>$&</b>")
+          return matchText
         },
         sort: {isoScore: -1}
       });
@@ -107,9 +108,35 @@ Template.coursescard.events({
     },
     courses: function () {
       return Courses.find({});
+    },
+    sessionCourses: function() {
+      return Session.get("sessionCourses");
     }
   });
 
   /*
   * Template life Cycle (rendered)
   */
+  Template.coursescard.rendered = function () {
+    var self = this;
+    // function animateTemplate(bar) {
+    //   var minval = 30;
+    //   var vnegative = self.$(".vnegative-value").text();
+    //   var negative  = self.$(".negative-value").text();
+    //   var neutral   = self.$(".neutral-value").text();
+    //   var positive  = self.$(".positive-value").text();
+    //   var vpositive = self.$(".vpositive-value").text();
+    //
+    //   self.$(".verynegative").animate({'height': minval + parseFloat(vnegative)+'px'});
+    //   self.$(".negative").animate({'height': minval + parseFloat(negative)+'px'});
+    //   self.$(".neutral").animate({'height': minval + parseFloat(neutral)+'px'});
+    //   self.$(".positive").animate({'height': minval + parseFloat(positive)+'px'});
+    //   self.$(".verypositive").animate({'height': minval + parseFloat(vpositive)+'px'});
+    // }
+    //
+    // Tracker.autorun(function () {
+    //   var bar = Session.get("bar-avg");
+    //   animateTemplate(bar);
+    // });
+
+  };

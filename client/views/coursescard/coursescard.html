@@ -18,16 +18,35 @@
         <iron-icon class="settings-icon" icon="icons:settings"></iron-icon>
       </div>
       <!-- Middle Content -->
-      <div class="card-content-middle"></div>
+      <div class="card-content-middle">
+        <div class="cc-chart-container">
+        {{#each sessionCourses}}
+        <div class="cc-course">
+          <div>
+            <div class="cc-squares"></div>
+          </div>
+          <div class="cc-meta">
+            <div class="cc-name">{{{name}}}</div>
+            <div class="cc-id  ">{{{_id}}}</div>
+          </div>
+        </div>
+        {{else}}
+        <div class="cc-nothing">
+          <div class="cc-nothing-message">No Courses to Show</div>
+          <div class="cc-nothing-add">Add Some</div>
+        </div>
+        {{/each}}
+        </div>
+      </div>
       <!-- Bottom Content -->
       <div class="card-content-bottom">
         <div class="card-content-control0">
           <div class="control-title">Order</div>
-          <paper-slider pin value="20"></paper-slider>
+          <paper-slider pin value="100"></paper-slider>
         </div>
         <div class="card-content-control1">
           <div class="control-title">Compliance</div>
-          <paper-slider pin value="20"></paper-slider>
+          <paper-slider pin value="100"></paper-slider>
         </div>
         <div class="card-fullscreen-icon">
           <iron-icon icon="icons:fullscreen"></iron-icon>
