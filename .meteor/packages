@@ -24,3 +24,4 @@ mquandalle:bower          # The power of bower in meteor
 meteorhacks:search-source # Needed for instant search
 check                     # Needed for instant search
 ejson                     # Needed for instant search
+natestrauser:animate-css  # Daneden's Animate CSS

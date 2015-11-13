@@ -21,19 +21,17 @@
       <div class="card-content-middle">
         <div class="cc-chart-container">
         {{#each sessionCourses}}
-        <div class="cc-course">
-          <div>
-            <div class="cc-squares"></div>
-          </div>
+        <div class="cc-course animated fadeIn">
+          <div class="cc-squares"></div>
           <div class="cc-meta">
             <div class="cc-name">{{{name}}}</div>
             <div class="cc-id  ">{{{_id}}}</div>
           </div>
         </div>
         {{else}}
-        <div class="cc-nothing">
+        <div class="cc-nothing animated fadeIn">
           <div class="cc-nothing-message">No Courses to Show</div>
-          <div class="cc-nothing-add">Add Some</div>
+          <div class="cc-nothing-add">Add Courses</div>
         </div>
         {{/each}}
         </div>
@@ -41,12 +39,12 @@
       <!-- Bottom Content -->
       <div class="card-content-bottom">
         <div class="card-content-control0">
-          <div class="control-title">Order</div>
-          <paper-slider pin value="100"></paper-slider>
+          <!-- <div class="control-title">Order</div>
+          <paper-slider pin value="100"></paper-slider> -->
         </div>
         <div class="card-content-control1">
-          <div class="control-title">Compliance</div>
-          <paper-slider pin value="100"></paper-slider>
+          <div class="control-title">Compliance: <div class="control-subtitle">5</div></div>
+          <paper-slider pin snaps max="5" step="1" value="5"></paper-slider>
         </div>
         <div class="card-fullscreen-icon">
           <iron-icon icon="icons:fullscreen"></iron-icon>

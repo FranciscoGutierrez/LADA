@@ -1,5 +1,6 @@
 .cc-chart-container {
   height: 100%;
+  width:  100%;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -25,12 +26,21 @@
 }
 
 .cc-course {
+  /*display: flex;*/
+  flex: 1;
   padding: 4px;
+  /*max-width: 40px;*/
+  /*justify-content: center;
+  align-items: flex-end;*/
+
+  flex-direction: column;
+  align-items: center;
 }
 
 .cc-squares {
-  max-height: 150px;
-  background: rebeccapurple;
+  background: #B25D7E;
+  max-width: 45px;
+  /* rebeccaPurple */
 }
 
 .cc-meta {
@@ -52,6 +62,9 @@
 }
 
 .cc-id {
-  font-size: 8px;
+  font-size: 9px;
   color: #9F9F9F;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
