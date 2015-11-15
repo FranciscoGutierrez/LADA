@@ -20,20 +20,30 @@
       <!-- Middle Content -->
       <div class="card-content-middle">
         <div class="cc-chart-container">
-        {{#each sessionCourses}}
-        <div class="cc-course animated fadeIn">
-          <div class="cc-squares"></div>
-          <div class="cc-meta">
-            <div class="cc-name">{{{name}}}</div>
-            <div class="cc-id  ">{{{_id}}}</div>
+
+          {{#if sessionCourses}}
+          <div class="cc-line"></div>
+          {{else}}
+          <div class="cc-nothing animated fadeIn">
+            <div class="cc-nothing-message">No Courses to Show</div>
+            <div class="cc-nothing-add">Add Courses</div>
           </div>
-        </div>
-        {{else}}
-        <div class="cc-nothing animated fadeIn">
-          <div class="cc-nothing-message">No Courses to Show</div>
-          <div class="cc-nothing-add">Add Courses</div>
-        </div>
-        {{/each}}
+          {{/if}}
+
+          {{#each sessionCourses}}
+          <div class="cc-course animated fadeIn">
+            <div class="cc-squares">
+              <div class="cc-square" style="height:{{students}}px">
+                <paper-ripple></paper-ripple>
+              </div>
+            </div>
+            <div class="cc-meta">
+              <div class="cc-name">{{{name}}}</div>
+              <div class="cc-id  ">{{{_id}}}</div>
+            </div>
+          </div>
+          {{/each}}
+
         </div>
       </div>
       <!-- Bottom Content -->
@@ -79,11 +89,24 @@
           </div>
         </div>
       </div>
-
       <!-- <div class="card-content-middle"></div> -->
       <div class="card-content-bottom">
+        {{#if sessionCourses}}
         <div class="control-title">Selected Courses</div>
-        <div class="selected-courses"></div>
+        <div class="selected-courses">
+          {{#each sessionCourses}}
+          <div class="selected-container animated fadeIn">
+            <paper-checkbox class="selected-course" checked>
+              <div id="checkboxLabel" class="selected-course-meta">
+                <div class="course-name">{{name}}</div>
+                <div class="course-id">{{_id}}</div>
+              </div>
+            </paper-checkbox>
+            <iron-icon class="remove-selected-course" icon="icons:close"></iron-icon>
+          </div>
+          {{/each}}
+        </div>
+        {{/if}}
       </div>
     </div>
   </paper-material>

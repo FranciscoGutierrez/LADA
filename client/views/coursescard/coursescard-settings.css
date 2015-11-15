@@ -59,7 +59,7 @@
   display: flex;
   flex-wrap: nowrap;
   flex-flow: column;
-  justify-content: space-between;
+  align-items: center;
 }
 
 .selected-course:hover {
@@ -89,6 +89,7 @@
 .selected-container {
   position: relative;
   display: flex;
+  width: 90%;
 }
 
 .selected-course {
@@ -112,7 +113,7 @@
 }
 
 .selected-course > #checkboxLabel {
-  width: 100%;
+  /*width: 100%;*/
   opacity: 1 !important;
 }
 

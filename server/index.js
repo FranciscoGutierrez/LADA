@@ -1,3 +1,4 @@
+// StudentCourses = new Meteor.Collection('studentscourses');
 Courses = new Meteor.Collection('courses');
 
 SearchSource.defineSource('courses', function(searchText, options) {

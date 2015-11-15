@@ -2,7 +2,7 @@
 * Instant search (Global values for client, NOT part of this template life cycle)
 */
 var fields = ['name'];
-var options = {keepHistory: 1000 * 60 * 5,localSearch: true};
+var options = {keepHistory: 1000,localSearch: true};
 PackageSearch = new SearchSource('courses', fields, options);
 
 /*
@@ -47,23 +47,12 @@ Template.coursescard.events({
   "click .result-course": function(event,template) {
     if( $(".selected-courses").children().length < 7) {
       var simpleName = this.name.replace(/<(?:.|\n)*?>/gm,'');
-      template.$(".selected-courses").append(
-        "<div class='selected-container'>" +
-        "<paper-checkbox class='selected-course' checked>"+
-        "<div class='selected-course-meta'>"+
-        "<div class='course-name'>"+ simpleName + "</div>" +
-        "<div class='course-id'>"  + this._id + "</div></div>"+
-        "</paper-checkbox>"+
-        "<iron-icon class='remove-selected-course' icon='icons:close'></iron-icon></div>");
-
         var courses = Session.get('sessionCourses');
         var course  = this;
-
         var m = Session.get("sessionCourses");
         m = _.extend([], m);
         m.push(this);
         Session.set("sessionCourses", m);
-        console.log(Session.get("sessionCourses"));
       }
     },
     "click .remove-selected-course": function(event,template) {
@@ -71,23 +60,10 @@ Template.coursescard.events({
         $(this).remove();
         var m = Session.get("sessionCourses");
         Session.set("sessionCourses", "");
-        // m = _.extend([], m);
-        // m.push({name: simpleName, id: this._id});
-        // Session.set("selected-courses", m);
-        // console.log(courses);
       });
     },
     "click .selected-course": function(event,template) {
-      //  switch to grayout template
-      //  $(event.target).css("background", "none");
     }
-    // ,
-    // "mouseenter .selected-course": function(event,template){
-    //   $(event.target).find(".remove-selected-course").css("display","flex");
-    // },
-    // "mouseleave .selected-course": function(event,template){
-    //   $(event.target).find(".remove-selected-course").hide();
-    // }
   });
 
   /*
@@ -110,7 +86,11 @@ Template.coursescard.events({
       return Courses.find({});
     },
     sessionCourses: function() {
-      return Session.get("sessionCourses");
+      var sc = Session.get("sessionCourses");
+      for (i = 0; i < sc.length; i++) {
+        sc[i].students = (sc[i].students * 170) / 3294;
+      }
+      return sc;
     }
   });
 
@@ -118,25 +98,16 @@ Template.coursescard.events({
   * Template life Cycle (rendered)
   */
   Template.coursescard.rendered = function () {
-    var self = this;
-    // function animateTemplate(bar) {
-    //   var minval = 30;
-    //   var vnegative = self.$(".vnegative-value").text();
-    //   var negative  = self.$(".negative-value").text();
-    //   var neutral   = self.$(".neutral-value").text();
-    //   var positive  = self.$(".positive-value").text();
-    //   var vpositive = self.$(".vpositive-value").text();
+    // var self = this;
+    // console.log("rendered");
     //
-    //   self.$(".verynegative").animate({'height': minval + parseFloat(vnegative)+'px'});
-    //   self.$(".negative").animate({'height': minval + parseFloat(negative)+'px'});
-    //   self.$(".neutral").animate({'height': minval + parseFloat(neutral)+'px'});
-    //   self.$(".positive").animate({'height': minval + parseFloat(positive)+'px'});
-    //   self.$(".verypositive").animate({'height': minval + parseFloat(vpositive)+'px'});
+    // function animateTemplate(bar) {
+    //   var size = (self.$(".cc-squares").text() * 100)/3294;
+    //   self.$(".cc-squares").animate({'height': size+'px'});
     // }
     //
     // Tracker.autorun(function () {
-    //   var bar = Session.get("bar-avg");
+    //   var bar = Session.get("sessionCourses");
     //   animateTemplate(bar);
     // });
-
   };

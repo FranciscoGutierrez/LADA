@@ -7,7 +7,7 @@ The following are useful scripts for the development of the visualization.
 meteor mongo
 show dbs
 db.courses.find()
-# Destroy database and reload proyect dependencies and stuff...
+# Destroy database and reload project dependencies and stuff...
 meteor reset
 ```
 ## Import Data
