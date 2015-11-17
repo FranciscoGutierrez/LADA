@@ -47,67 +47,69 @@ Template.coursescard.events({
   "click .result-course": function(event,template) {
     if( $(".selected-courses").children().length < 7) {
       var simpleName = this.name.replace(/<(?:.|\n)*?>/gm,'');
-        var courses = Session.get('sessionCourses');
-        var course  = this;
-        var m = Session.get("sessionCourses");
-        m = _.extend([], m);
-        m.push(this);
-        Session.set("sessionCourses", m);
-      }
-    },
-    "click .remove-selected-course": function(event,template) {
-      $(event.target).parent().fadeOut('slow', function (){
-        $(this).remove();
-        var m = Session.get("sessionCourses");
-        Session.set("sessionCourses", "");
-      });
-    },
-    "click .selected-course": function(event,template) {
+      var courses = Session.get('sessionCourses');
+      var course  = this;
+      var m = Session.get("sessionCourses");
+      m = _.extend([], m);
+      m.push(this);
+      Session.set("sessionCourses", m);
+      Meteor.subscribe('stdcres',[this._id]);
     }
-  });
+  },
+  "click .remove-selected-course": function(event,template) {
+    $(event.target).parent().fadeOut('slow', function (){
+      $(this).remove();
+      var m = Session.get("sessionCourses");
+      Session.set("sessionCourses", "");
+    });
+  },
+  "click .selected-course": function(event,template) {
+  }
+});
 
-  /*
-  * Template life Cycle (Helpers)
-  */
-  Template.coursescard.helpers({
-    getCourses: function() {
-      return PackageSearch.getData({
-        transform: function(matchText, regExp) {
-          // return matchText.replace(regExp, "<b>$&</b>")
-          return matchText
-        },
-        sort: {isoScore: -1}
-      });
-    },
-    isLoading: function() {
-      return PackageSearch.getStatus().loading;
-    },
-    courses: function () {
-      return Courses.find({});
-    },
-    sessionCourses: function() {
-      var sc = Session.get("sessionCourses");
-      for (i = 0; i < sc.length; i++) {
-        sc[i].students = (sc[i].students * 170) / 3294;
-      }
-      return sc;
+/*
+* Template life Cycle (Helpers)
+*/
+Template.coursescard.helpers({
+  getCourses: function() {
+    return PackageSearch.getData({
+      transform: function(matchText, regExp) {
+        // return matchText.replace(regExp, "<b>$&</b>")
+        return matchText
+      },
+      sort: {isoScore: -1}
+    });
+  },
+  isLoading: function() {
+    return PackageSearch.getStatus().loading;
+  },
+  courses: function () {
+    return Courses.find({});
+  },
+  sessionCourses: function() {
+    var sc = Session.get("sessionCourses");
+    console.log(Session.get("sessionCourses"));
+    for (i = 0; i < sc.length; i++) {
+      sc[i].students = sc[i].students > 999 ? (sc[i].students/1000).toFixed(1) + 'k' : sc[i].students;
     }
-  });
+    return sc;
+  }
+});
 
-  /*
-  * Template life Cycle (rendered)
-  */
-  Template.coursescard.rendered = function () {
-    // var self = this;
-    // console.log("rendered");
-    //
-    // function animateTemplate(bar) {
-    //   var size = (self.$(".cc-squares").text() * 100)/3294;
-    //   self.$(".cc-squares").animate({'height': size+'px'});
-    // }
-    //
-    // Tracker.autorun(function () {
-    //   var bar = Session.get("sessionCourses");
-    //   animateTemplate(bar);
-    // });
-  };
+/*
+* Template life Cycle (rendered)
+*/
+Template.coursescard.rendered = function () {
+  // var self = this;
+  // console.log("rendered");
+  //
+  // function animateTemplate(bar) {
+  //   var size = (self.$(".cc-squares").text() * 100)/3294;
+  //   self.$(".cc-squares").animate({'height': size+'px'});
+  // }
+  //
+  // Tracker.autorun(function () {
+  //   var bar = Session.get("sessionCourses");
+  //   animateTemplate(bar);
+  // });
+};

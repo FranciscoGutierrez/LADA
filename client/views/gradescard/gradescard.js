@@ -2,15 +2,56 @@
 * Template life Cycle (Helpers)
 */
 
-Meteor.subscribe('stdcres',["FIEC01545"]);
+
+Template.gradescard.events({
+  "click .good-grades": function(event,template){
+    if(template.$(".good-grades").attr("checked")){
+      template.$(".sg-good").css("display","block");
+    } else {
+      template.$(".sg-good").css("display","none");
+    }
+  },
+  "click .best-grades": function(event,template){
+    if(template.$(".best-grades").attr("checked")){
+      template.$(".sg-excellent").css("display","block");
+    } else {
+      template.$(".sg-excellent").css("display","none");
+    }
+  },
+  "click .bad-grades": function(event,template){
+    if(template.$(".bad-grades").attr("checked")){
+      template.$(".sg-bad").css("display","block");
+    } else {
+      template.$(".sg-bad").css("display","none");
+    }
+  },
+  "click .lazy-grades": function(event,template){
+    if(template.$(".lazy-grades").attr("checked")){
+      template.$(".sg-lazy").css("display","block");
+    } else {
+      template.$(".sg-lazy").css("display","none");
+    }
+  },
+  "click .regular-grades": function(event,template){
+    if(template.$(".regular-grades").attr("checked")){
+      template.$(".sg-regular").css("display","block");
+    } else {
+      template.$(".sg-regular").css("display","none");
+    }
+  }
+});
+
+Template.registerHelper('isCourse',function(input){
+  return Session.get("sessionCourses");
+});
 
 Template.gradescard.helpers({
   excellent: function () {
     var sc   = Stdcres.find({ gp: { $gte : "9"} }).fetch();
     for (i = 0; i < sc.length; i++) {
-      sc[i].gp = "#25a085";
-      sc[i].grade       = (((sc[i].grade - 5.7) * 350) / 4.5);
-      sc[i].performance = (sc[i].performance * 197);
+      sc[i].gp           = "#25a085";
+      sc[i].grade        = (((sc[i].grade - 5.7) * 350) / 4.5);
+      sc[i].performance  = (sc[i].performance * 197);
     }
     return sc;
   },
@@ -42,7 +83,7 @@ Template.gradescard.helpers({
     return sc;
   },
   bad: function () {
-    var sc   = Stdcres.find({ gp: { $lte : "6"} }).fetch();
+    var sc   = Stdcres.find({ gp: { $lt : "6"} }).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp = "#e74c3c";
       sc[i].grade       = (((sc[i].grade - 5.7) * 350) / 4.5);

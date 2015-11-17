@@ -20,36 +20,38 @@
       </div>
       <!-- Middle Content -->
       <div class="card-content-middle">
+        {{#if isCourse}}
         <div class="sg-chart-container">
           <div class="sg-vertical-axis">
-              <div class="sg-vertical-axis-title">Performance</div>
+            <div class="sg-vertical-axis-title">Performance</div>
           </div>
           <div class="sg-horizontal-axis">
             <div class="sg-horizontal-axis-title">Grades</div>
           </div>
           <svg height="200" width="350">
             {{#each excellent}}
-              <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}"></circle>
+            <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}" class="sg-excellent animated fadeInLeft"></circle>
             {{/each}}
-
             {{#each good}}
-              <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}"></circle>
+            <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}" class="sg-good animated fadeInLeft"></circle>
             {{/each}}
-
             {{#each regular}}
-              <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}"></circle>
+            <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}" class="sg-regular animated fadeInLeft"></circle>
             {{/each}}
-
             {{#each lazy}}
-              <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}"></circle>
+            <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}" class="sg-lazy animated fadeInLeft"></circle>
             {{/each}}
-
             {{#each bad}}
-              <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}"></circle>
+            <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}" class="sg-bad animated fadeInLeft"></circle>
             {{/each}}
-
           </svg>
         </div>
+        {{else}}
+        <div class="cc-nothing animated fadeIn">
+          <div class="cc-nothing-message">No Courses to Show</div>
+          <div class="cc-nothing-add"></div>
+        </div>
+        {{/if}}
       </div>
       <!-- Bottom Content -->
       <div class="card-content-bottom">
@@ -72,7 +74,7 @@
         </div>
         <div class="card-content-control1">
           <div class="control-title">Compliance</div>
-          <paper-slider pin value="20"></paper-slider>
+          <paper-slider pin value="100"></paper-slider>
         </div>
         <div class="card-fullscreen-icon">
           <iron-icon icon="icons:fullscreen"></iron-icon>

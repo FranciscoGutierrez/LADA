@@ -3,7 +3,7 @@ Stdcres  = new Meteor.Collection('studentscourses');
 
 Meteor.publish('stdcres', function(who){
   console.log(who);
-  return Stdcres.find({course: {$in: who }});
+  return Stdcres.find({course: {$in: who }}, {limit: 250});
 });
 
 SearchSource.defineSource('courses', function(searchText, options) {

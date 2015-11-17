@@ -94,6 +94,7 @@
 
 .selected-course {
   padding: 3px;
+  padding-left: 10px;
   align-self: center;
   width: 100%;
   background: #f2f2f2;

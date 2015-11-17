@@ -20,7 +20,6 @@
       <!-- Middle Content -->
       <div class="card-content-middle">
         <div class="cc-chart-container">
-
           {{#if sessionCourses}}
           <div class="cc-line"></div>
           {{else}}
@@ -33,7 +32,8 @@
           {{#each sessionCourses}}
           <div class="cc-course animated fadeIn">
             <div class="cc-squares">
-              <div class="cc-square" style="height:{{students}}px">
+              <div class="cc-square" style="height:{{percent}}%">
+                <paper-badge class="cc-badge" label="{{students}}"></paper-badge>
                 <paper-ripple></paper-ripple>
               </div>
             </div>
