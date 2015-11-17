@@ -58,15 +58,33 @@
   border-radius: 2px 2px 0  0;
 }
 
-.cc-line {
+.cc-hline {
   height: 1px;
   width: 100%;
   position: absolute;
   bottom: 25px;
   margin-left: 2px;
   margin-right: 2px;
-  background: #882d52;
+  background: #e0e0e0;
   left: 0;
+}
+
+.cc-vline {
+  height: 97%;
+  width: 2px;
+  position: absolute;
+  bottom: 0;
+  border-left: 1px solid #e0e0e0;
+  border-top:  1px solid #e0e0e0;
+  left: 2px;
+}
+
+.cc-vline-title {
+  font: 10px sans-serif;
+  position: absolute;
+  top: 19px;
+  left: -12px;
+  transform: rotate(-90deg);
 }
 
 .cc-meta {

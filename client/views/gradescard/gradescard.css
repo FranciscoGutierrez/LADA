@@ -70,9 +70,11 @@
   position: absolute;
   top:  -8px;
   right: 5px;
+  font: 10px sans-serif;
 }
 
 .sg-vertical-axis-title {
+  font: 10px sans-serif;
   position: absolute;
   top: 30px;
   left: -22px;

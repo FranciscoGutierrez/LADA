@@ -21,7 +21,10 @@
       <div class="card-content-middle">
         <div class="cc-chart-container">
           {{#if sessionCourses}}
-          <div class="cc-line"></div>
+          <div class="cc-vline">
+            <div class="cc-vline-title">Students</div>
+          </div>
+          <div class="cc-hline"></div>
           {{else}}
           <div class="cc-nothing animated fadeIn">
             <div class="cc-nothing-message">No Courses to Show</div>
