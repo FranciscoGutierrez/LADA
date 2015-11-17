@@ -29,3 +29,53 @@
 
 .regular-grades > #checkboxContainer > #checkbox { border-color: #F0C30E; }
 .regular-grades /deep/ .checked { background: #F0C30E !important; }
+
+/*chart*/
+.sg-chart-container {
+  font: 10px sans-serif;
+  width: 100%;
+  position: relative;
+}
+
+.sg-chart-container > svg {
+  padding: 3px;
+  transform: rotateX(180deg);
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #904662;
+  shape-rendering: crispEdges;
+}
+
+.sg-vertical-axis {
+  height: 100%;
+  width: 5px;
+  position: absolute;
+  border-left: 1px solid #e0e0e0;
+  border-top:  1px solid #e0e0e0;
+  left: 0;
+}
+.sg-horizontal-axis{
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  border-bottom: 1px solid #e0e0e0;
+  border-right:  1px solid #e0e0e0;
+  bottom: 10px;
+}
+
+.sg-horizontal-axis-title {
+  position: absolute;
+  top:  -8px;
+  right: 5px;
+}
+
+.sg-vertical-axis-title {
+  position: absolute;
+  top: 30px;
+  left: -22px;
+  transform: rotate(-90deg);
+  z-index: 1;
+}

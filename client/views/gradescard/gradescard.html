@@ -19,7 +19,38 @@
         <paper-toggle-button checked></paper-toggle-button>
       </div>
       <!-- Middle Content -->
-      <div class="card-content-middle"></div>
+      <div class="card-content-middle">
+        <div class="sg-chart-container">
+          <div class="sg-vertical-axis">
+              <div class="sg-vertical-axis-title">Performance</div>
+          </div>
+          <div class="sg-horizontal-axis">
+            <div class="sg-horizontal-axis-title">Grades</div>
+          </div>
+          <svg height="200" width="350">
+            {{#each excellent}}
+              <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}"></circle>
+            {{/each}}
+
+            {{#each good}}
+              <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}"></circle>
+            {{/each}}
+
+            {{#each regular}}
+              <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}"></circle>
+            {{/each}}
+
+            {{#each lazy}}
+              <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}"></circle>
+            {{/each}}
+
+            {{#each bad}}
+              <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}"></circle>
+            {{/each}}
+
+          </svg>
+        </div>
+      </div>
       <!-- Bottom Content -->
       <div class="card-content-bottom">
         <div class="card-content-control0">

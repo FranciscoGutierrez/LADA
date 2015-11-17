@@ -1,2 +1,2 @@
-Courses = new Meteor.Collection('courses');
-// StudentCourses = new Meteor.Collection('studentscourses');
+Courses  = new Meteor.Collection('courses');
+Stdcres  = new Meteor.Collection('studentscourses');

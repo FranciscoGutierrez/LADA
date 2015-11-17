@@ -78,4 +78,5 @@ paper-toggle-button > .toggle-label {
 .control-title {
   display:  flex;
   color: #8E8E8E;
+  padding-bottom: 5px;
 }
