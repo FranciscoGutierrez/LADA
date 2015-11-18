@@ -10,6 +10,10 @@
   user-select: none;
 }
 
+body {
+  overflow: hidden;
+}
+
 paper-header-panel{
   display: flex;
   flex-flow: column;
@@ -45,13 +49,14 @@ paper-toolbar {
   z-index: 100;
 }
 
-paper-toolbar #middleBar .middle {
+.middle {
   width: 100%;
   display: flex;
-  flex-flow: row;
-  align-items: flex-start;
   justify-content: space-around;
-  margin-top: 30px;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-flow: row;
+  min-width: 605px;
 }
 
 .widget-title {
@@ -94,4 +99,8 @@ paper-checkbox > #checkboxLabel {
 
 paper-slider {
   width: 100%;
+}
+
+#topBar {
+  display: none;
 }

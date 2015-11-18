@@ -45,7 +45,7 @@ Template.coursescard.events({
     template.$(".search-results").hide();
   },
   "click .result-course": function(event,template) {
-    if( $(".selected-courses").children().length < 7) {
+    if($(".selected-courses").children().length < 7) {
       var simpleName = this.name.replace(/<(?:.|\n)*?>/gm,'');
       var courses = Session.get('sessionCourses');
       var course  = this;
@@ -54,6 +54,9 @@ Template.coursescard.events({
       m.push(this);
       Session.set("sessionCourses", m);
       Meteor.subscribe('stdcres',[this._id]);
+    } else {
+      $("#paperToast").attr("text","Can't add more courses.");
+      document.querySelector('#paperToast').show()
     }
   },
   "click .remove-selected-course": function(event,template) {

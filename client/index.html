@@ -29,7 +29,8 @@
   }
 
   </style>
-  <!-- <link href='//fonts.googleapis.com/css?family=Roboto:900,400,300,100' rel='stylesheet' type='text/css'> -->
+  <link href='//fonts.googleapis.com/css?family=Roboto:900,400,300,100' rel='stylesheet' type='text/css'>
+  <script src="bower_components/jknob/js/jquery.knob.js"></script>
   <link rel="import" href="bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
   <link rel="import" href="bower_components/paper-tabs/paper-tab.html">
@@ -42,8 +43,10 @@
   <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
 
   <link rel="import" href="bower_components/paper-badge/paper-badge.html">
+  <link rel="import" href="bower_components/paper-toast/paper-toast.html">
 </head>
 <body class="fullbleed layout vertical">
+  <paper-toast id="paperToast" text=""></paper-toast>
   <paper-header-panel mode="seamed">
     <paper-toolbar class="tall">
       <div class="middle">

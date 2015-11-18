@@ -6,37 +6,37 @@
 Template.gradescard.events({
   "click .good-grades": function(event,template){
     if(template.$(".good-grades").attr("checked")){
-      template.$(".sg-good").css("display","block");
+      template.$(".sg-good").attr("class","sg-good animated fadeInLeft");
     } else {
-      template.$(".sg-good").css("display","none");
+      template.$(".sg-good").attr("class","sg-good animated fadeOutLeft");
     }
   },
   "click .best-grades": function(event,template){
     if(template.$(".best-grades").attr("checked")){
-      template.$(".sg-excellent").css("display","block");
+      template.$(".sg-excellent").attr("class","sg-excellent animated fadeInLeft");
     } else {
-      template.$(".sg-excellent").css("display","none");
+      template.$(".sg-excellent").attr("class","sg-excellent animated fadeOutLeft");
     }
   },
   "click .bad-grades": function(event,template){
     if(template.$(".bad-grades").attr("checked")){
-      template.$(".sg-bad").css("display","block");
+      template.$(".sg-bad").attr("class","sg-bad animated fadeInLeft");
     } else {
-      template.$(".sg-bad").css("display","none");
+      template.$(".sg-bad").attr("class","sg-bad animated fadeOutLeft");
     }
   },
   "click .lazy-grades": function(event,template){
     if(template.$(".lazy-grades").attr("checked")){
-      template.$(".sg-lazy").css("display","block");
+      template.$(".sg-lazy").attr("class","sg-lazy animated fadeInLeft");
     } else {
-      template.$(".sg-lazy").css("display","none");
+      template.$(".sg-lazy").attr("class","sg-lazy animated fadeOutLeft");
     }
   },
   "click .regular-grades": function(event,template){
     if(template.$(".regular-grades").attr("checked")){
-      template.$(".sg-regular").css("display","block");
+      template.$(".sg-regular").attr("class","sg-regular animated fadeInLeft");
     } else {
-      template.$(".sg-regular").css("display","none");
+      template.$(".sg-regular").attr("class","sg-regular animated fadeOutLeft");
     }
   }
 });

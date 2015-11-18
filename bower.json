@@ -4,6 +4,7 @@
   "dependencies": {
     "polymer": "~1.2.1",
     "paper-elements": "PolymerElements/paper-elements#~1.0.5",
-    "iron-elements": "PolymerElements/iron-elements#~1.0.4"
+    "iron-elements": "PolymerElements/iron-elements#~1.0.4",
+    "jknob": "~1.2.11"
   }
 }
