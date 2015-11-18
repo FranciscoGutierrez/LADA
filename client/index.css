@@ -57,6 +57,7 @@ paper-toolbar {
   align-content: flex-start;
   flex-flow: row;
   min-width: 605px;
+  margin-bottom: 35px;
 }
 
 .widget-title {
@@ -99,8 +100,4 @@ paper-checkbox > #checkboxLabel {
 
 paper-slider {
   width: 100%;
-}
-
-#topBar {
-  display: none;
 }

@@ -1,0 +1,15 @@
+.top-ribbon {
+  border-bottom: 1px solid #EAEAEA;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  color: #9f9f9f;
+  font-size: 14px;
+  padding-left: 5%;
+}
+
+.top-ribbon span {
+  color: #424242;
+  margin-left: 5px;
+}

@@ -8,19 +8,19 @@
   width: 200px;
 }
 
-#risk-content-viz {
+.risk-content-viz {
   height: 140px;
   width:  140px;
 }
 
-#risk-content-viz .progress-meter text{
+.risk-content-viz .progress-meter text{
   font-family: 'Roboto', Helvetica, Arial;
   font-size: 54px;
   font-weight: 100;
   color: #424242;
 }
 
-#risk-content-viz .progress-meter .subtext-risk {
+.risk-content-viz .progress-meter .subtext-risk {
   font-family: 'Roboto', Helvetica, Arial;
   font-size: 12px;
   font-weight: 900;
@@ -29,7 +29,6 @@
 .risk-content .risk-slider {
   position: relative;
   display: flex;
-  padding-top:15px;
 }
 
 .slider-tray {
@@ -60,7 +59,7 @@
   color:  #424242  !important;
   font-size: 58px  !important;
   margin-top:30px  !important;
-  height: auto !important;  
+  height: auto !important;
 }
 
 .toolbar-tools.paper-toolbar {
