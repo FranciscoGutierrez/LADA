@@ -6,5 +6,6 @@
 Router.route('/:_id', {
   data: function () {
     Session.set('studentId',this.params._id);
+    Meteor.subscribe("this_student",this.params._id);
   }
 });

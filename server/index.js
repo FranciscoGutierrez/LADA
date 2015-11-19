@@ -1,14 +1,17 @@
 Courses  = new Meteor.Collection('courses');
 Stdcres  = new Meteor.Collection('studentscourses');
+Students = new Meteor.Collection('students');
 
 Meteor.publish('stdcres', function(who){
-  console.log(who);
   return Stdcres.find({course: {$in: who }}, {limit: 250});
+});
+
+Meteor.publish("this_student", function (who) {
+  return Students.find({ "_id": who+""});
 });
 
 SearchSource.defineSource('courses', function(searchText, options) {
   var options = {sort: {isoScore: -1}, limit: 5};
-
   if(searchText) {
     var regExp = buildRegExp(searchText);
     var selector = {$or: [{name: regExp}]};

@@ -11,5 +11,6 @@
 
 .top-ribbon span {
   color: #424242;
-  margin-left: 5px;
+  text-decoration: underline;
+  cursor: pointer;
 }

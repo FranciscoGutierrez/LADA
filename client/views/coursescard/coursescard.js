@@ -91,7 +91,6 @@ Template.coursescard.helpers({
   },
   sessionCourses: function() {
     var sc = Session.get("sessionCourses");
-    console.log(Session.get("sessionCourses"));
     for (i = 0; i < sc.length; i++) {
       sc[i].students = sc[i].students > 999 ? (sc[i].students/1000).toFixed(1) + 'k' : sc[i].students;
     }
@@ -102,17 +101,4 @@ Template.coursescard.helpers({
 /*
 * Template life Cycle (rendered)
 */
-Template.coursescard.rendered = function () {
-  // var self = this;
-  // console.log("rendered");
-  //
-  // function animateTemplate(bar) {
-  //   var size = (self.$(".cc-squares").text() * 100)/3294;
-  //   self.$(".cc-squares").animate({'height': size+'px'});
-  // }
-  //
-  // Tracker.autorun(function () {
-  //   var bar = Session.get("sessionCourses");
-  //   animateTemplate(bar);
-  // });
-};
+Template.coursescard.rendered = function () {};

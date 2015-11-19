@@ -81,3 +81,7 @@
   transform: rotate(-90deg);
   z-index: 1;
 }
+
+.sg-this {
+  filter: drop-shadow( -5px -5px 5px #000 );
+}

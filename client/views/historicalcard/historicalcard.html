@@ -20,7 +20,18 @@
         <paper-toggle-button checked></paper-toggle-button>
       </div>
       <!-- Middle Content -->
-      <div class="card-content-middle"></div>
+      <div class="card-content-middle">
+        {{#if sessionCourses}}
+        <div class="cc-vline">
+          <div class="cc-vline-title">Students</div>
+        </div>
+        <div class="cc-hline"></div>
+        {{else}}
+        <div class="cc-nothing animated fadeIn">
+          <div class="cc-nothing-message">You haven't selected any courses</div>
+        </div>
+        {{/if}}
+      </div>
       <!-- Bottom Content -->
       <div class="card-content-bottom">
         <div class="card-content-control0">

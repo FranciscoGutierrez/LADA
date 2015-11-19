@@ -2,7 +2,6 @@
 * Template life Cycle (Helpers)
 */
 
-
 Template.gradescard.events({
   "click .good-grades": function(event,template){
     if(template.$(".good-grades").attr("checked")){
@@ -89,6 +88,12 @@ Template.gradescard.helpers({
       sc[i].grade       = (((sc[i].grade - 5.7) * 350) / 4.5);
       sc[i].performance = (sc[i].performance * 197);
     }
+    return sc;
+  },
+  thisStudent: function() {
+    var sc = Students.findOne({});
+    sc.gpa         = (((sc.gpa - 5.7) * 350) / 4.5);
+    sc.performance = (sc.performance * 197);
     return sc;
   }
 });

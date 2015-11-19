@@ -1,5 +1,12 @@
 <template name="topribbon">
   <div class="top-ribbon">
-    Student:<span>{{studentId}}</span>
+    {{#if studentId}}
+    Student: <span>{{studentId}}</span>
+    <iron-icon icon="icons:arrow-drop-down"></iron-icon>
+    {{else}}
+    Working without a
+    <span>Student Profile</span>
+    <iron-icon icon="icons:arrow-drop-down"></iron-icon>
+    {{/if}}
   </div>
 </template>
