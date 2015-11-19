@@ -1,5 +1,3 @@
-Courses  = new Meteor.Collection('courses');
-Stdcres  = new Meteor.Collection('studentscourses');
 Students = new Meteor.Collection('students');
-
-Meteor.subscribe("students");
+Courses  = new Meteor.Collection('courses');
+Grades   = new Meteor.Collection('studentscourses');

@@ -1,6 +1,6 @@
 /*
-* Template life Cycle (Helpers)
-*/
+ * Event Handling:
+ */
 
 Template.gradescard.events({
   "click .good-grades": function(event,template){
@@ -37,16 +37,30 @@ Template.gradescard.events({
     } else {
       template.$(".sg-regular").attr("class","sg-regular animated fadeOutLeft");
     }
+  },
+  "click .student-grades": function(event,template){
+    if(template.$(".student-grades").attr("checked")){
+      template.$(".sg-this").attr("class","sg-this animated swing");
+    } else {
+      template.$(".sg-this").attr("class","sg-this animated fadeOut");
+    }
   }
 });
 
+/*
+ *  Check for courses
+ */
 Template.registerHelper('isCourse',function(input){
-  return Session.get("sessionCourses");
+  return Session.get("courses");
 });
 
+/*
+ * Render Data from helpers
+ */
 Template.gradescard.helpers({
   excellent: function () {
-    var sc   = Stdcres.find({ gp: { $gte : "9"} }).fetch();
+    var sc   = Grades.find({ gp: { $gte : "9"} }).fetch();
+    console.log(sc);
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#25a085";
       sc[i].grade        = (((sc[i].grade - 5.7) * 350) / 4.5);
@@ -55,7 +69,7 @@ Template.gradescard.helpers({
     return sc;
   },
   good: function () {
-    var sc   = Stdcres.find({ gp: { $gte : "8", $lt : "9" } }).fetch();
+    var sc   = Grades.find({ gp: { $gte : "8", $lt : "9" } }).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp = "#27ae60";
       sc[i].grade       = (((sc[i].grade - 5.7) * 350) / 4.5);
@@ -64,7 +78,7 @@ Template.gradescard.helpers({
     return sc;
   },
   regular: function () {
-    var sc   = Stdcres.find({ gp: { $gte : "7", $lt : "8" } }).fetch();
+    var sc   = Grades.find({ gp: { $gte : "7", $lt : "8" } }).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp = "#f0c30e";
       sc[i].grade       = (((sc[i].grade - 5.7) * 350) / 4.5);
@@ -73,7 +87,7 @@ Template.gradescard.helpers({
     return sc;
   },
   lazy: function () {
-    var sc   = Stdcres.find({ gp: { $gte : "6", $lt : "7" } }).fetch();
+    var sc   = Grades.find({ gp: { $gte : "6", $lt : "7" } }).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp = "#e67d22";
       sc[i].grade       = (((sc[i].grade - 5.7) * 350) / 4.5);
@@ -82,7 +96,7 @@ Template.gradescard.helpers({
     return sc;
   },
   bad: function () {
-    var sc   = Stdcres.find({ gp: { $lt : "6"} }).fetch();
+    var sc   = Grades.find({ gp: { $lt : "6"} }).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp = "#e74c3c";
       sc[i].grade       = (((sc[i].grade - 5.7) * 350) / 4.5);
@@ -92,8 +106,10 @@ Template.gradescard.helpers({
   },
   thisStudent: function() {
     var sc = Students.findOne({});
-    sc.gpa         = (((sc.gpa - 5.7) * 350) / 4.5);
-    sc.performance = (sc.performance * 197);
+    if(sc) {
+      sc.gpa = (((sc.gpa - 5.7) * 350) / 4.5);
+      sc.performance = (sc.performance * 197);
+    }
     return sc;
   }
 });

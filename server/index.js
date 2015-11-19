@@ -1,13 +1,17 @@
-Courses  = new Meteor.Collection('courses');
-Stdcres  = new Meteor.Collection('studentscourses');
 Students = new Meteor.Collection('students');
+Courses  = new Meteor.Collection('courses');
+Grades   = new Meteor.Collection('studentscourses');
 
-Meteor.publish('stdcres', function(who){
-  return Stdcres.find({course: {$in: who }}, {limit: 250});
+Meteor.publish('grades', function(who){
+  return Grades.find({course: {$in: who }}, {limit: 250});
 });
 
 Meteor.publish("this_student", function (who) {
   return Students.find({ "_id": who+""});
+});
+
+Meteor.publish("this_courses", function (who) {
+  return Courses.find({"_id": {$in: who }});
 });
 
 SearchSource.defineSource('courses', function(searchText, options) {
