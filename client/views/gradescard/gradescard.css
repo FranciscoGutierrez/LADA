@@ -39,7 +39,7 @@
 
 .sg-chart-container > svg {
   padding: 3px;
-  transform: rotateX(180deg);
+  overflow: inherit;
 }
 
 .axis path,
