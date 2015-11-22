@@ -15,8 +15,31 @@ Template.historicalcard.events({
         });
       });
     }
-    // border-right: 1px solid #b25d7e;
+  },
+  "click .hc-toggle": function(event,template) {
+    var time = 300;
+    if(template.$(".hc-toggle").attr("checked")){
+      Session.set("hc-toggle",true);
+      template.$(".hc-card-content").fadeOut(time,function(){
+        template.$(".hc-card-content").css("order","1").fadeIn(time);
+      });
+    } else {
+      Session.set("hc-toggle",false);
+      template.$(".hc-card-content").fadeOut(function(){
+        template.$(".hc-card-content").css("order","2").fadeIn(time);
+      });
+    }
+  },
+  "change .hc-paper-slider": function(event,template) {
+    var n = template.$(".hc-paper-slider").attr("value");
+    Session.set("hc-compliance", n);
   }
 });
-
-Template.historicalcard.rendered = function(){};
+Template.historicalcard.helpers({
+  isOn: function() {
+    return Session.get("hc-toggle");
+  },
+  compliance: function() {
+    return Session.get("hc-compliance");
+  }
+});

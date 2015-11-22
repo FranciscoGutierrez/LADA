@@ -32,6 +32,7 @@
   flex-direction: column;
   max-width: 100px;
   cursor: pointer;
+  position: relative;
 }
 
 .cc-squares {

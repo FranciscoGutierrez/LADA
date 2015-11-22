@@ -86,3 +86,7 @@
   filter: drop-shadow( -5px -5px 5px #000);
   cursor: move;
 }
+
+.gc-card-content {
+  order: 2
+}

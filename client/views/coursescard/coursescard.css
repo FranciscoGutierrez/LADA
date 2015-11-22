@@ -80,3 +80,25 @@ paper-toggle-button > .toggle-label {
   color: #8E8E8E;
   padding-bottom: 5px;
 }
+
+.course-details-content {
+  display: flex;
+  padding: 2px;
+  justify-content: flex-start;
+  background: #fafafa;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+.course-details {
+  display: flex;
+  padding: 2px;
+}
+
+.detail-title {
+  color: #424242;
+}
+
+.detail-sub {
+  color: #9F9F9F;
+}

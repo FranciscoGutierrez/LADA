@@ -39,6 +39,7 @@
                 <paper-badge class="cc-badge" label="{{students}}"></paper-badge>
                 <paper-ripple></paper-ripple>
               </div>
+              <paper-ripple style="color: #eeeeee;"></paper-ripple>
             </div>
             <div class="cc-meta">
               <div class="cc-name">{{{name}}}</div>
@@ -52,12 +53,35 @@
       <!-- Bottom Content -->
       <div class="card-content-bottom">
         <div class="card-content-control0">
-          <!-- <div class="control-title">Order</div>
-          <paper-slider pin value="100"></paper-slider> -->
+          <div class="control0-course-details">
+            <div class="control-title">Course Details</div>
+            <div class="course-details-content">
+              <div>
+                <div class="course-details course-details-name">
+                  <div class="detail-title">Name:&nbsp;</div>
+                  <div class="detail-sub">{{selectedCourse.name}}</div>
+                </div>
+                <div class="course-details course-details-id">
+                  <div class="detail-title">ID:&nbsp;</div>
+                  <div class="detail-sub">{{selectedCourse._id}}</div>
+                </div>
+              </div>
+              <div>
+                <div class="course-details course-details-students">
+                  <div class="detail-title">Students:&nbsp;</div>
+                  <div class="detail-sub">{{selectedCourse.students}}</div>
+                </div>
+                <div class="course-details course-details-difficulty">
+                  <div class="detail-title">Difficulty:&nbsp;</div>
+                  <div class="detail-sub">Easy</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="card-content-control1">
-          <div class="control-title">Compliance: <div class="control-subtitle">5</div></div>
-          <paper-slider pin snaps max="5" step="1" value="5"></paper-slider>
+          <div class="control-title">Compliance: <div class="control-subtitle">{{compliance}}</div></div>
+          <paper-slider class="cc-paper-slider" pin snaps max="5" step="1" value="5"></paper-slider>
         </div>
         <div class="card-fullscreen-icon">
           <iron-icon icon="icons:fullscreen"></iron-icon>

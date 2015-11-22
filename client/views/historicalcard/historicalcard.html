@@ -1,5 +1,5 @@
 <template name="historicalcard">
-  <paper-material class="card-content">
+  <paper-material class="hc-card-content card-content">
     <div class="chart-content">
       <!-- Top Content -->
       <div class="card-content-top">
@@ -10,15 +10,18 @@
             </div>
             <iron-icon icon="icons:info"></iron-icon>
           </div>
+          {{#if isOn}}
           <div class="card-subtitle">
             Strong Influence
           </div>
+          {{/if}}
         </div>
       </div>
       <div class="card-settings-icon">
-        <iron-icon class="settings-icon" icon="icons:settings"></iron-icon>
-        <paper-toggle-button checked></paper-toggle-button>
+        <!-- <iron-icon class="settings-icon" icon="icons:settings"></iron-icon> -->
+        <paper-toggle-button class="hc-toggle"></paper-toggle-button>
       </div>
+      {{#if isOn}}
       <!-- Middle Content -->
       <div class="card-content-middle">
         {{#if sessionCourses}}
@@ -48,13 +51,20 @@
           </div>
         </div>
         <div class="card-content-control1">
-          <div class="control-title">Compliance</div>
-          <paper-slider pin value="100"></paper-slider>
+          <div class="control-title">Compliance: <div class="control-subtitle">{{compliance}}</div></div>
+          <paper-slider class="hc-paper-slider" pin snaps max="5" step="1" value="5"></paper-slider>
         </div>
         <div class="card-fullscreen-icon">
           <iron-icon icon="icons:fullscreen"></iron-icon>
         </div>
       </div>
+      {{else}}
+      <div class="card-content-middle">
+        <div class="cc-nothing animated fadeIn" style="background: none; height: 400px;">
+          <div class="cc-nothing-message">This Card is Turned Off</div>
+        </div>
+      </div>
+      {{/if}}
     </div>
   </paper-material>
 </template>

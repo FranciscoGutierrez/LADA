@@ -1,5 +1,5 @@
 <template name="gradescard">
-  <paper-material class="card-content">
+  <paper-material class="gc-card-content card-content">
     <div class="chart-content">
       <div class="card-content-top">
         <div class="card-content-top-text">
@@ -9,15 +9,18 @@
             </div>
             <iron-icon icon="icons:info"></iron-icon>
           </div>
+          {{#if isOn}}
           <div class="card-subtitle">
             Weak Influence
           </div>
+          {{/if}}
         </div>
       </div>
       <div class="card-settings-icon">
-        <iron-icon class="settings-icon" icon="icons:settings"></iron-icon>
-        <paper-toggle-button checked></paper-toggle-button>
+        <!-- <iron-icon class="settings-icon" icon="icons:settings"></iron-icon> -->
+        <paper-toggle-button class="gc-toggle"></paper-toggle-button>
       </div>
+      {{#if isOn}}
       <!-- Middle Content -->
       <div class="card-content-middle">
         {{#if isCourse}}
@@ -31,7 +34,7 @@
           <svg height="200" width="350">
             <filter id="dropshadow" height="110%">
               <feGaussianBlur in="SourceAlpha" stdDeviation="1"/> <!-- stdDeviation is how much to blur -->
-              <feOffset dx="1" dy="-1" result="offsetblur"/> <!-- how much to offset -->
+              <feOffset dx="1" dy="1" result="offsetblur"/> <!-- how much to offset -->
               <feMerge>
                 <feMergeNode/> <!-- this contains the offset blurred image -->
                 <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
@@ -88,7 +91,7 @@
             {{#if thisStudent}}
             <line class="sg-this animated fadeIn" x1="0" x2="350" y1="{{thisStudent.performance}}" y2="{{thisStudent.performance}}" stroke="rgba(178, 93, 126, 0.35)" stroke-width="1"/>
             <line class="sg-this animated fadeIn" x1="{{thisStudent.gpa}}" x2="{{thisStudent.gpa}}" y1="0" y2="195" stroke="rgba(178, 93, 126, 0.35)" stroke-width="1"/>
-            <circle cx="{{thisStudent.gpa}}"  cy="{{thisStudent.performance}}"  r="10" fill="#b25d7e" class="sg-this animated fadeIn" style="filter:url(#dropshadow)"></circle>
+            <circle cx="{{thisStudent.gpa}}"  cy="{{thisStudent.performance}}"  r="9" fill="#b25d7e" class="sg-this animated fadeIn" style="filter:url(#dropshadow)"></circle>
             <!-- <text x="{{thisStudent.gpa}}" y="203" fill="#424242"></text> -->
             {{/if}}
 
@@ -121,13 +124,20 @@
           </div>
         </div>
         <div class="card-content-control1">
-          <div class="control-title">Compliance</div>
-          <paper-slider pin value="100"></paper-slider>
+          <div class="control-title">Compliance: <div class="control-subtitle">{{compliance}}</div></div>
+          <paper-slider class="gc-paper-slider" pin snaps max="5" step="1" value="5"></paper-slider>
         </div>
         <div class="card-fullscreen-icon">
           <iron-icon icon="icons:fullscreen"></iron-icon>
         </div>
       </div>
+      {{else}}
+      <div class="card-content-middle">
+        <div class="cc-nothing animated fadeIn" style="background: none; height: 400px;">
+          <div class="cc-nothing-message">This Card is Turned Off</div>
+        </div>
+      </div>
+      {{/if}}
     </div>
   </paper-material>
 </template>

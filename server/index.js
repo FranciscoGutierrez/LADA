@@ -3,7 +3,7 @@ Courses  = new Meteor.Collection('courses');
 Grades   = new Meteor.Collection('studentscourses');
 
 Meteor.publish('grades', function(who){
-  return Grades.find({course: {$in: who }}, {limit: 250});
+  return Grades.find({course: {$in: who }}, {limit: 550});
 });
 
 Meteor.publish("this_student", function (who) {

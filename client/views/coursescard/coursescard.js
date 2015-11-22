@@ -61,7 +61,17 @@ Template.coursescard.events({
       Session.set("courses", "");
     });
   },
-  "click .selected-course": function(event,template) {
+  "click .cc-squares, click .cc-meta": function(event,template) {
+    var parent = $(event.target).parents(".cc-course");
+    template.$(".cc-squares").css("background","#fafafa");
+    template.$(".cc-meta").css("background","#fafafa");
+    parent.find(".cc-squares").css("background","#EEEEEE");
+    parent.find(".cc-meta").css("background","#EEEEEE");
+    Session.set("selected-course",this._id);
+  },
+  "change .cc-paper-slider": function(event,template) {
+    var n = template.$(".cc-paper-slider").attr("value");
+    Session.set("cc-compliance", n);
   }
 });
 
@@ -94,5 +104,11 @@ Template.coursescard.helpers({
       }
     }
     return sc;
+  },
+  compliance: function() {
+    return Session.get("cc-compliance");
+  },
+  selectedCourse: function() {
+    return Courses.findOne({ "_id" : Session.get("selected-course")});
   }
 });

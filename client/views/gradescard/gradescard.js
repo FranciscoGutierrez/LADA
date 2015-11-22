@@ -44,6 +44,24 @@ Template.gradescard.events({
     } else {
       template.$(".sg-this").attr("class","sg-this animated fadeOut");
     }
+  },
+  "click .gc-toggle": function(event,template) {
+    var time = 300;
+    if(template.$(".gc-toggle").attr("checked")){
+      Session.set("gc-toggle",true);
+      template.$(".gc-card-content").fadeOut(time,function(){
+        template.$(".gc-card-content").css("order","1").fadeIn(time);
+      });
+    } else {
+      Session.set("gc-toggle",false);
+      template.$(".gc-card-content").fadeOut(function(){
+        template.$(".gc-card-content").css("order","2").fadeIn(time);
+      });
+    }
+  },
+  "change .gc-paper-slider": function(event,template) {
+    var n = template.$(".gc-paper-slider").attr("value");
+    Session.set("gc-compliance", n);
   }
 });
 
@@ -60,7 +78,6 @@ Template.registerHelper('isCourse',function(input){
 Template.gradescard.helpers({
   excellent: function () {
     var sc   = Grades.find({ gp: { $gte : "9"} }).fetch();
-    console.log(sc);
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#25a085";
       sc[i].grade        = (((sc[i].grade - 5.7) * 350) / 4.5);
@@ -111,5 +128,11 @@ Template.gradescard.helpers({
       sc.performance  = ((1.0 - sc.performance) * 190) + 10;
     }
     return sc;
+  },
+  isOn: function() {
+    return Session.get("gc-toggle");
+  },
+  compliance: function() {
+    return Session.get("gc-compliance");
   }
 });
