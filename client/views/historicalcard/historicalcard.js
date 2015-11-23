@@ -22,6 +22,14 @@ Template.historicalcard.events({
       Session.set("hc-toggle",true);
       template.$(".hc-card-content").fadeOut(time,function(){
         template.$(".hc-card-content").css("order","1").fadeIn(time);
+        $("#selector").ionRangeSlider({
+          type: 'double ',
+          min: 1999,
+          max: 2013,
+          step: 1,
+          grid: true,
+          grid_snap: true
+        });
       });
     } else {
       Session.set("hc-toggle",false);
@@ -33,6 +41,13 @@ Template.historicalcard.events({
   "change .hc-paper-slider": function(event,template) {
     var n = template.$(".hc-paper-slider").attr("value");
     Session.set("hc-compliance", n);
+  },
+  "click" : function(event, template) {
+    var slider = $("#selector").data("ionRangeSlider");
+    if (slider) {
+    console.log(slider.result.from);
+    console.log(slider.result.to);
+    }
   }
 });
 Template.historicalcard.helpers({
@@ -43,3 +58,8 @@ Template.historicalcard.helpers({
     return Session.get("hc-compliance");
   }
 });
+
+Template.historicalcard.rendered = function () {
+
+
+};

@@ -84,7 +84,7 @@ paper-toggle-button > .toggle-label {
 .course-details-content {
   display: flex;
   padding: 2px;
-  justify-content: flex-start;
+  justify-content: space-around;
   background: #fafafa;
   border-radius: 2px;
   font-size: 12px;

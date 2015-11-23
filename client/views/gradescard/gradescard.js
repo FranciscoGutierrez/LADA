@@ -4,38 +4,43 @@
 
 Template.gradescard.events({
   "click .good-grades": function(event,template){
+    var id = template.$(".sg-good").attr("class").split(" ")[0];
     if(template.$(".good-grades").attr("checked")){
-      template.$(".sg-good").attr("class","sg-good animated fadeInLeft");
+      template.$(".sg-good").attr("class",id + " sg-good animated fadeInLeft");
     } else {
-      template.$(".sg-good").attr("class","sg-good animated fadeOutLeft");
+      template.$(".sg-good").attr("class",id + " sg-good animated fadeOutLeft");
     }
   },
   "click .best-grades": function(event,template){
+    var id = template.$(".sg-excellent").attr('class').split(' ')[0];
     if(template.$(".best-grades").attr("checked")){
-      template.$(".sg-excellent").attr("class","sg-excellent animated fadeInLeft");
+      template.$(".sg-excellent").attr("class",id + "sg-excellent animated fadeInLeft");
     } else {
-      template.$(".sg-excellent").attr("class","sg-excellent animated fadeOutLeft");
+      template.$(".sg-excellent").attr("class",id + "sg-excellent animated fadeOutLeft");
     }
   },
   "click .bad-grades": function(event,template){
+    var id = template.$(".sg-bad").attr('class').split(' ')[0];
     if(template.$(".bad-grades").attr("checked")){
-      template.$(".sg-bad").attr("class","sg-bad animated fadeInLeft");
+      template.$(".sg-bad").attr("class",id + " sg-bad animated fadeInLeft");
     } else {
-      template.$(".sg-bad").attr("class","sg-bad animated fadeOutLeft");
+      template.$(".sg-bad").attr("class",id + " sg-bad animated fadeOutLeft");
     }
   },
   "click .lazy-grades": function(event,template){
+    var id = template.$(".sg-lazy").attr('class').split(' ')[0];
     if(template.$(".lazy-grades").attr("checked")){
-      template.$(".sg-lazy").attr("class","sg-lazy animated fadeInLeft");
+      template.$(".sg-lazy").attr("class",id + " sg-lazy animated fadeInLeft");
     } else {
-      template.$(".sg-lazy").attr("class","sg-lazy animated fadeOutLeft");
+      template.$(".sg-lazy").attr("class",id + " sg-lazy animated fadeOutLeft");
     }
   },
   "click .regular-grades": function(event,template){
+    var id = template.$(".sg-regular").attr('class').split(' ')[0];
     if(template.$(".regular-grades").attr("checked")){
-      template.$(".sg-regular").attr("class","sg-regular animated fadeInLeft");
+      template.$(".sg-regular").attr("class",id + " sg-regular animated fadeInLeft");
     } else {
-      template.$(".sg-regular").attr("class","sg-regular animated fadeOutLeft");
+      template.$(".sg-regular").attr("class",id + " sg-regular animated fadeOutLeft");
     }
   },
   "click .student-grades": function(event,template){

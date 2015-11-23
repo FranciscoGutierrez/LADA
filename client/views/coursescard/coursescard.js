@@ -62,11 +62,17 @@ Template.coursescard.events({
     });
   },
   "click .cc-squares, click .cc-meta": function(event,template) {
+    $("circle").css("stroke","none");
+    $("circle").css("z-index","0");
     var parent = $(event.target).parents(".cc-course");
     template.$(".cc-squares").css("background","#fafafa");
     template.$(".cc-meta").css("background","#fafafa");
     parent.find(".cc-squares").css("background","#EEEEEE");
     parent.find(".cc-meta").css("background","#EEEEEE");
+
+    $("."+this._id+"").css("stroke","rgba(66, 66, 66, 0.5)");
+    $("."+this._id+"").insertAfter();
+    $("."+this._id+"").css("z-index","1000");
     Session.set("selected-course",this._id);
   },
   "change .cc-paper-slider": function(event,template) {

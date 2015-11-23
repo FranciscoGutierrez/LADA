@@ -31,7 +31,7 @@
           <div class="sg-horizontal-axis">
             <div class="sg-horizontal-axis-title">Grades</div>
           </div>
-          <svg height="200" width="350">
+          <svg height="200" width="350" style="overflow: inherit;">
             <filter id="dropshadow" height="110%">
               <feGaussianBlur in="SourceAlpha" stdDeviation="1"/> <!-- stdDeviation is how much to blur -->
               <feOffset dx="1" dy="1" result="offsetblur"/> <!-- how much to offset -->
@@ -69,23 +69,23 @@
             <text x="334" y="205" fill="#424242">10</text>
 
             {{#each excellent}}
-            <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}" class="sg-excellent animated fadeInLeft"></circle>
+            <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}" class="{{course}} sg-excellent animated fadeInLeft"></circle>
             {{/each}}
 
             {{#each good}}
-            <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}" class="sg-good animated fadeInLeft"></circle>
+            <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}" class="{{course}} sg-good animated fadeInLeft"></circle>
             {{/each}}
 
             {{#each regular}}
-            <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}" class="sg-regular animated fadeInLeft"></circle>
+            <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}" class="{{course}} sg-regular animated fadeInLeft"></circle>
             {{/each}}
 
             {{#each lazy}}
-            <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}" class="sg-lazy animated fadeInLeft"></circle>
+            <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}" class="{{course}} sg-lazy animated fadeInLeft"></circle>
             {{/each}}
 
             {{#each bad}}
-            <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}" class="sg-bad animated fadeInLeft"></circle>
+            <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}" class="{{course}} sg-bad animated fadeInLeft"></circle>
             {{/each}}
 
             {{#if thisStudent}}

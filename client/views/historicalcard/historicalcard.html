@@ -24,16 +24,10 @@
       {{#if isOn}}
       <!-- Middle Content -->
       <div class="card-content-middle">
-        {{#if sessionCourses}}
-        <div class="cc-vline">
-          <div class="cc-vline-title">Students</div>
+        <div class="sg-chart-container">
+          <div style="height: 135px;"></div>
+          <input type="text" id="selector" name="example_name" value="" style="display: none;"/>
         </div>
-        <div class="cc-hline"></div>
-        {{else}}
-        <div class="cc-nothing animated fadeIn">
-          <div class="cc-nothing-message">You haven't selected any courses</div>
-        </div>
-        {{/if}}
       </div>
       <!-- Bottom Content -->
       <div class="card-content-bottom">
