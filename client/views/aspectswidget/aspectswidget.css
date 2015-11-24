@@ -13,6 +13,8 @@
   align-items: center;
   flex-direction: row;
   align-content:  center;
+  height: 140px;
+  position: relative;
 }
 
 .aspects-list {
@@ -27,6 +29,9 @@
   display: flex;
   flex-direction: row;
   margin-top:  5px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 15px;
 }
 
 .aspect-bullet {
@@ -46,6 +51,10 @@
   margin-left: 5px;
 }
 
+.aspect-text:hover {
+  opcaity: 0.5;
+}
+
 /* Title */
 .aspects-content .title-aspects {
   font-size: 20px;
@@ -54,8 +63,13 @@
 
 /* Bar */
 .aspects-bar {
-  display:  flex;
-  position: relative;
+  position: absolute;
+  width: 20px;
+  height:140px;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, #273238 0%, #273238 20%, #475a64 20%, #475a64 40%, #637d8b 40%, #637d8b 60%, #92a4ae 60%, #92a4ae 80%, #eceff1 80%, #eceff1 99%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e74c3c', endColorstr='#25a085',GradientType=1 );
+  left: -20px;
 }
 
 .bar-tray {

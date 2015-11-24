@@ -51,7 +51,7 @@
 
 #area {
   overflow: inherit !important;
-  fill: #D9AEBF !important;
+  fill: rgba(178, 93, 126, 0.5) !important;
 }
 
 .hc-svg-container {
