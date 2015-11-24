@@ -63,7 +63,7 @@
 
 /* Bar */
 .aspects-bar {
-  display: none;
+  /*display: none;*/
   position: absolute;
   width: 20px;
   height:140px;

@@ -93,10 +93,13 @@ iron-icon:hover {
   transform: scale(1.2);
 }
 
+paper-checkbox {
+  font-size: 13px !important;
+}
+
 paper-checkbox > #checkboxLabel {
-  font-size: 14px;
+  font-size: 13px;
   color: #424242;
-  opacity: 0.6;
 }
 
 paper-slider {

@@ -17,11 +17,9 @@ Template.historicalcard.events({
     }
   },
   "click .hc-toggle": function(event,template) {
-    var time = 300;
     if(template.$(".hc-toggle").attr("checked")){
       Session.set("hc-toggle",true);
-      template.$(".hc-card-content").fadeOut(time,function(){
-        template.$(".hc-card-content").fadeIn(time);
+      setTimeout(function() {
         $("#selector").ionRangeSlider({
           type: 'double ',
           min: 1999,
@@ -79,19 +77,17 @@ Template.historicalcard.events({
         .attr("width",width)
         .attr("height",height)
         .insert("g")
-        .attr("transform", "translate(" + 0 + "," + 0 + ")");
+        .attr("transform", "translate(0,0)")
+        .attr("class", "animated flipInX");
 
         svg.append("path")
         .datum(data)
         .attr("class", "area")
         .attr("d", area);
 
-      });
+      },250);
     } else {
       Session.set("hc-toggle",false);
-      template.$(".hc-card-content").fadeOut(function(){
-        template.$(".hc-card-content").fadeIn(time);
-      });
     }
   },
   "change .hc-paper-slider": function(event,template) {

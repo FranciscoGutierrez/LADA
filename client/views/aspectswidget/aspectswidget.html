@@ -16,12 +16,24 @@
           <div class="aspect-text">Students Grades</div>
           <paper-ripple></paper-ripple>
         </div>
+        {{else}}
+        <div class="aspect grades-aspect animated fadeIn">
+          <div class="aspect-bullet" style="opacity: 0.15">2</div>
+          <div class="aspect-text"   style="opacity: 0.15">Students Grades</div>
+          <paper-ripple></paper-ripple>
+        </div>
         {{/if}}
 
         {{#if historyOn}}
         <div class="aspect history-aspect animated fadeIn">
           <div class="aspect-bullet">3</div>
           <div class="aspect-text">Historical Data</div>
+          <paper-ripple></paper-ripple>
+        </div>
+        {{else}}
+        <div class="aspect history-aspect animated fadeIn">
+          <div class="aspect-bullet" style="opacity: 0.15">3</div>
+          <div class="aspect-text"   style="opacity: 0.15">Historical Data</div>
           <paper-ripple></paper-ripple>
         </div>
         {{/if}}
