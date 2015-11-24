@@ -70,9 +70,8 @@ Template.coursescard.events({
     parent.find(".cc-squares").css("background","#EEEEEE");
     parent.find(".cc-meta").css("background","#EEEEEE");
 
-    $("."+this._id+"").css("stroke","rgba(66, 66, 66, 0.5)");
+    $("."+this._id+"").css("stroke","rgba(66, 66, 66, 0.45)");
     $("."+this._id+"").insertAfter();
-    $("."+this._id+"").css("z-index","1000");
     Session.set("selected-course",this._id);
   },
   "change .cc-paper-slider": function(event,template) {

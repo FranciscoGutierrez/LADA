@@ -14,9 +14,9 @@ Template.gradescard.events({
   "click .best-grades": function(event,template){
     var id = template.$(".sg-excellent").attr('class').split(' ')[0];
     if(template.$(".best-grades").attr("checked")){
-      template.$(".sg-excellent").attr("class",id + "sg-excellent animated fadeInLeft");
+      template.$(".sg-excellent").attr("class",id + " sg-excellent animated fadeInLeft");
     } else {
-      template.$(".sg-excellent").attr("class",id + "sg-excellent animated fadeOutLeft");
+      template.$(".sg-excellent").attr("class",id + " sg-excellent animated fadeOutLeft");
     }
   },
   "click .bad-grades": function(event,template){

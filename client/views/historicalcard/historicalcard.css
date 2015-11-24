@@ -44,3 +44,32 @@
 .irs-from:after, .irs-to:after, .irs-single:after {
   border-top-color: #b25d7e !important;
 }
+
+.irs-from, .irs-to, .irs-single {
+  background: #b25d7e !important;
+}
+
+#area {
+  overflow: inherit !important;
+  fill: #D9AEBF !important;
+}
+
+.hc-svg-container {
+  height: 135px;
+  display: flex;
+  justify-content: center;
+}
+
+.irs-min, .irs-max {
+  visibility: hidden !important;
+}
+
+.hc-vertical-axis-title {
+  height: 85%;
+  width: 5px;
+  position: absolute;
+  /*border-left: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;*/
+  left: 0;
+  transform: rotate(-90deg);
+}

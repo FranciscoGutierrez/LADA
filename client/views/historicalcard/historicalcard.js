@@ -30,6 +30,62 @@ Template.historicalcard.events({
           grid: true,
           grid_snap: true
         });
+
+        var data = [
+          { x: 0,  y: 30, },
+          { x: 1,  y: 35, },
+          { x: 2,  y: 35, },
+          { x: 3,  y: 40, },
+          { x: 4,  y: 40, },
+          { x: 5,  y: 35, },
+          { x: 6,  y: 35, },
+          { x: 7,  y: 30, },
+          { x: 8,  y: 30, },
+          { x: 9,  y: 35, },
+          { x: 10, y: 35, },
+          { x: 11, y: 40, },
+          { x: 12, y: 40, },
+          { x: 13, y: 40, },
+          { x: 14, y: 40, },
+          { x: 15, y: 40, },
+        ];
+
+        var margin = {top: 20, right: 20, bottom: 30, left: 50},
+        width  = 335,
+        height = 170;
+
+        var x = d3.scale.linear()
+        .domain([0, d3.max(data, function(d) { return d.x; })])
+        .range([0, width]);
+
+        var y = d3.scale.linear()
+        .domain([0, d3.max(data, function(d) { return d.y; })])
+        .range([height, 0]);
+
+        var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("bottom");
+
+        var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left");
+
+        var area = d3.svg.area()
+        .x(function(d) { return x(d.x); })
+        .y0(height)
+        .y1(function(d) { return y(d.y); });
+
+        var svg = d3.select("svg#area")
+        .attr("width",width)
+        .attr("height",height)
+        .insert("g")
+        .attr("transform", "translate(" + 0 + "," + 0 + ")");
+
+        svg.append("path")
+        .datum(data)
+        .attr("class", "area")
+        .attr("d", area);
+
       });
     } else {
       Session.set("hc-toggle",false);
@@ -45,8 +101,8 @@ Template.historicalcard.events({
   "click" : function(event, template) {
     var slider = $("#selector").data("ionRangeSlider");
     if (slider) {
-    console.log(slider.result.from);
-    console.log(slider.result.to);
+      console.log(slider.result.from);
+      console.log(slider.result.to);
     }
   }
 });
@@ -59,7 +115,4 @@ Template.historicalcard.helpers({
   }
 });
 
-Template.historicalcard.rendered = function () {
-
-
-};
+Template.historicalcard.rendered = function () { };
