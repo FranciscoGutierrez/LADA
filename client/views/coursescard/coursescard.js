@@ -55,10 +55,16 @@ Template.coursescard.events({
     }
   },
   "click .remove-selected-course": function(event,template) {
+    var id = this._id;
     $(event.target).parent().fadeOut('slow', function (){
+      var a = Session.get("courses");
+      for(var i = a.length; i--;) {
+        if(a[i] === id) {
+          a.splice(i, 1);
+        }
+      }
+      Session.set("courses",a);
       $(this).remove();
-      var m = Session.get("courses");
-      Session.set("courses", "");
     });
   },
   "click .cc-squares, click .cc-meta": function(event,template) {

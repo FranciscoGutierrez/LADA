@@ -55,12 +55,12 @@ Template.gradescard.events({
     if(template.$(".gc-toggle").attr("checked")){
       Session.set("gc-toggle",true);
       template.$(".gc-card-content").fadeOut(time,function(){
-        template.$(".gc-card-content").css("order","1").fadeIn(time);
+        template.$(".gc-card-content").fadeIn(time);
       });
     } else {
       Session.set("gc-toggle",false);
       template.$(".gc-card-content").fadeOut(function(){
-        template.$(".gc-card-content").css("order","2").fadeIn(time);
+        template.$(".gc-card-content").fadeIn(time);
       });
     }
   },

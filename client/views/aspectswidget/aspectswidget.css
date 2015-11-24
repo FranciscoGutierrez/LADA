@@ -20,7 +20,7 @@
 .aspects-list {
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
+  align-self: center;
   font-size: 12px;
   z-index: 1;
 }
@@ -63,6 +63,7 @@
 
 /* Bar */
 .aspects-bar {
+  display: none;
   position: absolute;
   width: 20px;
   height:140px;

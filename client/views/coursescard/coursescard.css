@@ -8,6 +8,7 @@
   position: relative;
   display:  flex;
   flex-flow:row;
+  margin-bottom: 14px;
 }
 
 .card-content-top-text {
@@ -88,6 +89,7 @@ paper-toggle-button > .toggle-label {
   background: #fafafa;
   border-radius: 2px;
   font-size: 12px;
+  height: 44px;
 }
 
 .course-details {

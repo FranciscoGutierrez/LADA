@@ -21,7 +21,7 @@ Template.historicalcard.events({
     if(template.$(".hc-toggle").attr("checked")){
       Session.set("hc-toggle",true);
       template.$(".hc-card-content").fadeOut(time,function(){
-        template.$(".hc-card-content").css("order","1").fadeIn(time);
+        template.$(".hc-card-content").fadeIn(time);
         $("#selector").ionRangeSlider({
           type: 'double ',
           min: 1999,
@@ -90,7 +90,7 @@ Template.historicalcard.events({
     } else {
       Session.set("hc-toggle",false);
       template.$(".hc-card-content").fadeOut(function(){
-        template.$(".hc-card-content").css("order","2").fadeIn(time);
+        template.$(".hc-card-content").fadeIn(time);
       });
     }
   },
@@ -101,8 +101,8 @@ Template.historicalcard.events({
   "click" : function(event, template) {
     var slider = $("#selector").data("ionRangeSlider");
     if (slider) {
-      console.log(slider.result.from);
-      console.log(slider.result.to);
+      // console.log(slider.result.from);
+      // console.log(slider.result.to);
     }
   }
 });
