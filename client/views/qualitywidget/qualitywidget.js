@@ -1,5 +1,6 @@
-Template.quality.helpers({
+Template.qualitywidget.helpers({
   quality: function() {
-    return Math.round(Session.get("qualityValue")*100);;
+    Session.get("riskValue");
+    return Math.round(Math.random() * (100 - 0) + 0);
   }
 });

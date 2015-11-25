@@ -1,7 +1,10 @@
 <template name="qualitywidget">
   <div class="quality-content">
     <div class="quality-content-viz">
-        <progress-bubble value="{{risk}}"><strong>{{risk}}</strong></progress-bubble>
+      <progress-bubble class="quality-bubble" value="{{quality}}" max="100">
+        <div class="progress-title">{{quality}}</div>
+        <div class="progress-subtitle">Cases</div>
+      </progress-bubble>
     </div>
     <div class="widget-title">
       <div class="widget-title-text">Prediction Quality</div>

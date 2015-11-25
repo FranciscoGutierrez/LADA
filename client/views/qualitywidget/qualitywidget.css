@@ -18,30 +18,42 @@
   width:  140px;
 }
 
-.quality-content-viz .progress-meter text{
+.progress-title {
+  font-weight: bold;
+  font-size: 42px;
   font-family: 'Roboto', Helvetica, Arial;
-  font-size: 54px;
-  font-weight: 100;
   color: #424242;
 }
 
-.quality-content-viz .progress-meter  .subtext-quality {
-  font-family: 'Roboto', Helvetica, Arial;
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.widget-subtitle {
+.progress-subtitle {
   position: relative;
   display: flex;
   font-family: 'Roboto', Helvetica, Arial;
-  font-size: 16px;
+  font-size: 14px;
   color: #9F9F9F;
 }
 
-.quality-knob {
-  color:  #424242  !important;
-  font-size: 58px  !important;
-  margin-top:30px  !important;
-  height: auto !important;
+
+.quality-bubble #svgCircle {
+  stroke: #617d8a    !important;
+  stroke-width: 12px !important;
+  transition: stroke-dashoffset 1200ms;
+}
+
+.quality-bubble #bgCircle {
+  stroke: #eceff1 !important;
+  stroke-width: 14px !important;
+}
+
+#progressArc {
+  overflow: inherit;
+}
+
+.quality-bubble {
+  background: none !important;
+  color:  #424242;
+  width:  120px;
+  height: 120px;
+  text-shadow: none;
+  font-size:   42px;
 }

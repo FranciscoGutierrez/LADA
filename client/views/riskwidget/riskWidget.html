@@ -1,8 +1,11 @@
 <template name="riskwidget">
   <div class="risk-content">
     <div class="risk-content-viz">
-      <!-- <input class="risk-knob" value="{{risk}}" data-bgColor="#eceff1" data-fgColor="#f0c336" data-width="140" data-thickness=".2" data-readOnly=true data-linecap="round"> -->
-      <progress-bubble value="{{risk}}"><strong>{{risk}}</strong></progress-bubble>
+      <progress-bubble class="risk-bubble" value="{{risk}}">
+        <div class="progress-title">{{risk}}</div>
+        <div class="progress-subtitle">{{riskText}}</div>
+        <div style="display: none">{{riskColor}}</div>
+      </progress-bubble>
     </div>
     <div class="widget-title">
       <div class="widget-title-text">Chance of Success</div>
