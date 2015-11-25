@@ -1,7 +1,7 @@
 <template name="qualitywidget">
   <div class="quality-content">
     <div class="quality-content-viz">
-        <input class="quality-knob" value="0" data-bgColor="#eceff1" data-width="140" data-thickness=".2" data-readOnly=true data-linecap="round" data-fgcolor="#617d8a" style="color: #424242;">
+        <progress-bubble value="{{risk}}"><strong>{{risk}}</strong></progress-bubble>
     </div>
     <div class="widget-title">
       <div class="widget-title-text">Prediction Quality</div>

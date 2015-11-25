@@ -55,16 +55,41 @@
   opacity: 0.95;
 }
 
-.risk-knob {
-  color:  #424242  !important;
-  font-size: 58px  !important;
-  margin-top:30px  !important;
-  height: auto !important;
+.toolbar-tools.paper-toolbar {
+  position: relative;
+  height: 100px;
+  /* padding: 0 16px; */
+  pointer-events: none;
 }
 
-.toolbar-tools.paper-toolbar {
-    position: relative;
-    height: 100px;
-    /* padding: 0 16px; */
-    pointer-events: none;
+
+
+.progress-bubble-0 #svgCircle.progress-bubble {
+  stroke: #617d8a;
+  stroke-width: 12px;
+}
+
+#svgCircle.progress-bubble {
+  transition: stroke-dashoffset 1200ms;
+}
+
+.progress-bubble-0 #bgCircle.progress-bubble {
+  stroke: rgb(236, 239, 241);
+  stroke-width: 14px;
+}
+
+progress-bubble.progress-bubble-0 {
+  background: none;
+}
+
+progress-bubble #progressArc {
+  overflow: inherit;
+}
+
+progress-bubble {
+  text-shadow: none;
+  color: #424242;
+  width: 120px;
+  height: 120px;
+  font-size: 42px;
 }
