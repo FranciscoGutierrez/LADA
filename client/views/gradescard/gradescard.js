@@ -67,6 +67,13 @@ Template.gradescard.events({
   "change .gc-paper-slider": function(event,template) {
     var n = template.$(".gc-paper-slider").attr("value");
     Session.set("gc-compliance", n);
+    Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
+    if(n==5) template.$(".gradescard-paper").css("opacity","1");
+    if(n==4) template.$(".gradescard-paper").css("opacity","0.85");
+    if(n==3) template.$(".gradescard-paper").css("opacity","0.75");
+    if(n==2) template.$(".gradescard-paper").css("opacity","0.65");
+    if(n==1) template.$(".gradescard-paper").css("opacity","0.55");
+    if(n==0) template.$(".gradescard-paper").css("opacity","0.45");
   }
 });
 

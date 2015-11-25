@@ -68,22 +68,28 @@ Template.coursescard.events({
     });
   },
   "click .cc-squares, click .cc-meta": function(event,template) {
-    $("circle").css("stroke","none");
-    $("circle").css("z-index","0");
+    $(".gradescard-paper").find("circle").css("stroke","none");
     var parent = $(event.target).parents(".cc-course");
     template.$(".cc-squares").css("background","#fafafa");
     template.$(".cc-meta").css("background","#fafafa");
     parent.find(".cc-squares").css("background","#EEEEEE");
     parent.find(".cc-meta").css("background","#EEEEEE");
 
-    $("."+this._id+"").css("stroke","rgba(66, 66, 66, 0.45)");
+    $("."+this._id+"").css("fill-opacity","0.6");
     $("."+this._id+"").insertAfter();
     Session.set("selected-course",this._id);
   },
   "change .cc-paper-slider": function(event,template) {
     var n = template.$(".cc-paper-slider").attr("value");
-    Session.set("cc-compliance", n);
 
+    if(n==5) template.$(".coursescard-paper").css("opacity","1");
+    if(n==4) template.$(".coursescard-paper").css("opacity","0.85");
+    if(n==3) template.$(".coursescard-paper").css("opacity","0.75");
+    if(n==2) template.$(".coursescard-paper").css("opacity","0.65");
+    if(n==1) template.$(".coursescard-paper").css("opacity","0.55");
+    if(n==0) template.$(".coursescard-paper").css("opacity","0.45");
+
+    Session.set("cc-compliance", n);
     Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
   }
 });

@@ -37,7 +37,7 @@
 .quality-bubble #svgCircle {
   stroke: #617d8a    !important;
   stroke-width: 12px !important;
-  transition: stroke-dashoffset 1200ms;
+  transition: stroke-dashoffset 2000ms;
 }
 
 .quality-bubble #bgCircle {

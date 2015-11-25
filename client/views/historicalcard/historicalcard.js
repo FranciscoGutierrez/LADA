@@ -93,6 +93,13 @@ Template.historicalcard.events({
   "change .hc-paper-slider": function(event,template) {
     var n = template.$(".hc-paper-slider").attr("value");
     Session.set("hc-compliance", n);
+    Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
+    if(n==5) template.$(".historicalcard-paper").css("opacity","1");
+    if(n==4) template.$(".historicalcard-paper").css("opacity","0.85");
+    if(n==3) template.$(".historicalcard-paper").css("opacity","0.75");
+    if(n==2) template.$(".historicalcard-paper").css("opacity","0.65");
+    if(n==1) template.$(".historicalcard-paper").css("opacity","0.55");
+    if(n==0) template.$(".historicalcard-paper").css("opacity","0.45");
   },
   "click" : function(event, template) {
     var slider = $("#selector").data("ionRangeSlider");
