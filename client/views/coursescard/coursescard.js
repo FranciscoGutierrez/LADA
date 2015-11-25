@@ -83,6 +83,8 @@ Template.coursescard.events({
   "change .cc-paper-slider": function(event,template) {
     var n = template.$(".cc-paper-slider").attr("value");
     Session.set("cc-compliance", n);
+
+    Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
   }
 });
 

@@ -3,3 +3,5 @@ Template.topribbon.helpers({
     return Session.get("student");
   }
 });
+
+Template.topribbon.rendered = function(){};

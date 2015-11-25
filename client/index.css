@@ -105,3 +105,13 @@ paper-checkbox > #checkboxLabel {
 paper-slider {
   width: 100%;
 }
+
+.card-content-control0 {
+  height: 82px;
+}
+
+.card-content-columns div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
