@@ -63,7 +63,7 @@
 }
 
 .risk-bubble #svgCircle {
-  /*stroke: #617d8a    !important;*/
+  /*stroke: #eceff1 !important;*/
   stroke-width: 12px !important;
   transition: stroke-dashoffset 2000ms;
 }

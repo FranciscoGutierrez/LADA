@@ -42,7 +42,6 @@ Template.coursescard.events({
   "click .result-course": function(event,template) {
     var course = this;
     var courses = _.uniq(Session.get('courses'));
-
     if(courses.length < 7) {
       courses = _.extend([], courses);
       courses.push(course._id);
@@ -68,27 +67,29 @@ Template.coursescard.events({
     });
   },
   "click .cc-squares, click .cc-meta": function(event,template) {
+    var id = this._id;
+    $(".gradescard-paper").find("circle").css("fill-opacity","0.15");
     $(".gradescard-paper").find("circle").css("stroke","none");
+
+    $("."+ id).css("fill-opacity","1");
+    $(".sg-this").css("fill-opacity","1");
+    $("."+id).css("stroke","#ececec");
+
     var parent = $(event.target).parents(".cc-course");
     template.$(".cc-squares").css("background","#fafafa");
     template.$(".cc-meta").css("background","#fafafa");
     parent.find(".cc-squares").css("background","#EEEEEE");
     parent.find(".cc-meta").css("background","#EEEEEE");
-
-    $("."+this._id+"").css("fill-opacity","0.6");
-    $("."+this._id+"").insertAfter();
-    Session.set("selected-course",this._id);
+    Session.set("selected-course",id);
   },
   "change .cc-paper-slider": function(event,template) {
     var n = template.$(".cc-paper-slider").attr("value");
-
     if(n==5) template.$(".coursescard-paper").css("opacity","1");
     if(n==4) template.$(".coursescard-paper").css("opacity","0.85");
     if(n==3) template.$(".coursescard-paper").css("opacity","0.75");
     if(n==2) template.$(".coursescard-paper").css("opacity","0.65");
     if(n==1) template.$(".coursescard-paper").css("opacity","0.55");
     if(n==0) template.$(".coursescard-paper").css("opacity","0.45");
-
     Session.set("cc-compliance", n);
     Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
   }

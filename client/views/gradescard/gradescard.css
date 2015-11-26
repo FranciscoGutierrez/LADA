@@ -90,3 +90,7 @@
 .gc-card-content {
   order: 2
 }
+
+circle {
+  stroke-width: 0.3;
+}
