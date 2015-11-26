@@ -1,6 +1,8 @@
 .card-content-middle {
   height: 200px;
   position: relative;
+  justify-content: center;
+  display: flex;
 }
 
 .card-content-bottom {
@@ -30,7 +32,7 @@
 }
 
 .irs-bar {
-  background: #b25d7e !important;
+  background: #BA728E !important;
 }
 
 .irs-from {
@@ -72,4 +74,14 @@
   border-top: 1px solid #e0e0e0;*/
   left: 0;
   transform: rotate(-90deg);
+}
+
+.irs-slider {
+  width:  18px !important;
+  height: 18px !important;
+  top:    22px !important;
+  background-position: 0 -120px !important;
+  background: #B25D7E !important;
+  border-radius: 50% !important;
+  box-shadow: 2px 2px 5px 0px rgba(66,66,66,0.5) !important;
 }

@@ -37,9 +37,11 @@ paper-header-panel{
 paper-material {
   height:    450px;
   min-width: 350px;
-  max-width: 350px;
+  max-width: 650px;
   margin:    9px;
   background-color: #fff;
+  justify-content: center;
+  flex: 1;
 }
 
 paper-toolbar {

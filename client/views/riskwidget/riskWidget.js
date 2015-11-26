@@ -31,5 +31,5 @@ Template.riskwidget.rendered = function () {
     if (risk >= 0.4) $("#svgCircle").css("stroke","#f1c40f");
     if (risk >= 0.6) $("#svgCircle").css("stroke","#27ae60");
     if (risk >= 0.8) $("#svgCircle").css("stroke","#25a085");
-  },1000);
+  },1300);
 };

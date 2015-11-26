@@ -1,7 +1,8 @@
 
 .chart-content {
   min-width: 350px;
-  max-width: 350px;
+  /*max-width: 350px;*/
+  width: 100%;
 }
 .card-content-top {
   width: 100%;
