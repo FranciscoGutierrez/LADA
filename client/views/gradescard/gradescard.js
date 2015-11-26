@@ -54,14 +54,10 @@ Template.gradescard.events({
     var time = 300;
     if(template.$(".gc-toggle").attr("checked")){
       Session.set("gc-toggle",true);
-      // template.$(".gc-card-content").fadeOut(time,function(){
-      //   template.$(".gc-card-content").fadeIn(time);
-      // });
     } else {
       Session.set("gc-toggle",false);
-      // template.$(".gc-card-content").fadeOut(function(){
-      //   template.$(".gc-card-content").fadeIn(time);
-      // });
+      template.$(".gradescard-paper").css("opacity","1");
+      Session.set("gc-compliance", 5);
     }
   },
   "change .gc-paper-slider": function(event,template) {

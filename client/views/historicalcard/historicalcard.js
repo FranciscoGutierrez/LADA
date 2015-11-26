@@ -30,24 +30,23 @@ Template.historicalcard.events({
         });
 
         var data = [
-          { x: 0,  y: 30, },
-          { x: 1,  y: 35, },
-          { x: 2,  y: 35, },
-          { x: 3,  y: 40, },
-          { x: 4,  y: 40, },
-          { x: 5,  y: 35, },
-          { x: 6,  y: 35, },
-          { x: 7,  y: 30, },
-          { x: 8,  y: 30, },
-          { x: 9,  y: 35, },
-          { x: 10, y: 35, },
-          { x: 11, y: 40, },
-          { x: 12, y: 40, },
-          { x: 13, y: 40, },
-          { x: 14, y: 40, },
-          { x: 15, y: 40, },
+          { x: 0,  y: 8, },
+          { x: 1,  y: 9, },
+          { x: 2,  y: 9, },
+          { x: 3,  y: 10, },
+          { x: 4,  y: 10, },
+          { x: 5,  y: 9, },
+          { x: 6,  y: 9, },
+          { x: 7,  y: 8, },
+          { x: 8,  y: 8, },
+          { x: 9,  y: 9, },
+          { x: 10, y: 9, },
+          { x: 11, y: 8, },
+          { x: 12, y: 8, },
+          { x: 13, y: 10, },
+          { x: 14, y: 10, },
+          { x: 15, y: 10, },
         ];
-
         var margin = {top: 20, right: 20, bottom: 30, left: 50},
         width  = 335,
         height = 170;
@@ -88,6 +87,8 @@ Template.historicalcard.events({
       },250);
     } else {
       Session.set("hc-toggle",false);
+      template.$(".historicalcard-paper").css("opacity","1");
+      Session.set("hc-compliance", 5);
     }
   },
   "change .hc-paper-slider": function(event,template) {
@@ -131,22 +132,22 @@ Template.historicalcard.rendered = function () {
     });
 
     var data = [
-      { x: 0,  y: 30, },
-      { x: 1,  y: 35, },
-      { x: 2,  y: 35, },
-      { x: 3,  y: 40, },
-      { x: 4,  y: 40, },
-      { x: 5,  y: 35, },
-      { x: 6,  y: 35, },
-      { x: 7,  y: 30, },
-      { x: 8,  y: 30, },
-      { x: 9,  y: 35, },
-      { x: 10, y: 35, },
-      { x: 11, y: 40, },
-      { x: 12, y: 40, },
-      { x: 13, y: 40, },
-      { x: 14, y: 40, },
-      { x: 15, y: 40, },
+      { x: 0,  y: 8, },
+      { x: 1,  y: 9, },
+      { x: 2,  y: 9, },
+      { x: 3,  y: 10, },
+      { x: 4,  y: 10, },
+      { x: 5,  y: 9, },
+      { x: 6,  y: 9, },
+      { x: 7,  y: 8, },
+      { x: 8,  y: 8, },
+      { x: 9,  y: 9, },
+      { x: 10, y: 9, },
+      { x: 11, y: 8, },
+      { x: 12, y: 8, },
+      { x: 13, y: 10, },
+      { x: 14, y: 10, },
+      { x: 15, y: 10, },
     ];
 
     var margin = {top: 20, right: 20, bottom: 30, left: 50},
