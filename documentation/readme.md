@@ -1,5 +1,5 @@
 # Documentation
-The following are useful scripts for the development/deployment of the visualization.
+The following are useful scripts for the development/deployment of the dashboard.
 
 ## Dealing with database
 
