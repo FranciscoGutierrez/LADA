@@ -1,7 +1,6 @@
 /*
  * Event Handling:
  */
-
 Template.gradescard.events({
   "click .good-grades": function(event,template){
     var id = template.$(".sg-good").attr("class").split(" ")[0];

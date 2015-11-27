@@ -1,4 +1,7 @@
 # Documentation
+
+<img src="http://s19.postimg.org/grpra8jv7/Screen_Shot_2015_11_27_at_12_59_20_PM.png">
+
 The following are useful scripts for the development/deployment of the dashboard.
 
 ## Dealing with database
