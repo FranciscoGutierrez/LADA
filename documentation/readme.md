@@ -1,7 +1,5 @@
 # Documentation
 
-<img src="http://s19.postimg.org/g3gwral5f/arq1.png">
-
 The following are useful scripts for the development/deployment of the dashboard.
 
 ## Dealing with database
@@ -99,3 +97,7 @@ Clients use **WebSocket** as communication channel with the prediction server, w
 ```
 
 To change the prediction server **URL** there is a special file named **websocket.js** at the client folder.
+
+## Architecture Overview
+
+<img src="http://s19.postimg.org/g3gwral5f/arq1.png">
