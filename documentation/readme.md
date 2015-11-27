@@ -12,7 +12,7 @@ db.courses.find()
 meteor reset
 ```
 ## Import Data
-Basic mongoimport command.
+Basic **mongoimport** command.
 ``` Bash
 mongoimport --db meteor --collection courses --file courses.json --host=127.0.0.1:3001
 ```
@@ -47,7 +47,7 @@ jsonfile.write(converter.doConvert(pretty=False))
 
 ## Communication
 
-Clients use Websocket as communication channel with the prediction server, when asking for a prediction the client uses the following format:
+Clients use **WebSocket** as communication channel with the prediction server, when asking for a prediction the client uses the following format:
 
 ```json
 [
