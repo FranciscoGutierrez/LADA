@@ -11,7 +11,7 @@ In particular, for our case of study (*Academic Risk based on Historical Data)*.
 
 <img src="http://s19.postimg.org/amw859i1f/sc1.png">
 
-## Deployment
+## How to
 
 Be sure to install meteor.js and npm in your machine, then simply:
 ```bash
