@@ -19,3 +19,5 @@ git clone https://github.com/FranciscoGutierrez/uncertaintyDashboard.git
 cd uncertaintyDashboard
 meteor
 ```
+
+For further details, please head to doc folder. :)
