@@ -95,4 +95,4 @@ Clients use Websocket as communication channel with the prediction server, when 
 
 ```
 
-To change the prediction server URL there is a special file named websocket.js at the client folder.
+To change the prediction server **URL** there is a special file named **websocket.js** at the client folder.
