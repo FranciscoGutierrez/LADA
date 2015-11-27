@@ -32,15 +32,32 @@
 }
 
 .irs-bar {
-  background: #BA728E !important;
+  background: rgba(173,173,173,0.36) !important;
+  height: 171px !important;
+  top:   -135px !important;
+  border-radius: 8px !important;
+  padding-left:  1px !important;
 }
 
 .irs-from {
-  background: #b25d7e !important;
+  background: #D9AEBF !important;
 }
 
 .irs-to {
-  background: #b25d7e !important;
+  background: #D9AEBF !important;
+}
+
+.irs-line {
+  overflow: visible !important;
+}
+
+.irs-line-mid {
+  left: -7px   !important;
+  width: 365px !important;
+  background: #D9AEBF !important;
+  position:  absolute !important;
+  border-radius: 5px  !important;
+  overflow: visible   !important;
 }
 
 .irs-from:after, .irs-to:after, .irs-single:after {
@@ -49,11 +66,12 @@
 
 .irs-from, .irs-to, .irs-single {
   background: #b25d7e !important;
+  z-index: 1 !important;
 }
 
 #area {
   overflow: inherit !important;
-  fill: rgba(178, 93, 126, 0.5) !important;
+  fill: rgba(128, 125, 126, 0.22) !important;
 }
 
 .hc-svg-container {
@@ -67,12 +85,10 @@
 }
 
 .hc-vertical-axis-title {
-  height: 85%;
-  width: 5px;
-  position: absolute;
-  /*border-left: 1px solid #e0e0e0;
-  border-top: 1px solid #e0e0e0;*/
   left: 0;
+  height: 85%;
+  width:  5px;
+  position:  absolute;
   transform: rotate(-90deg);
 }
 
@@ -80,8 +96,12 @@
   width:  18px !important;
   height: 18px !important;
   top:    22px !important;
-  background-position: 0 -120px !important;
   background: #B25D7E !important;
-  border-radius: 50% !important;
+  border-radius: 50%  !important;
+  background-position: 0 -120px !important;
   box-shadow: 2px 2px 5px 0px rgba(66,66,66,0.5) !important;
+}
+
+.irs-line-right {
+  display: none !important;
 }

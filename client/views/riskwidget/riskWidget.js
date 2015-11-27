@@ -20,6 +20,10 @@ Template.riskwidget.helpers({
     if (risk >= 0.6) $("#svgCircle").css("stroke","#27ae60");
     if (risk >= 0.8) $("#svgCircle").css("stroke","#25a085");
     return risk;
+  },
+  riskKnob: function() {
+    var risk = Session.get("riskValue");
+    return (Math.round(Session.get("riskValue")*100) * 2)-12;
   }
 });
 

@@ -102,9 +102,10 @@ Template.historicalcard.events({
     if(n==1) template.$(".historicalcard-paper").css("opacity","0.55");
     if(n==0) template.$(".historicalcard-paper").css("opacity","0.45");
   },
-  "click" : function(event, template) {
+  "mouseup .from" : function(event, template) {
     var slider = $("#selector").data("ionRangeSlider");
     if (slider) {
+      Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
       // console.log(slider.result.from);
       // console.log(slider.result.to);
     }
