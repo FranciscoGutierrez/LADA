@@ -45,7 +45,7 @@ print converter.doConvert(pretty=False)
 jsonfile.write(converter.doConvert(pretty=False))
 ```
 
-## Communitcation
+## Communication
 
 Clients use Websocket as communication channel with the prediction server, when requesting a prediction the client uses this format:
 
