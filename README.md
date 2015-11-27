@@ -13,7 +13,7 @@ In particular, for our case of study (*Academic Risk based on Historical Data)*.
 
 ## How to
 
-Be sure to install meteor.js and npm in your machine, then simply:
+Be sure to install [meteor.js](https://www.meteor.com/install) in your machine, then simply:
 ```bash
 git clone https://github.com/FranciscoGutierrez/uncertaintyDashboard.git
 cd uncertaintyDashboard
