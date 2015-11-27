@@ -5,6 +5,7 @@
   align-items: flex-end;
   justify-content: center;
   position: relative;
+  max-width: 400px;
 }
 .cc-nothing {
   display: flex;
@@ -68,6 +69,7 @@
   margin-right: 2px;
   background: #e0e0e0;
   left: 0;
+  z-index: 1;
 }
 
 .cc-vline {

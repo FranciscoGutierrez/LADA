@@ -18,6 +18,7 @@
 
 .card-content-columns {
   display: flex;
+  justify-content: space-around;
 }
 
 .card-fullscreen-icon {

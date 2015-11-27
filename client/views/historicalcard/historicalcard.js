@@ -26,7 +26,12 @@ Template.historicalcard.events({
           max: 2013,
           step: 1,
           grid: true,
-          grid_snap: true
+          grid_snap: true,
+          onChange: function(data) {
+            Session.set("data-from",data.from);
+            Session.set("data-to",data.to);
+            Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
+          }
         });
 
         var data = [
@@ -101,14 +106,6 @@ Template.historicalcard.events({
     if(n==2) template.$(".historicalcard-paper").css("opacity","0.65");
     if(n==1) template.$(".historicalcard-paper").css("opacity","0.55");
     if(n==0) template.$(".historicalcard-paper").css("opacity","0.45");
-  },
-  "mouseup .from" : function(event, template) {
-    var slider = $("#selector").data("ionRangeSlider");
-    if (slider) {
-      Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
-      // console.log(slider.result.from);
-      // console.log(slider.result.to);
-    }
   }
 });
 
@@ -129,7 +126,12 @@ Template.historicalcard.rendered = function () {
       max: 2013,
       step: 1,
       grid: true,
-      grid_snap: true
+      grid_snap: true,
+      onChange: function(data) {
+        Session.set("data-from",data.from);
+        Session.set("data-to",data.to);
+        Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
+      }
     });
 
     var data = [
