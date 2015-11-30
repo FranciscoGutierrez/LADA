@@ -6,7 +6,7 @@ Websocket.onerror   = function(evt) { onError(evt)   };
 
 function onOpen(evt) {
   console.log("ws:online");
-  doSend('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
+  // doSend('{"requestId": "5645f7f7ef0bde57344c84de","student": [{"id": "200834711","gpa": 7.0793,"performance": 0.6,"compliance": 3}],"courses": [{"id": "ICF01099","compliance": 2},{ "id": "ICHE00877","compliance": 5},{ "id": "FIEC06460", "compliance": 5}],"data": [{"from": 2009,"to": 2015,"program": true,"sylabus": true,"evaluation": false,"instructors": true,"compliance": 2}]}');
 }
 
 function onClose(evt) {
@@ -15,8 +15,11 @@ function onClose(evt) {
 
 function onMessage(evt) {
   var r = Math.random() * (1 - 0) + 0;
-  console.log("ws:recieved: " + r);
-  Session.set("riskValue",r);
+  var recieved = JSON.parse(evt.data);
+
+  Session.set("riskValue",recieved.risk);
+  Session.set("qualityValue",recieved.quality);
+
   return r;
 }
 

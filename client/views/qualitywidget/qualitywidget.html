@@ -2,14 +2,18 @@
   <div class="quality-content">
     <div class="quality-content-viz">
       <progress-bubble class="quality-bubble" value="{{quality}}" max="100">
-        <div class="progress-title">{{quality}}</div>
-        <div class="progress-subtitle">Cases</div>
+        {{#if quality}}
+        <div class="progress-title">{{quality}}<div style="font-size: 15px; display:inline; color:#c6c6c6;">%</div></div>
+        <div class="progress-subtitle">{{qualityText}}</div>
+        {{else}}
+        <div class="progress-title">0</div>
+        {{/if}}
       </progress-bubble>
     </div>
     <div class="widget-title">
       <div class="widget-title-text">Prediction Quality</div>
       <iron-icon class="widget-title-icon" icon="icons:info"></iron-icon>
     </div>
-    <div class="widget-subtitle">Trustworthy</div>
+    <!-- <div class="widget-subtitle">{{qualityText}}</div> -->
   </div>
 </template>
