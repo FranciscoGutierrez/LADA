@@ -94,26 +94,3 @@ iron-icon:hover {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
 }
-
-paper-checkbox {
-  font-size: 13px !important;
-}
-
-paper-checkbox > #checkboxLabel {
-  font-size: 13px;
-  color: #424242;
-}
-
-paper-slider {
-  width: 100%;
-}
-
-.card-content-control0 {
-  height: 82px;
-}
-c
-.card-content-columns div {
-  display: flex;
-  /*flex: 1;*/
-  flex-direction: column;
-}

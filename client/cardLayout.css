@@ -1,0 +1,27 @@
+.card-content-control0 {
+  height: 82px;
+}
+
+.card-content-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.card-content-columns {
+  display: flex;
+  justify-content: flex-start;
+}
+
+paper-checkbox {
+  font-size: 13px !important;
+}
+
+paper-checkbox > #checkboxLabel {
+  font-size: 13px;
+  color: #424242;
+}
+
+paper-slider {
+  width: 100%;
+}

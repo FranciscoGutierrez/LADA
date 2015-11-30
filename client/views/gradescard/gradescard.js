@@ -1,6 +1,6 @@
 /*
- * Event Handling:
- */
+* Event Handling:
+*/
 Template.gradescard.events({
   "click .good-grades": function(event,template){
     var id = template.$(".sg-good").attr("class").split(" ")[0];
@@ -73,15 +73,15 @@ Template.gradescard.events({
 });
 
 /*
- *  Check for courses
- */
+*  Check for courses
+*/
 Template.registerHelper('isCourse',function(input){
   return Session.get("courses");
 });
 
 /*
- * Render Data from helpers
- */
+* Render Data from helpers
+*/
 Template.gradescard.helpers({
   excellent: function () {
     var sc   = Grades.find({ gp: { $gte : "9"} }).fetch();
@@ -137,9 +137,14 @@ Template.gradescard.helpers({
     return sc;
   },
   isOn: function() {
+    $(".gc-toggle").attr("checked",Session.get("gc-toggle"));
     return Session.get("gc-toggle");
   },
   compliance: function() {
     return Session.get("gc-compliance");
   }
 });
+
+Template.gradescard.rendered = function () {
+  Session.set("gc-toggle", true);
+};

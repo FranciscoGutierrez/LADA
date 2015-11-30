@@ -119,6 +119,7 @@ Template.historicalcard.helpers({
 });
 
 Template.historicalcard.rendered = function () {
+  Session.set("hc-toggle", true);
   setTimeout(function() {
     $("#selector").ionRangeSlider({
       type: 'double ',
