@@ -30,7 +30,7 @@ Template.historicalcard.events({
           onChange: function(data) {
             Session.set("data-from",data.from);
             Session.set("data-to",data.to);
-            Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
+            // Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
           }
         });
 
@@ -99,7 +99,7 @@ Template.historicalcard.events({
   "change .hc-paper-slider": function(event,template) {
     var n = template.$(".hc-paper-slider").attr("value");
     Session.set("hc-compliance", n);
-    Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
+    // Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
     if(n==5) template.$(".historicalcard-paper").css("opacity","1");
     if(n==4) template.$(".historicalcard-paper").css("opacity","0.85");
     if(n==3) template.$(".historicalcard-paper").css("opacity","0.75");
@@ -131,7 +131,7 @@ Template.historicalcard.rendered = function () {
       onChange: function(data) {
         Session.set("data-from",data.from);
         Session.set("data-to",data.to);
-        Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
+        // Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
       }
     });
 

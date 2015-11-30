@@ -19,7 +19,6 @@
     --paper-slider-pin-color: #B25D7E;
     --paper-input-container-focus-color:  #B25D7E;
   }
-
   paper-icon-button {
     --iron-icon-fill-color: #e67c73;
     --paper-icon-button-ink-color: #e67c73;
@@ -27,25 +26,19 @@
     height: 23px;
     padding: 0px 4px;
   }
-
   progress-bubble {
     --progress-bubble-stroke-color: #f7f7f7;
   }
 
   </style>
   <script src="bower_components/ion.rangeslider/js/ion.rangeSlider.min.js"></script>
-
   <link rel="stylesheet" href="bower_components/ion.rangeslider/css/normalize.css" />
   <link rel="stylesheet" href="bower_components/ion.rangeslider/css/ion.rangeSlider.css" />
   <link rel="stylesheet" href="bower_components/ion.rangeslider/css/ion.rangeSlider.skinFlat.css" />
-
   <link href='//fonts.googleapis.com/css?family=Roboto:900,400,300,100' rel='stylesheet' type='text/css'>
-
   <link rel="import" href="bower_components/progress-bubble/progress-bubble.html">
-
   <link rel="import" href="bower_components/iron-icons/maps-icons.html">
   <link rel="import" href="bower_components/iron-icons/iron-icons.html">
-  
   <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
   <link rel="import" href="bower_components/paper-tabs/paper-tab.html">
   <link rel="import" href="bower_components/paper-input/paper-input.html">
@@ -55,7 +48,6 @@
   <link rel="import" href="bower_components/paper-drawer-panel/paper-drawer-panel.html">
   <link rel="import" href="bower_components/paper-material/paper-material.html">
   <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
-
   <link rel="import" href="bower_components/paper-badge/paper-badge.html">
   <link rel="import" href="bower_components/paper-toast/paper-toast.html">
 </head>
@@ -71,15 +63,18 @@
         {{> qualitywidget}}
         {{> aspectswidget}}
       </div>
-      <paper-tabs selected="0" class="bottom self-end" style="width: 300px;">
+      <!-- <paper-tabs selected="0" class="bottom self-end" style="width: 300px;">
         <paper-tab>CALCULATOR</paper-tab>
         <paper-tab>EXPLORER</paper-tab>
-      </paper-tabs>
+      </paper-tabs> -->
     </paper-toolbar>
     <div class="content">
       {{> coursescard}}
       {{> gradescard}}
       {{> historicalcard}}
+      {{> coursefactors}}
+      {{> studentfactors}}
+      {{> socialfactors}}
     </div>
   </paper-header-panel>
 </body>
