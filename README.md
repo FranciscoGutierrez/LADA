@@ -20,4 +20,14 @@ cd uncertaintyDashboard
 meteor
 ```
 
+URLs for testing:
+
+```bash
+// anibal
+// http://localhost:3000/200909893?c=ICM00166,FIEC03046,FIEC01545
+//
+// roger
+// http://localhost:3000/200834711?c=ICM00166,FIEC03046,FIEC01545
+```
+
 For further details, please head to doc folder. :)
