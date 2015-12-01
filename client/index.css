@@ -29,7 +29,7 @@ paper-header-panel {
   -webkit-flex-flow: column;
   -ms-flex-flow: column;
   flex-flow: column;
-  width: 100%;
+  width:  100%;
   height: 100%;
 }
 
@@ -84,6 +84,7 @@ paper-toolbar {
 .middle {
   width: 100%;
   min-width: 605px;
+  /*height: 100%;*/
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
