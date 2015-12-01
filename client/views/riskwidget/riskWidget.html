@@ -2,13 +2,9 @@
   <div class="risk-content">
     <div class="risk-content-viz">
       <progress-bubble class="risk-bubble" value="{{risk}}">
-        {{#if risk}}
         <div class="progress-title">{{risk}}<div style="font-size: 15px; display:inline; color:#c6c6c6;">%</div></div>
         <div class="progress-subtitle">{{riskText}}</div>
         <div style="display: none">{{riskColor}}</div>
-        {{else}}
-        <div class="progress-title">0</div>
-        {{/if}}
       </progress-bubble>
     </div>
     <div class="widget-title">

@@ -137,4 +137,8 @@ iron-icon:hover {
 
 paper-toast {
   z-index: 1000;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

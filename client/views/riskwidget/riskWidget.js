@@ -1,6 +1,7 @@
 Template.riskwidget.helpers({
   risk: function() {
-    return Math.round(Session.get("riskValue")*100);
+    var risk = Math.round(Session.get("riskValue")*100);
+    return parseInt(risk) || 0;
   },
   riskText: function() {
     var risk = Session.get("riskValue");

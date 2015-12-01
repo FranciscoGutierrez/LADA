@@ -1,6 +1,7 @@
 Template.qualitywidget.helpers({
   quality: function() {
-    return Math.round(Session.get("qualityValue")*100);
+    var quality = Math.round(Session.get("qualityValue")*100);
+    return parseInt(quality) || 0;
   },
   qualityText: function() {
     var quality = Session.get("qualityValue");

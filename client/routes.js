@@ -25,9 +25,10 @@ Router.route('/:_id', {
     //
     // roger
     // http://localhost:3000/200834711?c=ICM00166,FIEC03046,FIEC01545
+
     var str = "";
     if(courses) {
-      for (var i=0; i<courses.length-1; i++) str += '{"id": "'+courses[i]+'", "compliance": 5},';
+      for (var i=0; i<courses.length-1; i++){ str += '{"id": "'+courses[i]+'", "compliance": 5},'; }
       str+= '{"id": "'+courses[courses.length]+'", "compliance": 5}';
       Websocket.send('{"requestId": "5645f7f7ef0bde57344c84de",'+
       '"student": [{"id": '+student+',"gpa": 7.0793,'+

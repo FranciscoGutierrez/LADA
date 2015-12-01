@@ -81,7 +81,7 @@ Template.coursescard.events({
       }
       Session.set("courses",courses);
       $(this).remove();
-      
+
       var str = "";
       if(courses) {
         for (var i=0; i<courses.length-1; i++) str += '{"id": "'+courses[i]+'", "compliance": 5},';
