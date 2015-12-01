@@ -12,6 +12,13 @@
 
 body {
   overflow: hidden;
+  margin: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 paper-header-panel{
@@ -70,7 +77,6 @@ paper-material {
 paper-toolbar {
   min-height: 280px;
   max-height: 280px;
-  /*background: white !important;*/
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
   z-index: 100;
 }
@@ -136,7 +142,6 @@ iron-icon:hover {
 }
 
 paper-toast {
-  z-index: 1000;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
