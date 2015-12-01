@@ -103,6 +103,7 @@ paper-toolbar {
   -ms-flex-flow: row;
   flex-flow: row;
   /*margin-bottom: 35px;*/
+  align-self: center;
 }
 
 .widget-title {
