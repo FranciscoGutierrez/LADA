@@ -1,4 +1,6 @@
-Websocket = new WebSocket("ws://localhost:9000/test");
+// Websocket = new WebSocket("ws://localhost:9000/test");
+Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
+
 Websocket.onopen    = function(evt) { onOpen(evt)    };
 Websocket.onclose   = function(evt) { onClose(evt)   };
 Websocket.onmessage = function(evt) { onMessage(evt) };
