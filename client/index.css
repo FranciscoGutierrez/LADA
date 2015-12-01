@@ -104,6 +104,8 @@ paper-toolbar {
   flex-flow: row;
   /*margin-bottom: 35px;*/
   align-self: center;
+  top:-20px;
+  position: absolute;
 }
 
 .widget-title {
