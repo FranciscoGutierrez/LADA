@@ -82,30 +82,7 @@ paper-toolbar {
 }
 
 .middle {
-  width: 100%;
-  min-width: 605px;
-  /*height: 100%;*/
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  -webkit-align-content: flex-start;
-  -ms-flex-line-pack: start;
-  align-content: flex-start;
-  -webkit-flex-flow: row;
-  -ms-flex-flow: row;
-  flex-flow: row;
-  /*margin-bottom: 35px;*/
-  align-self: center;
-  top:-20px;
-  position: absolute;
+
 }
 
 .widget-title {
