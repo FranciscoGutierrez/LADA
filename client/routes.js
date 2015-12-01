@@ -2,8 +2,8 @@
 *  Gets data from address bar using Iron-Router
 *  Sets the session according this data.
 */
-//
-// Meteor.startup(function () {
+
+Meteor.startup(function () {
 
   Router.route('/:_id', {
     data: function () {
@@ -51,5 +51,5 @@
       Meteor.subscribe("this_courses", courses);
     }
   });
-//
-// });
+
+});
