@@ -21,7 +21,7 @@ body {
   left: 0;
 }
 
-paper-header-panel{
+paper-header-panel {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -83,6 +83,7 @@ paper-toolbar {
 
 .middle {
   width: 100%;
+  min-width: 605px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -100,8 +101,7 @@ paper-toolbar {
   -webkit-flex-flow: row;
   -ms-flex-flow: row;
   flex-flow: row;
-  min-width: 605px;
-  margin-bottom: 35px;
+  /*margin-bottom: 35px;*/
 }
 
 .widget-title {
