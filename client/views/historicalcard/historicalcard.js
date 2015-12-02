@@ -138,7 +138,7 @@ Template.historicalcard.rendered = function () {
           if(courses) {
             for (var i=0; i<courses.length-1; i++){ str += '{"id": "'+courses[i]+'", "compliance": 5},'; }
             str+= '{"id": "'+courses[courses.length-1]+'", "compliance": 5}';
-            Websocket.send('{"requestId": "5645f7f7ef0bde57344c84de",'+
+            Websocket.send('{"requestId": "'+Meteor.connection._lastSessionId+'",'+
             '"student": [{"id": '+student+',"gpa": 7.0793,'+
             '"performance": 0.6,"compliance": 3}],'+
             '"courses": ['+ str + '],'+

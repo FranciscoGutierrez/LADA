@@ -1,5 +1,7 @@
 // Websocket = new WebSocket("ws://localhost:9000/test");
 Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
+// Websocket = new WebSocket("ws://10.43.48.75/test");
+
 Websocket.onopen    = function(evt) { onOpen(evt)    };
 Websocket.onclose   = function(evt) { onClose(evt)   };
 Websocket.onmessage = function(evt) { onMessage(evt) };
@@ -43,7 +45,7 @@ $(document).ready(function() {
       if(courses) {
         for (var i=0; i<courses.length-1; i++){ str += '{"id": "'+courses[i]+'", "compliance": 5},'; }
         str+= '{"id": "'+courses[courses.length-1]+'", "compliance": 5}';
-        var request = '{"requestId": "5645f7f7ef0bde57344c84de",'+
+        var request = '{"requestId": "'+Meteor.connection._lastSessionId+'",'+
         '"student": [{"id": '+student+',"gpa": 7.0793,'+
         '"performance": 0.6,"compliance": 3}],'+
         '"courses": ['+ str + '],'+
