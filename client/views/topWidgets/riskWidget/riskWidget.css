@@ -73,7 +73,8 @@
 .risk-knob {
   width: 10px;
   height:10px;
-  background: #eceff1;
+  /*background: #eceff1;*/
+  background: #fff;
   border-radius: 50%;
   /*box-shadow: 2px 2px 5px rgba(66, 66, 66, 0.5);*/
   position: absolute;

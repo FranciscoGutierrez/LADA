@@ -30,5 +30,3 @@ Template.aspectswidget.helpers({
     return Session.get("gc-toggle");
   }
 });
-
-Template.aspectswidget.rendered = function(){};
