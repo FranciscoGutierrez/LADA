@@ -39,19 +39,22 @@ $(document).ready(function() {
     var student = Session.get('student');
     if(Websocket.readyState == 1) {
       var str = "";
+      console.log(Session.get("data-from")+","+Session.get("data-to"));
       if(courses) {
         for (var i=0; i<courses.length-1; i++){ str += '{"id": "'+courses[i]+'", "compliance": 5},'; }
         str+= '{"id": "'+courses[courses.length-1]+'", "compliance": 5}';
-        Websocket.send('{"requestId": "5645f7f7ef0bde57344c84de",'+
+        var request = '{"requestId": "5645f7f7ef0bde57344c84de",'+
         '"student": [{"id": '+student+',"gpa": 7.0793,'+
         '"performance": 0.6,"compliance": 3}],'+
         '"courses": ['+ str + '],'+
-        '"data": [{"from": 2009,"to": 2015,'+
+        '"data": [{"from": '+Session.get("data-from")+',"to": '+Session.get("data-to")+','+
         '"program": true,'+
         '"sylabus": true,'+
         '"evaluation": false,'+
         '"instructors": true,'+
-        '"compliance": 2}]}');
+        '"compliance": 2}]}';
+        console.log(request);
+        Websocket.send(request);
       }
     } else if (Websocket.readyState == 3) {
       // $("#paperToast").attr("text","Lost connection...");

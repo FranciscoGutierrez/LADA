@@ -15,6 +15,9 @@ Router.route('/:_id', {
     Session.set("gc-toggle", true);
     Session.set("hc-toggle", true);
 
+    Session.set("data-from",1999);
+    Session.set("data-to",2013);
+
     if(courses) Session.set("selected-course", courses[0]);
     Meteor.subscribe("grades", courses);
     Meteor.subscribe("this_student", student);

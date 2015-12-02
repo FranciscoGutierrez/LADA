@@ -75,8 +75,8 @@ paper-material {
 }
 
 paper-toolbar {
-  min-height: 280px;
-  max-height: 280px;
+  min-height: 240px;
+  max-height: 240px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
   z-index: 100;
 }

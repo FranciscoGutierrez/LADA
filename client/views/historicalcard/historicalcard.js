@@ -131,7 +131,28 @@ Template.historicalcard.rendered = function () {
       onChange: function(data) {
         Session.set("data-from",data.from);
         Session.set("data-to",data.to);
-        // Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
+        var courses = Session.get('courses');
+        var student = Session.get('student');
+        if(Websocket.readyState == 1) {
+          var str = "";
+          if(courses) {
+            for (var i=0; i<courses.length-1; i++){ str += '{"id": "'+courses[i]+'", "compliance": 5},'; }
+            str+= '{"id": "'+courses[courses.length-1]+'", "compliance": 5}';
+            Websocket.send('{"requestId": "5645f7f7ef0bde57344c84de",'+
+            '"student": [{"id": '+student+',"gpa": 7.0793,'+
+            '"performance": 0.6,"compliance": 3}],'+
+            '"courses": ['+ str + '],'+
+            '"data": [{"from": '+data.from+',"to": '+data.to+','+
+            '"program": true,'+
+            '"sylabus": true,'+
+            '"evaluation": false,'+
+            '"instructors": true,'+
+            '"compliance": 2}]}');
+          }
+        } else if (Websocket.readyState == 3) {
+          // $("#paperToast").attr("text","Lost connection...");
+          // document.querySelector('#paperToast').show();
+        }
       }
     });
 
