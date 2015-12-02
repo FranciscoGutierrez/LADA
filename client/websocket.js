@@ -54,8 +54,8 @@ $(document).ready(function() {
         '"compliance": 2}]}');
       }
     } else if (Websocket.readyState == 3) {
-      $("#paperToast").attr("text","Lost connection...");
-      document.querySelector('#paperToast').show();
+      // $("#paperToast").attr("text","Lost connection...");
+      // document.querySelector('#paperToast').show();
     }
   }, 2000);
 });
