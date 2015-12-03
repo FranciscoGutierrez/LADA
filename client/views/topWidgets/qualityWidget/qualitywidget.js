@@ -30,5 +30,8 @@ Template.qualitywidget.events({
   },
   "click .close-info": function (event,template) {
     template.$(".help-info").fadeOut();
+  },
+  "click .help-info": function (event,template) {
+    template.$(".help-info").fadeOut();
   }
 });

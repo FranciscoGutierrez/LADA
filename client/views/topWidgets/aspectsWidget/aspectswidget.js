@@ -20,12 +20,15 @@ Template.aspectswidget.events({
       $(this).removeClass(animationName);
     });
   },
-    "click .aspects-info": function (event,template) {
-      template.$(".help-info").css("display","flex");
-    },
-    "click .close-info": function (event,template) {
-      template.$(".help-info").fadeOut();
-    }
+  "click .aspects-info": function (event,template) {
+    template.$(".help-info").css("display","flex");
+  },
+  "click .close-info": function (event,template) {
+    template.$(".help-info").fadeOut();
+  },
+  "click .help-info": function (event,template) {
+    template.$(".help-info").fadeOut();
+  }
 });
 
 Template.aspectswidget.helpers({
