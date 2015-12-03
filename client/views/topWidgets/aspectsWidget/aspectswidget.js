@@ -19,7 +19,13 @@ Template.aspectswidget.events({
     $(".historicalcard-paper").addClass(animationName).one(animationEnd, function() {
       $(this).removeClass(animationName);
     });
-  }
+  },
+    "click .aspects-info": function (event,template) {
+      template.$(".help-info").css("display","flex");
+    },
+    "click .close-info": function (event,template) {
+      template.$(".help-info").fadeOut();
+    }
 });
 
 Template.aspectswidget.helpers({

@@ -6,6 +6,7 @@
   align-content: center;
   color: #424242;
   width: 200px;
+  position: relative;
 }
 
 .risk-content-viz {
@@ -80,4 +81,35 @@
   position: absolute;
   top: 6px;
   transition: left 2s;
+}
+
+.help-info {
+  height: 100%;
+  width:  100%;
+  background: rgba(66, 66, 66, 0.45);
+  position: absolute;
+  top: 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  z-index: 1000;
+}
+
+.help-text {
+  max-width: 80%;
+  max-height:80%;
+  background: rgba(66, 66, 66, 0.75);
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  padding: 2%;
+  text-align: center;
+}
+
+.close-info {
+  position: absolute;
+  top:   1%;
+  right: 1%;
 }

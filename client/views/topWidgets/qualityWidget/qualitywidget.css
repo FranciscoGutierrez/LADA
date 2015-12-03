@@ -11,6 +11,7 @@
   align-content: center;
   color: #424242;
   width: 200px;
+  position: relative;
 }
 
 .quality-content-viz {

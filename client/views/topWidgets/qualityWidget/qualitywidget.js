@@ -23,3 +23,12 @@ Template.qualitywidget.helpers({
     return quality;
   }
 });
+
+Template.qualitywidget.events({
+  "click .quality-info": function (event,template) {
+    template.$(".help-info").css("display","flex");
+  },
+  "click .close-info": function (event,template) {
+    template.$(".help-info").fadeOut();
+  }
+});

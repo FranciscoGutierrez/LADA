@@ -28,6 +28,15 @@ Template.riskwidget.helpers({
   }
 });
 
+Template.riskwidget.events({
+  "click .risk-info": function (event,template) {
+    template.$(".help-info").css("display","flex");
+  },
+  "click .close-info": function (event,template) {
+    template.$(".help-info").fadeOut();
+  }
+});
+
 Template.riskwidget.rendered = function () {
   setTimeout(function() {
     var risk = Session.get("riskValue");

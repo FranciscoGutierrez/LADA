@@ -1,33 +1,25 @@
 // Websocket = new WebSocket("ws://localhost:9000/test");
-Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
 // Websocket = new WebSocket("ws://10.43.48.75/test");
-
+Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
 Websocket.onopen    = function(evt) { onOpen(evt)    };
 Websocket.onclose   = function(evt) { onClose(evt)   };
 Websocket.onmessage = function(evt) { onMessage(evt) };
 Websocket.onerror   = function(evt) { onError(evt)   };
 
-function onOpen(evt) {
-  console.log("ws:connected");
-}
-
+function onOpen(evt) { console.log("ws:connected"); }
 function onClose(evt) {
+  $("#paperToast").attr("text","Connection lost, reconnecting... ");
+  document.querySelector('#paperToast').show();
   console.log("ws:offline");
 }
-
 function onMessage(evt) {
   var recieved = JSON.parse(evt.data);
   Session.set("riskValue",recieved.risk);
   Session.set("qualityValue",recieved.quality);
   console.log(recieved);
-  // $("#paperToast").attr("text","Loading...");
-  // document.querySelector('#paperToast').show();
 }
 
-function onError(evt) {
-  console.log("ws:error: " + evt.data);
-}
-
+function onError(evt) { console.log("ws:error: " + evt.data); }
 function doSend(message) {
   console.log("ws:doSend: " + message);
   Websocket.send(message);
@@ -59,8 +51,13 @@ $(document).ready(function() {
         Websocket.send(request);
       }
     } else if (Websocket.readyState == 3) {
-      // $("#paperToast").attr("text","Lost connection...");
-      // document.querySelector('#paperToast').show();
+      $("#paperToast").attr("text","Connection lost, reconnecting... ");
+      document.querySelector('#paperToast').show();
+      Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
+      Websocket.onopen    = function(evt) { onOpen(evt)    };
+      Websocket.onclose   = function(evt) { onClose(evt)   };
+      Websocket.onmessage = function(evt) { onMessage(evt) };
+      Websocket.onerror   = function(evt) { onError(evt)   };
     }
   }, 2000);
 });

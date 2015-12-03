@@ -6,6 +6,7 @@
   align-content: center;
   color: #424242;
   width:  200px;
+  position: relative;
 }
 
 .aspects-wrapper {
@@ -22,7 +23,6 @@
   flex-direction: column;
   align-self: center;
   font-size: 12px;
-  z-index: 1;
 }
 
 .aspect {
