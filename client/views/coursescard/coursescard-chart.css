@@ -1,21 +1,30 @@
 .cc-chart-container {
   height: 100%;
-  width:  100%;
+  width: 100%;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-end;
   position: relative;
   max-width: 400px;
+  flex-direction: column;
 }
+
+.cc-metadata {
+  max-width: 130px;
+  flex: 1;
+  padding-left: 5px;
+  padding-right: 5px;
+  align-self: center;
+}
+
 .cc-nothing {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  background: #f6f6f6;
+  /*background: #f6f6f6;*/
   flex-direction: column;
   color: #a5a5a5;
   width:  100%;
-  height: 100%;
 }
 
 .cc-nothing-add {
@@ -28,36 +37,33 @@
 
 .cc-course {
   display: flex;
-  flex:1;
-  padding: 2px;
+  /*padding: 2px;*/
   flex-direction: column;
-  max-width: 100px;
+  width: 100%;
+  height: 45px;
   cursor: pointer;
   position: relative;
 }
 
 .cc-squares {
-  background: #fafafa;
-  width: 100%;
-  height: 170px;
+  /*background: #fafafa;*/
+  width:  100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  border-radius: 2px 2px 0  0;
 }
 
 .cc-square {
-  background: #b25d7e;
-  max-width:  45px;
-  min-width:  45px;
+  /*background: #b25d7e;*/
+  max-width:  5px;
+  min-width:  5px;
   height:     100%;
-  border-radius: 2px 2px 0 0;
   position: relative;
 }
 
 .cc-course:hover {
   background: #fafafa;
-  border-radius: 2px 2px 0  0;
 }
 
 .cc-hline {
@@ -101,15 +107,16 @@
 }
 
 .cc-name {
-  font-size: 10px;
+  font-size: 12px;
   color: #424242;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-transform: capitalize;
 }
 
 .cc-id {
-  font-size: 9px;
+  font-size: 11px;
   color: #9F9F9F;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -124,4 +131,18 @@
 .cc-badge > #badge {
   background: none !important;
   color: #424242 !important;
+}
+
+.number-courses {
+  font-size: 18px;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  color: gray;
+  display: flex;
+  align-items: flex-end;
+}
+
+.cc-number {
+  color: #424242;
 }

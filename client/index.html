@@ -29,7 +29,21 @@
   progress-bubble {
     --progress-bubble-stroke-color: #617d8a;
   }
+  paper-radio-button.radio-red {
+    --paper-radio-button-checked-color: #e74c3c;
+  }
+  paper-radio-button.radio-green {
+    --paper-radio-button-checked-color: #27ae60;
+  }
+  paper-radio-button.radio-gray {
+    --paper-radio-button-checked-color: #c5c5c5;
+  }
+  paper-progress.progress-color {
+    --paper-progress-active-color: #b25d7e;
+    --paper-progress-secondary-color: #eceff1;
+  }
   </style>
+  <script src="bower_components/jquery.easyPaginate/lib/jquery.easyPaginate.js"></script>
   <script src="bower_components/ion.rangeslider/js/ion.rangeSlider.min.js"></script>
   <link rel="stylesheet" href="bower_components/ion.rangeslider/css/normalize.css" />
   <link rel="stylesheet" href="bower_components/ion.rangeslider/css/ion.rangeSlider.css" />
@@ -51,8 +65,16 @@
   <link rel="import" href="bower_components/paper-toast/paper-toast.html">
   <link rel="import" href="bower_components/paper-spinner/paper-spinner.html">
   <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
+  <link rel="import" href="bower_components/paper-radio-group/paper-radio-group.html">
+  <link rel="import" href="bower_components/paper-radio-button/paper-radio-button.html">
 </head>
 <body class="unresolved fullbleed layout vertical">
+  <div class="loading-screen">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <h3>Loading Dashboard</h3>
+      <paper-progress class="progress-color" indeterminate value="800" min="100" max="1000"></paper-progress>
+    </div>
+  </div>
   <paper-toast id="paperToast" text="">
     <div class="toast-reconnect">Reconnect</div>
     <paper-spinner active></paper-spinner>
@@ -66,17 +88,18 @@
       <div class="middle">
       </div>
       <!-- <paper-tabs selected="0" class="bottom self-end" style="width: 300px;">
-        <paper-tab>CALCULATOR</paper-tab>
-        <paper-tab>EXPLORER</paper-tab>
-      </paper-tabs> -->
-    </paper-toolbar>
-    <div class="content">
-      {{> coursescard}}
-      {{> gradescard}}
-      {{> historicalcard}}
-      {{> coursefactors}}
-      {{> studentfactors}}
-      {{> socialfactors}}
-    </div>
-  </paper-header-panel>
+      <paper-tab>CALCULATOR</paper-tab>
+      <paper-tab>EXPLORER</paper-tab>
+    </paper-tabs> -->
+  </paper-toolbar>
+  <div class="content">
+    {{> coursescard}}
+    {{> gradescard}}
+    {{> historicalcard}}
+    {{> missingcourses}}
+    {{> coursefactors}}
+    {{> studentfactors}}
+    {{> socialfactors}}
+  </div>
+</paper-header-panel>
 </body>

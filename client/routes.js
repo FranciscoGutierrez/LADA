@@ -14,12 +14,14 @@ Router.route('/:_id', {
     Session.set("hc-compliance", 5);
     Session.set("gc-toggle", true);
     Session.set("hc-toggle", true);
-
+    Session.set("sc-toggle", true);
     Session.set("data-from",1999);
     Session.set("data-to",2013);
+    Session.set("showRadioSC", {passed: true, failed: false, other: false});
 
     if(courses) Session.set("selected-course", courses[0]);
-    Meteor.subscribe("grades", courses);
+    var grades = {courses: courses, student: student};
+    Meteor.subscribe("grades", grades);
     Meteor.subscribe("this_student", student);
     Meteor.subscribe("this_courses", courses);
   }

@@ -12,6 +12,8 @@
 .risk-content-viz {
   height: 140px;
   width:  140px;
+  display: flex;
+  position: relative;
 }
 
 .risk-content-viz .progress-meter text{

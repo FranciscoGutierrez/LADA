@@ -16,7 +16,8 @@ function onMessage(evt) {
   var recieved = JSON.parse(evt.data);
   Session.set("riskValue",recieved.risk);
   Session.set("qualityValue",recieved.quality);
-  console.log(recieved);
+  // console.log(recieved);
+  if($(".loading-screen")) $(".loading-screen").fadeOut(300,function(){$(this).remove();});
 }
 
 function onError(evt) { console.log("ws:error: " + evt.data); }
@@ -29,35 +30,40 @@ function doSend(message) {
 
 $(document).ready(function() {
   setInterval(function(){
-    var courses = Session.get('courses');
-    var student = Session.get('student');
+    var string   = "";
+    var request  = "";
+    var dataTo   = Session.get('data-to');
+    var dataFrom = Session.get('data-from');
+    var courses  = Session.get('courses');
+    var student  = Session.get('student');
     if(Websocket.readyState == 1) {
-      var str = "";
-      console.log(Session.get("data-from")+","+Session.get("data-to"));
       if(courses) {
-        for (var i=0; i<courses.length-1; i++){ str += '{"id": "'+courses[i]+'", "compliance": 5},'; }
-        str+= '{"id": "'+courses[courses.length-1]+'", "compliance": 5}';
-        var request = '{"requestId": "'+Meteor.connection._lastSessionId+'",'+
-        '"student": [{"id": '+student+',"gpa": 7.0793,'+
+        // Append the courses
+        for (var i=0; i<courses.length-1; i++){ string += '{"id": "'+courses[i]+'", "compliance": 5},'; }
+        string += '{"id": "'+courses[courses.length-1]+'", "compliance": 5}';
+        // Elaborate the request
+        request = '{"requestId": "'+ Meteor.connection._lastSessionId +'",'+
+        '"student": [{"id": '+ student +',"gpa": 7.0793,'+
         '"performance": 0.6,"compliance": 3}],'+
-        '"courses": ['+ str + '],'+
-        '"data": [{"from": '+Session.get("data-from")+',"to": '+Session.get("data-to")+','+
+        '"courses": ['+ string + '],'+
+        '"data": [{"from": '+ dataFrom +',"to": '+ dataTo +','+
         '"program": true,'+
         '"sylabus": true,'+
         '"evaluation": false,'+
         '"instructors": true,'+
         '"compliance": 2}]}';
-        console.log(request);
+        // Send the request through websocket
         Websocket.send(request);
+        // console.log(request);
       }
     } else if (Websocket.readyState == 3) {
       $("#paperToast").attr("text","Connection lost, reconnecting... ");
       document.querySelector('#paperToast').show();
       Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
-      Websocket.onopen    = function(evt) { onOpen(evt)    };
-      Websocket.onclose   = function(evt) { onClose(evt)   };
-      Websocket.onmessage = function(evt) { onMessage(evt) };
-      Websocket.onerror   = function(evt) { onError(evt)   };
+      Websocket.onopen    = function(evt) { onOpen(evt)   };
+      Websocket.onclose   = function(evt) { onClose(evt)  };
+      Websocket.onmessage = function(evt) { onMessage(evt)};
+      Websocket.onerror   = function(evt) { onError(evt)  };
     }
   }, 2000);
 });

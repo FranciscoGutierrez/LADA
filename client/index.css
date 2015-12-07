@@ -130,12 +130,12 @@ paper-toast {
   display: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
   -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background: #fff;
   color: #424242;
 }
@@ -143,4 +143,16 @@ paper-toast {
 .toast-reconnect {
   display: none;
   text-decoration: underline;
+}
+
+.loading-screen {
+  color: #424242;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

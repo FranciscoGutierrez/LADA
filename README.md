@@ -52,6 +52,8 @@ meteor reset
 Basic **mongoimport** command.
 ``` Bash
 mongoimport --db meteor --collection courses --file courses.json --host=127.0.0.1:3001
+mongoimport --db meteor --collection studentscourses --file students_courses.json --host=127.0.0.1:3001
+mongoimport --db meteor --collection students --file students.json --host=127.0.0.1:3001
 ```
 
 ## Python Converters

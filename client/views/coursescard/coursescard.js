@@ -17,7 +17,7 @@ Template.coursescard.events({
       template.$(".card-settings-icon").addClass("opened");
       template.$(".card-content").animate({"min-width":"+=350px"},"slow", function(){
         template.$(".settings-content").css("display","flex");
-        template.$(".card-settings-icon > iron-icon").fadeOut(300, function(){
+        template.$(".card-settings-icon > iron-icon").fadeOut(200, function(){
           template.$(".card-settings-icon > iron-icon").attr("icon","icons:close").fadeIn(300);
         });
       });
@@ -25,7 +25,7 @@ Template.coursescard.events({
       template.$(".card-settings-icon").removeClass("opened");
       template.$(".settings-content").hide();
       template.$(".card-content").animate({"min-width":"-=350px"},"slow ", function(){
-        template.$(".card-settings-icon > iron-icon").fadeOut(300, function(){
+        template.$(".card-settings-icon > iron-icon").fadeOut(200, function(){
           template.$(".card-settings-icon > iron-icon").attr("icon","icons:settings").fadeIn(300);
         });
       });
@@ -110,8 +110,8 @@ Template.coursescard.events({
     $("."+id).css("stroke","#ececec");
 
     var parent = $(event.target).parents(".cc-course");
-    template.$(".cc-squares").css("background","#fafafa");
-    template.$(".cc-meta").css("background","#fafafa");
+    template.$(".cc-squares").css("background","none");
+    template.$(".cc-meta").css("background","none");
     parent.find(".cc-squares").css("background","#EEEEEE");
     parent.find(".cc-meta").css("background","#EEEEEE");
     Session.set("selected-course",id);
@@ -137,7 +137,7 @@ Template.coursescard.helpers({
     return PackageSearch.getData({
       transform: function(matchText, regExp) {
         // return matchText.replace(regExp, "<b>$&</b>")
-        return matchText
+        return matchText.toLowerCase();
       },
       sort: {isoScore: -1}
     });
@@ -148,13 +148,53 @@ Template.coursescard.helpers({
   courses: function () {
     return Courses.find({});
   },
+  hardCourses: function() {
+    var courses = Session.get("courses");
+    var sc;
+    if (courses) {
+      sc = Courses.find({"_id": {$in: courses }}).fetch();
+      for (i = 0; i < sc.length; i++) {
+        sc[i].name = sc[i].name.toLowerCase();
+        sc[i].students = sc[i].students > 999 ? (sc[i].students/1000).toFixed(1) + 'k' : sc[i].students;
+        if(sc[i].difficulty <= 0.60) {
+          sc[i].difficulty  = {color:"#e74c3c", text:"Hard", display:"flex"};
+        } else if(sc[i].difficulty > 0.60) {
+          sc[i].difficulty  = {color:"#27ae60", text:"Easy", display:"none"};
+        }
+      }
+    }
+    return sc;
+  },
+  easyCourses: function() {
+    var courses = Session.get("courses");
+    var sc;
+    if (courses) {
+      sc = Courses.find({"_id": {$in: courses }}).fetch();
+      for (i = 0; i < sc.length; i++) {
+        sc[i].name = sc[i].name.toLowerCase();
+        sc[i].students = sc[i].students > 999 ? (sc[i].students/1000).toFixed(1) + 'k' : sc[i].students;
+        if(sc[i].difficulty <= 0.60) {
+          sc[i].difficulty  = {color:"#e74c3c", text:"Hard", display:"none"};
+        } else if(sc[i].difficulty > 0.60) {
+          sc[i].difficulty  = {color:"#27ae60", text:"Easy", display:"flex"};
+        }
+      }
+    }
+    return sc;
+  },
   sessionCourses: function() {
     var courses = Session.get("courses");
     var sc;
     if (courses) {
       sc = Courses.find({"_id": {$in: courses }}).fetch();
       for (i = 0; i < sc.length; i++) {
+        sc[i].name = sc[i].name.toLowerCase();
         sc[i].students = sc[i].students > 999 ? (sc[i].students/1000).toFixed(1) + 'k' : sc[i].students;
+        if(sc[i].difficulty <= 0.60) {
+          sc[i].difficulty  = {color:"#e74c3c", text:"Hard", display:"none"};
+        } else if(sc[i].difficulty > 0.60) {
+          sc[i].difficulty  = {color:"#27ae60", text:"Easy", display:"flex"};
+        }
       }
     }
     return sc;
@@ -164,5 +204,15 @@ Template.coursescard.helpers({
   },
   selectedCourse: function() {
     return Courses.findOne({ "_id" : Session.get("selected-course")});
+  },
+  numberCourses: function() {
+    var size = 0;
+    var obj  = {number: size, text: "Courses"};
+    if (Session.get("courses")) {
+      size = Session.get("courses").length;
+      obj  = {number: size, text: "Courses"};
+      if(size == 1) obj = {number: size, text: "Course"};
+    }
+    return obj;
   }
 });
