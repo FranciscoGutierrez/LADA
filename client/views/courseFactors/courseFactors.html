@@ -1,5 +1,5 @@
 <template name="coursefactors">
-  <paper-material class="card-content coursefactors-paper">
+  <paper-material class="card-content">
     <div class="chart-content">
       <div class="card-content-top">
         <div class="card-content-top-text">
@@ -9,33 +9,80 @@
             </div>
             <iron-icon icon="icons:info"></iron-icon>
           </div>
-          <div class="card-subtitle"></div>
+          <div class="card-subtitle">
+            No Influence
+          </div>
         </div>
       </div>
       <div class="card-settings-icon">
-        <!-- <iron-icon class="settings-icon" icon="icons:settings"></iron-icon> -->
-        <paper-toggle-button disabled="true"></paper-toggle-button>
+        <iron-icon class="settings-icon" icon="icons:settings"></iron-icon>
+        <paper-toggle-button checked></paper-toggle-button>
       </div>
       <!-- Middle Content -->
-      <div class="card-content-middle"></div>
+      <div class="card-content-middle">
+        <canvas id="cf-chart" width="250" height="250"></canvas>
+      </div>
       <!-- Bottom Content -->
       <div class="card-content-bottom">
         <div class="card-content-control0">
-          <div class="control-title"></div>
-          <div class="card-content-columns">
-            <div class="card-content-column"></div>
-            <div class="card-content-column"></div>
-            <div class="card-content-column"></div>
+          <div class="control-title">Factors</div>
+          <div class="horizontal-section" style="flex-direction: row;">
+            <div>
+              <paper-checkbox checked>CS Fundamentals</paper-checkbox>
+              <paper-checkbox checked>Advanced CS</paper-checkbox>
+            </div>
+            <div>
+              <paper-checkbox checked>Programming</paper-checkbox>
+              <paper-checkbox checked>Humanities</paper-checkbox>
+            </div>
+            <div>
+              <paper-checkbox checked>Math</paper-checkbox>
+            </div>
+          </div>
+          <div class="card-content-control1">
+            <div class="control-title">Courses</div>
+            {{#each sessionCourses}}
+            <paper-checkbox checked>{{name}}</paper-checkbox>
+            {{/each}}
           </div>
         </div>
-        <!-- <div class="card-content-control1">
-        <div class="control-title">Compliance: <div class="control-subtitle">{{compliance}}</div></div>
-        <paper-slider class="gc-paper-slider" pin snaps max="5" step="1" value="5"></paper-slider>
-      </div> -->
-      <!-- <div class="card-fullscreen-icon">
-        <iron-icon icon="icons:fullscreen"></iron-icon>
-      </div> -->
-    </div>
+        <!--
+        <div class="control-title">Courses</div>
+
+
+        <div class="horizontal-section" style="flex-direction: row;">
+        {{#if selectedCoursesFactor}}
+        {{#each sessionCourses}}
+
+
+
+        <paper-checkbox id="courseFactor{{first.id}}" class="check{{first.order}} coursefactor" checked change="{{checkedIfChecked id=first.id }}">
+        <div class="label-checkbox-courses"  >{{{first.name}}}</div>
+      </paper-checkbox>
+      {{#if second}}
+      <paper-checkbox id="courseFactor{{second.id}}" class="check{{second.order}} coursefactor" checked change="{{checkedIfChecked  id=second.id}}">
+      <div class="label-checkbox-courses"  >{{{second.name}}}</div>
+    </paper-checkbox>
+
+    {{/if}}
   </div>
+  {{/each}}
+  {{/each}}
+  {{else}}
+  No Selected Courses
+  {{/if}}
+</div>
+
+</div>
+</div> -->
+<!-- <div class="card-content-control1">
+<div class="control-title">Compliance</div>
+<paper-slider pin value="20"></paper-slider>
+</div>
+<div class="card-fullscreen-icon">
+<iron-icon icon="icons:fullscreen"></iron-icon>
+</div>-->
+</div>
+</div>
 </paper-material>
 </template>

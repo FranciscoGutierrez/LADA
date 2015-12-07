@@ -1,0 +1,113 @@
+<template name="missingcourses">
+  <paper-material class="card-content missingcourses-paper">
+    <div class="chart-content gc-card-content">
+      <!-- Top Content -->
+      <div class="card-content-top">
+        <div class="card-content-top-text">
+          <div class="card-title">
+            <div class="card-title-text">
+              Student Courses
+            </div>
+            <iron-icon icon="icons:info"></iron-icon>
+          </div>
+          {{#if isOn}}
+          <div class="card-subtitle">
+            Strong Influence
+          </div>
+          {{/if}}
+        </div>
+      </div>
+      <div class="card-settings-icon">
+        <!-- <iron-icon class="settings-icon" icon="icons:settings"></iron-icon> -->
+        <paper-toggle-button class="sc-toggle" checked></paper-toggle-button>
+      </div>
+      {{#if isOn}}
+      <!-- Middle Content -->
+      <div class="card-content-middle">
+        {{#if student}}
+        <div class="sc-chart-container">
+          <div class="sc-courses-container">
+            {{#if showPassed}}
+            {{#each passedCourses}}
+            <div class="sc-course sc-passed animated fadeInUp">
+              <div>
+                <div class="sc-name ellipsis">Interacción Humano-Computadora</div>
+                <div class="sc-id">{{course}}</div>
+              </div>
+              <div class="sc-meta-right">
+                <div class="sc-grade">{{grade}}</div>
+                <div class="sc-year">{{year}}</div>
+              </div>
+              <paper-ripple></paper-ripple>
+            </div>
+            {{/each}}
+            {{/if}}
+
+            {{#if showFailed}}
+            {{#each failedCourses}}
+            <div class="sc-course sc-failed animated fadeInUp">
+              <div>
+                <div class="sc-name ellipsis">Interacción Humano-Computadora</div>
+                <div class="sc-id">{{course}}</div>
+              </div>
+              <div class="sc-meta-right">
+                <div class="sc-grade">{{grade}}</div>
+                <div class="sc-year">{{year}}</div>
+              </div>
+              <paper-ripple></paper-ripple>
+            </div>
+            {{/each}}
+            {{/if}}
+
+          </div>
+          <div class="sc-chart-bottom-controls">
+            <div class="sc-chart-bottom-button">
+              <iron-icon icon="icons:chevron-left" class="sc-controls-less"></iron-icon>
+              <paper-ripple></paper-ripple>
+            </div>
+            <div class="sc-course-counter">{{numberof}}26 Courses</div>
+            <div class="sc-chart-bottom-button">
+              <iron-icon icon="icons:chevron-right" class="sc-controls-more"></iron-icon>
+              <paper-ripple></paper-ripple>
+            </div>
+          </div>
+        </div>
+        {{/if}}
+      </div>
+      <!-- Bottom Content -->
+      <div class="card-content-bottom">
+        {{#if student}}
+        <div class="card-content-control0" style="height: 48px;">
+          <div class="control0-course-details">
+            <div class="course-details-content">
+              <paper-radio-group selected="passed">
+                <paper-radio-button name="passed" class="radio-green">Passed</paper-radio-button>
+                <paper-radio-button name="failed" class="radio-red">Failed</paper-radio-button>
+                <paper-radio-button name="other"  class="radio-gray">Not Taken</paper-radio-button>
+              </paper-radio-group>
+            </div>
+          </div>
+        </div>
+        <div class="card-content-control1">
+          <div class="control0-course-details">
+            <!-- <div class="control-title">Course Details</div> -->
+            <div class="course-details-content">
+              <div class="sc-select-details">Select a Course</div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="card-fullscreen-icon">
+        <iron-icon icon="icons:fullscreen"></iron-icon>
+      </div> -->
+      {{/if}}
+    </div>
+    {{else}}
+    <div class="card-content-middle">
+      <div class="cc-nothing animated fadeIn" style="background: none; height: 400px;">
+        <div class="cc-nothing-message">This Card is Turned Off</div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</paper-material>
+</template>

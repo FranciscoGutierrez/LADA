@@ -7,6 +7,7 @@
     "iron-elements": "PolymerElements/iron-elements#~1.0.4",
     "ion.rangeslider": "ionrangeslider#~2.1.2",
     "progress-bubble": "~1.1.0",
-    "jquery.easyPaginate": "https://github.com/st3ph/jquery.easyPaginate.git"
+    "jquery.easyPaginate": "https://github.com/st3ph/jquery.easyPaginate.git",
+    "Chart.js": "~1.0.2"
   }
 }

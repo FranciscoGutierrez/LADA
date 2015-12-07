@@ -1,0 +1,98 @@
+.sc-chart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.sc-course {
+  display: flex;
+  padding: 2px;
+  margin:  2px;
+  font-size: 12px;
+  background: #fafafa;
+  cursor: pointer;
+  height: 35px;
+  min-height: 35px;
+  max-height: 35px;
+  width: 145px;
+  justify-content: space-around;
+  position: relative;
+}
+
+.sc-passed {
+  border-left: 2px solid #27ae60;
+}
+
+.sc-failed {
+  border-left: 2px solid #e74c3c;
+}
+
+.sc-name {
+  font-size: 12px;
+  max-width: 100px;
+  color: #424242;
+}
+
+.sc-id {
+  font-size: 11px;
+  color: #9F9F9F;
+}
+
+.sc-year{
+  font-size: 11px;
+  color: #9F9F9F;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sc-courses-container {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow: hidden;
+  min-height: 258px;
+  max-height: 258px;
+  width: 100%;
+  align-items: center;
+}
+
+.sc-course-counter {
+  font-size: 13px;
+  color: #424242;
+}
+
+.sc-chart-bottom-controls {
+  display: flex;
+  position: relative;
+  align-content: center;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+
+}
+
+.sc-chart-bottom-button {
+  position: relative;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.sc-select-details {
+  color: #9F9F9F;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.sc-meta-right {
+  text-align: right;
+}
