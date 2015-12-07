@@ -17,7 +17,9 @@ function onMessage(evt) {
   Session.set("riskValue",recieved.risk);
   Session.set("qualityValue",recieved.quality);
   // console.log(recieved);
-  if($(".loading-screen")) $(".loading-screen").fadeOut(300,function(){$(this).remove();});
+  $( document ).ready(function() {
+    if($(".loading-screen")) $(".loading-screen").fadeOut(300,function(){$(this).remove();});
+  });
 }
 
 function onError(evt) { console.log("ws:error: " + evt.data); }

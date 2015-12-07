@@ -152,13 +152,14 @@
     <div class="selected-courses">
       {{#each sessionCourses}}
       <div class="selected-container animated fadeIn">
-        <paper-checkbox class="selected-course" checked>
+        <div class="selected-course" checked>
           <div id="checkboxLabel" class="selected-course-meta">
             <div class="course-name">{{name}}</div>
             <div class="course-id">{{_id}}</div>
           </div>
-        </paper-checkbox>
+        </div>
         <iron-icon class="remove-selected-course" icon="icons:close"></iron-icon>
+        <paper-ripple></paper-ripple>
       </div>
       {{/each}}
     </div>

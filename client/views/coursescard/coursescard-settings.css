@@ -60,6 +60,7 @@
   flex-wrap: nowrap;
   flex-flow: column;
   align-items: center;
+  position: relative;
 }
 
 .selected-course:hover {
@@ -74,7 +75,7 @@
 }
 .selected-course .course-id {
   font-size: 10px;
-  opacity: 0.8;
+  color: #9F9F9F;
   overflow: hidden;
   white-space: nowrap; /* Don't forget this one */
   text-overflow: ellipsis;
@@ -90,7 +91,7 @@
 .selected-container {
   position: relative;
   display: flex;
-  width: 90%;
+  width: 100%;
 }
 
 .selected-course {

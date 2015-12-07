@@ -26,3 +26,4 @@ check                     # Needed for instant search
 ejson                     # Needed for instant search
 natestrauser:animate-css  # Daneden's Animate CSS
 iron:router
+meteorhacks:kadira

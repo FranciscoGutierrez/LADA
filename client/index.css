@@ -156,3 +156,7 @@ paper-toast {
   justify-content: center;
   align-items: center;
 }
+
+.container {
+    -webkit-transform: translateZ(0);
+}
