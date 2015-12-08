@@ -1,16 +1,16 @@
-.cc-chart-container {
+.cc-middle-content {
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  flex-direction:  column;
   position: relative;
   max-width: 400px;
-  flex-direction: column;
 }
 
 .cc-metadata {
-  max-width: 130px;
+  width: 100%;
   flex: 1;
   padding-left: 5px;
   padding-right: 5px;
@@ -30,28 +30,27 @@
 .cc-nothing-add {
   text-decoration: underline;
   color: #a3456b;
-  font-size: 12px;
+  font-size: 14px;
   padding: 5px;
   cursor: pointer;
 }
 
 .cc-course {
   display: flex;
-  /*padding: 2px;*/
   flex-direction: column;
-  width: 100%;
-  height: 45px;
-  cursor: pointer;
+  padding: 4px;
+  width:  100%;
+  cursor:   pointer;
   position: relative;
+  align-self: flex-start;
 }
 
 .cc-squares {
-  /*background: #fafafa;*/
   width:  100%;
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items:   flex-end;
 }
 
 .cc-square {
@@ -62,17 +61,13 @@
   position: relative;
 }
 
-.cc-course:hover {
-  background: #fafafa;
-}
-
 .cc-hline {
   height: 1px;
   width: 100%;
   position: absolute;
   bottom: 25px;
   margin-left: 2px;
-  margin-right: 2px;
+  margin-right:2px;
   background: #e0e0e0;
   left: 0;
   z-index: 1;
@@ -97,9 +92,9 @@
 }
 
 .cc-meta {
-  text-align: center;
+  text-align: left;
   flex-direction: column;
-  font-size: 12px;
+  font-size: 14px;
   min-width: 40px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -107,16 +102,22 @@
 }
 
 .cc-name {
-  font-size: 12px;
+  padding-top: 3px;
+  padding-left:3px;
+  font-size: 14px;
   color: #424242;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   text-transform: capitalize;
+  display: flex;
+  position: relative;
 }
 
 .cc-id {
-  font-size: 11px;
+  padding-bottom:3px;
+  padding-left:  3px;
+  font-size: 13px;
   color: #9F9F9F;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -18,125 +18,71 @@
         <iron-icon class="settings-icon" icon="icons:settings"></iron-icon>
       </div>
       <!-- Middle Content -->
-      <div class="card-content-middle">
-        <div class="cc-chart-container">
-          <!-- <div class="cc-hline"></div> -->
-          <div class="cc-nothing animated fadeIn">
-            <!-- <div class="cc-nothing-message">No Courses to Show</div> -->
-            <div class="cc-nothing-add">Add a Course</div>
-          </div>
-          {{#each hardCourses}}
-          <div class="cc-course animated fadeIn" style="display: {{difficulty.display}};">
-            <div class="cc-squares">
-              <div class="cc-metadata">
-                <div class="cc-name" style="text-align: right;">{{{name}}}</div>
-                <div class="cc-id"   style="text-align: right;">{{{_id}}}</div>
-              </div>
-              <div class="cc-square" style="background: {{difficulty.color}};">
-                <!-- <paper-badge class="cc-badge" label="{{students}}"></paper-badge> -->
-                <paper-ripple></paper-ripple>
-              </div>
-              <div class="cc-metadata">
-                <div class="cc-name">{{difficulty.text}} course</div>
-                <div class="cc-id  ">{{{students}}} Students attended</div>
-              </div>
-              <paper-ripple style="color: gray;"></paper-ripple>
-            </div>
-          </div>
-          {{/each}}
-          {{#each easyCourses}}
-          <div class="cc-course animated fadeIn" style="display: {{difficulty.display}};">
-            <div class="cc-squares">
-              <div class="cc-metadata">
-                <div class="cc-name" style="text-align: right;">{{{name}}}</div>
-                <div class="cc-id"   style="text-align: right;">{{{_id}}}</div>
-              </div>
-              <div class="cc-square" style="background: {{difficulty.color}};">
-                <!-- <paper-badge class="cc-badge" label="{{students}}"></paper-badge> -->
-                <paper-ripple></paper-ripple>
-              </div>
-              <div class="cc-metadata">
-                <div class="cc-name">{{difficulty.text}} course</div>
-                <div class="cc-id  ">{{{students}}} Students attended</div>
-              </div>
-              <paper-ripple style="color: gray;"></paper-ripple>
-            </div>
-          </div>
-          {{/each}}
-          <!-- <div class="sg-vertical-axis">
-          <div class="sg-vertical-axis-title" style="left: -12px;">Semester Load</div>
-        </div> -->
+      <div class="card-content-middle cc-middle-content">
+        {{#each hardCourses}}
+        <div class="cc-course animated fadeIn" style="display: {{difficulty.display}}; border-left: 4px solid {{difficulty.color}};">
+          <div class="cc-name">{{{name}}} <div class="cc-id">({{difficulty.text}} course)</div></div>
+          <div class="cc-id">{{{_id}}} - {{{students}}} Students attended</div>
+          <paper-ripple></paper-ripple>
+        </div>
+        {{/each}}
+        {{#each easyCourses}}
+        <div class="cc-course animated fadeIn" style="display: {{difficulty.display}}; border-left: 4px solid {{difficulty.color}};">
+          <div class="cc-name">{{{name}}} <div class="cc-id">({{difficulty.text}} course)</div></div>
+          <div class="cc-id">{{{_id}}} - {{{students}}} Students attended</div>
+          <paper-ripple></paper-ripple>
+        </div>
+        {{/each}}
+        <div class="cc-nothing-add">Add a Course</div>
+      </div>
+      <div class="number-courses">
+        <div class="cc-number">{{numberCourses.number}}</div>
+        &nbsp;{{numberCourses.text}}
       </div>
     </div>
-    <!-- Bottom Content -->
-    <!-- <div class="card-content-bottom">
-      <div class="card-content-control0">
-        <div class="control0-course-details">
-          <div class="control-title">Course Details</div>
-          <div class="course-details-content">
-            {{#if sessionCourses}}
-            <div>
-              <div class="course-details course-details-name">
-                <div class="detail-title">Name:&nbsp;</div>
-                <div class="detail-sub">{{selectedCourse.name}}</div>
-              </div>
-              <div class="course-details course-details-id">
-                <div class="detail-title">ID:&nbsp;</div>
-                <div class="detail-sub">{{selectedCourse._id}}</div>
-              </div>
+    <!-- Settings panel  -->
+    <div class="settings-content">
+      <div class="card-content-top" style="margin-bottom: 0px;">
+        <div class="card-content-top-text">
+          <div class="card-title">
+            <div class="card-title-text">
+              Settings
             </div>
-            <div>
-              <div class="course-details course-details-students">
-                <div class="detail-title animated fadeIn">Students:&nbsp;</div>
-                <div class="detail-sub animated fadeIn">{{selectedCourse.students}}</div>
+            <iron-icon icon="icons:info"></iron-icon>
+          </div>
+          <div class="card-subtitle-tool">
+            <paper-input label="Search for a Course" id="search-box">
+              <iron-icon icon="search" prefix></iron-icon>
+              <!-- <paper-icon-button suffix class="clear-search" icon="clear" alt="clear" title="clear" tabindex="0" style="color: red;"></paper-icon-button> -->
+            </paper-input>
+            {{#if getCourses}}
+            <div class="search-results">
+              {{#each getCourses}}
+              <div class="result-course" style="position: relative">
+                <div class="result-name">{{{name}}}</div>
+                <div class="result-desc">{{{_id}}}</div>
+                <paper-ripple></paper-ripple>
               </div>
-              <div class="course-details course-details-difficulty">
-                <div class="detail-title">Difficulty:&nbsp;</div>
-                <div class="detail-sub">Easy</div>
-              </div>
+              {{/each}}
             </div>
-            {{else}}
-            No Selected Courses
             {{/if}}
           </div>
         </div>
       </div>
-      <div class="card-content-control1">
-        <div class="control-title">Compliance: <div class="control-subtitle">{{compliance}}</div></div>
-        <paper-slider class="cc-paper-slider" pin snaps max="5" step="1" value="5"></paper-slider>
-      </div>
-      <div class="card-fullscreen-icon">
-      <iron-icon icon="icons:fullscreen"></iron-icon>
-    </div>
-  </div> -->
-  <div class="number-courses">
-    <div class="cc-number">{{numberCourses.number}}</div>
-    &nbsp;{{numberCourses.text}}
-  </div>
-</div>
-
-<!-- Settings panel  -->
-
-<div class="settings-content">
-  <div class="card-content-top" style="margin-bottom: 0px;">
-    <div class="card-content-top-text">
-      <div class="card-title">
-        <div class="card-title-text">
-          Settings
-        </div>
-        <iron-icon icon="icons:info"></iron-icon>
-      </div>
-      <div class="card-subtitle-tool">
-        <paper-input label="Search for a Course" id="search-box">
-          <iron-icon icon="search" prefix></iron-icon>
-          <!-- <paper-icon-button suffix class="clear-search" icon="clear" alt="clear" title="clear" tabindex="0" style="color: red;"></paper-icon-button> -->
-        </paper-input>
-        {{#if getCourses}}
-        <div class="search-results">
-          {{#each getCourses}}
-          <div class="result-course" style="position: relative">
-            <div class="result-name">{{{name}}}</div>
-            <div class="result-desc">{{{_id}}}</div>
+      <!-- <div class="card-content-middle"></div> -->
+      <div class="card-content-bottom">
+        {{#if sessionCourses}}
+        <div class="control-title">Selected Courses</div>
+        <div class="selected-courses">
+          {{#each sessionCourses}}
+          <div class="selected-container animated fadeIn">
+            <div class="selected-course" checked>
+              <div id="checkboxLabel" class="selected-course-meta">
+                <div class="course-name">{{name}}</div>
+                <div class="course-id">{{_id}}</div>
+              </div>
+            </div>
+            <iron-icon class="remove-selected-course" icon="icons:close"></iron-icon>
             <paper-ripple></paper-ripple>
           </div>
           {{/each}}
@@ -144,27 +90,5 @@
         {{/if}}
       </div>
     </div>
-  </div>
-  <!-- <div class="card-content-middle"></div> -->
-  <div class="card-content-bottom">
-    {{#if sessionCourses}}
-    <div class="control-title">Selected Courses</div>
-    <div class="selected-courses">
-      {{#each sessionCourses}}
-      <div class="selected-container animated fadeIn">
-        <div class="selected-course" checked>
-          <div id="checkboxLabel" class="selected-course-meta">
-            <div class="course-name">{{name}}</div>
-            <div class="course-id">{{_id}}</div>
-          </div>
-        </div>
-        <iron-icon class="remove-selected-course" icon="icons:close"></iron-icon>
-        <paper-ripple></paper-ripple>
-      </div>
-      {{/each}}
-    </div>
-    {{/if}}
-  </div>
-</div>
-</paper-material>
+  </paper-material>
 </template>

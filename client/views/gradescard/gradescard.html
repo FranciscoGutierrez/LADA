@@ -86,7 +86,7 @@
       </div>
       <!-- Bottom Content -->
       <div class="card-content-bottom">
-        <div class="card-content-control0">
+        <div class="card-content-control">
           <div class="control-title">Grades</div>
           <div class="card-content-columns">
             <div class="card-content-column">
@@ -103,13 +103,15 @@
             </div>
           </div>
         </div>
-        <div class="card-content-control1">
+        <div class="card-content-control">
           {{#if sessionCourses}}
           <div class="control-title">Courses</div>
           {{/if}}
+          <div class="horizontal-section">
           {{#each sessionCourses}}
           <paper-checkbox class="cf-checkbox animated fadeIn" checked>{{name}}</paper-checkbox>
           {{/each}}
+          </div>
           <!-- <div class="control-title">Compliance: <div class="control-subtitle">{{compliance}}</div></div>
           <paper-slider class="gc-paper-slider" pin snaps max="5" step="1" value="5"></paper-slider> -->
         </div>
