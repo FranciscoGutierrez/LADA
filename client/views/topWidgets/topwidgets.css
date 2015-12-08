@@ -6,4 +6,5 @@
   position: absolute;
   top: 40px;
   align-items: flex-start;
+  min-width: 670px;
 }

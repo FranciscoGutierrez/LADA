@@ -20,15 +20,17 @@
 
 .aspects-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-self: center;
   font-size: 12px;
+  width: 300px;
+  justify-content: space-around;
 }
 
 .aspect {
   display: flex;
   flex-direction: row;
-  margin-top:  5px;
+  margin-top:  8px;
   cursor: pointer;
   position: relative;
   border-radius: 15px;

@@ -1,20 +1,3 @@
-
-.card-title {
-  display: flex;
-  font-size: 28px;
-  color: #424242;
-}
-
-.card-title-text {
-  margin-right: 5px;
-}
-
-.card-subtitle {
-  font-size: 18px;
-  color: #424242;
-  opacity: 0.6;
-}
-
 .good-grades > #checkboxContainer > #checkbox { border-color: #27AE60; }
 .good-grades /deep/ .checked { background: #27AE60 !important; }
 

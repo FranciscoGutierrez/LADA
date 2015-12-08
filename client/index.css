@@ -160,3 +160,57 @@ paper-toast {
 .container {
     -webkit-transform: translateZ(0);
 }
+
+.card-title {
+  display: flex;
+  font-size: 25px;
+  color: #424242;
+}
+
+.card-subtitle {
+  font-size: 20px;
+  color: #424242;
+  opacity: 0.6;
+}
+
+.card-subtitle-tool {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+}
+
+.card-settings-icon {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.card-settings-icon iron-icon {
+  width:  30px !important;
+  height: 30px !important;
+  align-items: flex-end;
+}
+
+.card-settings-icon iron-icon > svg {
+  margin-left: 5px;
+  fill: #a3456b;
+}
+
+paper-toggle-button {
+  margin-left: 5px;
+}
+
+paper-toggle-button > .toggle-label {
+  display: none !important;
+}
