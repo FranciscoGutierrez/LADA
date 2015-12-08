@@ -20,6 +20,7 @@ function onMessage(evt) {
   $( document ).ready(function() {
     if($(".loading-screen")) $(".loading-screen").fadeOut(300,function(){$(this).remove();});
   });
+
 }
 
 function onError(evt) { console.log("ws:error: " + evt.data); }

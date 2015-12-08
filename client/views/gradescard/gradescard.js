@@ -141,6 +141,12 @@ Template.gradescard.helpers({
   },
   compliance: function() {
     return Session.get("gc-compliance");
+  },
+  sessionCourses: function() {
+    var courses = Session.get("courses");
+    var sc;
+    if(courses) sc = Courses.find({"_id": {$in: courses }}).fetch();
+    return sc;
   }
 });
 

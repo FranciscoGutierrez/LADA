@@ -104,6 +104,12 @@
           </div>
         </div>
         <div class="card-content-control1">
+          {{#if sessionCourses}}
+          <div class="control-title">Courses</div>
+          {{/if}}
+          {{#each sessionCourses}}
+          <paper-checkbox class="cf-checkbox animated fadeIn" checked>{{name}}</paper-checkbox>
+          {{/each}}
           <!-- <div class="control-title">Compliance: <div class="control-subtitle">{{compliance}}</div></div>
           <paper-slider class="gc-paper-slider" pin snaps max="5" step="1" value="5"></paper-slider> -->
         </div>

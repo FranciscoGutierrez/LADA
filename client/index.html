@@ -3,6 +3,7 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
   <title>Dashboard</title>
+  <!-- Custom Style Looks awful but this is the only way... -->
   <style is="custom-style">
   :root {
     --paper-toolbar-background: #fefefe;
@@ -10,21 +11,21 @@
     --paper-tab-ink: #424242;
     --iron-icon-width: 18px;
     --iron-icon-fill-color: #c6c6c6;
-    --paper-toggle-button-checked-bar-color: #B25D7E;
-    --paper-toggle-button-checked-button-color: #B25D7E;
+    --paper-toggle-button-checked-bar-color:   #B25D7E;
+    --paper-toggle-button-checked-button-color:#B25D7E;
     --paper-checkbox-checked-color:  #B25D7E;
-    --paper-checkbox-unchecked-color: #B25D7E;
-    --paper-slider-active-color: #B25D7E;
-    --paper-slider-knob-color: #B25D7E;
-    --paper-slider-pin-color: #B25D7E;
-    --paper-input-container-focus-color:  #B25D7E;
+    --paper-checkbox-unchecked-color:#B25D7E;
+    --paper-slider-active-color:#B25D7E;
+    --paper-slider-knob-color:  #B25D7E;
+    --paper-slider-pin-color:   #B25D7E;
+    --paper-input-container-focus-color: #B25D7E;
   }
   paper-icon-button {
     --iron-icon-fill-color: #e67c73;
     --paper-icon-button-ink-color: #e67c73;
     width: 23px; /* 15px + 2*4px for padding */
-    height: 23px;
-    padding: 0px 4px;
+    height:23px;
+    padding:0px 4px;
   }
   progress-bubble {
     --progress-bubble-stroke-color: #617d8a;
@@ -39,28 +40,37 @@
     --paper-radio-button-checked-color: #c5c5c5;
   }
   paper-progress.progress-color {
-    --paper-progress-active-color: #b25d7e;
+    --paper-progress-active-color:    #b25d7e;
     --paper-progress-secondary-color: #eceff1;
   }
   paper-checkbox.fundamentals {
     --paper-checkbox-unchecked-color: #061bc6;
-    --paper-checkbox-checked-color: #061bc6;
+    --paper-checkbox-checked-color:   #061bc6;
   }
   paper-checkbox.advanced {
     --paper-checkbox-unchecked-color: #1265c4;
-    --paper-checkbox-checked-color: #1265c4;
+    --paper-checkbox-checked-color:   #1265c4;
   }
   paper-checkbox.programming {
     --paper-checkbox-unchecked-color: #6882e6;
-    --paper-checkbox-checked-color: #6882e6;
+    --paper-checkbox-checked-color:   #6882e6;
   }
   paper-checkbox.humanities {
     --paper-checkbox-unchecked-color: #41a5f3;
-    --paper-checkbox-checked-color: #41a5f3;
+    --paper-checkbox-checked-color:   #41a5f3;
   }
   paper-checkbox.math {
     --paper-checkbox-unchecked-color: #63cec7;
-    --paper-checkbox-checked-color: #63cec7;
+    --paper-checkbox-checked-color:   #63cec7;
+  }
+
+  paper-checkbox.sf-similar {
+    --paper-checkbox-unchecked-color: #bdbdbd;
+    --paper-checkbox-checked-color:   #bdbdbd;
+  }
+  paper-checkbox.sf-student {
+    --paper-checkbox-unchecked-color: #b25d7e;
+    --paper-checkbox-checked-color:   #b25d7e;
   }
   </style>
   <script src="bower_components/Chart.js/Chart.js"></script>
@@ -68,7 +78,7 @@
   <link rel="stylesheet" href="bower_components/ion.rangeslider/css/normalize.css" />
   <link rel="stylesheet" href="bower_components/ion.rangeslider/css/ion.rangeSlider.css" />
   <link rel="stylesheet" href="bower_components/ion.rangeslider/css/ion.rangeSlider.skinFlat.css" />
-  <link href='//fonts.googleapis.com/css?family=Roboto:900,400,300,100' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto:900,400,300,100' type='text/css'>
   <link rel="import" href="bower_components/progress-bubble/progress-bubble.html">
   <link rel="import" href="bower_components/iron-icons/maps-icons.html">
   <link rel="import" href="bower_components/iron-icons/iron-icons.html">
