@@ -18,7 +18,7 @@
       </div>
       <div class="card-settings-icon">
         <!-- <iron-icon class="settings-icon" icon="icons:settings"></iron-icon> -->
-        <paper-toggle-button class="gc-toggle" checked="false"></paper-toggle-button>
+        <paper-toggle-button class="gc-toggle"></paper-toggle-button>
       </div>
       {{#if isOn}}
       <!-- Middle Content -->
@@ -123,6 +123,7 @@
     <div class="card-content-middle">
       <div class="cc-nothing animated fadeIn" style="background: none; height: 400px;">
         <div class="cc-nothing-message">This Card is Turned Off</div>
+        <paper-progress class="progress-color gc-progress" indeterminate value="800" min="100" max="1000"></paper-progress>
       </div>
     </div>
     {{/if}}

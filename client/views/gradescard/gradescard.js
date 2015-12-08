@@ -50,11 +50,14 @@ Template.gradescard.events({
     }
   },
   "click .gc-toggle": function(event,template) {
-    if(template.$(".gc-toggle").attr("checked")){
-      Session.set("gc-toggle",true);
-    } else {
-      Session.set("gc-toggle",false);
-    }
+    var grades = {courses: Session.get("courses"), student: Session.get("student")};
+    template.$(".gc-progress").fadeIn();
+    template.$(".cc-nothing-message").text("Loading dataset...");
+    Meteor.subscribe("grades", grades, function() {
+      Session.set("gc-toggle",template.$(".gc-toggle").attr("checked"));
+      template.$(".gc-progress").fadeOut();
+      template.$(".cc-nothing-message").text("This Card is Turned Off");
+    });
   },
   "change .gc-paper-slider": function(event,template) {
     var n = template.$(".gc-paper-slider").attr("value");
@@ -133,7 +136,7 @@ Template.gradescard.helpers({
     return sc;
   },
   isOn: function() {
-    $(".gc-toggle").attr("checked",Session.get("gc-toggle"));
+    // $(".gc-toggle").attr("checked",Session.get("gc-toggle"));
     return Session.get("gc-toggle");
   },
   compliance: function() {

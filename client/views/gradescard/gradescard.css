@@ -96,3 +96,8 @@
 circle {
   stroke-width: 0.3;
 }
+
+.gc-progress {
+  margin-top: 10px;
+  display: none;
+}
