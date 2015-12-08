@@ -19,7 +19,7 @@
       </div>
       <div class="card-settings-icon">
         <!-- <iron-icon class="settings-icon" icon="icons:settings"></iron-icon> -->
-        <paper-toggle-button class="sc-toggle" checked></paper-toggle-button>
+        <paper-toggle-button class="sc-toggle"></paper-toggle-button>
       </div>
       {{#if isOn}}
       <!-- Middle Content -->
@@ -60,15 +60,15 @@
             {{/if}}
           </div>
           <div class="sc-chart-bottom-controls">
-            <div class="sc-chart-bottom-button">
+            <!-- <div class="sc-chart-bottom-button">
               <iron-icon icon="icons:chevron-left" class="sc-controls-less"></iron-icon>
               <paper-ripple></paper-ripple>
-            </div>
+            </div> -->
             <div class="sc-course-counter">{{numberof}}26 Courses</div>
-            <div class="sc-chart-bottom-button">
+            <!-- <div class="sc-chart-bottom-button">
               <iron-icon icon="icons:chevron-right" class="sc-controls-more"></iron-icon>
               <paper-ripple></paper-ripple>
-            </div>
+            </div> -->
           </div>
         </div>
         {{/if}}
@@ -80,9 +80,9 @@
           <div class="control0-course-details">
             <div class="course-details-content">
               <paper-radio-group selected="passed">
-                <paper-radio-button name="passed" class="radio-green">Passed</paper-radio-button>
-                <paper-radio-button name="failed" class="radio-red">Failed</paper-radio-button>
-                <paper-radio-button name="other"  class="radio-gray">Not Taken</paper-radio-button>
+                <paper-radio-button name="passed" class="radio-pink mc-radio-passed">Passed</paper-radio-button>
+                <paper-radio-button name="failed" class="radio-pink mc-radio-failed">Failed</paper-radio-button>
+                <!-- <paper-radio-button name="other"  class="radio-pink">Not Taken</paper-radio-button> -->
               </paper-radio-group>
             </div>
           </div>
@@ -90,9 +90,9 @@
         <div class="card-content-control1">
           <div class="control0-course-details">
             <!-- <div class="control-title">Course Details</div> -->
-            <div class="course-details-content">
+            <!-- <div class="course-details-content">
               <div class="sc-select-details">Select a Course</div>
-            </div>
+            </div> -->
           </div>
         </div>
         <!-- <div class="card-fullscreen-icon">

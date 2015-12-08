@@ -9,17 +9,17 @@ Template.missingcourses.events({
       Session.set("sc-toggle",false);
     }
   },
-  "click .radio-green": function(event,template) {
+  "click .mc-radio-passed": function(event,template) {
     Session.set("showRadioSC", {passed: true, failed: false, other: false});
   },
-  "click .radio-red": function(event,template) {
+  "click .mc-radio-failed": function(event,template) {
     Session.set("showRadioSC", {passed: false, failed: true, other: false});
   },
-  "click .radio-gray": function(event,template) {
-    Session.set("showRadioSC", {passed: false, failed: false, other: true});
-  },
+  // "click .radio-gray": function(event,template) {
+  //   Session.set("showRadioSC", {passed: false, failed: false, other: true});
+  // },
   "click .sc-course": function(event,template) {
-    var parent = $(event.target).parents(".sc-course");
+    var parent = $(bvevent.target).parents(".sc-course");
     template.$(".sc-course").css("background","#fafafa");
     parent.css("background","#eeeeee");
   }
@@ -30,10 +30,10 @@ Template.missingcourses.events({
 */
 Template.missingcourses.helpers({
   passedCourses: function() {
-    return Grades.find({"student": Session.get("student"), "status": "AP"}, {skip: 0, limit: 12}).fetch();
+    return Grades.find({"student": Session.get("student"), "status": "AP"}).fetch();
   },
   failedCourses: function() {
-    return Grades.find({"student": Session.get("student"), "status": "RP"}, {skip: 0, limit: 12}).fetch();
+    return Grades.find({"student": Session.get("student"), "status": "RP"}).fetch();
   },
   showPassed: function() {
     return Session.get("showRadioSC").passed;

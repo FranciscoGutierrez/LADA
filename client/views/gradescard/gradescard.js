@@ -50,13 +50,10 @@ Template.gradescard.events({
     }
   },
   "click .gc-toggle": function(event,template) {
-    var time = 300;
     if(template.$(".gc-toggle").attr("checked")){
       Session.set("gc-toggle",true);
     } else {
       Session.set("gc-toggle",false);
-      template.$(".gradescard-paper").css("opacity","1");
-      Session.set("gc-compliance", 5);
     }
   },
   "change .gc-paper-slider": function(event,template) {

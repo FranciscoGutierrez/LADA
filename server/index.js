@@ -1,9 +1,13 @@
+/*
+ * Server-side, Home of >publish< stuff...
+ */
+
+
 Students = new Meteor.Collection('students');
 Courses  = new Meteor.Collection('courses');
 Grades   = new Meteor.Collection('studentscourses');
 
 Meteor.publish('grades', function(who){
-  // return Grades.find({course: {$in: who }}, {limit: 900});
   return Grades.find({$or: [{course: {$in: who.courses}}, {student: who.student}]});
 });
 
