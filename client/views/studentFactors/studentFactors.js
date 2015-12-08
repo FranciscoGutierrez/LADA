@@ -35,5 +35,5 @@ Template.studentfactors.rendered = function () {
       pointLabelFontSize: 12,
       animation: false
     });
-  },350);
+  },3350);
 };

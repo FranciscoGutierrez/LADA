@@ -19,7 +19,7 @@
 
 .cc-nothing {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   /*background: #f6f6f6;*/
   flex-direction: column;
