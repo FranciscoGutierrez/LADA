@@ -17,7 +17,6 @@
   height: 35px;
   min-height: 35px;
   max-height: 35px;
-  width: 145px;
   justify-content: space-around;
   position: relative;
 }
@@ -55,14 +54,13 @@
 .sc-courses-container {
   display: flex;
   position: relative;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: space-around;
-  overflow: hidden;
+  overflow-y:scroll;
   min-height: 258px;
   max-height: 258px;
   width: 100%;
-  align-items: center;
+  /*align-items: center;*/
 }
 
 .sc-course-counter {
@@ -95,4 +93,99 @@
 
 .sc-meta-right {
   text-align: right;
+}
+
+.mc-progress {
+  margin-top: 10px;
+  display: none;
+}
+
+.mc-content-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mc-dataTable {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.mc-dataTable th {
+  text-transform: capitalize;
+  color: #9F9F9F;
+  border-bottom: 1px solid #eee;
+  font-size: 12px;
+  font-weight: normal;
+  height: 32px;
+}
+
+.mc-dataTable input[type="text"]{
+  border: none;
+  background: transparent;
+  color: #9F9F9F;
+  pointer-events: none;
+  cursor: default;
+  user-select: none;
+  width: 7px;
+}
+
+
+.mc-dataTable table {
+  width: 90%;
+  align-self: center;
+  border: 1px solid #eee;
+}
+
+.mc-dataTable td {
+  height: 28px;
+  font-size: 13px;
+  color: #424242;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.mc-dataTable td.grade {
+  text-align: right;
+}
+
+.mc-dataTable td.year {
+  text-align: right;
+}
+
+.mc-dataTable tr:hover {
+  background: #eeeeee;
+}
+
+.mc-dataTable tr {
+  border-bottom: 1px solid #eee;
+}
+
+.mc-dataTable .reactive-table-navigation {
+  font-size: 12px;
+  height: 32px;
+  color: #9F9F9F;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.mc-dataTable .reactive-table-navigation .rows-per-page label span {
+  display: none;
+}
+
+.mc-dataTable .reactive-table-navigation .rows-per-page label input {
+  display: none;
+}
+.mc-dataTable .reactive-table-navigation .rows-per-page label {
+  display: flex;
+}
+.mc-dataTable .reactive-table-navigation .rows-per-page label .rows-per-page-count {
+  display: block;
+}
+
+.mc-dataTable .reactive-table-navigation .rows-per-page label .rows-per-page-label {
+  display: block;
 }

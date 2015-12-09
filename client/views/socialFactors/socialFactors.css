@@ -1,4 +1,33 @@
 .sf-chart {
-  height: 200px;
-  background: #eee;
+  height: 200px !important;
+  display: flex;
+  flex-direction: row;
+  width: 100% !important;
+  justify-content: space-around !important;
+  border-bottom: 1px solid #eeeeee;
 }
+
+.sf-stacked-bar {
+  height: 100%;
+  width: 25px;
+  background: red;
+  display: flex;
+  flex-direction: column;
+}
+
+.sf-bar {
+  height: 100px;
+  background: red;
+}
+
+.gender .bar-bottom { background: #0b4bba; }
+.gender .bar-top { background: #387cf3; }
+
+.marital .bar-bottom { background: #3fbcad; }
+.marital .bar-top { background: #89d8ce; }
+
+.nationality .bar-bottom { background: #5466e3; }
+.nationality .bar-top    { background: #acb4f1; }
+
+.scholarship .bar-bottom { background: #3090f3; }
+.scholarship .bar-top { background: #90c4f9; }
