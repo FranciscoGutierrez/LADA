@@ -22,8 +22,8 @@ Meteor.publish("this_courses", function (who) {
 SearchSource.defineSource('courses', function(searchText, options) {
   var options = {sort: {isoScore: -1}, limit: 5};
   if(searchText) {
-    var regExp = buildRegExp(searchText);
-    var selector = {$or: [{name: regExp}]};
+    var regExp = buildRegExp(searchText+" ");
+    var selector = {$or: [{name: regExp},{code: regExp}]};
     return Courses.find(selector, options).fetch();
   } else {
     return Courses.find({}, options).fetch();

@@ -19,34 +19,35 @@
       <!-- Middle Content -->
       <div class="card-content-middle sf-chart">
         <div class="sf-stacked-bar gender">
-          <div class="sf-bar bar-top"></div>
-          <div class="sf-bar bar-bottom"></div>
+          <div class="sf-bar bar-top">Female</div>
+          <div class="sf-bar bar-bottom">Male</div>
+          <div class="sf-bar-legend">Gender</div>
+          <paper-ripple></paper-ripple>
         </div>
         <div class="sf-stacked-bar marital">
-          <div class="sf-bar bar-top"></div>
-          <div class="sf-bar bar-bottom"></div>
+          <div class="sf-bar bar-top">Single</div>
+          <div class="sf-bar bar-bottom">Married</div>
+          <div class="sf-bar-legend">Marital Status</div>
+          <paper-ripple></paper-ripple>
         </div>
         <div class="sf-stacked-bar nationality">
-          <div class="sf-bar bar-top"></div>
-          <div class="sf-bar bar-bottom"></div>
+          <div class="sf-bar bar-top">Local</div>
+          <div class="sf-bar bar-bottom">Foreigner</div>
+          <div class="sf-bar-legend">Nationality</div>
+          <paper-ripple></paper-ripple>
         </div>
         <div class="sf-stacked-bar scholarship">
-          <div class="sf-bar bar-top"></div>
-          <div class="sf-bar bar-bottom"></div>
+          <div class="sf-bar bar-top">Yes</div>
+          <div class="sf-bar bar-bottom">No</div>
+          <div class="sf-bar-legend">Scholarship</div>
+          <paper-ripple></paper-ripple>
         </div>
       </div>
       <!-- Bottom Content -->
       <div class="card-content-bottom">
         <div class="card-content-control">
-          <div class="control-title">Factors</div>
-          <div class="horizontal-section">
-            <paper-checkbox checked class="gender">Gender</paper-checkbox>
-            <paper-checkbox checked class="nationality">Nationality</paper-checkbox>
-            <paper-checkbox checked class="marital">Marital Status</paper-checkbox>
-            <paper-checkbox checked class="scholarship">Scholarship</paper-checkbox>
-          </div>
         </div>
-        <div class="card-content-control">
+        <div class="card-content-control" style="margin-top: 20px;">
           {{#if sessionCourses}}
           <div class="control-title">Courses</div>
           {{/if}}

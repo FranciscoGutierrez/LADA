@@ -100,7 +100,7 @@ Template.coursescard.events({
 
     });
   },
-  "click .cc-squares, click .cc-meta": function(event,template) {
+  "click .cc-course, click .cc-course": function(event,template) {
     var id = this._id;
     $(".gradescard-paper").find("circle").css("fill-opacity","0.15");
     $(".gradescard-paper").find("circle").css("stroke","none");
@@ -109,23 +109,18 @@ Template.coursescard.events({
     $(".sg-this").css("fill-opacity","1");
     $("."+id).css("stroke","#ececec");
 
-    var parent = $(event.target).parents(".cc-course");
-    template.$(".cc-squares").css("background","none");
-    template.$(".cc-meta").css("background","none");
-    parent.find(".cc-squares").css("background","#EEEEEE");
-    parent.find(".cc-meta").css("background","#EEEEEE");
+    /* background coloring */
+    template.$(".cc-course").css("background","none");
+    $(event.target).parents(".cc-course").css("background","#eeeeee");
+    if($(event.target).hasClass('cc-course')) $(event.target).css("background","#eeeeee");
+    /* set my session for globals */
     Session.set("selected-course",id);
   },
-  "change .cc-paper-slider": function(event,template) {
-    var n = template.$(".cc-paper-slider").attr("value");
-    if(n==5) template.$(".coursescard-paper").css("opacity","1");
-    if(n==4) template.$(".coursescard-paper").css("opacity","0.85");
-    if(n==3) template.$(".coursescard-paper").css("opacity","0.75");
-    if(n==2) template.$(".coursescard-paper").css("opacity","0.65");
-    if(n==1) template.$(".coursescard-paper").css("opacity","0.55");
-    if(n==0) template.$(".coursescard-paper").css("opacity","0.45");
-    Session.set("cc-compliance", n);
-    // Websocket.send('{"reuqestId": "5645f7f7ef0bde57344c84de"}');
+  "mouseenter .cc-course": function(event,template) {
+    $(event.target).find(".cc-passed-legend").fadeIn();
+  },
+  "mouseleave .cc-course": function(event,template) {
+    $(event.target).find(".cc-passed-legend").fadeOut();
   }
 });
 
@@ -156,6 +151,7 @@ Template.coursescard.helpers({
       for (i = 0; i < sc.length; i++) {
         sc[i].name = sc[i].name.toLowerCase();
         sc[i].students = sc[i].students > 999 ? (sc[i].students/1000).toFixed(1) + 'k' : sc[i].students;
+        sc[i].passed   = sc[i].passed > 999 ? (sc[i].passed/1000).toFixed(1) + 'k' : sc[i].passed;
         if(sc[i].difficulty <= 0.60) {
           sc[i].difficulty  = {color:"#e74c3c", text:"Hard", display:"flex"};
         } else if(sc[i].difficulty > 0.60) {
@@ -173,6 +169,7 @@ Template.coursescard.helpers({
       for (i = 0; i < sc.length; i++) {
         sc[i].name = sc[i].name.toLowerCase();
         sc[i].students = sc[i].students > 999 ? (sc[i].students/1000).toFixed(1) + 'k' : sc[i].students;
+        sc[i].passed   = sc[i].passed > 999 ? (sc[i].passed/1000).toFixed(1) + 'k' : sc[i].passed;
         if(sc[i].difficulty <= 0.60) {
           sc[i].difficulty  = {color:"#e74c3c", text:"Hard", display:"none"};
         } else if(sc[i].difficulty > 0.60) {
@@ -214,5 +211,16 @@ Template.coursescard.helpers({
       if(size == 1) obj = {number: size, text: "Course"};
     }
     return obj;
+  },
+  numberCredits: function() {
+    var courses = Session.get("courses");
+    var credits = 0;
+    if (courses) {
+      sc = Courses.find({"_id": {$in: courses }}).fetch();
+      for (i = 0; i < sc.length; i++) {
+        credits += parseInt(sc[i].credits);
+      }
+    }
+    return credits;
   }
 });

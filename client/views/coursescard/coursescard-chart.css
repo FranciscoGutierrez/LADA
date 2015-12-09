@@ -1,19 +1,21 @@
 .cc-middle-content {
-  height: 100%;
-  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  flex-direction:  column;
+  justify-content: center !important;
+  flex-direction: row;
   position: relative;
+  border-bottom: 1px solid #eee;
 }
 
 .cc-metadata {
   width: 100%;
   flex: 1;
-  padding-left: 5px;
-  padding-right: 5px;
   align-self: center;
+  position: absolute;
+  /* bottom: -40px; */
+  font-size: 12px;
+  /* overflow: visible; */
+  text-align: center;
 }
 
 .cc-nothing {
@@ -24,6 +26,8 @@
   flex-direction: column;
   color: #a5a5a5;
   width:  100%;
+  text-align: center;
+  margin-top: 50px;
 }
 
 .cc-nothing-add {
@@ -32,15 +36,27 @@
   font-size: 14px;
   padding: 5px;
   cursor: pointer;
+  text-align: center;
+  margin-top: 35px;
 }
 
 .cc-course {
-  flex-direction: row;
-  width: 100%;
+  flex: 1;
+  flex-direction: column;
   cursor: pointer;
   position: relative;
   align-self: flex-start;
-  justify-content: flex-start;
+  justify-content: flex-end;
+  width: 90px;
+  height: 200px;
+  align-items: center;
+  border-radius: 5px 5px 0px 0px;
+  /*background: #e1e1e1;*/
+  /*background: #b25d7e;*/
+}
+
+.cc-course:hover {
+  background: #eeeeee;
 }
 
 .cc-meta {
@@ -56,20 +72,17 @@
 .cc-name {
   padding-top: 3px;
   padding-left:3px;
-  font-size: 14px;
   color: #424242;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   text-transform: capitalize;
-  display: flex;
   position: relative;
 }
 
 .cc-id {
   padding-bottom:3px;
   padding-left:  3px;
-  font-size: 13px;
   color: #9F9F9F;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -97,5 +110,55 @@
 }
 
 .cc-number {
+  color: #9F9F9F;
+  width: 100%;
+  justify-content: flex-end;
+  display: flex;
+  font-size: 14px;
+}
+
+.cc-bottom {
+  height: 92.5px;
+  background: none;
+  border-radius: 5px 5px 0px 0px;
+  border-left: 1px dashed #d9aebf;
+  border-right:1px dashed #d9aebf;
+  border-top:  1px dashed #d9aebf;
+}
+
+.cc-top {
+  height: 92.5px;
+  background: #b25d7e;
+}
+
+.cc-meter {
+  display: flex;
+  flex-direction: column;
+  width: 45px;
+  position: relative;
+}
+
+.cc-topdata {
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  height: 15px;
+}
+
+.cc-value {
   color: #424242;
+}
+
+.cc-passed-legend {
+  position: absolute;
+  font-size: 12px;
+  /* width: 40px; */
+  padding: 3px;
+  border-radius: 3px;
+  background: #424242;
+  /* top: 0; */
+  left: 6px;
+  color: white;
+  z-index: 100;
+  display: none;
 }

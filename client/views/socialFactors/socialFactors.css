@@ -10,16 +10,19 @@
 .sf-stacked-bar {
   height: 100%;
   width: 25px;
-  background: red;
   display: flex;
   flex-direction: column;
+  position: relative;
+  cursor: pointer;
 }
 
 .sf-bar {
   height: 100px;
-  background: red;
+  font-size: 12px;
 }
-
+.bar-top {
+  border-radius: 2px 2px 0px 0px;
+}
 .gender .bar-bottom { background: #0b4bba; }
 .gender .bar-top { background: #387cf3; }
 
@@ -31,3 +34,11 @@
 
 .scholarship .bar-bottom { background: #3090f3; }
 .scholarship .bar-top { background: #90c4f9; }
+
+.sf-bar-legend {
+  position: absolute;
+  font-size: 12px;
+  display: flex;
+  align-self: center;
+  color: #424242;
+}
