@@ -20,28 +20,12 @@
       </div>
       <!-- Middle Content -->
       <div class="card-content-middle cc-middle-content">
-        {{#each easyCourses}}
-        <div class="cc-course animated fadeIn" style="display: {{difficulty.display}}; border-bottom: 1px solid #eeeeee">
-          <div class="cc-meter">
-            <div class="cc-topdata">{{students}}</div>
-            <div class="cc-bottom"></div>
-            <div class="cc-top">
-              <div class="cc-passed-legend">{{passed}} Passed</div>
-            </div>
-          </div>
-          <div class="cc-metadata">
-            <div class="cc-name">{{name}}</div>
-            <div class="cc-id">{{_id}}</div>
-          </div>
-          <paper-ripple></paper-ripple>
-        </div>
-        {{/each}}
         {{#each hardCourses}}
-        <div class="cc-course animated fadeIn" style="display: {{difficulty.display}}; border-bottom: 1px solid #eeeeee">
+        <div class="cc-course animated fadeIn">
           <div class="cc-meter">
             <div class="cc-topdata">{{{students}}}</div>
-            <div class="cc-bottom"></div>
-            <div class="cc-top">
+            <div class="cc-bottom" style="height: {{both}}%;"></div>
+            <div class="cc-top"    style="height: {{toph}}%;">
               <div class="cc-passed-legend">{{passed}} Passed</div>
             </div>
           </div>
@@ -56,8 +40,25 @@
       <!-- <div class="cc-nothing-add">Add Courses</div> -->
       <!-- Bottom card content -->
       <div class="card-content-bottom cc-content-bottom">
-        <div class="card-content-control" style="margin-top: 20px;">
+        <div class="card-content-control">
           {{#if selectedCourse}}
+          <div class="control-title">Course Details</div>
+          <div class="horizontal-section">
+            <div class="selected-container animated fadeIn">
+              <div class="selected-course" checked>
+                <div id="checkboxLabel" class="selected-course-meta">
+                  <div class="course-name">{{selectedCourse.name}}</div>
+                  <div class="course-id">{{selectedCourse._id}} - {{selectedCourse.credits}} Credits</div>
+                </div>
+              </div>
+              <paper-ripple></paper-ripple>
+            </div>
+          </div>
+          {{else}}
+          Select a Course to See Details
+          {{/if}}
+        </div>
+        <div class="card-content-control">
           <div class="control-title">Semester Credits</div>
           <div class="horizontal-section">
             <paper-progress class="cc-progress-load progress-color" max="30" value="{{numberCredits}}"></paper-progress>
@@ -68,7 +69,6 @@
               /30&nbsp;Credits
             </div>
           </div>
-          {{/if}}
         </div>
       </div>
     </div>

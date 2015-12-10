@@ -70,7 +70,6 @@
 }
 
 .cc-name {
-  padding-top: 3px;
   padding-left:3px;
   color: #424242;
   overflow: hidden;
@@ -118,24 +117,29 @@
 }
 
 .cc-bottom {
-  height: 92.5px;
   background: none;
   border-radius: 5px 5px 0px 0px;
   border-left: 1px dashed #d9aebf;
   border-right:1px dashed #d9aebf;
   border-top:  1px dashed #d9aebf;
+  width: 45px;
+  align-self: center;
 }
 
 .cc-top {
-  height: 92.5px;
   background: #b25d7e;
+  width: 45px;
+  align-self: center;
 }
 
 .cc-meter {
   display: flex;
   flex-direction: column;
-  width: 45px;
+  width: 100%;
   position: relative;
+  height: 200px;
+  justify-content: flex-end;
+  align-items: ;
 }
 
 .cc-topdata {
@@ -157,7 +161,7 @@
   border-radius: 3px;
   background: #424242;
   /* top: 0; */
-  left: 6px;
+  left: 45%;
   color: white;
   z-index: 100;
   display: none;

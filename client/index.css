@@ -216,3 +216,8 @@ paper-toggle-button {
 paper-toggle-button > .toggle-label {
   display: none !important;
 }
+
+.paperToast {
+  background: white;
+  color: #424242;
+}

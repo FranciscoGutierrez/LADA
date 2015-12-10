@@ -110,7 +110,7 @@ Template.coursescard.events({
     $("."+id).css("stroke","#ececec");
 
     /* background coloring */
-    template.$(".cc-course").css("background","none");
+    template.$(".cc-course").css("background","white");
     $(event.target).parents(".cc-course").css("background","#eeeeee");
     if($(event.target).hasClass('cc-course')) $(event.target).css("background","#eeeeee");
     /* set my session for globals */
@@ -150,31 +150,10 @@ Template.coursescard.helpers({
       sc = Courses.find({"_id": {$in: courses }}).fetch();
       for (i = 0; i < sc.length; i++) {
         sc[i].name = sc[i].name.toLowerCase();
+        sc[i].toph = sc[i].passed*100/sc[i].students;
+        sc[i].both = 100 - sc[i].toph;
         sc[i].students = sc[i].students > 999 ? (sc[i].students/1000).toFixed(1) + 'k' : sc[i].students;
         sc[i].passed   = sc[i].passed > 999 ? (sc[i].passed/1000).toFixed(1) + 'k' : sc[i].passed;
-        if(sc[i].difficulty <= 0.60) {
-          sc[i].difficulty  = {color:"#e74c3c", text:"Hard", display:"flex"};
-        } else if(sc[i].difficulty > 0.60) {
-          sc[i].difficulty  = {color:"#27ae60", text:"Easy", display:"none"};
-        }
-      }
-    }
-    return sc;
-  },
-  easyCourses: function() {
-    var courses = Session.get("courses");
-    var sc;
-    if (courses) {
-      sc = Courses.find({"_id": {$in: courses }}).fetch();
-      for (i = 0; i < sc.length; i++) {
-        sc[i].name = sc[i].name.toLowerCase();
-        sc[i].students = sc[i].students > 999 ? (sc[i].students/1000).toFixed(1) + 'k' : sc[i].students;
-        sc[i].passed   = sc[i].passed > 999 ? (sc[i].passed/1000).toFixed(1) + 'k' : sc[i].passed;
-        if(sc[i].difficulty <= 0.60) {
-          sc[i].difficulty  = {color:"#e74c3c", text:"Hard", display:"none"};
-        } else if(sc[i].difficulty > 0.60) {
-          sc[i].difficulty  = {color:"#27ae60", text:"Easy", display:"flex"};
-        }
       }
     }
     return sc;
