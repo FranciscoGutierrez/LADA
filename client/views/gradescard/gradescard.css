@@ -19,6 +19,7 @@
   width: 100%;
   position: relative;
   max-width: 350px;
+  height: 200px;
 }
 
 .sg-chart-container > svg {
@@ -73,7 +74,7 @@
 }
 
 .gc-card-content {
-  order: 2
+  display: none;
 }
 
 circle {

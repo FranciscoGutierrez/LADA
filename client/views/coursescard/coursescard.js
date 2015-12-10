@@ -150,8 +150,8 @@ Template.coursescard.helpers({
       sc = Courses.find({"_id": {$in: courses }}).fetch();
       for (i = 0; i < sc.length; i++) {
         sc[i].name = sc[i].name.toLowerCase();
-        sc[i].toph = sc[i].passed*100/sc[i].students;
-        sc[i].both = 100 - sc[i].toph;
+        sc[i].toph = Math.round((sc[i].passed*100)/sc[i].students);
+        sc[i].both = Math.round(100 - sc[i].toph);
         sc[i].students = sc[i].students > 999 ? (sc[i].students/1000).toFixed(1) + 'k' : sc[i].students;
         sc[i].passed   = sc[i].passed > 999 ? (sc[i].passed/1000).toFixed(1) + 'k' : sc[i].passed;
       }

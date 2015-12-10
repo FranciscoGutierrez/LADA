@@ -59,7 +59,7 @@ Template.missingcourses.helpers({
       showFilter: true,
       showRowCount: false,
       showNavigationRowsPerPage: false,
-      fields: ['course', 'grade', 'year']
+      fields: ['name','course', 'grade', 'year']
     };
   }
 });

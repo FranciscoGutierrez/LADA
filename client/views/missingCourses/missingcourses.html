@@ -1,6 +1,6 @@
 <template name="missingcourses">
   <paper-material class="card-content missingcourses-paper">
-    <div class="chart-content gc-card-content">
+    <div class="chart-content mc-card-content">
       <!-- Top Content -->
       <div class="card-content-top">
         <div class="card-content-top-text">
@@ -8,53 +8,49 @@
             <div class="card-title-text">Student Courses</div>
             <iron-icon icon="icons:info"></iron-icon>
           </div>
-          {{#if isOn}}
           <div class="card-subtitle">No Influence</div>
-          {{/if}}
         </div>
       </div>
       <div class="card-settings-icon">
-        <paper-toggle-button class="mc-toggle"></paper-toggle-button>
+        <!-- <paper-toggle-button class="mc-toggle"></paper-toggle-button> -->
       </div>
       <!-- Middle Content -->
-      <div class="card-content-middle mc-content-middle" style="display: none;">
+      <div class="card-content-middle mc-content-middle">
         <div class="mc-dataTable">
           {{> reactiveTable collection=passedCourses settings=settings}}
         </div>
       </div>
       <!-- Middle Content -->
-      <div class="card-content-bottom mc-content-bottom" style="display: none;">
+      <div class="card-content-bottom mc-content-bottom">
         <div class="card-content-control">
-          <div class="control-title">Academic Years</div>
+          <div class="control-title">Courses</div>
           <div class="mc-selected-years">
-            <paper-radio-group selected="all">
+            <paper-radio-group selected="ntaken">
               <paper-radio-button name="all"    class="radio-pink">All</paper-radio-button>
               <paper-radio-button name="passed" class="radio-pink">Passed</paper-radio-button>
               <paper-radio-button name="failed" class="radio-pink">Failed</paper-radio-button>
-              <paper-radio-button name="ntaken" class="radio-pink">Not Taken</paper-radio-button>
+              <paper-radio-button name="ntaken" class="radio-pink">Need to Repeat</paper-radio-button>
             </paper-radio-group>
           </div>
         </div>
         <div class="card-content-control">
           <div class="control-title">Academic Years</div>
           <div class="mc-selected-years">
-            <paper-radio-group selected="all">
-              <paper-radio-button name="all" class="radio-pink">All</paper-radio-button>
-              <paper-radio-button name="one" class="radio-pink">First </paper-radio-button>
-              <paper-radio-button name="two" class="radio-pink">Second</paper-radio-button>
-              <paper-radio-button name="thr" class="radio-pink">Third </paper-radio-button>
-              <paper-radio-button name="fou" class="radio-pink">Fourth</paper-radio-button>
-              <paper-radio-button name="fiv" class="radio-pink">Fifth </paper-radio-button>
+            <paper-radio-group selected="3">
+              <paper-radio-button name="0" class="radio-pink">All</paper-radio-button>
+              <paper-radio-button name="1" class="radio-pink">First </paper-radio-button>
+              <paper-radio-button name="2" class="radio-pink">Second</paper-radio-button>
+              <paper-radio-button name="3" class="radio-pink">Third (Current)</paper-radio-button>
             </paper-radio-group>
           </div>
         </div>
       </div>
-      {{#unless isOn}}
-      <div class="cc-nothing animated fadeIn" style="background: none; height: 400px;">
-        <div class="cc-nothing-message">This Card is Turned Off</div>
-        <paper-progress class="progress-color mc-progress" indeterminate value="800" min="100" max="1000"></paper-progress>
+    </div>
+    <div class="mc-progress">
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <div class="mc-progress-title">Loading Data</div>
+        <paper-progress class="progress-color" indeterminate value="800" min="100" max="1000"></paper-progress>
       </div>
-      {{/unless}}
     </div>
   </paper-material>
 </template>

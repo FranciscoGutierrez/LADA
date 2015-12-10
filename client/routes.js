@@ -13,7 +13,7 @@ Router.route('/:_id', {
     Session.set("gc-compliance", 5);
     Session.set("hc-compliance", 5);
     Session.set("hc-toggle", true);
-    Session.set("gc-toggle", false);
+    Session.set("gc-toggle", true);
     Session.set("sc-toggle", false);
     Session.set("data-from",1999);
     Session.set("data-to",2013);

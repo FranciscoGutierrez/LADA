@@ -18,7 +18,7 @@
       </div>
       <div class="card-settings-icon">
         <!-- <iron-icon class="settings-icon" icon="icons:settings"></iron-icon> -->
-        <paper-toggle-button class="gc-toggle"></paper-toggle-button>
+        <paper-toggle-button class="gc-toggle" checked></paper-toggle-button>
       </div>
       {{#if isOn}}
       <!-- Middle Content -->
@@ -103,19 +103,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="card-content-control">
-          {{#if sessionCourses}}
-          <div class="control-title">Courses</div>
-          {{/if}}
-          <div class="horizontal-section">
-          {{#each sessionCourses}}
-          <paper-checkbox class="cf-checkbox animated fadeIn" checked>{{name}}</paper-checkbox>
-          {{/each}}
-          </div>
-        </div> -->
-        <!-- <div class="card-fullscreen-icon">
-        <iron-icon icon="icons:fullscreen"></iron-icon>
-      </div> -->
     </div>
     {{else}}
     <div class="card-content-middle">
@@ -125,6 +112,12 @@
       </div>
     </div>
     {{/if}}
+  </div>
+  <div class="mc-progress">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div class="mc-progress-title">Loading Data</div>
+      <paper-progress class="progress-color" indeterminate value="800" min="100" max="1000"></paper-progress>
+    </div>
   </div>
 </paper-material>
 </template>

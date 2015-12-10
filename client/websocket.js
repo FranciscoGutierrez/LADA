@@ -18,9 +18,17 @@ function onMessage(evt) {
   Session.set("qualityValue",recieved.quality);
   // console.log(recieved);
   $( document ).ready(function() {
-    if($(".loading-screen")) $(".loading-screen").fadeOut(300,function(){$(this).remove();});
-  });
+    if($(".loading-screen")) $(".loading-screen").fadeOut(300,function(){
+      $(this).remove();
 
+      var grades = {courses: Session.get("courses"), student: Session.get("student")};
+      Meteor.subscribe("grades", grades, function() {
+        $(".mc-progress").fadeOut();
+        $(".gc-card-content").fadeIn();
+        $(".mc-card-content").fadeIn();
+      });
+    });
+  });
 }
 
 function onError(evt) { console.log("ws:error: " + evt.data); }

@@ -97,7 +97,7 @@
 
 .mc-progress {
   margin-top: 10px;
-  display: none;
+  align-self: center;
 }
 
 .mc-content-bottom {
@@ -190,7 +190,7 @@
 }
 
 .mc-dataTable .clearfix {
-  display: fle  x;
+  display: flex;
   align-content: center;
   justify-content: center;
   margin: 5px;
@@ -211,10 +211,11 @@
   padding: 6px;
 }
 
-.iron-selected .paper-tab {
-  color: #424242;
+.mc-progress-title {
+  color: #8d8d8d;
+  font-size: 14px;
 }
 
-.paper-tab {
-  color: #8d8d8d;
+.mc-card-content {
+  display: none;
 }
