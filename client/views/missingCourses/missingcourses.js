@@ -12,6 +12,8 @@ Template.missingcourses.events({
       Session.set("mc-toggle",template.$(".mc-toggle").attr("checked"));
       template.$(".mc-progress").fadeOut();
       template.$(".cc-nothing-message").text("This Card is Turned Off");
+      template.$(".mc-content-bottom").fadeIn();
+      template.$(".mc-content-middle").css("display","flex");
     });
   },
   "click .mc-radio-passed": function(event,template) {
@@ -62,4 +64,6 @@ Template.missingcourses.helpers({
   }
 });
 
-Template.missingcourses.rendered = function () {};
+Template.missingcourses.rendered = function () {
+  Session.set("mc-toggle",false);
+};
