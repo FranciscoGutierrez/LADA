@@ -1,6 +1,6 @@
 <template name="missingcourses">
   <paper-material class="card-content missingcourses-paper">
-    <div class="chart-content mc-card-content">
+    <div class="chart-content mc-card-content animated fadeIn">
       <!-- Top Content -->
       <div class="card-content-top">
         <div class="card-content-top-text">
@@ -17,7 +17,7 @@
       <!-- Middle Content -->
       <div class="card-content-middle mc-content-middle">
         <div class="mc-dataTable">
-          {{> reactiveTable collection=passedCourses settings=settings}}
+          {{> reactiveTable collection=selectedCourses settings=settings}}
         </div>
       </div>
       <!-- Middle Content -->
@@ -29,7 +29,7 @@
               <paper-radio-button name="all"    class="radio-pink">All</paper-radio-button>
               <paper-radio-button name="passed" class="radio-pink">Passed</paper-radio-button>
               <paper-radio-button name="failed" class="radio-pink">Failed</paper-radio-button>
-              <paper-radio-button name="ntaken" class="radio-pink">Need to Repeat</paper-radio-button>
+              <paper-radio-button name="ntaken" class="radio-pink">Must Redo</paper-radio-button>
             </paper-radio-group>
           </div>
         </div>
@@ -49,7 +49,7 @@
     <div class="mc-progress">
       <div style="display: flex; flex-direction: column; align-items: center;">
         <div class="mc-progress-title">Loading Data</div>
-        <paper-progress class="progress-color" indeterminate value="800" min="100" max="1000"></paper-progress>
+        <!-- <paper-progress class="progress-color" indeterminate value="800" min="100" max="1000"></paper-progress> -->
       </div>
     </div>
   </paper-material>

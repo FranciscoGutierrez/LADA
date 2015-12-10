@@ -23,9 +23,9 @@ function onMessage(evt) {
 
       var grades = {courses: Session.get("courses"), student: Session.get("student")};
       Meteor.subscribe("grades", grades, function() {
-        $(".mc-progress").fadeOut();
-        $(".gc-card-content").fadeIn();
-        $(".mc-card-content").fadeIn();
+        $(".mc-progress").remove();
+        $(".gc-card-content").css("display","block");
+        $(".mc-card-content").css("display","block");
       });
     });
   });

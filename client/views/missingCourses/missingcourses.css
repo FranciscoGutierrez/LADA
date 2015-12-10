@@ -110,7 +110,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  /*height: 246px;*/
+  height: 240px;
 }
 
 .mc-dataTable th {
@@ -119,7 +119,7 @@
   border-bottom: 1px solid #eee;
   font-size: 12px;
   font-weight: normal;
-  height: 28px;
+  height: 24px;
 }
 
 .mc-dataTable .reactive-table-navigation input[type="text"]{
@@ -141,7 +141,7 @@
 }
 
 .mc-dataTable td {
-  height: 28px;
+  height: 24px;
   font-size: 13px;
   color: #424242;
   padding-left: 10px;
@@ -165,7 +165,7 @@
 
 .mc-dataTable .reactive-table-navigation {
   font-size: 12px;
-  height: 28px;
+  height: 24px;
   color: #9F9F9F;
   align-items: center;
   align-content: center;

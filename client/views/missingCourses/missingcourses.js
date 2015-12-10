@@ -2,20 +2,6 @@
 * Template life Cycle (Events)
 */
 Template.missingcourses.events({
-  "click .mc-toggle": function(event,template) {
-    var grades = {courses: Session.get("courses"), student: Session.get("student")};
-    template.$(".mc-progress").fadeIn();
-    template.$(".cc-nothing-message").text("Loading dataset...");
-    Session.set("showRadioSC", {passed: true, failed: false, other: false});
-
-    Meteor.subscribe("grades", grades, function() {
-      Session.set("mc-toggle",template.$(".mc-toggle").attr("checked"));
-      template.$(".mc-progress").fadeOut();
-      template.$(".cc-nothing-message").text("This Card is Turned Off");
-      template.$(".mc-content-bottom").fadeIn();
-      template.$(".mc-content-middle").css("display","flex");
-    });
-  },
   "click .mc-radio-passed": function(event,template) {
     Session.set("showRadioSC", {passed: true, failed: false, other: false});
     template.$(".mc-radio-failed").attr("checked",false);
@@ -35,17 +21,9 @@ Template.missingcourses.events({
 * Display data from helpers
 */
 Template.missingcourses.helpers({
-  passedCourses: function() {
-    return Grades.find({"student": Session.get("student"), "status": "AP"}, {sort: {year: 1}}).fetch();
-  },
-  failedCourses: function() {
-    return Grades.find({"student": Session.get("student"), "status": "RP"}, {sort: {year: 1}}).fetch();
-  },
-  showPassed: function() {
-    return Session.get("showRadioSC").passed;
-  },
-  showFailed: function() {
-    return Session.get("showRadioSC").failed;
+  selectedCourses: function() {
+    // return Grades.find({"student": Session.get("student"), "status": Session.get("sc-radio")}, {sort: {year: 1}}).fetch();
+    return Grades.find({"student": Session.get("student")}, {sort: {year: 1}}).fetch();
   },
   isOn: function() {
     return Session.get("mc-toggle");
