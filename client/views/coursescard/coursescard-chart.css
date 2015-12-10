@@ -5,6 +5,7 @@
   flex-direction: row;
   position: relative;
   border-bottom: 1px solid #eee;
+  height: 200px !important;
 }
 
 .cc-metadata {
@@ -27,7 +28,6 @@
   color: #a5a5a5;
   width:  100%;
   text-align: center;
-  margin-top: 50px;
 }
 
 .cc-nothing-add {

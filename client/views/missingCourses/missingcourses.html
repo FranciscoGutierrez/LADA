@@ -20,6 +20,12 @@
       <!-- Middle Content -->
       <div class="card-content-middle">
         <div class="mc-dataTable">
+          <paper-tabs selected="0">
+            <paper-tab>All</paper-tab>
+            <paper-tab>Passed</paper-tab>
+            <paper-tab>Failed</paper-tab>
+            <paper-tab>Not Taken</paper-tab>
+          </paper-tabs>
           {{> reactiveTable collection=passedCourses settings=settings}}
         </div>
       </div>
@@ -31,6 +37,20 @@
         </div>
       </div>
       {{/if}}
+      <div class="card-content-bottom">
+        {{#if isOn}}
+        <div class="control-title">Academic Years</div>
+        <div class="mc-selected-years">
+          <paper-radio-group selected="one">
+            <paper-radio-button name="one" class="radio-pink">First </paper-radio-button>
+            <paper-radio-button name="two" class="radio-pink">Second</paper-radio-button>
+            <paper-radio-button name="thr" class="radio-pink">Third </paper-radio-button>
+            <paper-radio-button name="fou" class="radio-pink">Fourth</paper-radio-button>
+            <paper-radio-button name="fiv" class="radio-pink">Fifth </paper-radio-button>
+          </paper-radio-group>
+        </div>
+        {{/if}}
+      </div>
     </div>
   </paper-material>
 </template>

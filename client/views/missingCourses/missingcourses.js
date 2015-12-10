@@ -53,8 +53,8 @@ Template.missingcourses.helpers({
   },
   settings: function () {
     return {
-      rowsPerPage: 10,
-      showFilter: false,
+      rowsPerPage: 5,
+      showFilter: true,
       showRowCount: false,
       showNavigationRowsPerPage: false,
       fields: ['course', 'grade', 'year']
