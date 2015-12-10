@@ -34,10 +34,10 @@ Template.missingcourses.helpers({
   settings: function () {
     return {
       rowsPerPage: 5,
-      showFilter: true,
+      showFilter: false,
       showRowCount: false,
       showNavigationRowsPerPage: false,
-      fields: ['name','course', 'grade', 'year']
+      fields: ['course','name', 'grade', 'year']
     };
   }
 });

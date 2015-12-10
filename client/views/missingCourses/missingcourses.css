@@ -110,7 +110,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 240px;
+  height: 226px;
 }
 
 .mc-dataTable th {
@@ -141,11 +141,17 @@
 }
 
 .mc-dataTable td {
-  height: 24px;
+  max-height: 24px;
   font-size: 13px;
   color: #424242;
-  padding-left: 10px;
-  padding-right: 10px;
+  overflow: hidden;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .mc-dataTable td.grade {
   text-align: right;
@@ -167,10 +173,10 @@
   font-size: 12px;
   height: 24px;
   color: #9F9F9F;
-  align-items: center;
-  align-content: center;
+  align-items: flex-end;
+  align-content: flex-end;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
 }
 
 .mc-dataTable .reactive-table-navigation .rows-per-page label span {
@@ -218,4 +224,12 @@
 
 .mc-card-content {
   display: none;
+}
+
+.mc-dataTable tr:nth-child(odd) {
+  background: #eceff1;
+}
+
+.mc-dataTable tr:nth-child(even) {
+  background: white;
 }
