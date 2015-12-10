@@ -222,10 +222,6 @@
   font-size: 14px;
 }
 
-.mc-card-content {
-  display: none;
-}
-
 .mc-dataTable tr:nth-child(odd) {
   background: #eceff1;
 }

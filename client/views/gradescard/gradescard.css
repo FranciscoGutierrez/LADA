@@ -73,10 +73,6 @@
   cursor: move;
 }
 
-.gc-card-content {
-  display: none;
-}
-
 circle {
   stroke-width: 0.3;
 }

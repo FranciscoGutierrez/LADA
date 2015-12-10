@@ -17,15 +17,11 @@ function onMessage(evt) {
   Session.set("riskValue",recieved.risk);
   Session.set("qualityValue",recieved.quality);
   // console.log(recieved);
-  $( document ).ready(function() {
+  $(document).ready(function() {
     if($(".loading-screen")) $(".loading-screen").fadeOut(300,function(){
-      $(this).remove();
-
       var grades = {courses: Session.get("courses"), student: Session.get("student")};
       Meteor.subscribe("grades", grades, function() {
-        $(".mc-progress").remove();
-        $(".gc-card-content").css("display","block");
-        $(".mc-card-content").css("display","block");
+        $(".loading-screen").remove();
       });
     });
   });
