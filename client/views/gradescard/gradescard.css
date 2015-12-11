@@ -49,23 +49,24 @@
   border-bottom:1px solid #e0e0e0;
   border-right: 1px solid #e0e0e0;
   bottom: 26px;
-  /*background: linear-gradient(to right, #e74c3c 0%, #e74c3c 26%, #e67e22 26%, #e67e22 46%, #f1c40f 46%, #f1c40f 68%, #27ae60 68%, #27ae60 80%, #25a085 80%, #25a085 99%);*/
 }
 
 .sg-horizontal-axis-title {
   position: absolute;
-  top:  -8px;
+  top:  -9px;
   right: 5px;
-  font: 10px sans-serif;
+  font: 12px sans-serif;
 }
 
 .sg-vertical-axis-title {
   font: 12px sans-serif;
   position: absolute;
-  top: 30px;
-  left: -23px;
+  top: 87px;
+  left: -93px;
   transform: rotate(-90deg);
   opacity: 0.7;
+  width: 200px;
+  text-align: end;
 }
 
 .sg-this {

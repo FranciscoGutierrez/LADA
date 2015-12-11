@@ -1,9 +1,9 @@
-
 .chart-content {
   min-width: 350px;
   /*max-width: 350px;*/
   width: 100%;
 }
+
 .card-content-top {
   width: 100%;
   position: relative;
@@ -62,4 +62,20 @@
 
 .cc-content-bottom {
   margin-top: 25px;
+}
+
+.cc-progress-hzbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: #939393;
+  margin-left: 47%;
+  position: absolute;
+  top: -21px;
+}
+
+.cc-hzbar-title {
+  font-size: 10px;
 }
