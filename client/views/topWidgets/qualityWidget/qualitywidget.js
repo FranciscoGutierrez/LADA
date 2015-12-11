@@ -6,11 +6,11 @@ Template.qualitywidget.helpers({
   qualityText: function() {
     var quality = Session.get("qualityValue");
     var text;
-    if (quality >= 0.0) text = "Very Poor";
-    if (quality >= 0.2) text = "Poor";
-    if (quality >= 0.4) text = "Fair";
-    if (quality >= 0.6) text = "Good";
-    if (quality >= 0.8) text = "Very Good";
+    if (quality >= 0.0) text = "Muy Pobre";
+    if (quality >= 0.2) text = "Pobre";
+    if (quality >= 0.4) text = "Aceptable";
+    if (quality >= 0.6) text = "Buena";
+    if (quality >= 0.8) text = "Muy Buena";
     return text;
   },
   qualityColor: function() {
