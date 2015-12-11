@@ -1,14 +1,15 @@
 /*
- * Server-side, Home of >publish< stuff...
- */
-
+* Server-side, Home of >publish< stuff...
+*/
 
 Students = new Meteor.Collection('students');
 Courses  = new Meteor.Collection('courses');
 Grades   = new Meteor.Collection('studentscourses');
 
 Meteor.publish('grades', function(who){
-  return Grades.find({$or: [{course: {$in: who.courses}}, {student: who.student}]});
+  var query = Grades.find({$or: [{course: {$in: who.courses}}, {student: who.student}]});
+  if (!who.courses) query = 0;
+  return query;
 });
 
 Meteor.publish("this_student", function (who) {

@@ -16,23 +16,12 @@ function onMessage(evt) {
   var recieved = JSON.parse(evt.data);
   Session.set("riskValue",recieved.risk);
   Session.set("qualityValue",recieved.quality);
-  // console.log(recieved);
-  $(document).ready(function() {
-    if($(".loading-screen")) $(".loading-screen").fadeOut(300,function(){
-      var grades = {courses: Session.get("courses"), student: Session.get("student")};
-      Meteor.subscribe("grades", grades, function() {
-        $(".loading-screen").remove();
-      });
-    });
-  });
 }
 
 function onError(evt) { console.log("ws:error: " + evt.data); }
 function doSend(message) {
   console.log("ws:doSend: " + message);
   Websocket.send(message);
-  $("#paperToast").attr("text","Loading...");
-  document.querySelector('#paperToast').show();
 }
 
 $(document).ready(function() {
@@ -61,7 +50,6 @@ $(document).ready(function() {
         '"compliance": 2}]}';
         // Send the request through websocket
         Websocket.send(request);
-        // console.log(request);
       }
     } else if (Websocket.readyState == 3) {
       $("#paperToast").attr("text","Connection lost, reconnecting... ");

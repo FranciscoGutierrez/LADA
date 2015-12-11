@@ -156,13 +156,14 @@
 .cc-passed-legend {
   position: absolute;
   font-size: 12px;
-  /* width: 40px; */
+  width: 65px;
   padding: 3px;
   border-radius: 3px;
-  background: #424242;
+  background: rgba(66, 66, 66, 0.75);
   /* top: 0; */
-  left: 45%;
+  /* left: 45%; */
   color: white;
   z-index: 100;
   display: none;
+  /* justify-content: center; */
 }

@@ -22,8 +22,19 @@ Router.route('/:_id', {
 
     if(courses) Session.set("selected-course", courses[0]);
     var grades = {courses: courses, student: student};
-    // Meteor.subscribe("grades", grades);
-    Meteor.subscribe("this_student", student);
-    Meteor.subscribe("this_courses", courses);
+
+    /*
+    * Handling suscriptions (Start)
+    */
+    Meteor.subscribe("this_student", student, function() {
+        Meteor.subscribe("this_courses", courses, function(){
+          Meteor.subscribe("grades", grades, function() {
+            if($(".loading-screen")) $(".loading-screen").remove();
+          });
+        });
+    });
+    /*
+    * Handling suscriptions (End)
+    */
   }
 });

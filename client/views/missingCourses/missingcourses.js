@@ -2,18 +2,8 @@
 * Template life Cycle (Events)
 */
 Template.missingcourses.events({
-  "click .mc-radio-passed": function(event,template) {
-    Session.set("showRadioSC", {passed: true, failed: false, other: false});
-    template.$(".mc-radio-failed").attr("checked",false);
-  },
-  "click .mc-radio-failed": function(event,template) {
-    Session.set("showRadioSC", {passed: false, failed: true, other: false});
-    template.$(".mc-radio-passed").attr("checked",false);
-  },
-  "click .sc-course": function(event,template) {
-    var parent = $(bvevent.target).parents(".sc-course");
-    template.$(".sc-course").css("background","#fafafa");
-    parent.css("background","#eeeeee");
+  "click paper-radio-button": function(event,template) {
+    console.log(event.target);
   }
 });
 

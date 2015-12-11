@@ -60,7 +60,6 @@
   min-height: 258px;
   max-height: 258px;
   width: 100%;
-  /*align-items: center;*/
 }
 
 .sc-course-counter {
@@ -179,21 +178,9 @@
   justify-content: flex-end;
 }
 
-.mc-dataTable .reactive-table-navigation .rows-per-page label span {
-}
-
-.mc-dataTable .reactive-table-navigation .rows-per-page label input {
-}
-.mc-dataTable .reactive-table-navigation .rows-per-page label {
-  display: flex;
-}
-.mc-dataTable .reactive-table-navigation .rows-per-page label .rows-per-page-count {
-  display: block;
-}
-
-.mc-dataTable .reactive-table-navigation .rows-per-page label .rows-per-page-label {
-  display: block;
-}
+.mc-dataTable .reactive-table-navigation .rows-per-page label {display: flex;}
+.mc-dataTable .reactive-table-navigation .rows-per-page label .rows-per-page-count {display: block;}
+.mc-dataTable .reactive-table-navigation .rows-per-page label .rows-per-page-label {display: block;}
 
 .mc-dataTable .clearfix {
   display: flex;
@@ -228,4 +215,8 @@
 
 .mc-dataTable tr:nth-child(even) {
   background: white;
+}
+
+.mc-content-bottom paper-radio-group > * {
+    padding: 3px;
 }
