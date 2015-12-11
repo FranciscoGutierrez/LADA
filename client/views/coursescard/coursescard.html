@@ -6,13 +6,13 @@
         <div class="card-content-top-text">
           <div class="card-title">
             <div class="card-title-text">
-              Semester Overview
+              Semestre Planeado
             </div>
             <iron-icon icon="icons:info"></iron-icon>
           </div>
-          <div class="card-subtitle">
+          <!-- <div class="card-subtitle">
             Strong Influence
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="card-settings-icon">
@@ -26,7 +26,7 @@
             <div class="cc-topdata">{{{students}}}</div>
             <div class="cc-bottom" style="height: {{both}}%;"></div>
             <div class="cc-top"    style="height: {{toph}}%;">
-              <div class="cc-passed-legend">{{passed}} ({{toph}}%) Passed</div>
+              <div class="cc-passed-legend">{{passed}} ({{toph}}%) Aprobados</div>
             </div>
           </div>
           <div class="cc-metadata">
@@ -36,38 +36,37 @@
           <paper-ripple></paper-ripple>
         </div>
         {{else}}
-        <div class="cc-nothing-add">Add some courses</div>
+        <div class="cc-nothing-add">Agregar algunos cursos</div>
         {{/each}}
       </div>
       <!-- Bottom card content -->
       <div class="card-content-bottom cc-content-bottom">
         <div class="card-content-control">
           {{#if selectedCourse}}
-          <div class="control-title">Course Details</div>
+          <div class="control-title">Detalles del Curso</div>
           <div class="horizontal-section">
             <div class="selected-container animated fadeIn">
               <div class="selected-course" checked>
                 <div id="checkboxLabel" class="selected-course-meta">
                   <div class="course-name">{{selectedCourse.name}}</div>
-                  <div class="course-id">{{selectedCourse._id}} - {{selectedCourse.credits}} Credits</div>
+                  <div class="course-id">{{selectedCourse._id}} - {{selectedCourse.credits}} Créditos</div>
                 </div>
+                <paper-ripple></paper-ripple>
               </div>
-              <paper-ripple></paper-ripple>
             </div>
           </div>
           {{else}}
-          Select a Course to See Details
+          Selecciona un Curso para ver los detalles.
           {{/if}}
         </div>
         <div class="card-content-control">
-          <div class="control-title">Semester Credits</div>
+          <div class="control-title">Créditos del Semestre</div>
           <div class="horizontal-section">
-            <paper-progress class="cc-progress-load progress-color" max="30" value="{{numberCredits}}"></paper-progress>
+            <paper-progress class="cc-progress-load progress-color" max="60" value="{{numberCredits}}"></paper-progress>
             <div class="cc-number">
               <div class="cc-value">{{numberCourses.number}}</div>
               &nbsp;{{numberCourses.text}},&nbsp;
-              <div class="cc-value">{{numberCredits}}</div>
-              /30&nbsp;Credits
+              <div class="cc-value">{{numberCredits}}</div>&nbsp;Créditos
             </div>
           </div>
         </div>
@@ -79,7 +78,7 @@
         <div class="card-content-top-text">
           <div class="card-title">
             <div class="card-title-text">
-              Settings
+              Ajustes
             </div>
             <iron-icon icon="icons:info"></iron-icon>
           </div>
@@ -93,7 +92,7 @@
               {{#each getCourses}}
               <div class="result-course" style="position: relative">
                 <div class="result-name">{{{name}}}</div>
-                <div class="result-desc">{{{_id}}} - {{credits}} Credits</div>
+                <div class="result-desc">{{{_id}}} - {{credits}} Créditos</div>
                 <paper-ripple></paper-ripple>
               </div>
               {{/each}}
@@ -105,14 +104,14 @@
       <!-- <div class="card-content-middle"></div> -->
       <div class="card-content-bottom">
         {{#if sessionCourses}}
-        <div class="control-title">Selected Courses</div>
+        <div class="control-title">Cursos Seleccionados</div>
         <div class="selected-courses">
           {{#each sessionCourses}}
           <div class="selected-container animated fadeIn">
             <div class="selected-course" checked>
               <div id="checkboxLabel" class="selected-course-meta">
                 <div class="course-name">{{name}}</div>
-                <div class="course-id">{{_id}} - {{credits}} Credits</div>
+                <div class="course-id">{{_id}} - {{credits}} Créditos</div>
               </div>
             </div>
             <iron-icon class="remove-selected-course" icon="icons:close"></iron-icon>

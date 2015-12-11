@@ -28,7 +28,7 @@
 }
 
 .search-results .result-course {
-  background: #f2f2f2;
+  background: #eceff1;
   padding: 7px;
   margin-top: 3px;
   border-radius: 3px;
@@ -40,7 +40,7 @@
 }
 
 .search-results .result-course:hover {
-  background: #eceff1;
+  background: #b25d7e;
   color: white !important;
   cursor: pointer;
 }
