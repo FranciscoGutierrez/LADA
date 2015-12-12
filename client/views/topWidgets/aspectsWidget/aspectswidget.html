@@ -5,19 +5,19 @@
       <div style="width: 10px"></div>
       <div class="aspects-list">
         <div>
-          <div class="aspect courses-aspect animated fadeIn">
+          <div class="aspect missing-aspect animated fadeIn">
             <div class="aspect-bullet">1</div>
             <div class="aspect-text">Datos del Estudiante</div>
             <paper-ripple></paper-ripple>
           </div>
           {{#if gradesOn}}
-          <div class="aspect grades-aspect animated fadeIn">
+          <div class="aspect courses-aspect animated fadeIn">
             <div class="aspect-bullet">2</div>
             <div class="aspect-text">Semestre Planeado</div>
             <paper-ripple></paper-ripple>
           </div>
           {{else}}
-          <div class="aspect grades-aspect animated fadeIn">
+          <div class="aspect courses-aspect animated fadeIn">
             <div class="aspect-bullet" style="opacity: 0.15">2</div>
             <div class="aspect-text"   style="opacity: 0.15">Semestre Planeado</div>
             <paper-ripple></paper-ripple>
@@ -25,13 +25,13 @@
           {{/if}}
 
           {{#if historyOn}}
-          <div class="aspect history-aspect animated fadeIn">
+          <div class="aspect grades-aspect animated fadeIn">
             <div class="aspect-bullet">3</div>
             <div class="aspect-text">Calificaciones</div>
             <paper-ripple></paper-ripple>
           </div>
           {{else}}
-          <div class="aspect history-aspect animated fadeIn">
+          <div class="aspect grades-aspect animated fadeIn">
             <div class="aspect-bullet" style="opacity: 0.15">3</div>
             <div class="aspect-text"   style="opacity: 0.15">Calificaciones</div>
             <paper-ripple></paper-ripple>
@@ -40,19 +40,19 @@
         </div>
 
         <div>
-          <div class="aspect">
+          <div class="aspect history-aspect animated fadeIn">
             <div class="aspect-bullet">4</div>
             <div class="aspect-text">Registros Históricos</div>
             <paper-ripple></paper-ripple>
           </div>
 
-
-          <div class="aspect">
+          <div class="aspect courseskill-aspect animated fadeIn">
             <div class="aspect-bullet">5</div>
             <div class="aspect-text">Habilidades por Curso</div>
             <paper-ripple></paper-ripple>
           </div>
-          <div class="aspect">
+          
+          <div class="aspect studentskill-aspect animated fadeIn">
             <div class="aspect-bullet">6</div>
             <div class="aspect-text">Habilidades por Estudiante</div>
             <paper-ripple></paper-ripple>
