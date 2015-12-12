@@ -52,25 +52,19 @@
       <!-- Bottom Content -->
       <div class="card-content-bottom" style="margin-top: 26px;">
         <div class="card-content-control">
-          <div class="control-title">Registros</div>
-          <div class="card-content-columns">
-            <div class="card-content-column">
-              <paper-checkbox checked>Programa</paper-checkbox>
-              <paper-checkbox checked>Currícula</paper-checkbox>
-            </div>
-            <div class="card-content-column">
-              <paper-checkbox checked>Evaluación</paper-checkbox>
-              <paper-checkbox checked>Profesores</paper-checkbox>
+          <div class="control-title">Predicción Basada en:</div>
+          <div class="horizontal-section">
+            <div class="selected-container animated fadeIn">
+              <div class="selected-course" checked>
+                <div id="checkboxLabel" class="selected-course-meta">
+                  <div class="course-name">{{selectedCourse.name}}</div>
+                  <div class="course-id">{{selectedCourse._id}} - {{selectedCourse.credits}} Créditos</div>
+                </div>
+                <paper-ripple></paper-ripple>
+              </div>
             </div>
           </div>
         </div>
-        <div class="card-content-control1">
-          <!-- <div class="control-title">Compliance: <div class="control-subtitle">{{compliance}}</div></div>
-          <paper-slider class="hc-paper-slider" pin snaps max="5" step="1" value="5"></paper-slider> -->
-        </div>
-        <!-- <div class="card-fullscreen-icon">
-          <iron-icon icon="icons:fullscreen"></iron-icon>
-        </div> -->
       </div>
       {{else}}
       <div class="card-content-middle">

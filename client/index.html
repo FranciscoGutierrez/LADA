@@ -61,6 +61,10 @@
     --paper-checkbox-unchecked-color: #b25d7e;
     --paper-checkbox-checked-color:   #b25d7e;
   }
+  paper-toast {
+    --paper-toast-background-color: white;
+    --paper-toast-color: #424242;
+  }
   </style>
   <script src="bower_components/Chart.js/Chart.js"></script>
   <script src="bower_components/ion.rangeslider/js/ion.rangeSlider.min.js"></script>
@@ -92,9 +96,9 @@
       <paper-progress class="progress-color" indeterminate value="800" min="100" max="1000"></paper-progress>
     </div>
   </div>
-  <paper-toast id="paperToast" text="">
-    <div class="toast-reconnect">Volverse a Conectar</div>
+  <paper-toast id="paperToast" text="" class="paperToast">
     <paper-spinner active></paper-spinner>
+    <div class="toast-reconnect">Volverse a Conectar</div>
   </paper-toast>
   <paper-header-panel mode="seamed">
     <paper-toolbar class="tall">

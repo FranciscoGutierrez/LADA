@@ -17,8 +17,7 @@ Router.route('/:_id', {
     Session.set("sc-toggle", false);
     Session.set("data-from",1999);
     Session.set("data-to",2013);
-
-    Session.set("showRadioSC", {passed: true, failed: false, other: false});
+    Session.set("studentdata","redo");
 
     if(courses) Session.set("selected-course", courses[0]);
     var grades = {courses: courses, student: student};

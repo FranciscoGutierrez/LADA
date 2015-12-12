@@ -8,8 +8,6 @@ Websocket.onerror   = function(evt) { onError(evt)   };
 
 function onOpen(evt) { console.log("ws:connected"); }
 function onClose(evt) {
-  $("#paperToast").attr("text","Connection lost, reconnecting... ");
-  document.querySelector('#paperToast').show();
   console.log("ws:offline");
 }
 function onMessage(evt) {
@@ -52,7 +50,7 @@ $(document).ready(function() {
         Websocket.send(request);
       }
     } else if (Websocket.readyState == 3) {
-      $("#paperToast").attr("text","Connection lost, reconnecting... ");
+      $("#paperToast").attr("text","Conexión inactiva, volviendo a conectar...");
       document.querySelector('#paperToast').show();
       Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
       Websocket.onopen    = function(evt) { onOpen(evt)   };

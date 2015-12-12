@@ -23,24 +23,22 @@
       <!-- Middle Content -->
       <div class="card-content-bottom mc-content-bottom">
         <div class="card-content-control">
-          <div class="control-title">Cursos</div>
+          <div class="control-title">Mostrar Cursos</div>
           <div class="mc-selected-years">
-            <paper-radio-group selected="all">
-              <paper-radio-button name="all"    class="radio-pink">Todos</paper-radio-button>
-              <paper-radio-button name="passed" class="radio-pink">Aprobados</paper-radio-button>
-              <paper-radio-button name="failed" class="radio-pink">Reprobados</paper-radio-button>
-              <paper-radio-button name="ntaken" class="radio-pink">Volver a Cursar</paper-radio-button>
+            <paper-radio-group selected="redo">
+              <paper-radio-button name="all"    class="mc-all    radio-pink">Todos</paper-radio-button>
+              <paper-radio-button name="redo"   class="mc-redo   radio-pink">Debe volver a cursar</paper-radio-button>
             </paper-radio-group>
           </div>
         </div>
         <div class="card-content-control">
-          <div class="control-title">Nivel Académico</div>
+          <div class="control-title">Año Académico</div>
           <div class="mc-selected-years">
             <paper-radio-group selected="0">
-              <paper-radio-button name="0" class="radio-pink">Todos</paper-radio-button>
-              <paper-radio-button name="1" class="radio-pink">Primero </paper-radio-button>
-              <paper-radio-button name="2" class="radio-pink">Segundo</paper-radio-button>
-              <paper-radio-button name="3" class="radio-pink">Tercero (Actual)</paper-radio-button>
+              <paper-radio-button name="0" class="mc-radio-all mc-radio-level radio-pink">Todos</paper-radio-button>
+              <paper-radio-button name="1" class="mc-radio-1   mc-radio-level radio-pink">Primero </paper-radio-button>
+              <paper-radio-button name="2" class="mc-radio-2   mc-radio-level radio-pink">Segundo</paper-radio-button>
+              <paper-radio-button name="3" class="mc-radio-3   mc-radio-level radio-pink">Tercero (Más reciente)</paper-radio-button>
             </paper-radio-group>
           </div>
         </div>

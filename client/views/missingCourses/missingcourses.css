@@ -128,7 +128,8 @@
   pointer-events: none;
   cursor: default;
   user-select: none;
-  width: 7px;
+  width: 14px;
+  text-align: right;
 }
 
 

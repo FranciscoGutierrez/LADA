@@ -24,7 +24,7 @@
   align-self: center;
   font-size: 12px;
   width: 300px;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .aspect {
@@ -51,6 +51,7 @@
 }
 .aspect-text {
   margin-left: 5px;
+  width: 100px;
 }
 
 .aspect-text:hover {

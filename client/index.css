@@ -213,6 +213,14 @@ paper-toggle-button > .toggle-label {
 }
 
 .paperToast {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: white;
   color: #424242;
+  flex-direction: row-reverse;
+}
+
+paper-toast #label {
+  margin-left: 10px;
 }
