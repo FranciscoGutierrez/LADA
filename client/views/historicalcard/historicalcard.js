@@ -23,7 +23,7 @@ Template.historicalcard.events({
         $("#selector").ionRangeSlider({
           type: 'double ',
           min: 1999,
-          max: 2013,
+          max: 2012,
           step: 1,
           grid: true,
           grid_snap: true,
@@ -35,23 +35,21 @@ Template.historicalcard.events({
         });
 
         var data = [
-          { x: 0,  y: 8, },
-          { x: 1,  y: 9, },
-          { x: 2,  y: 9, },
-          { x: 3,  y: 10, },
-          { x: 4,  y: 10, },
-          { x: 5,  y: 9, },
-          { x: 6,  y: 9, },
-          { x: 7,  y: 8, },
-          { x: 8,  y: 8, },
-          { x: 9,  y: 9, },
-          { x: 10, y: 9, },
-          { x: 11, y: 8, },
-          { x: 12, y: 8, },
-          { x: 13, y: 10, },
-          { x: 14, y: 10, },
-          { x: 15, y: 10, },
+          { x: 0,  y: 3535},
+          { x: 1,  y: 3863},
+          { x: 2,  y: 4921},
+          { x: 3,  y: 5847},
+          { x: 4,  y: 6232},
+          { x: 5,  y: 6770},
+          { x: 6,  y: 7420},
+          { x: 7,  y: 7469},
+          { x: 8,  y: 7403},
+          { x: 9,  y: 6014},
+          { x: 10, y: 5434},
+          { x: 11, y: 5285},
+          { x: 12, y: 4841}
         ];
+        
         var margin = {top: 20, right: 20, bottom: 30, left: 50},
         width  = 335,
         height = 170;
@@ -115,6 +113,30 @@ Template.historicalcard.helpers({
   },
   compliance: function() {
     return Session.get("hc-compliance");
+  },
+  students: function () {
+    var result = 0;
+    var x = Historial.find({}).fetch();
+    for (i=0; i < x.length; i++) {
+      if ((Session.get("data-from") <= parseInt(x[i].year)) && (Session.get("data-to") >= parseInt(x[i].year)))
+      result = parseInt(x[i].students) + result;
+    }
+    return result.toLocaleString();
+  },
+  courses: function () {
+    var result = 0;
+    var x = Historial.find({}).fetch();
+    for (i=0; i < x.length; i++) {
+      if ((Session.get("data-from") <= parseInt(x[i].year)) && (Session.get("data-to") >= parseInt(x[i].year)))
+      result = parseInt(x[i].courses) + result;
+    }
+    return result.toLocaleString();
+  },
+  from: function () {
+    return Session.get("data-from");
+  },
+  to: function () {
+    return Session.get("data-to");
   }
 });
 
@@ -124,7 +146,7 @@ Template.historicalcard.rendered = function () {
     $("#selector").ionRangeSlider({
       type: 'double ',
       min: 1999,
-      max: 2013,
+      max: 2012,
       step: 1,
       grid: true,
       grid_snap: true,
@@ -157,22 +179,19 @@ Template.historicalcard.rendered = function () {
     });
 
     var data = [
-      { x: 0,  y: 8, },
-      { x: 1,  y: 9, },
-      { x: 2,  y: 9, },
-      { x: 3,  y: 10, },
-      { x: 4,  y: 10, },
-      { x: 5,  y: 9, },
-      { x: 6,  y: 9, },
-      { x: 7,  y: 8, },
-      { x: 8,  y: 8, },
-      { x: 9,  y: 9, },
-      { x: 10, y: 9, },
-      { x: 11, y: 8, },
-      { x: 12, y: 8, },
-      { x: 13, y: 10, },
-      { x: 14, y: 10, },
-      { x: 15, y: 10, },
+      { x: 0,  y: 3535},
+      { x: 1,  y: 3863},
+      { x: 2,  y: 4921},
+      { x: 3,  y: 5847},
+      { x: 4,  y: 6232},
+      { x: 5,  y: 6770},
+      { x: 6,  y: 7420},
+      { x: 7,  y: 7469},
+      { x: 8,  y: 7403},
+      { x: 9,  y: 6014},
+      { x: 10, y: 5434},
+      { x: 11, y: 5285},
+      { x: 12, y: 4841}
     ];
 
     var margin = {top: 20, right: 20, bottom: 30, left: 50},

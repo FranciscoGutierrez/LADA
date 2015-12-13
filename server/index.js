@@ -5,6 +5,7 @@
 Students = new Meteor.Collection('students');
 Courses  = new Meteor.Collection('courses');
 Grades   = new Meteor.Collection('studentscourses');
+Historial= new Meteor.Collection('historial');
 
 Meteor.publish('grades', function(who){
   var query = Grades.find({$or: [{course: {$in: who.courses}}, {student: who.student}]});
@@ -14,6 +15,10 @@ Meteor.publish('grades', function(who){
 
 Meteor.publish("this_student", function (who) {
   return Students.find({ "_id": who+""});
+});
+
+Meteor.publish("historial", function (who) {
+  return Historial.find();
 });
 
 Meteor.publish("this_courses", function (who) {

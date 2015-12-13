@@ -35,10 +35,11 @@
           <div class="control-title">Año Académico</div>
           <div class="mc-selected-years">
             <paper-radio-group selected="0">
-              <paper-radio-button name="0" class="mc-radio-all mc-radio-level radio-pink">Todos</paper-radio-button>
-              <paper-radio-button name="1" class="mc-radio-1   mc-radio-level radio-pink">Primero </paper-radio-button>
-              <paper-radio-button name="2" class="mc-radio-2   mc-radio-level radio-pink">Segundo</paper-radio-button>
-              <paper-radio-button name="3" class="mc-radio-3   mc-radio-level radio-pink">Tercero (Más reciente)</paper-radio-button>
+              <paper-radio-button name="0" class="mc-radio-all radio-pink">Todos</paper-radio-button>
+              {{#each academicYears}}
+              <paper-radio-button name="1" class="mc-radio-{{number}} mc-radio-level radio-pink">{{year}}</paper-radio-button>
+              {{else}}
+              {{/each}}
             </paper-radio-group>
           </div>
         </div>

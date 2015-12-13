@@ -26,7 +26,7 @@
       <div class="card-content-middle">
         <div class="sg-chart-container">
           <div class="sg-vertical-axis" style="left: -7px;">
-            <div class="sg-vertical-axis-title">Consistencia</div>
+            <div class="sg-vertical-axis-title">Estudiantes</div>
           </div>
           <div class="hc-svg-container">
             <svg id="area">
@@ -57,8 +57,8 @@
             <div class="selected-container animated fadeIn">
               <div class="selected-course" checked>
                 <div id="checkboxLabel" class="selected-course-meta">
-                  <div class="course-name">{{selectedCourse.name}}</div>
-                  <div class="course-id">{{selectedCourse._id}} - {{selectedCourse.credits}} Créditos</div>
+                  <div class="course-name">{{students}} Estudiantes en {{courses}} Cursos</div>
+                  <div class="course-id">Desde {{from}} hasta {{to}}</div>
                 </div>
                 <paper-ripple></paper-ripple>
               </div>

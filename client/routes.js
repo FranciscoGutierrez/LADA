@@ -15,10 +15,10 @@ Router.route('/:_id', {
     Session.set("hc-toggle", true);
     Session.set("gc-toggle", true);
     Session.set("sc-toggle", false);
-    Session.set("data-from",1999);
-    Session.set("data-to",2013);
+    Session.set("data-from","1999");
+    Session.set("data-to","2012");
     Session.set("studentdata","redo");
-
+    Session.set("studentYear","all");
     if(courses) Session.set("selected-course", courses[0]);
     var grades = {courses: courses, student: student};
 
@@ -28,6 +28,7 @@ Router.route('/:_id', {
     Meteor.subscribe("this_student", student, function() {
         Meteor.subscribe("this_courses", courses, function(){
           Meteor.subscribe("grades", grades, function() {
+            Meteor.subscribe("historial");
             if($(".loading-screen")) $(".loading-screen").remove();
           });
         });
