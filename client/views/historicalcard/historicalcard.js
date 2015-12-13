@@ -19,6 +19,8 @@ Template.historicalcard.events({
   "click .hc-toggle": function(event,template) {
     if(template.$(".hc-toggle").attr("checked")){
       Session.set("hc-toggle",true);
+      Session.set("data-from","1999");
+      Session.set("data-to","2012");
       setTimeout(function() {
         $("#selector").ionRangeSlider({
           type: 'double ',
@@ -49,7 +51,7 @@ Template.historicalcard.events({
           { x: 11, y: 5285},
           { x: 12, y: 4841}
         ];
-        
+
         var margin = {top: 20, right: 20, bottom: 30, left: 50},
         width  = 335,
         height = 170;
@@ -91,7 +93,8 @@ Template.historicalcard.events({
     } else {
       Session.set("hc-toggle",false);
       template.$(".historicalcard-paper").css("opacity","1");
-      Session.set("hc-compliance", 5);
+      Session.set("data-from","1999");
+      Session.set("data-to","2012");
     }
   },
   "change .hc-paper-slider": function(event,template) {
