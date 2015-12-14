@@ -1,12 +1,22 @@
-
 Template.coursefactors.events({
   "click .cf-checkbox": function(event,template){
-      CoursesFactorsChart.datasets[0].points[0].value = _.random(40, 70);
-      CoursesFactorsChart.datasets[0].points[1].value = _.random(40, 70);
-      CoursesFactorsChart.datasets[0].points[2].value = _.random(40, 70);
-      CoursesFactorsChart.datasets[0].points[3].value = _.random(40, 70);
-      CoursesFactorsChart.datasets[0].points[4].value = _.random(40, 70);
-      CoursesFactorsChart.update();
+    CoursesFactorsChart.datasets[0].points[0].value = 0;
+    CoursesFactorsChart.datasets[0].points[1].value = 0;
+    CoursesFactorsChart.datasets[0].points[2].value = 0;
+    CoursesFactorsChart.datasets[0].points[3].value = 0;
+    CoursesFactorsChart.datasets[0].points[4].value = 0;
+    CoursesFactorsChart.update();
+
+    $('.cf-checkbox').each(function() {
+      if($(this).attr("checked")) {
+        CoursesFactorsChart.datasets[0].points[0].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor1*100)/5);
+        CoursesFactorsChart.datasets[0].points[1].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor2*100)/5);
+        CoursesFactorsChart.datasets[0].points[2].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor3*100)/5);
+        CoursesFactorsChart.datasets[0].points[3].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor4*100)/5);
+        CoursesFactorsChart.datasets[0].points[4].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor5*100)/5);
+      }
+    });
+    CoursesFactorsChart.update();
   }
 });
 
@@ -27,11 +37,11 @@ Template.coursefactors.rendered = function(){
     if(courses) sc = Courses.find({"_id": {$in: courses }}).fetch();
     var obj = [0,0,0,0,0];
     for (i=0; i< sc.length; i++){
-      obj[0] += parseInt(sc[i].factor1*100)/5;
-      obj[1] += parseInt(sc[i].factor2*100)/5;
-      obj[2] += parseInt(sc[i].factor3*100)/5;
-      obj[3] += parseInt(sc[i].factor4*100)/5;
-      obj[4] += parseInt(sc[i].factor5*100)/5;
+      obj[0] += parseInt((sc[i].factor1*100)/5);
+      obj[1] += parseInt((sc[i].factor2*100)/5);
+      obj[2] += parseInt((sc[i].factor3*100)/5);
+      obj[3] += parseInt((sc[i].factor4*100)/5);
+      obj[4] += parseInt((sc[i].factor5*100)/5);
     }
 
     var ctx = document.getElementById("cf-chart").getContext("2d");
