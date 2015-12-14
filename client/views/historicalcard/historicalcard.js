@@ -132,7 +132,6 @@ Template.historicalcard.events({
       "timestamp": new Date()
     });
   }
-
 });
 
 Template.historicalcard.helpers({
