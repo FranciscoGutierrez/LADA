@@ -48,3 +48,13 @@ paper-checkbox #checkboxLabel.paper-checkbox{ padding-left: 2px !important;}
   display: inline-block;
   width: 170px;
 }
+
+.cf-nothing {
+  height: 400px;
+  background: none;
+  align-content: center;
+  justify-content: center;
+  display: none;
+  align-items: center;
+  color: #c6c6c6;
+}

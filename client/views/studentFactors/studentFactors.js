@@ -35,6 +35,24 @@ Template.studentfactors.events({
       StudentFactorsChart.datasets[0].points[4].value = 0;
       StudentFactorsChart.update();
     }
+  },
+  "click .sf-toggle": function(event,template) {
+    if(template.$(".sf-toggle").attr("checked")){
+      template.$(".card-content-middle").fadeIn();
+      template.$(".card-subtitle").fadeIn();
+      template.$(".card-content-bottom").fadeIn();
+      template.$(".control-title").fadeIn(300, function(){
+        template.$(".cf-nothing").fadeOut();
+      });
+    }
+    else {
+      template.$(".card-content-middle").fadeOut();
+      template.$(".card-subtitle").fadeOut();
+      template.$(".card-content-bottom").fadeOut();
+      template.$(".control-title").fadeIn(300, function(){
+        template.$(".cf-nothing").css("display","flex");
+      });
+    }
   }
 });
 

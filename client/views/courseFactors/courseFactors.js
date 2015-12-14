@@ -17,6 +17,25 @@ Template.coursefactors.events({
       }
     });
     CoursesFactorsChart.update();
+  },
+  "click .cf-toggle": function(event,template) {
+    if(template.$(".cf-toggle").attr("checked")){
+      template.$(".card-content-middle").fadeIn();
+      template.$(".card-subtitle").fadeIn();
+      template.$(".card-content-bottom").fadeIn();
+      template.$(".control-title").fadeIn(300, function(){
+        template.$(".cf-nothing").fadeOut();
+      });
+    }
+    else {
+      template.$(".card-content-middle").fadeOut();
+      template.$(".card-subtitle").fadeOut();
+      template.$(".card-content-bottom").fadeOut();
+      template.$(".control-title").fadeIn(300, function(){
+        template.$(".cf-nothing").css("display","flex");
+      });
+
+    }
   }
 });
 
