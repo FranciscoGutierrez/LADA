@@ -181,6 +181,7 @@ paper-toast {
   display: flex;
   flex-direction: row;
   padding: 15px;
+  overflow: hidden;
 }
 
 .card-settings-icon {
