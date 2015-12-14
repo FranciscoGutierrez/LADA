@@ -100,7 +100,7 @@ Template.coursescard.events({
 
     });
   },
-  "click .cc-course, click .cc-course": function(event,template) {
+  "click .cc-course": function(event,template) {
     var id = this._id;
     $(".gradescard-paper").find("circle").css("fill-opacity","0.15");
     $(".gradescard-paper").find("circle").css("stroke","none");
@@ -121,6 +121,15 @@ Template.coursescard.events({
   },
   "mouseleave .cc-course": function(event,template) {
     $(event.target).find(".cc-passed-legend").fadeOut();
+  },
+  "click .card-info": function (event,template) {
+    template.$(".help-info").css("display","flex");
+  },
+  "click .close-info": function (event,template) {
+    template.$(".help-info").fadeOut();
+  },
+  "click .help-info": function (event,template) {
+    template.$(".help-info").fadeOut();
   }
 });
 
