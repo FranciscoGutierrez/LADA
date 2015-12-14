@@ -24,6 +24,15 @@ Template.missingcourses.events({
     template.$(".mc-radio-all").attr("checked",false);
     template.$(".mc-radio-"+this.number).attr("checked",true);
     Session.set("studentYear",this.year);
+  },
+  "click .card-info": function (event,template) {
+    template.$(".help-info").css("display","flex");
+  },
+  "click .close-info": function (event,template) {
+    template.$(".help-info").fadeOut("fast");
+  },
+  "click .help-info": function (event,template) {
+    template.$(".help-info").fadeOut("fast");
   }
 });
 

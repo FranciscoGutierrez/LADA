@@ -126,10 +126,10 @@ Template.coursescard.events({
     template.$(".help-info").css("display","flex");
   },
   "click .close-info": function (event,template) {
-    template.$(".help-info").fadeOut();
+    template.$(".help-info").fadeOut("fast");
   },
   "click .help-info": function (event,template) {
-    template.$(".help-info").fadeOut();
+    template.$(".help-info").fadeOut("fast");
   }
 });
 

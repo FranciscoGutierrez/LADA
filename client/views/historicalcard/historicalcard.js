@@ -107,6 +107,15 @@ Template.historicalcard.events({
     if(n==2) template.$(".historicalcard-paper").css("opacity","0.65");
     if(n==1) template.$(".historicalcard-paper").css("opacity","0.55");
     if(n==0) template.$(".historicalcard-paper").css("opacity","0.45");
+  },
+  "click .card-info": function (event,template) {
+    template.$(".help-info").css("display","flex");
+  },
+  "click .close-info": function (event,template) {
+    template.$(".help-info").fadeOut("fast");
+  },
+  "click .help-info": function (event,template) {
+    template.$(".help-info").fadeOut("fast");
   }
 });
 

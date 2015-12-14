@@ -53,6 +53,15 @@ Template.studentfactors.events({
         template.$(".cf-nothing").css("display","flex");
       });
     }
+  },
+  "click .card-info": function (event,template) {
+    template.$(".help-info").css("display","flex");
+  },
+  "click .close-info": function (event,template) {
+    template.$(".help-info").fadeOut("fast");
+  },
+  "click .help-info": function (event,template) {
+    template.$(".help-info").fadeOut("fast");
   }
 });
 
