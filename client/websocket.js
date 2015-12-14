@@ -1,5 +1,7 @@
 // Websocket = new WebSocket("ws://localhost:9000/test");
 // Websocket = new WebSocket("ws://10.43.48.75/test");
+StudentFactorsChart = 0;
+CoursesFactorsChart = 0;
 Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
 Websocket.onopen    = function(evt) { onOpen(evt)    };
 Websocket.onclose   = function(evt) { onClose(evt)   };
