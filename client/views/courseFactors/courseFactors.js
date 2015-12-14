@@ -31,7 +31,6 @@ Template.coursefactors.helpers({
 
 Template.coursefactors.rendered = function(){
   setTimeout(function() {
-
     var courses = Session.get("courses");
     var sc;
     if(courses) sc = Courses.find({"_id": {$in: courses }}).fetch();
@@ -43,7 +42,6 @@ Template.coursefactors.rendered = function(){
       obj[3] += parseInt((sc[i].factor4*100)/5);
       obj[4] += parseInt((sc[i].factor5*100)/5);
     }
-
     var ctx = document.getElementById("cf-chart").getContext("2d");
     var data = {
       labels: ["Fundamentos", "Tópicos Avanzados", "Programación", "Humanidades", "Matemáticas"],
@@ -59,13 +57,11 @@ Template.coursefactors.rendered = function(){
           data: obj
         }]
       };
-
       CoursesFactorsChart = new Chart(ctx).Radar(data, {
         responsive: false,
         pointDotRadius: 3,
         pointLabelFontSize: 12,
         animation: true
       });
-
     },3500);
   };
