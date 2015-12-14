@@ -31,13 +31,26 @@ Template.coursescard.events({
       });
     }
   },
-  "keyup #search-box, click #input": _.throttle(function(e,template) {
+  "keyup #search-box, click #input": _.throttle(function(event,template) {
     template.$(".search-results").show();
-    var text = $(e.target).val().trim();
+    var text = $(event.target).val().trim();
     PackageSearch.search(text);
   }, 200),
   "click": function(event,template){
     template.$(".search-results").hide();
+    /*** Interaction Recorder ***/
+    var self = this;
+    var myEvent = event;
+    Recorder.insert({
+      "user": Meteor.connection._lastSessionId,
+      "template": template.view.name,
+      "target": $(event.target).first().attr('class'),
+      "screenX": event.screenX,
+      "screenY": event.screenY,
+      "offsetX": event.offsetX,
+      "offsetY": event.offsetY,
+      "timestamp": new Date()
+    });
   },
   "click .result-course": function(event,template) {
     var course = this;

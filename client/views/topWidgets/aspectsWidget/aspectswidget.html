@@ -39,6 +39,7 @@
           {{/if}}
         </div>
 
+
         <div>
           <div class="aspect history-aspect animated fadeIn">
             <div class="aspect-bullet">4</div>
@@ -46,17 +47,33 @@
             <paper-ripple></paper-ripple>
           </div>
 
+          {{#if cskillsOn}}
           <div class="aspect courseskill-aspect animated fadeIn">
             <div class="aspect-bullet">5</div>
             <div class="aspect-text">Habilidades por Curso</div>
             <paper-ripple></paper-ripple>
           </div>
-          
+          {{else}}
+          <div class="aspect courseskill-aspect animated fadeIn">
+            <div class="aspect-bullet" style="opacity: 0.15">5</div>
+            <div class="aspect-text"   style="opacity: 0.15">Habilidades por Curso</div>
+            <paper-ripple></paper-ripple>
+          </div>
+          {{/if}}
+
+          {{#if sskillsOn}}
           <div class="aspect studentskill-aspect animated fadeIn">
             <div class="aspect-bullet">6</div>
             <div class="aspect-text">Habilidades por Estudiante</div>
             <paper-ripple></paper-ripple>
           </div>
+          {{else}}
+          <div class="aspect studentskill-aspect animated fadeIn">
+            <div class="aspect-bullet" style="opacity: 0.15">6</div>
+            <div class="aspect-text"   style="opacity: 0.15">Habilidades por Estudiante</div>
+            <paper-ripple></paper-ripple>
+          </div>
+          {{/if}}
           <!-- <div class="aspect">
           <div class="aspect-bullet">7</div>
           <div class="aspect-text">Social Factors</div>

@@ -14,6 +14,8 @@ Router.route('/:_id', {
     Session.set("hc-compliance", 5);
     Session.set("hc-toggle", true);
     Session.set("gc-toggle", true);
+    Session.set("cf-toggle", true);
+    Session.set("sf-toggle", true);
     Session.set("sc-toggle", false);
     Session.set("data-from","1999");
     Session.set("data-to","2012");

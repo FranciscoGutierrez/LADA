@@ -6,6 +6,8 @@ Students = new Meteor.Collection('students');
 Courses  = new Meteor.Collection('courses');
 Grades   = new Meteor.Collection('studentscourses');
 Historial= new Meteor.Collection('historial');
+/* Record User Interaction for research purposes */
+Recorder = new Meteor.Collection('recorder');
 
 Meteor.publish('grades', function(who){
   var query = Grades.find({$or: [{course: {$in: who.courses}}, {student: who.student}]});

@@ -33,6 +33,21 @@ Template.missingcourses.events({
   },
   "click .help-info": function (event,template) {
     template.$(".help-info").fadeOut("fast");
+  },
+  "click": function(event,template){
+    /*** Interaction Recorder ***/
+    var self = this;
+    var myEvent = event;
+    Recorder.insert({
+      "user": Meteor.connection._lastSessionId,
+      "template": template.view.name,
+      "target": $(event.target).first().attr('class'),
+      "screenX": event.screenX,
+      "screenY": event.screenY,
+      "offsetX": event.offsetX,
+      "offsetY": event.offsetY,
+      "timestamp": new Date()
+    });
   }
 });
 
