@@ -100,6 +100,10 @@
   z-index: 1;
 }
 
+.help-info iron-icon.iron-icon-0 {
+  fill: white;
+}
+
 .help-text {
   max-width: 80%;
   max-height:80%;

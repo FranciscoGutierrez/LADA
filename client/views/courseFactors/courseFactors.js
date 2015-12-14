@@ -41,10 +41,10 @@ Template.coursefactors.events({
     template.$(".help-info").css("display","flex");
   },
   "click .close-info": function (event,template) {
-    template.$(".help-info").fadeOut("fast");
+    template.$(".help-info").fadeOut();
   },
   "click .help-info": function (event,template) {
-    template.$(".help-info").fadeOut("fast");
+    template.$(".help-info").fadeOut();
   }
 });
 
