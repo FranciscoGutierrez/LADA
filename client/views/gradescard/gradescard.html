@@ -29,31 +29,31 @@
             <div class="sg-vertical-axis-title">Desempeño</div>
           </div>
           <div class="sg-horizontal-axis">
-            <div class="sg-horizontal-axis-title">Estudiantes</div>
+            <div class="sg-horizontal-axis-title">Calificaciones</div>
           </div>
           <svg height="200" width="350" style="overflow: inherit;">
-            <line class="animated fadeIn" x1="20"  x2="20"  y1="5" y2="185" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
-            <text x="13" y="190" fill="#424242">1.0</text>
-            <line class="animated fadeIn" x1="50"  x2="50"  y1="5" y2="185" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
-            <text x="44" y="190" fill="grey">2.5</text>
-            <line class="animated fadeIn" x1="90" x2="90" y1="5" y2="185" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
-            <text x="85" y="190" fill="#424242">6.0</text>
-            <line class="animated fadeIn" x1="125" x2="125" y1="5" y2="185" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
-            <text x="115" y="190" fill="grey">6.5</text>
-            <line class="animated fadeIn" x1="155" x2="155" y1="5" y2="185" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
-            <text x="150" y="190" fill="#424242">7.0</text>
-            <line class="animated fadeIn" x1="185" x2="185" y1="5" y2="185" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
-            <text x="178" y="190" fill="grey">7.5</text>
-            <line class="animated fadeIn" x1="220" x2="220" y1="5" y2="185" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
-            <text x="213" y="190" fill="#424242">8.0</text>
-            <line class="animated fadeIn" x1="255" x2="255" y1="5" y2="185" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
-            <text x="247" y="190" fill="grey">8.5</text>
-            <line class="animated fadeIn" x1="286" x2="286" y1="5" y2="185" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
-            <text x="278" y="190" fill="#424242">9.0</text>
-            <line class="animated fadeIn" x1="318" x2="318" y1="5" y2="185" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
-            <text x="312" y="190" fill="grey">9.5</text>
-            <line class="animated fadeIn" x1="348" x2="348" y1="5" y2="185" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
-            <text x="342" y="190" fill="#424242">10</text>
+            <line class="animated fadeIn" x1="20"  x2="20"  y1="5" y2="190" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
+            <line class="animated fadeIn" x1="50"  x2="50"  y1="5" y2="190" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
+            <line class="animated fadeIn" x1="90"  x2="90"  y1="5" y2="190" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
+            <line class="animated fadeIn" x1="125" x2="125" y1="5" y2="190" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
+            <line class="animated fadeIn" x1="155" x2="155" y1="5" y2="190" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
+            <line class="animated fadeIn" x1="185" x2="185" y1="5" y2="190" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
+            <line class="animated fadeIn" x1="220" x2="220" y1="5" y2="190" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
+            <line class="animated fadeIn" x1="255" x2="255" y1="5" y2="190" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
+            <line class="animated fadeIn" x1="286" x2="286" y1="5" y2="190" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
+            <line class="animated fadeIn" x1="318" x2="318" y1="5" y2="190" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
+            <line class="animated fadeIn" x1="348" x2="348" y1="5" y2="190" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
+            <text x="13"  y="200" fill="#424242">1.0</text>
+            <text x="44"  y="200" fill="#808080">2.5</text>
+            <text x="85"  y="200" fill="#424242">6.0</text>
+            <text x="115" y="200" fill="#808080">6.5</text>
+            <text x="150" y="200" fill="#424242">7.0</text>
+            <text x="178" y="200" fill="#808080">7.5</text>
+            <text x="213" y="200" fill="#424242">8.0</text>
+            <text x="247" y="200" fill="#808080">8.5</text>
+            <text x="278" y="200" fill="#424242">9.0</text>
+            <text x="312" y="200" fill="#808080">9.5</text>
+            <text x="342" y="200" fill="#424242">10</text>
             {{#each excellent}}
             <circle cx="{{grade}}"  cy="{{performance}}"  r="4" fill="{{gp}}" class="{{course}} sg-excellent animated fadeInLeft"></circle>
             {{/each}}
@@ -72,7 +72,7 @@
             {{#if thisStudent}}
             <line class="sg-this animated fadeIn" x1="20" x2="345" y1="{{thisStudent.performance}}" y2="{{thisStudent.performance}}" stroke="rgba(178, 93, 126, 0.65)" stroke-width="1"/>
             <line class="sg-this animated fadeIn" x1="{{thisStudent.gpa}}" x2="{{thisStudent.gpa}}" y1="0" y2="170" stroke="rgba(178, 93, 126, 0.65)" stroke-width="1"/>
-            <circle cx="{{thisStudent.gpa}}"  cy="{{thisStudent.performance}}"  r="5" fill="#b25d7e" class="sg-this animated fadeIn"></circle>
+            <circle cx="{{thisStudent.gpa}}" cy="{{thisStudent.performance}}" r="5" fill="#b25d7e" class="sg-this animated fadeIn"></circle>
             <!-- <text x="{{thisStudent.gpa}}" y="203" fill="#424242"></text> -->
             {{/if}}
           </svg>
@@ -103,26 +103,26 @@
             </div>
           </div>
         </div>
-    </div>
-    {{else}}
-    <div class="card-content-middle">
-      <div class="cc-nothing animated fadeIn" style="background: none; height: 400px;">
-        <div class="cc-nothing-message">Esta tarjeta está apagada.</div>
       </div>
+      {{else}}
+      <div class="card-content-middle">
+        <div class="cc-nothing animated fadeIn" style="background: none; height: 400px;">
+          <div class="cc-nothing-message">Esta tarjeta está apagada.</div>
+        </div>
+      </div>
+      {{/if}}
     </div>
-    {{/if}}
-  </div>
-  <div class="help-info animated fadeIn">
-    <iron-icon class="close-info" icon="icons:clear"></iron-icon>
-    <!-- <div class="help-text ht-top">
+    <div class="help-info animated fadeIn">
+      <iron-icon class="close-info" icon="icons:clear"></iron-icon>
+      <!-- <div class="help-text ht-top">
       Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
     </div> -->
     <div class="help-text ht-middle">
       Muestra los cursos tentativos para el siguiente semestre, la probabilidad de éxito se ve afectada en base a la seleccion de estos.
     </div>
     <!-- <div class="help-text ht-bottom">
-      Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
-    </div> -->
-  </div>
+    Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
+  </div> -->
+</div>
 </paper-material>
 </template>

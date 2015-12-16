@@ -107,7 +107,7 @@ Template.registerHelper('isCourse',function(input){
 */
 Template.gradescard.helpers({
   excellent: function () {
-    var sc   = Grades.find({ grade: { $gte : "8.9"} }, {limit: 50}).fetch();
+    var sc   = Grades.find({ grade: { $gte : "9", $lte : "10"} }).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#25a085";
       sc[i].grade        = (((sc[i].grade - 4.5) * 350) / 5.45);
@@ -116,7 +116,7 @@ Template.gradescard.helpers({
     return sc;
   },
   good: function () {
-    var sc   = Grades.find({ grade: { $gte : "7.9", $lt : "8.9" } }, {limit: 50}).fetch();
+    var sc   = Grades.find({ grade: {$gte : "8", $lt : "9" }}).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp          = "#27ae60";
       sc[i].grade       = (((sc[i].grade - 4.5) * 350) / 5.45);
@@ -125,7 +125,7 @@ Template.gradescard.helpers({
     return sc;
   },
   regular: function () {
-    var sc   = Grades.find({ grade: { $gte : "6.9", $lt : "7.9" } }, {limit: 50}).fetch();
+    var sc   = Grades.find({grade:{$gte:"7",$lt:"8"}}).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp          = "#f0c30e";
       sc[i].grade       = (((sc[i].grade - 4.5) * 350) / 5.45);
@@ -134,7 +134,7 @@ Template.gradescard.helpers({
     return sc;
   },
   lazy: function () {
-    var sc   = Grades.find({ grade: { $gte : "5.9", $lt : "6.9" } }, {limit: 50}).fetch();
+    var sc   = Grades.find({ grade: {$gte:"6",$lt:"7"}}).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#e67d22";
       sc[i].grade        = (((sc[i].grade - 4.5) * 350) / 5.45);
@@ -143,7 +143,7 @@ Template.gradescard.helpers({
     return sc;
   },
   bad: function () {
-    var sc   = Grades.find({ grade: { $lt : "5.9"} }, {limit: 50}).fetch();
+    var sc   = Grades.find({grade: {$lt:"6"}}).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#e74c3c";
       sc[i].grade        = (((sc[i].grade + 1) * 150) / 10);
