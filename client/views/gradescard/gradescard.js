@@ -111,7 +111,7 @@ Template.gradescard.helpers({
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#25a085";
       sc[i].grade        = (((sc[i].grade - 4.5) * 350) / 5.45);
-      sc[i].performance  = ((1.0 - sc[i].performance) * 180) + 10;
+      sc[i].performance  = 200 - (sc[i].performance * 200);
     }
     return sc;
   },
@@ -120,7 +120,7 @@ Template.gradescard.helpers({
     for (i = 0; i < sc.length; i++) {
       sc[i].gp          = "#27ae60";
       sc[i].grade       = (((sc[i].grade - 4.5) * 350) / 5.45);
-      sc[i].performance = ((1.0 - sc[i].performance) * 180) + 10;
+      sc[i].performance  = 200 - (sc[i].performance * 200);
     }
     return sc;
   },
@@ -129,7 +129,7 @@ Template.gradescard.helpers({
     for (i = 0; i < sc.length; i++) {
       sc[i].gp          = "#f0c30e";
       sc[i].grade       = (((sc[i].grade - 4.5) * 350) / 5.45);
-      sc[i].performance = ((1.0 - sc[i].performance) * 180) + 10;
+      sc[i].performance  = 200 - (sc[i].performance * 200);
     }
     return sc;
   },
@@ -138,7 +138,7 @@ Template.gradescard.helpers({
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#e67d22";
       sc[i].grade        = (((sc[i].grade - 4.5) * 350) / 5.45);
-      sc[i].performance  = ((1.0 - sc[i].performance) * 180) + 10;
+      sc[i].performance  = 200 - (sc[i].performance * 200);
     }
     return sc;
   },
@@ -147,7 +147,7 @@ Template.gradescard.helpers({
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#e74c3c";
       sc[i].grade        = (((sc[i].grade + 1) * 150) / 10);
-      sc[i].performance  = ((1.0 - sc[i].performance) * 180) + 10;
+      sc[i].performance  = 200 - (sc[i].performance * 200);
     }
     return sc;
   },
@@ -155,7 +155,7 @@ Template.gradescard.helpers({
     var sc = Students.findOne({});
     if(sc) {
       sc.gpa         = (((sc.gpa) * 356) / 10);
-      sc.performance = ((1.0 - sc.performance) * 180) + 10;
+      sc.performance = 200 - (sc.performance * 200);
     }
     return sc;
   },
