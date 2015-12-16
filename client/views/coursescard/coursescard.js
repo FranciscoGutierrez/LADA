@@ -226,12 +226,14 @@ Template.semesterplan.helpers({
   numberCredits: function() {
     var courses = Session.get("courses");
     var credits = 0;
+    var bol = false;
     if (courses) {
       sc = Courses.find({"_id": {$in: courses }}).fetch();
       for (i = 0; i < sc.length; i++) {
         credits += parseInt(sc[i].credits);
       }
     }
-    return credits;
+    if (credits >= 30) bol = true;
+    return {credits:credits, warning: bol};
   }
 });
