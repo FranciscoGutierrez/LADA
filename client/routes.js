@@ -21,19 +21,29 @@ Router.route('/:_id', {
     Session.set("data-to","2012");
     Session.set("studentdata","redo");
     Session.set("studentYear","all");
-    if(courses) Session.set("selected-course", courses[0]);
-    var grades = {courses: courses, student: student};
-
+    if(courses) {
+      Session.set("selected-course", courses[0]);
+    } else {
+      $(".loading-screen").remove();
+    }
     /*
     * Handling suscriptions (Start)
     */
     Meteor.subscribe("this_student", student, function() {
-        Meteor.subscribe("this_courses", courses, function(){
-          Meteor.subscribe("grades", grades, function() {
-            Meteor.subscribe("historial");
-            if($(".loading-screen")) $(".loading-screen").remove();
+      Meteor.subscribe("this_courses", courses, function(){
+        Meteor.subscribe("studentgrades", Session.get("student"), function() {
+          Meteor.subscribe("historial", function() {
+            for (i = 0; i<courses.length; i++){
+              Meteor.subscribe('sufficientgrades',courses[i], function(){});
+              Meteor.subscribe('failuregrades',   courses[i], function(){});
+              Meteor.subscribe('goodgrades',      courses[i], function(){});
+              Meteor.subscribe('verygoodgrades',  courses[i], function(){});
+              Meteor.subscribe('excellentgrades', courses[i], function(){});
+              if($(".loading-screen")) $(".loading-screen").remove();
+            }
           });
         });
+      });
     });
     /*
     * Handling suscriptions (End)
