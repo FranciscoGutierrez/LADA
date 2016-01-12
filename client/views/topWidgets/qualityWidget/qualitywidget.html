@@ -1,20 +1,26 @@
 <template name="qualitywidget">
   <div class="quality-content">
     <div class="quality-content-viz">
-      <progress-bubble class="quality-bubble" value="{{quality}}" max="100">
-        <div class="progress-title" style="font-size: 14px;">{{qualityText}}<div style="font-size: 12px; display:inline; color:#c6c6c6;"></div></div>
-        <!-- <div class="progress-subtitle">{{qualityText}}</div> -->
+      <progress-bubble class="quality-bubble" value="{{quality.value}}" max="100">
+        <div class="quality-progress-title" style="font-size: 17px;">{{quality.text}}</div>
       </progress-bubble>
     </div>
+    {{#unless loading}}
+    {{/unless}}
     <div class="widget-title">
-      <div class="widget-title-text">Calidad de Predicción</div>
+      <div class="widget-title-text">Prediction Quality</div>
       <iron-icon class="widget-title-icon quality-info" icon="icons:info"></iron-icon>
     </div>
-    <!-- <div class="widget-subtitle">{{qualityText}}</div> -->
-    <div class="help-info animated flipInX">
+    {{#if loading}}
+    <paper-spinner-lite style="position: absolute; bottom:50%; right: 43%;" class="qw-spinner pink" active></paper-spinner-lite>
+    {{/if}}
+    <div class="help-info" style="border-radius: 5px;">
       <iron-icon class="close-info" icon="icons:clear"></iron-icon>
-      <div class="help-text">
-        Muestra la calidad de la predicción, valores altos indican que la predicción es confiable.
+      <div class="help-info-container">
+        <div class="help-text">
+          The prediction is based on <u>{{quality.cases}}</u> number of cases.
+          Thus, the prediction is considered <u>{{quality.casestext}}</u>
+        </div>
       </div>
     </div>
   </div>

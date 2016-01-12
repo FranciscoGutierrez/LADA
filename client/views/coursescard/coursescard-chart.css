@@ -28,6 +28,7 @@
   color: #a5a5a5;
   width:  100%;
   text-align: center;
+  height: 200px;
 }
 
 .cc-nothing-add {
@@ -70,6 +71,7 @@
 }
 
 .cc-name {
+  padding-top: 3px;
   padding-left:3px;
   color: #424242;
   overflow: hidden;

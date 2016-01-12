@@ -1,24 +1,30 @@
 <template name="riskwidget">
   <div class="risk-content">
     <div class="risk-content-viz">
-      <progress-bubble class="risk-bubble" value="{{risk}}">
-        <div class="progress-title">{{risk}}<div style="font-size: 15px; display:inline; color:#c6c6c6;">%</div></div>
-        <div class="progress-subtitle">{{riskText}}</div>
-        <div style="display: none">{{riskColor}}</div>
+
+      <progress-bubble class="risk-bubble animated fadeIn" value="{{risk.number}}">
+        <div class="risk-progress-bubble">
+          <div class="progress-title">{{risk.number}}<div style="font-size: 15px; display:inline; color:#c6c6c6;">%</div></div>
+          <div class="progress-subtitle">{{risk.text}}</div>
+        </div>
       </progress-bubble>
+      {{#unless loading}}
+      {{/unless}}
     </div>
     <div class="widget-title">
-      <div class="widget-title-text">Probabilidad de Éxito</div>
+      <div class="widget-title-text">Chance of Success</div>
       <iron-icon class="widget-title-icon risk-info" icon="icons:info"></iron-icon>
     </div>
-    <!-- <div class="risk-slider slider-tray">
-      <div class="risk-knob" style="left:{{riskKnob}}px"></div>
-    </div> -->
-    <div class="help-info animated flipInX">
+    {{#if loading}}
+    <paper-spinner-lite style="position: absolute; bottom:50%; right: 43%;" class="rw-spinner pink" active></paper-spinner-lite>
+    {{/if}}
+    <div class="help-info" style="border-radius: 5px;">
       <iron-icon class="close-info" icon="icons:clear"></iron-icon>
-      <div class="help-text">
-        Dados los cursos seleccionados y el historial académico del estudiante,
-        se presenta un valor que representa la probabilidad de éxito.
+      <div class="help-info-container">
+        <div class="help-text">
+          Given the <u>course configuration</u> and <u>academic history</u>,
+          the system calculates that the chance of success is <u>{{risk.number}}%</u>.
+        </div>
       </div>
     </div>
   </div>

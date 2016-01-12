@@ -1,86 +1,69 @@
 <template name="historicalcard">
-  <paper-material class="card-content historicalcard-paper">
-    <div class="chart-content hc-card-content">
+  <paper-material class="card-content historicalcard-paper" track="historicalrecords.maincontainer">
+    <div class="chart-content hc-card-content" track="historicalrecords.maincontainer">
       <!-- Top Content -->
-      <div class="card-content-top">
-        <div class="card-content-top-text">
-          <div class="card-title">
-            <div class="card-title-text">Registros Históricos</div>
-            <iron-icon class="card-info" icon="icons:info"></iron-icon>
+      <div class="card-content-top" track="historicalrecords.topcontent">
+        <div class="card-content-top-text" track="historicalrecords.topcontent">
+          <div class="card-title" track="historicalrecords.topcontent.title">
+            <div class="card-title-text" track="historicalrecords.topcontent.title">Historical Records</div>
+            <iron-icon class="card-info" icon="icons:info" track="historicalrecords.topcontent.infoicon"></iron-icon>
           </div>
           {{#if isOn}}
-          <div class="card-subtitle">Fuerte influencia en la predicción</div>
+          <div class="card-subtitle" track="historicalrecords.topcontent.subtitle"></div>
           {{/if}}
         </div>
       </div>
-      <div class="card-settings-icon">
-        <!-- <iron-icon class="settings-icon" icon="icons:settings"></iron-icon> -->
-        <paper-toggle-button class="hc-toggle" checked></paper-toggle-button>
+      <div class="card-settings-icon" track="historicalrecords.topcontent.togglebutton">
+        <paper-toggle-button class="hc-toggle" checked track="historicalrecords.topcontent.togglebutton"></paper-toggle-button>
       </div>
       {{#if isOn}}
       <!-- Middle Content -->
-      <div class="card-content-middle">
-        <div class="sg-chart-container">
-          <div class="sg-vertical-axis" style="left: -7px;">
-            <div class="sg-vertical-axis-title">Estudiantes</div>
+      <div class="card-content-middle" style="margin-top: 40px;" track="historicalrecords.middlecontent">
+        <div class="sg-chart-container" track="historicalrecords.middlecontent">
+          <div class="sg-vertical-axis" style="left: -7px;" track="historicalrecords.middlecontent.verticalbar">
+            <div class="sg-vertical-axis-title" track="historicalrecords.middlecontent.verticalbar">Students</div>
           </div>
-          <div class="hc-svg-container">
-            <svg id="area">
-              <line class="animated fadeIn" x1="24"  x2="24"  y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
-              <line class="animated fadeIn" x1="48"  x2="48"  y1="5" y2="173" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
-              <line class="animated fadeIn" x1="72"  x2="72"  y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
-              <line class="animated fadeIn" x1="96"  x2="96"  y1="5" y2="173"  stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
-              <line class="animated fadeIn" x1="120" x2="120" y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
-              <line class="animated fadeIn" x1="144" x2="144" y1="5" y2="173" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
-              <line class="animated fadeIn" x1="168" x2="168" y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
-              <line class="animated fadeIn" x1="192" x2="192" y1="5" y2="173" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
-              <line class="animated fadeIn" x1="216" x2="216" y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
-              <line class="animated fadeIn" x1="240" x2="240" y1="5" y2="173" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
-              <line class="animated fadeIn" x1="264" x2="264" y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
-              <line class="animated fadeIn" x1="288" x2="288" y1="5" y2="173" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="1,3"/>
-              <line class="animated fadeIn" x1="312" x2="312" y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
-              <line class="animated fadeIn" x1="335" x2="335" y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3"/>
+          <div class="hc-svg-container" track="historicalrecords.middlecontent.chart">
+            <svg id="area" class="svghistorical" track="historicalrecords.middlecontent.chart">
+              <line class="animated fadeIn" x1="0"   x2="0"   y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3" track="historicalrecords.middlecontent.line"/>
+              <line class="animated fadeIn" x1="69"  x2="69"  y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3" track="historicalrecords.middlecontent.line"/>
+              <line class="animated fadeIn" x1="135" x2="135" y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3" track="historicalrecords.middlecontent.line"/>
+              <line class="animated fadeIn" x1="200" x2="200" y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3" track="historicalrecords.middlecontent.line"/>
+              <line class="animated fadeIn" x1="268" x2="268" y1="5" y2="173" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="1,3" track="historicalrecords.middlecontent.line"/>
+              <line class="animated fadeIn" x1="335" x2="335" y1="5" y2="173" stroke="#eeeeee" stroke-width="1" stroke-dasharray="1,3" track="historicalrecords.middlecontent.line"/>
             </svg>
           </div>
-          <input type="text" id="selector" name="example_name" value="" style="display: none;"/>
+          <input class="historicalcardinput" type="text" id="selector" name="example_name" value="" style="display: none;" track="historicalrecords.middlecontent.chart"/>
         </div>
       </div>
       <!-- Bottom Content -->
-      <div class="card-content-bottom" style="margin-top: 26px;">
-        <div class="card-content-control">
-          <div class="control-title">Predicción Basada en:</div>
-          <div class="horizontal-section">
-            <div class="selected-container animated fadeIn">
-              <div class="selected-course" checked>
-                <div id="checkboxLabel" class="selected-course-meta">
-                  <div class="course-name">{{students}} Estudiantes en {{courses}} Cursos</div>
-                  <div class="course-id">Desde {{from}} hasta {{to}}</div>
-                </div>
-                <paper-ripple></paper-ripple>
-              </div>
-            </div>
+      <div class="card-content-bottom" style="margin-top: 15px;" track="historicalrecords.bottomcontent">
+        <div class="card-content-control" track="historicalrecords.bottomcontent">
+          <div class="control-title" track="historicalrecords.bottomcontent.title">Prediction based on</div>
+          <div class="hc-horizontal-section" track="historicalrecords.bottomcontent.results">
+            <div class="hc-students" track="historicalrecords.bottomcontent.students">{{students}} Students in {{courses}} Courses</div>
+            <div class="hc-fromto"   track="historicalrecords.bottomcontent.fromto">From {{from}} to {{to}}</div>
           </div>
         </div>
       </div>
       {{else}}
-      <div class="card-content-middle">
-        <div class="cc-nothing animated fadeIn" style="background: none; height: 400px;">
-          <div class="cc-nothing-message">Esta tarjeta está apagada</div>
+      <div class="card-content-middle" track="historicalrecords.middlecontent.cardisoff">
+        <div class="cc-nothing animated fadeIn" style="background: none; height: 400px;" track="historicalrecords.middlecontent.cardisoff">
+          <div class="cc-nothing-message" track="historicalrecords.middlecontent.cardisoff">This card is turned off</div>
         </div>
       </div>
       {{/if}}
     </div>
-    <div class="help-info animated fadeIn">
-      <iron-icon class="close-info" icon="icons:clear"></iron-icon>
-      <!-- <div class="help-text ht-top">
-        Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
-      </div> -->
-      <div class="help-text ht-middle">
-        Muestra los cursos tentativos para el siguiente semestre, la probabilidad de éxito se ve afectada en base a la seleccion de estos.
+    <div class="help-info" style="z-index: 100;" track="historicalrecords.maincontainer.help">
+      <iron-icon class="close-info" icon="icons:clear" track="historicalrecords.maincontainer.help"></iron-icon>
+      <div class="help-info-container" track="historicalrecords.maincontainer.help">
+        <div class="help-text ht-middle" track="historicalrecords.maincontainer.help">
+          Shows the historical records that are being used to calculate the chance of success. You can adjust the time range of records used for the prediction.
+        </div>
+        <div class="ht-bottom" style="color: white; font-size: 13px;" track="historicalrecords.maincontainer.help">
+          [click anywhere to close]
+        </div>
       </div>
-      <!-- <div class="help-text ht-bottom">
-        Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
-      </div> -->
     </div>
   </paper-material>
 </template>

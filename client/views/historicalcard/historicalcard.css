@@ -1,5 +1,5 @@
 .irs-bar {
-  background: rgba(173,173,173,0.36) !important;
+  background: rgba(236, 239, 241,0.5) !important;
   height: 171px !important;
   top:   -135px !important;
   border-radius: 8px !important;
@@ -71,4 +71,28 @@
 
 .irs-line-right {
   display: none !important;
+}
+
+.hc-horizontal-section {
+  background: #eceff1;
+  border-radius:  5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hc-students {
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+}
+
+.hc-fromto {
+  font-size: 13px;
+  color: #9F9F9F;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

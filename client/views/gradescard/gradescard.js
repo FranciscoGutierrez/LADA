@@ -50,14 +50,25 @@ Template.gradescard.events({
     }
   },
   "click .gc-toggle": function(event,template) {
-    var grades = {courses: Session.get("courses"), student: Session.get("student")};
-    template.$(".gc-progress").fadeIn();
-    template.$(".cc-nothing-message").text("Loading dataset...");
-    Meteor.subscribe("grades", grades, function() {
-      Session.set("gc-toggle",template.$(".gc-toggle").attr("checked"));
-      template.$(".gc-progress").fadeOut();
-      template.$(".cc-nothing-message").text("This Card is Turned Off");
-    });
+    // var grades = {courses: Session.get("courses"), student: Session.get("student")};
+    // template.$(".gc-progress").fadeIn();
+    // Meteor.subscribe("grades", grades, function() {
+    //   Session.set("gc-toggle",template.$(".gc-toggle").attr("checked"));
+    //   template.$(".gc-progress").fadeOut();
+    //   template.$(".cc-nothing-message").text("This Card is Turned Off");
+    // });
+    if(template.$(".gc-toggle").attr("checked")){
+      Session.set("gc-toggle",true);
+      template.$(".card-content-middle").fadeIn();
+      template.$(".card-content-bottom").fadeIn();
+      template.$(".cc-nothing").fadeOut();
+    }
+    else {
+      Session.set("gc-toggle",false);
+      template.$(".card-content-middle").fadeOut();
+      template.$(".card-content-bottom").fadeOut();
+      template.$(".cc-nothing").fadeIn();
+    }
   },
   "change .gc-paper-slider": function(event,template) {
     var n = template.$(".gc-paper-slider").attr("value");
@@ -70,28 +81,43 @@ Template.gradescard.events({
     if(n==0) template.$(".gradescard-paper").css("opacity","0.45");
   },
   "click .card-info": function (event,template) {
-    template.$(".help-info").css("display","flex");
+    template.$(".help-info").fadeIn();
   },
   "click .close-info": function (event,template) {
-    template.$(".help-info").fadeOut("fast");
+    template.$(".help-info").fadeOut();
   },
   "click .help-info": function (event,template) {
-    template.$(".help-info").fadeOut("fast");
+    template.$(".help-info").fadeOut();
   },
   "click": function(event,template){
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
-    Recorder.insert({
-      "user": Meteor.connection._lastSessionId,
-      "template": template.view.name,
-      "target": $(event.target).first().attr('class'),
-      "screenX": event.screenX,
-      "screenY": event.screenY,
-      "offsetX": event.offsetX,
-      "offsetY": event.offsetY,
-      "timestamp": new Date()
-    });
+    var trackName = "";
+    if($(event.target).attr("track")) trackName = $(event.target).attr('track');
+    if($(event.target).attr("id") === "checkboxContainer") trackName = "grades.bottomcontent.checkbox." + $(event.target).next().text();
+    if($(event.target).hasClass("toggle-container")) trackName = "grades.topcontent.togglebutton";
+    if($(event.target).attr("id") === "toggleButton") trackName = "grades.topcontent.togglebutton";
+    console.log(trackName);
+    if(Session.get("user-session")) {
+      Actions.insert({
+        "sessionId": Meteor.connection._lastSessionId,
+        "user": Session.get("user-name"),
+        "profile": Session.get("user-profile"),
+        "prediction": Session.get("riskValue"),
+        "uncertainty":Session.get("qualityValue"),
+        "courses":Session.get("courses"),
+        "load":Session.get("load"),
+        "template": template.view.name,
+        "target": trackName,
+        "extended": false,
+        "toggle": Session.get("gc-toggle"),
+        "x": (event.pageX - $('.gradescard-paper').offset().left) + $(".content").scrollLeft(),
+        "y": (event.pageY - $('.gradescard-paper').offset().top)  + $(".content").scrollTop(),
+        "timestamp": new Date(),
+        "timestampms": new Date().getTime()
+      });
+    }
   }
 });
 
@@ -107,55 +133,56 @@ Template.registerHelper('isCourse',function(input){
 */
 Template.gradescard.helpers({
   excellent: function () {
-    var sc   = Grades.find({ grade: { $gte : "9", $lte : "10"} }).fetch();
+    var sc   = Grades.find({grade: { $gte : "18", $lte : "20" }}).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#25a085";
-      sc[i].grade        = (((sc[i].grade - 4.5) * 350) / 5.45);
-      sc[i].performance  = 200 - (sc[i].performance * 200);
+      sc[i].grade        = ((sc[i].grade-9) * 280)/9;
+      sc[i].performance  = 190 - (sc[i].performance * 190)/20;
     }
     return sc;
   },
   good: function () {
-    var sc   = Grades.find({ grade: {$gte : "8", $lt : "9" }}).fetch();
+    var sc   = Grades.find({ grade: { $gte : "15", $lt : "18" } }).fetch();
     for (i = 0; i < sc.length; i++) {
-      sc[i].gp          = "#27ae60";
-      sc[i].grade       = (((sc[i].grade - 4.5) * 350) / 5.45);
-      sc[i].performance  = 200 - (sc[i].performance * 200);
+      sc[i].gp           = "#27ae60";
+      sc[i].grade        = ((sc[i].grade-9) * 280)/9;
+      sc[i].performance  = 190 - (sc[i].performance * 190)/20;
     }
     return sc;
   },
   regular: function () {
-    var sc   = Grades.find({grade:{$gte:"7",$lt:"8"}}).fetch();
+    var sc = Grades.find({ grade: { $gte :"13", $lt :"15" } }).fetch();
     for (i = 0; i < sc.length; i++) {
-      sc[i].gp          = "#f0c30e";
-      sc[i].grade       = (((sc[i].grade - 4.5) * 350) / 5.45);
-      sc[i].performance  = 200 - (sc[i].performance * 200);
+      sc[i].gp           = "#f0c30e";
+      sc[i].grade        = ((sc[i].grade-9) * 280)/9;
+      sc[i].performance  = 190 - (sc[i].performance * 190)/20;
     }
     return sc;
   },
   lazy: function () {
-    var sc   = Grades.find({ grade: {$gte:"6",$lt:"7"}}).fetch();
+    var sc   = Grades.find({ grade: { $gte :"10", $lt :"13" } }).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#e67d22";
-      sc[i].grade        = (((sc[i].grade - 4.5) * 350) / 5.45);
-      sc[i].performance  = 200 - (sc[i].performance * 200);
+      sc[i].grade        = ((sc[i].grade-9) * 280)/9;
+      sc[i].performance  = 190 - (sc[i].performance * 190)/20;
     }
     return sc;
   },
-  bad: function () {
-    var sc   = Grades.find({grade: {$lt:"6"}}).fetch();
-    for (i = 0; i < sc.length; i++) {
-      sc[i].gp           = "#e74c3c";
-      sc[i].grade        = (((sc[i].grade + 1) * 150) / 10);
-      sc[i].performance  = 200 - (sc[i].performance * 200);
-    }
-    return sc;
-  },
+  // bad: function () {
+  //   var sc = Grades.find({ grade: { $gte : "1", $lt : "10"} }).fetch();
+  //   for (i = 0; i < sc.length; i++) {
+  //     sc[i].gp           = "#e74c3c";
+  //     sc[i].grade        = (sc[i].grade * 320)/20;
+  //     sc[i].performance  = 190 - (sc[i].performance * 190)/20;
+  //   }
+  //   return sc;
+  // },
   thisStudent: function() {
     var sc = Students.findOne({});
     if(sc) {
-      sc.gpa         = (((sc.gpa) * 356) / 10);
-      sc.performance = 200 - (sc.performance * 200);
+      if(sc.gpa >= 10) sc.gpa = ((sc.gpa-9) * 280)/9;
+      if(sc.gpa <  10) sc.gpa = 15;
+      sc.performance = 190 - (sc.performance * 190)/20;
     }
     return sc;
   },

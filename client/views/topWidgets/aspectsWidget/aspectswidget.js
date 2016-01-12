@@ -54,16 +54,22 @@ Template.aspectswidget.events({
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
-    Recorder.insert({
-      "user": Meteor.connection._lastSessionId,
-      "template": template.view.name,
-      "target": $(event.target).first().attr('class'),
-      "screenX": event.screenX,
-      "screenY": event.screenY,
-      "offsetX": event.offsetX,
-      "offsetY": event.offsetY,
-      "timestamp": new Date()
-    });
+    if(Session.get("user-session")) {
+      Actions.insert({
+        "sessionId": Meteor.connection._lastSessionId,
+        "user": Session.get("user-name"),
+        "profile": Session.get("user-profile"),
+        "prediction": Session.get("riskValue"),
+        "uncertainty":Session.get("qualityValue"),
+        "courses":Session.get("courses"),
+        "load":Session.get("load"),
+        "template": template.view.name,
+        "target": $(event.target).first().attr('class'),
+        "x": (event.pageX - $('.coursescard-paper').offset().left) + $(".content").scrollLeft(),
+        "y": (event.pageY - $('.coursescard-paper').offset().top)  + $(".content").scrollTop(),
+        "timestamp": new Date()
+      });
+    }
   }
 });
 

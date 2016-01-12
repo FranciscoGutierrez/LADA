@@ -26,14 +26,15 @@ Template.semesterplan.events({
       template.$(".settings-content").hide();
       template.$(".card-content").animate({"min-width":"-=350px"},"slow ", function(){
         template.$(".card-settings-icon > iron-icon").fadeOut(200, function(){
-          template.$(".card-settings-icon > iron-icon").attr("icon","icons:settings").fadeIn(300);
+          template.$(".card-settings-icon > iron-icon").attr("icon","icons:create").fadeIn(300);
         });
       });
     }
   },
-  "keyup #search-box, click #input": _.throttle(function(event,template) {
+  "keyup #search-box, click #input, click paper-input-container": _.throttle(function(event,template) {
     template.$(".search-results").show();
     var text = $(event.target).val().trim();
+    // var options = {courses: Session.get("courses")}
     PackageSearch.search(text);
   }, 200),
   "click": function(event,template){
@@ -41,16 +42,49 @@ Template.semesterplan.events({
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
-    Recorder.insert({
-      "user": Meteor.connection._lastSessionId,
-      "template": template.view.name,
-      "target": $(event.target).first().attr('class'),
-      "screenX": event.screenX,
-      "screenY": event.screenY,
-      "offsetX": event.offsetX,
-      "offsetY": event.offsetY,
-      "timestamp": new Date()
+    var trackName = $(event.target).attr('track');
+    var edit = false;
+    if(template.$(".card-settings-icon > iron-icon").attr("icon") === "icons:create") edit = false;
+    if(template.$(".card-settings-icon > iron-icon").attr("icon") === "icons:close")  edit = true;
+    if($(event.target).attr("id") === "primaryProgress") trackName = "semesterplan.bottomcontent.suggestedload";
+    if($(event.target).attr("id") === "secondaryProgress") trackName = "semesterplan.bottomcontent.suggestedload";
+    if($(event.target).attr("id") === "progressContainer") trackName = "semesterplan.bottomcontent.suggestedload";
+    if($(event.target).attr("id") === "input") trackName = "semesterplan.settings.searchbox";
+    if($(event.target).hasClass("paper-input"))trackName = "semesterplan.settings.searchbox";
+    if($(event.target).hasClass("paper-input-container"))trackName = "semesterplan.settings.searchbox";
+    console.log(trackName);
+    console.log("toggle: " + edit);
+    if(Session.get("user-session")) {
+      Actions.insert({
+        "sessionId": Meteor.connection._lastSessionId,
+        "user": Session.get("user-name"),
+        "profile": Session.get("user-profile"),
+        "prediction": Session.get("riskValue"),
+        "uncertainty":Session.get("qualityValue"),
+        "courses":Session.get("courses"),
+        "load":Session.get("load"),
+        "template": template.view.name,
+        "target": trackName,
+        "extended": edit,
+        "toggle": false,
+        "x": (event.pageX - $('.coursescard-paper').offset().left) + $(".content").scrollLeft(),
+        "y": (event.pageY - $('.coursescard-paper').offset().top)  + $(".content").scrollTop(),
+        "timestamp": new Date(),
+        "timestampms": new Date().getTime()
+      });
+    }
+  },
+  "mouseenter .result-course": function(event,template) {
+    template.$("#cc-"+this._id).addClass("animated pulse");
+    template.$("#cc-"+this._id).addClass("animated pulse");
+    template.$("#cc-"+this._id).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+      template.$("#cc-"+this._id).removeClass("animated pulse");
+      template.$("#cc-"+this._id).removeClass("animated pulse");
     });
+  },
+  "mouseleave .result-course": function(event,template) {
+    template.$("#cc-"+this._id).removeClass("animated pulse");
+    template.$("#cc-"+this._id).removeClass("animated pulse");
   },
   "click .result-course": function(event,template) {
     var course = this;
@@ -58,43 +92,49 @@ Template.semesterplan.events({
     if(courses.length < 7) {
       courses = _.extend([], courses);
       courses.push(course._id);
-      Session.set("courses", courses);
+      courses = _.uniq(courses);
+      Session.set("courses",courses);
+      Session.set("loading",true);
+      $(".risk-content-viz").css("opacity",0.25);
+      $(".quality-content-viz").css("opacity",0.25);
 
       Meteor.subscribe("this_student", Session.get("student"), function() {
         Meteor.subscribe("this_courses", Session.get("courses"), function(){
           Meteor.subscribe("studentgrades", Session.get("student"), function() {
-                  Meteor.subscribe('sufficientgrades',course._id, function(){});
-                  Meteor.subscribe('failuregrades',   course._id, function(){});
-                  Meteor.subscribe('goodgrades',      course._id, function(){});
-                  Meteor.subscribe('verygoodgrades',  course._id, function(){});
-                  Meteor.subscribe('excellentgrades', course._id, function(){});
+            Meteor.subscribe('sufficientgrades',course._id, function(){});
+            Meteor.subscribe('failuregrades',   course._id, function(){});
+            Meteor.subscribe('goodgrades',      course._id, function(){});
+            Meteor.subscribe('verygoodgrades',  course._id, function(){});
+            Meteor.subscribe('excellentgrades', course._id, function(){});
           });
         });
       });
-
       var str = "";
       if(courses) {
-        for (var i=0; i<courses.length-1; i++) str += '{"id": "'+courses[i]+'", "compliance": 5},';
-        str+= '{"id": "'+courses[courses.length-1]+'", "compliance": 5}';
+        for (var i=0; i<courses.length-1; i++) str += '{"id": "'+courses[i]+'"},';
+        str+= '{"id": "'+courses[courses.length-1]+'"}';
         Websocket.send('{"requestId": "5645f7f7ef0bde57344c84de",'+
         '"student": [{"id": '+Session.get("student")+',"gpa": 7.0793,'+
-        '"performance": 0.6,"compliance": 3}],'+
+        '"source": "kuleuven",'+
+        '"performance": 0.6}],'+
         '"courses": ['+ str + '],'+
-        '"data": [{"from": 2009,"to": 2015,'+
+        '"data": [{"from": 2010,"to": 2015,'+
         '"program": true,'+
         '"sylabus": true,'+
         '"evaluation": false,'+
-        '"instructors": true,'+
-        '"compliance": 2}]}');
+        '"instructors": true}]}');
       }
-
+      $(".settings-warning-message").fadeOut();
     } else {
-      $("#paperToast").attr("text","Can't add more courses.");
-      document.querySelector('#paperToast').show();
+      $(".settings-warning-message").fadeIn();
     }
   },
   "click .remove-selected-course": function(event,template) {
     var id = this._id;
+    Session.set("loading",true);
+    $(".settings-warning-message").fadeOut();
+    $(".risk-content-viz").css("opacity",0.5);
+    $(".quality-content-viz").css("opacity",0.5);
     $(event.target).parent().fadeOut('slow', function (){
       var courses = Session.get("courses");
       for(var i = courses.length; i--;) {
@@ -107,35 +147,47 @@ Template.semesterplan.events({
 
       var str = "";
       if(courses) {
-        for (var i=0; i<courses.length-1; i++) str += '{"id": "'+courses[i]+'", "compliance": 5},';
-        str+= '{"id": "'+courses[courses.length-1]+'", "compliance": 5}';
+        for (var i=0; i<courses.length-1; i++) str += '{"id": "'+courses[i]+'"},';
+        str+= '{"id": "'+courses[courses.length-1]+'"}';
         Websocket.send('{"requestId": "5645f7f7ef0bde57344c84de",'+
         '"student": [{"id": '+Session.get("student")+',"gpa": 7.0793,'+
-        '"performance": 0.6,"compliance": 3}],'+
+        '"source": "kuleuven",'+
+        '"performance": 0.6}],'+
         '"courses": ['+ str + '],'+
-        '"data": [{"from": 2009,"to": 2015,'+
+        '"data": [{"from": 2010,"to": 2015,'+
         '"program": true,'+
         '"sylabus": true,'+
         '"evaluation": false,'+
-        '"instructors": true,'+
-        '"compliance": 2}]}');
+        '"instructors": true}]}');
       }
 
     });
   },
   "click .cc-course": function(event,template) {
     var id = this._id;
-    $(".gradescard-paper").find("circle").css("fill-opacity","0.15");
+    //$(".gradescard-paper").find("circle").css("fill","#eceff1");
+    $(".gradescard-paper").find("circle").css("fill-opacity","0.2");
     $(".gradescard-paper").find("circle").css("stroke","none");
 
-    $("."+ id).css("fill-opacity","1");
+    $("."+id+".sg-excellent").css("fill","#25a085");
+    $("."+id+".sg-good").css("fill","#27ae60");
+    $("."+id+".sg-regular").css("fill","#f0c30e");
+    $("."+id+".sg-lazy").css("fill","#e67d22");
+    // $("."+ id+".sg-bad").css("fill","#b25d7e");
+    $(".sg-this").css("fill","#b25d7e");
+
+    $("."+id+".sg-excellent").css("fill-opacity","1");
+    $("."+id+".sg-good").css("fill-opacity","1");
+    $("."+id+".sg-regular").css("fill-opacity","1");
+    $("."+id+".sg-lazy").css("fill-opacity","1");
+    // $("."+ id+".sg-bad").css("fill-opacity","1");
     $(".sg-this").css("fill-opacity","1");
     $("."+id).css("stroke","#ececec");
 
     /* background coloring */
     template.$(".cc-course").css("background","white");
-    $(event.target).parents(".cc-course").css("background","#eeeeee");
-    if($(event.target).hasClass('cc-course')) $(event.target).css("background","#eeeeee");
+    $(event.target).parents(".cc-course").css("background","#eceff1");
+    if($(event.target).hasClass('cc-course')) $(event.target).css("background","#eceff1");
     /* set my session for globals */
     Session.set("selected-course",id);
   },
@@ -146,13 +198,13 @@ Template.semesterplan.events({
     $(event.target).find(".cc-passed-legend").fadeOut();
   },
   "click .card-info": function (event,template) {
-    template.$(".help-info").css("display","flex");
+    template.$(".help-info").fadeIn();
   },
   "click .close-info": function (event,template) {
-    template.$(".help-info").fadeOut("fast");
+    template.$(".help-info").fadeOut();
   },
   "click .help-info": function (event,template) {
-    template.$(".help-info").fadeOut("fast");
+    template.$(".help-info").fadeOut();
   }
 });
 
@@ -161,13 +213,33 @@ Template.semesterplan.events({
 */
 Template.semesterplan.helpers({
   getCourses: function() {
-    return PackageSearch.getData({
+    var a = PackageSearch.getData({
       transform: function(matchText, regExp) {
         // return matchText.replace(regExp, "<b>$&</b>")
         return matchText.toLowerCase();
       },
       sort: {isoScore: -1}
     });
+    for (i = 0; i < a.length; i++) {
+      if(a[i].fase == 0) {
+        a[i].display = "none";
+      } else {
+        a[i].display = "block";
+      }
+      if(Session.get("courses").indexOf(a[i]._id) > -1) {
+        a[i].display = "none";
+      }
+      if (a[i].semester == 3) {
+        a[i].semester = "1st & 2nd";
+      }
+      if (a[i].semester == 2) {
+        a[i].semester = "2nd";
+      }
+      if (a[i].semester == 1) {
+        a[i].semester = "1st";
+      }
+    }
+    return a;
   },
   isLoading: function() {
     return PackageSearch.getStatus().loading;
@@ -203,6 +275,15 @@ Template.semesterplan.helpers({
         } else if(sc[i].difficulty > 0.60) {
           sc[i].difficulty  = {color:"#27ae60", text:"Easy", display:"flex"};
         }
+        if (sc[i].semester == 3) {
+          sc[i].semester = "1st & 2nd";
+        }
+        if (sc[i].semester == 2) {
+          sc[i].semester = "2nd";
+        }
+        if (sc[i].semester == 1) {
+          sc[i].semester = "1st";
+        }
       }
     }
     return sc;
@@ -211,7 +292,18 @@ Template.semesterplan.helpers({
     return Session.get("cc-compliance");
   },
   selectedCourse: function() {
-    return Courses.findOne({ "_id" : Session.get("selected-course")});
+    var x = Courses.findOne({ "_id" : Session.get("selected-course")});
+    var y = false;
+    if(x) {
+      y = {
+        "name": x.name,
+        "id": x._id,
+        "credits": x.credits,
+        "passed": x.passed > 999 ? (x.passed/1000).toFixed(1) + 'k' : x.passed,
+        "percent": Math.round((x.passed*100)/x.students)
+      };
+    }
+    return y;
   },
   numberCourses: function() {
     var size = 0;
@@ -227,13 +319,21 @@ Template.semesterplan.helpers({
     var courses = Session.get("courses");
     var credits = 0;
     var bol = false;
+    var color = "#939396";
     if (courses) {
       sc = Courses.find({"_id": {$in: courses }}).fetch();
       for (i = 0; i < sc.length; i++) {
         credits += parseInt(sc[i].credits);
       }
     }
-    if (credits >= 30) bol = true;
-    return {credits:credits, warning: bol};
+    Session.set("load",credits);
+    if (credits >= 30) {
+      bol = true;
+      color = "#e64c3c";
+    }
+    return {credits:credits, warning: bol, color: color};
+  },
+  loading: function() {
+    return Session.get("loading");
   }
 });

@@ -88,7 +88,7 @@
 .help-info {
   height: 100%;
   width:  100%;
-  background: rgba(66, 66, 66, 0.45);
+  background: rgba(66, 66, 66, 0.65);
   position: absolute;
   top: 0;
   left: 0;
@@ -100,18 +100,29 @@
   z-index: 1;
 }
 
+.help-info-container {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  height: 100%;
+  width:  100%;
+}
+
 .help-info iron-icon.iron-icon-0 {
   fill: white;
 }
 
 .help-text {
-  max-width: 80%;
-  max-height:80%;
+  /*max-width: 80%;
+  max-height:80%;*/
   background: rgba(66, 66, 66, 0.75);
-  border-radius: 2px;
+  border-radius: 5px;
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   padding: 2%;
+  /* font-weight: 300; */
   margin: 5%;
   text-align: center;
 }
@@ -120,4 +131,21 @@
   position: absolute;
   top:   1%;
   right: 1%;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.risk-progress-bubble {
+  font-weight: bold;
+  font-size: 42px;
+  font-family: 'Roboto', Helvetica, Arial;
+  color: #424242;
+  position: absolute;
+  top: 20%;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

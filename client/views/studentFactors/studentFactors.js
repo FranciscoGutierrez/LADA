@@ -57,28 +57,42 @@ Template.studentfactors.events({
     }
   },
   "click .card-info": function (event,template) {
-    template.$(".help-info").css("display","flex");
+    template.$(".help-info").fadeIn();
   },
   "click .close-info": function (event,template) {
-    template.$(".help-info").fadeOut("fast");
+    template.$(".help-info").fadeOut();
   },
   "click .help-info": function (event,template) {
-    template.$(".help-info").fadeOut("fast");
+    template.$(".help-info").fadeOut();
   },
   "click": function(event,template){
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
-    Recorder.insert({
-      "user": Meteor.connection._lastSessionId,
-      "template": template.view.name,
-      "target": $(event.target).first().attr('class'),
-      "screenX": event.screenX,
-      "screenY": event.screenY,
-      "offsetX": event.offsetX,
-      "offsetY": event.offsetY,
-      "timestamp": new Date()
-    });
+    var trackName = $(event.target).attr('track');
+    if($(event.target).attr("id") === "checkboxContainer") trackName = "studentskills.bottomcontent.checkbox." + $(event.target).next().text();
+    if($(event.target).hasClass("toggle-container")) trackName = "studentskills.topcontent.togglebutton";
+    if($(event.target).attr("id") === "toggleButton") trackName = "studentskills.topcontent.togglebutton";
+    console.log(trackName);
+    if(Session.get("user-session")) {
+      Actions.insert({
+        "sessionId": Meteor.connection._lastSessionId,
+        "user": Session.get("user-name"),
+        "profile": Session.get("user-profile"),
+        "prediction": Session.get("riskValue"),
+        "uncertainty":Session.get("qualityValue"),
+        "courses":Session.get("courses"),
+        "load":Session.get("load"),
+        "template": template.view.name,
+        "target": trackName,
+        "extended": false,
+        "toggle": Session.get("sf-toggle"),
+        "x": (event.pageX - $('.studentskills-paper').offset().left) + $(".content").scrollLeft(),
+        "y": (event.pageY - $('.studentskills-paper').offset().top)  + $(".content").scrollTop(),
+        "timestamp": new Date(),
+        "timestampms": new Date().getTime()
+      });
+    }
   }
 });
 
@@ -89,7 +103,7 @@ Template.studentfactors.rendered = function () {
   setTimeout(function() {
     var ctx = document.getElementById("sf-chart").getContext("2d");
     var data = {
-      labels: ["Fundamentos", "Tópicos Avanzados", "Programación", "Humanidades", "Matemáticas"],
+      labels: ["CS Funamentals", "Advanced CS Topics", "Programming", "Humanities", "Math"],
       datasets: [{
         label: "Similar Students",
         fillColor:  "rgba(207, 207, 207,0.5)",

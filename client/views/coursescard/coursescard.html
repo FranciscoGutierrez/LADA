@@ -1,107 +1,117 @@
 <template name="semesterplan">
-  <paper-material class="card-content coursescard-paper">
-    <div class="chart-content">
+  <paper-material class="card-content coursescard-paper" track="semesterplan.maincontainer">
+    <div class="chart-content" track="semesterplan.maincontainer">
       <!-- Top card content -->
-      <div class="card-content-top">
-        <div class="card-content-top-text">
-          <div class="card-title">
-            <div class="card-title-text">
-              Semestre Planeado
+      <div class="card-content-top" track="semesterplan.topcontent">
+        <div class="card-content-top-text" track="semesterplan.topcontent.title">
+          <div class="card-title" track="semesterplan.topcontent.title">
+            <div class="card-title-text" track="semesterplan.topcontent.title">
+              Semester Plan
             </div>
-            <iron-icon class="card-info" icon="icons:info"></iron-icon>
+            <iron-icon class="card-info" icon="icons:info" track="semesterplan.topcontent.infoicon"></iron-icon>
           </div>
-          <div class="card-subtitle">
-            Fuerte influencia en la predicción
+          <div class="card-subtitle" track="semesterplan.topcontent.subtitle">
+            <!-- Strong influence in prediction -->
           </div>
         </div>
       </div>
-      <div class="card-settings-icon">
-        <iron-icon class="settings-icon" icon="icons:settings"></iron-icon>
+      <div class="card-settings-icon" track="semesterplan.topcontent.expandbutton">
+        <iron-icon class="settings-icon" icon="icons:create" track="semesterplan.topcontent.expandbutton"></iron-icon>
       </div>
       <!-- Middle Content -->
-      <div class="card-content-middle cc-middle-content">
+      <div class="card-content-middle cc-middle-content" track="semesterplan.middlecontent">
         {{#each hardCourses}}
-        <div class="cc-course animated fadeIn">
-          <div class="cc-meter">
-            <div class="cc-topdata">{{{students}}}</div>
-            <div class="cc-bottom" style="height: {{both}}%;"></div>
-            <div class="cc-top"    style="height: {{toph}}%;">
-              <div class="cc-passed-legend">{{passed}} ({{toph}}%) Aprobados</div>
+        <div id="cc-{{_id}}" class="cc-course" track="semesterplan.middlecontent.course.{{_id}}">
+          <div class="cc-meter" track="semesterplan.middlecontent.course.{{_id}}">
+            <div class="cc-topdata" track="semesterplan.middlecontent.course.{{_id}}">{{{students}}}</div>
+            <div class="cc-bottom" style="height: {{both}}%;" track="semesterplan.middlecontent.course.{{_id}}"></div>
+            <div class="cc-top"    style="height: {{toph}}%;" track="semesterplan.middlecontent.course.{{_id}}">
+              <div class="cc-passed-legend" track="semesterplan.middlecontent.course.{{_id}}">{{passed}} ({{toph}}%) Passed</div>
             </div>
           </div>
-          <div class="cc-metadata">
-            <div class="cc-name">{{{name}}}</div>
-            <div class="cc-id">{{{_id}}}</div>
+          <div class="cc-metadata" track="semesterplan.middlecontent.course.{{_id}}" title="{{name}}">
+            <div class="cc-name"   track="semesterplan.middlecontent.course.{{_id}}">{{{name}}}</div>
+            <div class="cc-id"     track="semesterplan.middlecontent.course.{{_id}}">{{{_id}}}</div>
           </div>
           <paper-ripple></paper-ripple>
         </div>
         {{else}}
-        <div class="cc-nothing-add">Agregar algunos cursos</div>
+        <div class="cc-nothing-add" track="semesterplan.middlecontent.cardisoff">Add some courses</div>
         {{/each}}
       </div>
       <!-- Bottom card content -->
-      <div class="card-content-bottom cc-content-bottom">
-        <div class="card-content-control">
+      <div class="card-content-bottom cc-content-bottom" track="semesterplan.bottomcontent">
+        <div class="card-content-control" style="margin-top: 15px;" track="semesterplan.bottomcontent">
           {{#if selectedCourse}}
-          <div class="control-title">Detalles del Curso</div>
-          <div class="horizontal-section">
-            <div class="selected-container animated fadeIn">
-              <div class="selected-course" checked>
-                <div id="checkboxLabel" class="selected-course-meta">
-                  <div class="course-name">{{selectedCourse.name}}</div>
-                  <div class="course-id">{{selectedCourse._id}} - {{selectedCourse.credits}} Créditos</div>
+          <div class="control-title" track="semesterplan.bottomcontent.title">Course Details</div>
+          <div class="horizontal-section" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">
+            <div class="selected-container animated fadeIn" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">
+              <div class="selected-course" style="cursor: default;" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">
+                <div id="checkboxLabel" class="selected-course-meta" style="width: 100%;" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">
+                  <div class="course-name" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">{{selectedCourse.name}}</div>
+                  <div class="course-id" style="display: flex; justify-content: space-between;" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">
+                    <div class="course-id" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">{{selectedCourse.id}} {{selectedCourse.credits}} Credits</div>
+                    <div class="course-id" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}" style="align-self: flex-end;">{{selectedCourse.passed}} ({{selectedCourse.percent}}%) have passed.</div>
+                  </div>
                 </div>
-                <paper-ripple></paper-ripple>
               </div>
             </div>
           </div>
           {{else}}
-          <div class="cc-nothing">Selecciona un Curso para ver los detalles.</div>
+          <div class="control-title" track="semesterplan.bottomcontent.details.none">Course Details</div>
+          <div class="horizontal-section" track="semesterplan.bottomcontent.details.none">
+            <div class="selected-container animated fadeIn" track="semesterplan.bottomcontent.details.none">
+              <div class="selected-course" style="cursor: default;" track="semesterplan.bottomcontent.details.none">
+                <div id="checkboxLabel" class="selected-course-meta" track="semesterplan.bottomcontent.details.none">
+                  <div class="course-name" track="semesterplan.bottomcontent.details.none">Select a course to see more details.</div>
+                </div>
+              </div>
+            </div>
+          </div>
           {{/if}}
         </div>
-        <div class="card-content-control">
-          <div class="control-title">
-            Créditos en el Semestre
+        <div class="card-content-control" style="position: relative; margin-top: 10px;" track="semesterplan.bottomcontent.suggestedload">
+          <div class="control-title" track="semesterplan.bottomcontent.suggestedload">
+            Credits
             {{#if numberCredits.warning}}
-            <iron-icon icon="icons:warning" class="cc-icon-warning"></iron-icon>
+            <iron-icon icon="icons:warning" class="cc-icon-warning" track="semesterplan.bottomcontent.suggestedload.warning"></iron-icon>
             {{/if}}
           </div>
-          <div class="horizontal-section" style="margin-top: 8px;">
-            <div class="cc-progress-hzbar">
-              <iron-icon icon="icons:arrow-drop-down"></iron-icon>
-              <div class="cc-hzbar-title">Carga máxima sugerida (30)</div>
+          <div class="horizontal-section" style="margin-top: 8px;" track="semesterplan.bottomcontent.suggestedload">
+            <div class="cc-progress-hzbar" track="semesterplan.bottomcontent.suggestedload">
+              <iron-icon icon="icons:arrow-drop-down" track="semesterplan.bottomcontent.suggestedload"></iron-icon>
+              <div class="cc-hzbar-title" style="color: {{numberCredits.color}}" track="semesterplan.bottomcontent.suggestedload">Suggested max load (30 Credits)</div>
             </div>
-            <paper-progress class="cc-progress-load progress-color" max="60" secondary-progress="30" value="{{numberCredits.credits}}"></paper-progress>
-            <div class="cc-number progress-bar-number">
-              <div class="cc-value">{{numberCourses.number}}</div>
+            <paper-progress class="cc-progress-load progress-color" max="60" secondary-progress="30" value="{{numberCredits.credits}}" track="semesterplan.bottomcontent.suggestedload.bar"></paper-progress>
+            <div class="cc-number progress-bar-number" track="semesterplan.bottomcontent.suggestedload">
+              <div class="cc-value" track="semesterplan.bottomcontent.suggestedload">{{numberCourses.number}}</div>
               &nbsp;{{numberCourses.text}},&nbsp;
-              <div class="cc-value">{{numberCredits.credits}}</div>&nbsp;Créditos
+              <div class="cc-value" track="semesterplan.bottomcontent.suggestedload">{{numberCredits.credits}}</div>&nbsp;Credits
             </div>
           </div>
         </div>
       </div>
     </div>
     <!-- Settings panel  -->
-    <div class="settings-content">
-      <div class="card-content-top" style="margin-bottom: 0px;">
-        <div class="card-content-top-text">
-          <div class="card-title">
-            <div class="card-title-text">
-              Ajustes
+    <div class="settings-content" track="semesterplan.settings">
+      <div class="card-content-top" style="margin-bottom: 0px;" track="semesterplan.settings">
+        <div class="card-content-top-text" track="semesterplan.settings">
+          <div class="card-title" track="semesterplan.settings.title">
+            <div class="card-title-text" track="semesterplan.settings.title">
+              Edit
             </div>
-            <iron-icon class="card-info" icon="icons:info"></iron-icon>
+            <iron-icon class="card-info" icon="icons:info" track="semesterplan.settings.icon"></iron-icon>
           </div>
-          <div class="card-subtitle-tool">
-            <paper-input label="Buscar un curso..." id="search-box">
-              <iron-icon icon="search" prefix></iron-icon>
-              <!-- <paper-icon-button suffix class="clear-search" icon="clear" alt="clear" title="clear" tabindex="0" style="color: red;"></paper-icon-button> -->
+          <div class="card-subtitle-tool" track="semesterplan.settings.searchbox">
+            <paper-input class="settings-search-input" label="Search for a Course" id="search-box" track="semesterplan.settings.searchbox">
+              <iron-icon icon="search" prefix track="semesterplan.settings.searchbox"></iron-icon>
             </paper-input>
             {{#if getCourses}}
-            <div class="search-results">
+            <div class="search-results" track="semesterplan.settings.searchresults">
               {{#each getCourses}}
-              <div class="result-course" style="position: relative">
-                <div class="result-name">{{{name}}}</div>
-                <div class="result-desc">{{{_id}}} - {{credits}} Créditos</div>
+              <div class="result-course" style="position: relative; display: {{display}}; " track="semesterplan.settings.searchresult.{{_id}}">
+                <div class="result-name" track="semesterplan.settings.searchresult.{{_id}}">{{{name}}}</div>
+                <div class="result-desc" track="semesterplan.settings.searchresult.{{_id}}">{{{_id}}} <b>-</b> {{credits}} Credits <b>-</b> Fase {{fase}} <b>-</b> {{semester}} Semester</div>
                 <paper-ripple></paper-ripple>
               </div>
               {{/each}}
@@ -111,37 +121,45 @@
         </div>
       </div>
       <!-- <div class="card-content-middle"></div> -->
-      <div class="card-content-bottom">
+      <div class="card-content-bottom" track="semesterplan.settings.listcourses">
         {{#if sessionCourses}}
-        <div class="control-title">Cursos Seleccionados</div>
-        <div class="selected-courses">
+        <div class="control-title" style="padding-top: 0px;" track="semesterplan.settings.listcourses">Selected Courses</div>
+        <div class="selected-courses" track="semesterplan.settings.listcourses">
           {{#each sessionCourses}}
-          <div class="selected-container animated fadeIn">
-            <div class="selected-course" checked>
-              <div id="checkboxLabel" class="selected-course-meta">
-                <div class="course-name">{{name}}</div>
-                <div class="course-id">{{_id}} - {{credits}} Créditos</div>
+          <div class="selected-container animated fadeIn" track="semesterplan.settings.listcourse.{{_id}}">
+            <div class="selected-course" checked track="semesterplan.settings.listcourse.{{_id}}">
+              <div id="checkboxLabel" class="selected-course-meta" track="semesterplan.settings.listcourse.{{_id}}">
+                <div class="course-name" track="semesterplan.settings.listcourse.{{_id}}">{{name}}</div>
+                <div class="course-id" style="width: 270px;" track="semesterplan.settings.listcourse.{{_id}}">{{{_id}}} <b>-</b> {{credits}} Credits <b>-</b> Fase {{fase}} <b>-</b> {{semester}} Semester</div>
               </div>
             </div>
-            <iron-icon class="remove-selected-course" icon="icons:close"></iron-icon>
+            <iron-icon class="remove-selected-course" icon="icons:close" track="semesterplan.settings.removecourse.{{_id}}"></iron-icon>
             <paper-ripple></paper-ripple>
           </div>
           {{/each}}
         </div>
         {{/if}}
       </div>
+      <div class="settings-warning-message" style="display:none; color: #e64c3c; font-size: 13px; margin-top: 5px;" track="semesterplan.settings.warning">Can't add more courses.</div>
+      <!-- {{#if loading}}
+      <paper-spinner-lite style="position: absolute; bottom:5px; right: 8px;" class="sw-spinner pink" active></paper-spinner-lite>
+      {{/if}} -->
     </div>
-    <div class="help-info animated fadeIn">
-      <iron-icon class="close-info" icon="icons:clear"></iron-icon>
-      <!-- <div class="help-text ht-top">
+    <div class="help-info" track="semesterplan.maincontainer.help">
+      <iron-icon class="close-info" icon="icons:clear" track="semesterplan.maincontainer.help"></iron-icon>
+      <div class="help-info-container" track="semesterplan.maincontainer.help">
+        <!-- <div class="help-text ht-top">
         Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
       </div> -->
-      <div class="help-text ht-middle">
-        Muestra los cursos tentativos para el siguiente semestre, la probabilidad de éxito se ve afectada en base a la seleccion de estos.
+      <div class="help-text ht-middle" track="semesterplan.maincontainer.help">
+        Shows the courses that the student wants to take the next semester.
+        Failed curses are shown by default.
+        Courses can be added or removed by pressing the edit button.
       </div>
-      <!-- <div class="help-text ht-bottom">
-        Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
-      </div> -->
+      <div class="ht-bottom" style="color: white; font-size: 13px;" track="semesterplan.maincontainer.help">
+        [click anywhere to close]
+      </div>
     </div>
-  </paper-material>
+  </div>
+</paper-material>
 </template>

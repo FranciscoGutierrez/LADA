@@ -1,36 +1,25 @@
 Template.riskwidget.helpers({
   risk: function() {
-    var risk = Math.round(Session.get("riskValue")*100);
-    return parseInt(risk) || 0;
-  },
-  riskText: function() {
     var risk = Session.get("riskValue");
-    var text;
-    if (risk >= 0.0) text = "Muy Difícil";
-    if (risk >= 0.2) text = "Difícil";
-    if (risk >= 0.4) text = "Regular";
-    if (risk >= 0.6) text = "Fácil";
-    if (risk >= 0.8) text = "Muy Fácil";
-    return text;
+    var text = "";
+    if (risk >= 0.0) text = "Very Hard";
+    if (risk >= 0.2) text = "Hard"
+    if (risk >= 0.5) text = "Regular";
+    if (risk >= 0.7) text = "Easy";
+    if (risk >= 0.8) text = "Very Easy";
+    return {
+      number : parseInt(Math.round(risk*100)) || 0,
+      text : text
+    };
   },
-  riskColor: function() {
-    var risk = Session.get("riskValue");
-    if (risk >= 0.0) $("#svgCircle").css("stroke","#e74c3c");
-    if (risk >= 0.2) $("#svgCircle").css("stroke","#e67e22");
-    if (risk >= 0.4) $("#svgCircle").css("stroke","#f1c40f");
-    if (risk >= 0.6) $("#svgCircle").css("stroke","#27ae60");
-    if (risk >= 0.8) $("#svgCircle").css("stroke","#25a085");
-    return risk;
-  },
-  riskKnob: function() {
-    var risk = Session.get("riskValue");
-    return (Math.round(Session.get("riskValue")*100) * 2)-12;
+  loading: function() {
+    return Session.get("loading");
   }
 });
 
 Template.riskwidget.events({
   "click .risk-info": function (event,template) {
-    template.$(".help-info").css("display","flex");
+    template.$(".help-info").fadeIn();
   },
   "click .close-info": function (event,template) {
     template.$(".help-info").fadeOut();
@@ -42,27 +31,34 @@ Template.riskwidget.events({
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
-    Recorder.insert({
-      "user": Meteor.connection._lastSessionId,
-      "template": template.view.name,
-      "target": $(event.target).first().attr('class'),
-      "screenX": event.screenX,
-      "screenY": event.screenY,
-      "offsetX": event.offsetX,
-      "offsetY": event.offsetY,
-      "timestamp": new Date()
-    });
+    if(Session.get("user-session")) {
+      Actions.insert({
+        "sessionId": Meteor.connection._lastSessionId,
+        "user": Session.get("user-name"),
+        "profile": Session.get("user-profile"),
+        "prediction": Session.get("riskValue"),
+        "uncertainty":Session.get("qualityValue"),
+        "courses":Session.get("courses"),
+        "load":Session.get("load"),
+        "template": template.view.name,
+        "target": $(event.target).first().attr('class'),
+        "x": (event.pageX - $('.coursescard-paper').offset().left) + $(".content").scrollLeft(),
+        "y": (event.pageY - $('.coursescard-paper').offset().top)  + $(".content").scrollTop(),
+        "timestamp": new Date()
+      });
+    }
   }
-
 });
 
 Template.riskwidget.rendered = function () {
-  setTimeout(function() {
-    var risk = Session.get("riskValue");
-    if (risk >= 0.0) $("#svgCircle").css("stroke","#e74c3c");
-    if (risk >= 0.2) $("#svgCircle").css("stroke","#e67e22");
-    if (risk >= 0.4) $("#svgCircle").css("stroke","#f1c40f");
-    if (risk >= 0.6) $("#svgCircle").css("stroke","#27ae60");
-    if (risk >= 0.8) $("#svgCircle").css("stroke","#25a085");
-  },1300);
+  $(document).ready(function() {
+    setInterval(function(){
+      var risk = Session.get("riskValue");
+      if (risk >= 0.0) $(".risk-bubble #svgCircle").css("stroke","#e74c3c");
+      if (risk >= 0.2) $(".risk-bubble #svgCircle").css("stroke","#e67e22");
+      if (risk >= 0.5) $(".risk-bubble #svgCircle").css("stroke","#f1c40f");
+      if (risk >= 0.7) $(".risk-bubble #svgCircle").css("stroke","#27ae60");
+      if (risk >= 0.8) $(".risk-bubble #svgCircle").css("stroke","#25a085");
+    }, 500);
+  });
 };

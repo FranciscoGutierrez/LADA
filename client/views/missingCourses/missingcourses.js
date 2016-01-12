@@ -1,7 +1,7 @@
 /*
 * Template life Cycle (Events)
 */
-Template.missingcourses.events({
+Template.studentdata.events({
   "click .mc-all": function(event,template) {
     Session.set("studentdata","all");
   },
@@ -26,31 +26,58 @@ Template.missingcourses.events({
     Session.set("studentYear",this.year);
   },
   "click .card-info": function (event,template) {
-    template.$(".help-info").css("display","flex");
+    template.$(".help-info").fadeIn();
   },
   "click .close-info": function (event,template) {
-    template.$(".help-info").fadeOut("fast");
+    template.$(".help-info").fadeOut();
   },
   "click .help-info": function (event,template) {
-    template.$(".help-info").fadeOut("fast");
+    template.$(".help-info").fadeOut();
+  },
+  "mouseenter .name": function (event, template) {
+    template.$(".name").attr("title", $(event.target).text());
   },
   "click": function(event,template){
     /*** Interaction Recorder ***/
     var self = this;
     var myEvent = event;
-    Recorder.insert({
-      "user": Meteor.connection._lastSessionId,
-      "template": template.view.name,
-      "target": $(event.target).first().attr('class'),
-      "screenX": event.screenX,
-      "screenY": event.screenY,
-      "offsetX": event.offsetX,
-      "offsetY": event.offsetY,
-      "timestamp": new Date()
-    });
+    var trackName = $(event.target).attr('track');
+    if($(event.target).attr("id") === "offRadio") trackName = $(event.target).parent().parent().attr("track");
+    if($(event.target).attr("id") === "onRadio")  trackName = $(event.target).parent().parent().attr("track");
+    if($(event.target).attr("id") === "radioContainer") trackName = $(event.target).parent().attr("track");
+    if($(event.target).hasClass("course")) trackName = "studentdata.middlecontent.row." + $(event.target).parent().find(".course").text();
+    if($(event.target).hasClass("name"))  trackName = "studentdata.middlecontent.row." + $(event.target).parent().find(".course").text();
+    if($(event.target).hasClass("grade")) trackName = "studentdata.middlecontent.row." + $(event.target).parent().find(".course").text();
+    if($(event.target).hasClass("year"))  trackName = "studentdata.middlecontent.row." + $(event.target).parent().find(".course").text();
+    if($(event.target).hasClass("status")) trackName = "studentdata.middlecontent.row." + $(event.target).parent().find(".course").text();
+    if($(event.target).hasClass("sortable")) trackName = "studentdata.middlecontent.sort." + $(event.target).attr('class').replace('sortable','').replace(/\s/g, '');
+    if($(event.target).is("span")) trackName = "studentdata.middlecontent.tablenavigation";
+    if($(event.target).hasClass("reactive-table-navigation")) trackName = "studentdata.middlecontent.tablenavigation";
+    if($(event.target).hasClass("next-page")) trackName = "studentdata.middlecontent.tablenavigation.next";
+    if($(event.target).hasClass("previous-page")) trackName = "studentdata.middlecontent.tablenavigation.previous";
+    if($(event.target).hasClass("form-control")) trackName = "studentdata.middlecontent.tablenavigation.input";
+    console.log(trackName);
+    if(Session.get("user-session")) {
+      Actions.insert({
+        "sessionId": Meteor.connection._lastSessionId,
+        "user": Session.get("user-name"),
+        "profile": Session.get("user-profile"),
+        "prediction": Session.get("riskValue"),
+        "uncertainty":Session.get("qualityValue"),
+        "courses":Session.get("courses"),
+        "load":Session.get("load"),
+        "template": template.view.name,
+        "target": trackName,
+        "extended": false,
+        "toggle": false,
+        "x": (event.pageX - $('.missingcourses-paper').offset().left) + $(".content").scrollLeft(),
+        "y": (event.pageY - $('.missingcourses-paper').offset().top)  + $(".content").scrollTop(),
+        "timestamp": new Date(),
+        "timestampms": new Date().getTime()
+      });
+    }
   }
 });
-
 
 Template.reactiveTable.onCreated(function () {
   Filter = new ReactiveTable.Filter('group', ['group']);
@@ -59,23 +86,18 @@ Template.reactiveTable.onCreated(function () {
 /*
 * Display data from helpers
 */
-Template.missingcourses.helpers({
+Template.studentdata.helpers({
   selectedCourses: function() {
     var selected = Session.get("studentdata");
     var year     = Session.get("studentYear");
     var query = [];
-    // if(selected == "passed") query = Grades.find({"student": Session.get("student"), "status":"AP"}, {sort: {year: 1}}).fetch();
-    // if(selected == "failed") query = Grades.find({"student": Session.get("student"), "status":"RP"}, {sort: {year: 1}}).fetch();
-    // if(selected == "redo") query = Grades.find({"student": Session.get("student"), "status":"RP", "status":{$not: "AP"}}, {sort: {year: 1}}).fetch();
     if((selected != "redo") && (year != "all")) query = Grades.find({"student": Session.get("student"), "year": Session.get("studentYear")}, {sort: {year: 1}}).fetch();
     if((selected != "redo") && (year == "all")) query = Grades.find({"student": Session.get("student")}, {sort: {year: 1}}).fetch();
     /* Show me redo's Specific years */
-    if((selected == "redo") && (year != "all")) query = Grades.find({"student": Session.get("student"), "year": Session.get("studentYear"), "status":"RP", "status":{$not: "AP"}}, {sort: {year: 1}}).fetch();
+    if((selected == "redo") && (year != "all")) query = Grades.find({"student": Session.get("student"), "year": Session.get("studentYear"), "status":"Failed", "status":{$not: "Passed"}}, {sort: {year: 1}}).fetch();
     /* Show me redo's All years */
-    if((selected == "redo") && (year == "all")) query = Grades.find({"student": Session.get("student"), "status":"RP"}).fetch();
-    /**
-    **
-    **/
+    if((selected == "redo") && (year == "all")) query = Grades.find({"student": Session.get("student"), "status":"Failed"}).fetch();
+    /****/
     for (i = 0; i < query.length; i++) query[i].grade = parseFloat(query[i].grade);
     return query;
   },
@@ -106,6 +128,6 @@ Template.missingcourses.helpers({
   }
 });
 
-Template.missingcourses.rendered = function () {
+Template.studentdata.rendered = function () {
   Session.set("mc-toggle",false);
 };

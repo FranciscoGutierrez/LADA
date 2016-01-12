@@ -40,21 +40,61 @@ Template.coursefactors.events({
     }
   },
   "click .card-info": function (event,template) {
-    template.$(".help-info").css("display","flex");
+    template.$(".help-info").fadeIn();
   },
   "click .close-info": function (event,template) {
     template.$(".help-info").fadeOut();
   },
   "click .help-info": function (event,template) {
     template.$(".help-info").fadeOut();
+  },
+  "click": function(event,template){
+    /*** Interaction Recorder ***/
+    var self = this;
+    var myEvent = event;
+    var trackName = $(event.target).attr('track');
+    if($(event.target).attr("id") === "checkboxContainer") trackName = "courseskill.bottomcontent.checkbox." + $(event.target).next().text();
+    if($(event.target).hasClass("toggle-container"))  trackName = "courseskill.topcontent.togglebutton";
+    if($(event.target).attr("id") === "toggleButton") trackName = "courseskill.topcontent.togglebutton";
+    console.log(trackName);
+    if(Session.get("user-session")) {
+      Actions.insert({
+        "sessionId": Meteor.connection._lastSessionId,
+        "user": Session.get("user-name"),
+        "profile": Session.get("user-profile"),
+        "prediction": Session.get("riskValue"),
+        "uncertainty":Session.get("qualityValue"),
+        "courses":Session.get("courses"),
+        "load":Session.get("load"),
+        "template": template.view.name,
+        "target": trackName,
+        "extended": false,
+        "toggle": Session.get("cf-toggle"),
+        "x": (event.pageX - $('.courseskill-paper').offset().left) + $(".content").scrollLeft(),
+        "y": (event.pageY - $('.courseskill-paper').offset().top)  + $(".content").scrollTop(),
+        "timestamp": new Date(),
+        "timestampms": new Date().getTime()
+      });
+    }
   }
 });
 
 Template.coursefactors.helpers({
   sessionCourses: function() {
     var courses = Session.get("courses");
-    var sc;
+    var sc = [];
     if(courses) sc = Courses.find({"_id": {$in: courses }}).fetch();
+
+    $('.cf-checkbox').each(function() {
+      if($(this).attr("checked")) {
+        CoursesFactorsChart.datasets[0].points[0].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor1*100)/5);
+        CoursesFactorsChart.datasets[0].points[1].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor2*100)/5);
+        CoursesFactorsChart.datasets[0].points[2].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor3*100)/5);
+        CoursesFactorsChart.datasets[0].points[3].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor4*100)/5);
+        CoursesFactorsChart.datasets[0].points[4].value += parseInt((Courses.findOne({"_id": $(this).val()}).factor5*100)/5);
+      }
+    });
+    if(CoursesFactorsChart) CoursesFactorsChart.update();
     return sc;
   }
 });
@@ -62,7 +102,7 @@ Template.coursefactors.helpers({
 Template.coursefactors.rendered = function(){
   setTimeout(function() {
     var courses = Session.get("courses");
-    var sc;
+    var sc = [];
     if(courses) sc = Courses.find({"_id": {$in: courses }}).fetch();
     var obj = [0,0,0,0,0];
     for (i=0; i< sc.length; i++){
@@ -74,7 +114,7 @@ Template.coursefactors.rendered = function(){
     }
     var ctx = document.getElementById("cf-chart").getContext("2d");
     var data = {
-      labels: ["Fundamentos", "Tópicos Avanzados", "Programación", "Humanidades", "Matemáticas"],
+      labels: ["CS Funamentals", "Advanced CS Topics", "Programming", "Humanities", "Math"],
       datasets: [
         {
           label: "This Student",

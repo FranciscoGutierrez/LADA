@@ -1,8 +1,9 @@
-// Websocket = new WebSocket("ws://localhost:9000/test");
+//Websocket = new WebSocket("ws://localhost:8000/test");
 // Websocket = new WebSocket("ws://10.43.48.75/test");
 StudentFactorsChart = 0;
 CoursesFactorsChart = 0;
-Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
+// Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
+Websocket = new WebSocket("wss://franciscogutierrez11-80.terminal.com/test");
 Websocket.onopen    = function(evt) { onOpen(evt)    };
 Websocket.onclose   = function(evt) { onClose(evt)   };
 Websocket.onmessage = function(evt) { onMessage(evt) };
@@ -14,8 +15,12 @@ function onClose(evt) {
 }
 function onMessage(evt) {
   var recieved = JSON.parse(evt.data);
+  // console.log(recieved);
   Session.set("riskValue",recieved.risk);
   Session.set("qualityValue",recieved.quality);
+  Session.set("loading",false)
+  $(".risk-content-viz").css("opacity",1);
+  $(".quality-content-viz").css("opacity",1);
 }
 
 function onError(evt) { console.log("ws:error: " + evt.data); }
@@ -34,31 +39,55 @@ $(document).ready(function() {
     var student  = Session.get('student');
     if(Websocket.readyState == 1) {
       if(courses) {
-        // Append the courses
-        for (var i=0; i<courses.length-1; i++){ string += '{"id": "'+courses[i]+'", "compliance": 5},'; }
-        string += '{"id": "'+courses[courses.length-1]+'", "compliance": 5}';
-        // Elaborate the request
+        for (var i=0; i<courses.length-1; i++){ string += '{"id": "'+courses[i]+'"},'; }
+        string += '{"id": "'+courses[courses.length-1]+'"}';
         request = '{"requestId": "'+ Meteor.connection._lastSessionId +'",'+
+        '"source": "kuleuven",'+
         '"student": [{"id": '+ student +',"gpa": 7.0793,'+
-        '"performance": 0.6,"compliance": 3}],'+
+        '"performance": 0.6}],'+
         '"courses": ['+ string + '],'+
         '"data": [{"from": '+ dataFrom +',"to": '+ dataTo +','+
         '"program": true,'+
         '"sylabus": true,'+
         '"evaluation": false,'+
-        '"instructors": true,'+
-        '"compliance": 2}]}';
-        // Send the request through websocket
+        '"instructors": true}]}';
         Websocket.send(request);
+        // Session.set("loading",true);
+        // $(".risk-content-viz").css("opacity",0.25);
+        // $(".quality-content-viz").css("opacity",0.25);
+        // console.log(request);
       }
-    } else if (Websocket.readyState == 3) {
-      $("#paperToast").attr("text","Conexión inactiva, volviendo a conectar...");
+    }
+    if (Websocket.readyState == 3) {
+      $("#paperToast").attr("text","Connection lost, reconnecting...");
       document.querySelector('#paperToast').show();
-      Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
+      //Websocket = new WebSocket("ws://localhost:8000/test");
+      // Websocket = new WebSocket("ws://franciscogutierrez10-80.terminal.com/test");
+      Websocket = new WebSocket("wss://franciscogutierrez11-80.terminal.com/test");
       Websocket.onopen    = function(evt) { onOpen(evt)   };
       Websocket.onclose   = function(evt) { onClose(evt)  };
       Websocket.onmessage = function(evt) { onMessage(evt)};
       Websocket.onerror   = function(evt) { onError(evt)  };
+
+      if(courses) {
+        for (var i=0; i<courses.length-1; i++){ string += '{"id": "'+courses[i]+'"},'; }
+        string += '{"id": "'+courses[courses.length-1]+'"}';
+        request = '{"requestId": "'+ Meteor.connection._lastSessionId +'",'+
+        '"source": "kuleuven",'+
+        '"student": [{"id": '+ student +',"gpa": 7.0793,'+
+        '"performance": 0.6}],'+
+        '"courses": ['+ string + '],'+
+        '"data": [{"from": '+ dataFrom +',"to": '+ dataTo +','+
+        '"program": true,'+
+        '"sylabus": true,'+
+        '"evaluation": false,'+
+        '"instructors": true}]}';
+        Websocket.send(request);
+        // Session.set("loading",true);
+        // $(".risk-content-viz").css("opacity",0.25);
+        // $(".quality-content-viz").css("opacity",0.25);
+        // console.log(request);
+      }
     }
-  }, 2000);
+  }, 7000);
 });

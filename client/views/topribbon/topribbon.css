@@ -4,12 +4,11 @@
   width: 100%;
   top: 0;
   left: 0;
-  color: #9f9f9f;
   font-size: 14px;
   height: 25px;
+  color: #424242;
   background-color: rgba(255, 255, 255, 0.95);
-  z-index: 1;
-  cursor: pointer;
+  z-index: 1000;
 }
 
 .top-ribbon span {
@@ -19,9 +18,88 @@
 }
 
 .ribbon-title {
+  cursor: pointer;
   width: 100%;
-  padding-left: 14px;
+  padding-left:  14px;
   bottom: 0;
   position: absolute;
   border-top: 1px solid #EAEAEA;
+  color: #9f9f9f;
+}
+
+.ribbon-title:hover {
+  background: #f3f3f3;
+}
+
+.ribbon-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.ribbon-menus {
+  width: 300px;
+}
+
+.top-ribbon-hidden {
+  display: none;
+}
+
+.top-ribbon-flex {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.top-ribbon-container {
+  padding: 35px;
+}
+
+.top-ribbon-input {
+  display: flex;
+}
+
+.top-ribbon-confidence {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.top-ribbon-experience {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.top-ribbon-scenario {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.top-ribbon-input paper-input  {
+  width: 350px;
+}
+
+.top-ribbon-input paper-button{
+  margin-top: 20px;
+}
+
+.top-ribbon-radio {
+  display: flex;
+  flex-flow: column;
+}
+
+.top-ribbon-subtitle {
+  font-size: 22px;
+  color: #424242;
+  font-weight: 300;
+}
+
+.top-ribbon-note {
+  font-size: 14px;
+  color: #939393;
 }

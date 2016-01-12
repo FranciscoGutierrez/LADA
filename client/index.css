@@ -155,7 +155,7 @@ paper-toast {
 }
 
 .container {
-    -webkit-transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .card-title {
@@ -224,4 +224,8 @@ paper-toggle-button > .toggle-label {
 
 paper-toast #label {
   margin-left: 10px;
+}
+
+iron-icon {
+  margin-left: 5px;
 }

@@ -1,43 +1,45 @@
-<template name="missingcourses">
-  <paper-material class="card-content missingcourses-paper">
-    <div class="chart-content mc-card-content animated fadeIn">
+<template name="studentdata">
+  <paper-material class="card-content missingcourses-paper" track="studentdata.maincontainer">
+    <div class="chart-content mc-card-content animated fadeIn" track="studentdata.maincontainer">
       <!-- Top Content -->
-      <div class="card-content-top">
-        <div class="card-content-top-text">
-          <div class="card-title">
-            <div class="card-title-text">Datos del Estudiante</div>
-            <iron-icon class="card-info" icon="icons:info"></iron-icon>
+      <div class="card-content-top" track="studentdata.topcontent">
+        <div class="card-content-top-text" track="studentdata.topcontent">
+          <div class="card-title" track="studentdata.topcontent.title">
+            <div class="card-title-text" track="studentdata.topcontent.title">Student Data</div>
+            <iron-icon class="card-info" track="studentdata.topcontent.infoicon" icon="icons:info"></iron-icon>
           </div>
-          <div class="card-subtitle">Sin Influencia en la predicción</div>
+          <div class="card-subtitle" track="studentdata.topcontent.subtitle">
+            <!-- No influence in prediction. -->
+          </div>
         </div>
       </div>
-      <div class="card-settings-icon">
+      <div class="card-settings-icon" track="studentdata.topcontent.togglebutton">
         <!-- <paper-toggle-button class="mc-toggle"></paper-toggle-button> -->
       </div>
       <!-- Middle Content -->
-      <div class="card-content-middle mc-content-middle">
-        <div class="mc-dataTable">
+      <div class="card-content-middle mc-content-middle" track="studentdata.middlecontent">
+        <div class="mc-dataTable" track="studentdata.middlecontent.table">
           {{> reactiveTable collection=selectedCourses settings=settings}}
         </div>
       </div>
-      <!-- Middle Content -->
-      <div class="card-content-bottom mc-content-bottom">
-        <div class="card-content-control">
-          <div class="control-title">Mostrar Cursos</div>
-          <div class="mc-selected-years">
-            <paper-radio-group selected="redo">
-              <paper-radio-button name="all"    class="mc-all    radio-pink">Todos</paper-radio-button>
-              <paper-radio-button name="redo"   class="mc-redo   radio-pink">Debe volver a cursar</paper-radio-button>
+      <!-- Bottom Content -->
+      <div class="card-content-bottom mc-content-bottom" track="studentdata.bottomcontent">
+        <div class="card-content-control" style="margin-top: 15px;" track="studentdata.bottomcontent">
+          <div class="control-title" track="studentdata.bottomcontent.title.showcourses">Show Courses</div>
+          <div class="mc-selected-years" style="padding-top: 5px; padding-bottom: 5px;" track="studentdata.bottomcontent.courses">
+            <paper-radio-group selected="redo" track="studentdata.bottomcontent.courses">
+              <paper-radio-button name="all"  track="studentdata.bottomcontent.checkboxcourses.All" class="mc-all  radio-pink">All</paper-radio-button>
+              <paper-radio-button name="redo" track="studentdata.bottomcontent.checkboxcourses.Failed" class="mc-redo radio-pink" style="margin-left: 15px;">Failed</paper-radio-button>
             </paper-radio-group>
           </div>
         </div>
-        <div class="card-content-control">
-          <div class="control-title">Año Académico</div>
-          <div class="mc-selected-years">
-            <paper-radio-group selected="0">
-              <paper-radio-button name="0" class="mc-radio-all radio-pink">Todos</paper-radio-button>
+        <div class="card-content-control" track="studentdata.bottomcontent">
+          <div class="control-title" track="studentdata.bottomcontent.academicyear">Academic Year</div>
+          <div class="mc-selected-years" track="studentdata.bottomcontent.academicyear">
+            <paper-radio-group selected="0" track="studentdata.bottomcontent.academicyear">
+              <paper-radio-button name="0" track="studentdata.bottomcontent.academicyear.All" class="mc-radio-all radio-pink">All</paper-radio-button>
               {{#each academicYears}}
-              <paper-radio-button name="1" class="mc-radio-{{number}} mc-radio-level radio-pink">{{year}}</paper-radio-button>
+              <paper-radio-button name="1" track="studentdata.bottomcontent.academicyear.{{year}}" class="mc-radio-{{number}} mc-radio-level radio-pink" style="margin-left: 15px;">{{year}}</paper-radio-button>
               {{else}}
               {{/each}}
             </paper-radio-group>
@@ -45,17 +47,20 @@
         </div>
       </div>
     </div>
-    <div class="help-info animated fadeIn">
-      <iron-icon class="close-info" icon="icons:clear"></iron-icon>
-      <!-- <div class="help-text ht-top">
+    <div class="help-info">
+      <iron-icon class="close-info" icon="icons:clear" track="studentdata.maincontainer.help"></iron-icon>
+      <div class="help-info-container" track="studentdata.maincontainer.help">
+        <!-- <div class="help-text ht-top">
         Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
       </div> -->
-      <div class="help-text ht-middle">
-        Muestra los cursos tentativos para el siguiente semestre, la probabilidad de éxito se ve afectada en base a la seleccion de estos.
+      <div class="help-text ht-middle" track="studentdata.maincontainer.help">
+        Shows a tabular representation of the student's academic history.
+        Scores can be filtered by result [passed, failed].
       </div>
-      <!-- <div class="help-text ht-bottom">
-        Muestra de manera ordenada los aspectos que afectan el cálculo de la predicción.
-      </div> -->
+      <div class="ht-bottom" style="color: white; font-size: 13px;" track="studentdata.maincontainer.help">
+        [click anywhere to close]
+      </div>
     </div>
-  </paper-material>
+  </div>
+</paper-material>
 </template>
