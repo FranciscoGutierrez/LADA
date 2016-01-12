@@ -2,11 +2,11 @@ Template.riskwidget.helpers({
   risk: function() {
     var risk = Session.get("riskValue");
     var text = "";
-    if (risk >= 0.0) text = "Very Hard";
-    if (risk >= 0.2) text = "Hard"
-    if (risk >= 0.5) text = "Regular";
-    if (risk >= 0.7) text = "Easy";
-    if (risk >= 0.8) text = "Very Easy";
+    if (risk >= 0.0) text = "Muy baja";
+    if (risk >= 0.2) text = "Baja"
+    if (risk >= 0.5) text = "Media";
+    if (risk >= 0.7) text = "Alta";
+    if (risk >= 0.8) text = "Muy Alta";
     return {
       number : parseInt(Math.round(risk*100)) || 0,
       text : text

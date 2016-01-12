@@ -4,28 +4,28 @@ Template.qualitywidget.helpers({
     var text = "";
     var casestext = "";
     if (quality >= 0.0){
-      text = "Very Poor";
-      casestext = "Untrustworthy";
+      text = "Muy baja";
+      casestext = "No Confiable";
       $(".quality-bubble #svgCircle").css("stroke","#e74c3c !important");
     }
     if (quality >= 0.2){
-      text = "Poor";
-      casestext = "Untrustworthy";
+      text = "Baja";
+      casestext = "No Confiable";
       $(".quality-bubble #svgCircle").css("stroke","#e67e22 !important");
     }
     if (quality >= 0.4) {
-      text = "Fair";
-      casestext = "Untrustworthy";
+      text = "Media";
+      casestext = "No Confiable";
       $(".quality-bubble > #svgCircle").css("stroke","#f1c40f !important");
     }
     if (quality >= 0.6) {
-      text = "Good";
-      casestext = "Trustworthy";
+      text = "Alta";
+      casestext = "Confiable";
       $(".quality-bubble #svgCircle").css("stroke","#27ae60 !important");
     }
     if (quality >= 0.8) {
-      text = "Very Good";
-      casestext = "Trustworthy";
+      text = "Muy Alta";
+      casestext = "Confiable";
       $(".quality-bubble #svgCircle").css("stroke","#25a085 !important");
     }
     return {

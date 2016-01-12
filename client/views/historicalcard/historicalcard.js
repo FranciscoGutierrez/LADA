@@ -19,13 +19,13 @@ Template.historicalcard.events({
   "click .hc-toggle": function(event,template) {
     if(template.$(".hc-toggle").attr("checked")){
       Session.set("hc-toggle",true);
-      Session.set("data-from","2010");
-      Session.set("data-to","2015");
+      Session.set("data-from","1999");
+      Session.set("data-to","2012");
       setTimeout(function() {
         $("#selector").ionRangeSlider({
           type: 'double ',
-          min: 2010,
-          max: 2015,
+          min: 1999,
+          max: 2012,
           step: 1,
           grid: true,
           grid_snap: true,
@@ -39,12 +39,19 @@ Template.historicalcard.events({
         });
 
         var data = [
-          { x: 0,  y: 6013},
-          { x: 1,  y: 16512},
-          { x: 2,  y: 23558},
-          { x: 3,  y: 24498},
-          { x: 4,  y: 25086},
-          { x: 5,  y: 24412}
+          { x: 0,  y: 3535},
+          { x: 1,  y: 3863},
+          { x: 2,  y: 4921},
+          { x: 3,  y: 5847},
+          { x: 4,  y: 6232},
+          { x: 5,  y: 6770},
+          { x: 6,  y: 7420},
+          { x: 7,  y: 7469},
+          { x: 8,  y: 7403},
+          { x: 9,  y: 6014},
+          { x: 10, y: 5434},
+          { x: 11, y: 5285},
+          { x: 12, y: 4841}
         ];
 
         var margin = {top: 20, right: 20, bottom: 30, left: 50},
@@ -193,8 +200,8 @@ Template.historicalcard.rendered = function () {
   setTimeout(function() {
     $("#selector").ionRangeSlider({
       type: 'double ',
-      min: 2010,
-      max: 2015,
+      min: 1999,
+      max: 2012,
       step: 1,
       grid: true,
       grid_snap: true,
@@ -234,14 +241,20 @@ Template.historicalcard.rendered = function () {
     });
 
     var data = [
-      { x: 0,  y: 6013},
-      { x: 1,  y: 16512},
-      { x: 2,  y: 23558},
-      { x: 3,  y: 24498},
-      { x: 4,  y: 25086},
-      { x: 5,  y: 24412}
+      { x: 0,  y: 3535},
+      { x: 1,  y: 3863},
+      { x: 2,  y: 4921},
+      { x: 3,  y: 5847},
+      { x: 4,  y: 6232},
+      { x: 5,  y: 6770},
+      { x: 6,  y: 7420},
+      { x: 7,  y: 7469},
+      { x: 8,  y: 7403},
+      { x: 9,  y: 6014},
+      { x: 10, y: 5434},
+      { x: 11, y: 5285},
+      { x: 12, y: 4841}
     ];
-
 
     var margin = {top: 20, right: 20, bottom: 30, left: 50},
     width  = 335,

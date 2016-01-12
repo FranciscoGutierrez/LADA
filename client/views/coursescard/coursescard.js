@@ -307,11 +307,11 @@ Template.semesterplan.helpers({
   },
   numberCourses: function() {
     var size = 0;
-    var obj  = {number: size, text: "Courses"};
+    var obj  = {number: size, text: "Cursos"};
     if (Session.get("courses")) {
       size = Session.get("courses").length;
-      obj  = {number: size, text: "Courses"};
-      if(size == 1) obj = {number: size, text: "Course"};
+      obj  = {number: size, text: "Cursos"};
+      if(size == 1) obj = {number: size, text: "Curso"};
     }
     return obj;
   },

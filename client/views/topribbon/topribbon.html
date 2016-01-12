@@ -4,70 +4,70 @@
       <div class="top-ribbon-flex animated fadeInDown">
         <div class="top-ribbon-container">
           {{#if userName}}
-          <div class="top-ribbon-subtitle" style="padding-bottom: 10px; width: 412px; height: 60px;">Welcome, <b>{{userName}}!</b></div>
+          <div class="top-ribbon-subtitle" style="padding-bottom: 10px; width: 412px; height: 60px;">¡Bienvenido, <b>{{userName}}!</b></div>
           {{else}}
           <div class="top-ribbon-input">
-            <paper-input label="Welcome," type="search" minlength="3" placeholder="Please, type here your name..."></paper-input>
-            <paper-button class="top-ribbon-save"><iron-icon icon="save"></iron-icon>Save</paper-button>
+            <paper-input label="Welcome," type="search" minlength="3" placeholder="Por favor, escriba su nombre aquí..."></paper-input>
+            <paper-button class="top-ribbon-save"><iron-icon icon="save"></iron-icon>Guardar</paper-button>
           </div>
           {{/if}}
           <div class="top-ribbon-radio">
-            <div class="top-ribbon-subtitle">Choose your profile:</div>
+            <div class="top-ribbon-subtitle">Seleccione su perfil:</div>
             <paper-radio-group selected="">
-              <paper-radio-button name="expert"  label="expert"  class="radio-pink ribbon-expert">Expert</paper-radio-button>
-              <paper-radio-button name="student" label="student" class="radio-pink ribbon-student">Student</paper-radio-button>
-              <paper-radio-button name="layman"  label="layman"  class="radio-pink ribbon-layman">Layman</paper-radio-button>
+              <paper-radio-button name="experto"  label="experto"  class="radio-pink ribbon-expert">Experto</paper-radio-button>
+              <paper-radio-button name="estudiante" label="estudiante" class="radio-pink ribbon-student">Estudiante</paper-radio-button>
+              <paper-radio-button name="profesionista"  label="profesionista"  class="radio-pink ribbon-layman">Profesionista</paper-radio-button>
             </paper-radio-group>
           </div>
         </div>
         <div class="top-ribbon-container">
-          <div class="top-ribbon-subtitle" style="padding-bottom: 10px;">Ready?</div>
-          <paper-button class="ribbon-start" raised><iron-icon icon="av:play-arrow"></iron-icon>Start Session</paper-button>
-          <paper-button class="ribbon-stop"><iron-icon icon="av:stop"></iron-icon>End Session</paper-button>
+          <div class="top-ribbon-subtitle" style="padding-bottom: 10px;">Listo?</div>
+          <paper-button class="ribbon-start" raised><iron-icon icon="av:play-arrow"></iron-icon>Comenzar Sesión</paper-button>
+          <paper-button class="ribbon-stop"><iron-icon icon="av:stop"></iron-icon>Finalizar Sesión</paper-button>
           <div class="top-ribbon-note" style="padding-top: 10px;">
-            <b>Important:</b> When finished, please come back here <br>
-            and press "End Session" button.
+            <b>Importante:</b> Cuando finalize la sesión, por favor regrese aquí <br>
+            y presione el botón "Finalizar Sesión".
           </div>
         </div>
       </div>
       <div class="top-ribbon-confidence animated fadeInDown" style="margin-top: 34px;">
-        <div class="top-ribbon-subtitle" style="padding-bottom: 10px;">Thank you, <b>{{userName}}!</b></div>
-        <div class="top-ribbon-subsubtitle" style="color: #939393; padding-bottom: 10px;">Your confidence in the <b>"Chance of Success"</b> prediction is...</div>
+        <div class="top-ribbon-subtitle" style="padding-bottom: 10px;">Gracias, <b>{{userName}}!</b></div>
+        <div class="top-ribbon-subsubtitle" style="color: #939393; padding-bottom: 10px;">Su confianza en la <b>"Probabilidad de éxito"</b> es...</div>
         <paper-radio-group selected="">
-          <paper-radio-button name="vlow"  label="vlow"  class="radio-pink ribbon-vlow" >Very Low</paper-radio-button>
-          <paper-radio-button name="low"   label="low"   class="radio-pink ribbon-low"  >Low</paper-radio-button>
-          <paper-radio-button name="fair"  label="fair"  class="radio-pink ribbon-fair" >Fair</paper-radio-button>
-          <paper-radio-button name="high"  label="high"  class="radio-pink ribbon-high" >High</paper-radio-button>
-          <paper-radio-button name="vhigh" label="vhigh" class="radio-pink ribbon-vhigh">Very High</paper-radio-button>
+          <paper-radio-button name="vlow"  label="vlow"  class="radio-pink ribbon-vlow" >Muy Baja</paper-radio-button>
+          <paper-radio-button name="low"   label="low"   class="radio-pink ribbon-low"  >Baja</paper-radio-button>
+          <paper-radio-button name="fair"  label="fair"  class="radio-pink ribbon-fair" >Media</paper-radio-button>
+          <paper-radio-button name="high"  label="high"  class="radio-pink ribbon-high" >Alta</paper-radio-button>
+          <paper-radio-button name="vhigh" label="vhigh" class="radio-pink ribbon-vhigh">Muy Alta</paper-radio-button>
         </paper-radio-group>
         {{#if userConfidence}}
-        <paper-button class="ribbon-send-confidence" raised><iron-icon icon="icons:send"></iron-icon>Send My Feedback</paper-button>
+        <paper-button class="ribbon-send-confidence" raised><iron-icon icon="icons:send"></iron-icon>Enviar Retroalimentación</paper-button>
         {{/if}}
       </div>
       <div class="top-ribbon-experience animated fadeInDown" style="margin-top: 30px;">
-        <div class="top-ribbon-subtitle" style="padding-bottom: 10px;">What is your final verdict, <b>{{userName}}?</b></div>
+        <div class="top-ribbon-subtitle" style="padding-bottom: 10px;">¿Cuál es tu veredicto final, <b>{{userName}}?</b></div>
         <!--  -->
         <!-- What do you think? Based on your experience, the semester will be... -->
-        <div class="top-ribbon-subsubtitle" style="color: #939393;">Based on the tool's <b>prediction</b>, the semester will be...</div>
+        <div class="top-ribbon-subsubtitle" style="color: #939393;">Basado en la predicción de la herramienta, la probabilidad de éxito será...</div>
         <paper-radio-group selected="">
-          <paper-radio-button name="vhard"   label="vhard"   class="radio-red    ribbon-vhard"  >Very Poor</paper-radio-button>
-          <paper-radio-button name="hard"    label="hard"    class="radio-orange ribbon-hard"   >Poor</paper-radio-button>
-          <paper-radio-button name="regular" label="regular" class="radio-yellow ribbon-regular">Fair</paper-radio-button>
-          <paper-radio-button name="easy"    label="easy"    class="radio-green  ribbon-easy"   >Good</paper-radio-button>
-          <paper-radio-button name="veasy"   label="veasy"   class="radio-grass  ribbon-veasy"  >Very Good</paper-radio-button>
+          <paper-radio-button name="vhard"   label="vhard"   class="radio-red    ribbon-vhard"  >Muy Baja</paper-radio-button>
+          <paper-radio-button name="hard"    label="hard"    class="radio-orange ribbon-hard"   >Baja</paper-radio-button>
+          <paper-radio-button name="regular" label="regular" class="radio-yellow ribbon-regular">Media</paper-radio-button>
+          <paper-radio-button name="easy"    label="easy"    class="radio-green  ribbon-easy"   >Alta</paper-radio-button>
+          <paper-radio-button name="veasy"   label="veasy"   class="radio-grass  ribbon-veasy"  >Muy Alta</paper-radio-button>
         </paper-radio-group>
         {{#if userExperience}}
-        <paper-button class="ribbon-send-experience" raised><iron-icon icon="icons:send"></iron-icon>Send My Feedback</paper-button>
+        <paper-button class="ribbon-send-experience" raised><iron-icon icon="icons:send"></iron-icon>Enviar retroalimentación</paper-button>
         {{/if}}
       </div>
 
       <div class="top-ribbon-scenario animated fadeInDown" style="margin-top: 30px;">
-        <div class="top-ribbon-subtitle" style="padding-bottom: 10px;">One more question, <b>{{userName}}!</b></div>
-        <div class="top-ribbon-subsubtitle" style="color: #939393;">How many <b>scenarios</b> did you examine?</div>
+        <div class="top-ribbon-subtitle" style="padding-bottom: 10px;">¡Una pregunta más, <b>{{userName}}!</b></div>
+        <div class="top-ribbon-subsubtitle" style="color: #939393;">¿Cuántos <b>escenarios</b> examinaste?</div>
         <b style="font-size: 18px;">{{userScenario}}</b>
         <paper-slider style="width: 400px;" pin snaps min="1" max="10" max-markers="10" step="1" value="1"></paper-slider>
         {{#if userScenario}}
-        <paper-button class="ribbon-send-scenario" raised><iron-icon icon="icons:send"></iron-icon>Send My Feedback & Save Session</paper-button>
+        <paper-button class="ribbon-send-scenario" raised><iron-icon icon="icons:send"></iron-icon>Enviar retroalimentación y Guardar Sesión</paper-button>
         {{/if}}
       </div>
     </div>
@@ -75,9 +75,9 @@
     <div class="ribbon-title">
       <div class="ribbon-menu">
         {{#if studentId}}
-        <div class="ribbon-menus">Student: <span>{{studentId}}</span></div>
+        <div class="ribbon-menus">Estudiante: <span>{{studentId}}</span></div>
         {{else}}
-        <div class="ribbon-menus">Working without a <span class="expand-ribbon">Student Profile</span></div>
+        <div class="ribbon-menus">Trabajando sin un <span class="expand-ribbon">Perfil del estudiante</span></div>
         {{/if}}
         <iron-icon icon="icons:arrow-drop-down" class="expand-ribbon ribbon-icon"></iron-icon>
         {{#if userName}}
@@ -85,7 +85,7 @@
           <div style="color: #424242;"><b>{{userName}}</b>, {{userProfile}}</div>
         </div>
         {{else}}
-        <div class="ribbon-menus" style="text-align: end; padding-right: 28px;"><span class="expand-ribbon">Please, click here to register...</span></div>
+        <div class="ribbon-menus" style="text-align: end; padding-right: 28px;"><span class="expand-ribbon">Haga click aquí para registrarse...</span></div>
         {{/if}}
       </div>
       <paper-ripple></paper-ripple>

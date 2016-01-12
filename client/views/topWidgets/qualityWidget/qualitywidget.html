@@ -8,7 +8,7 @@
     {{#unless loading}}
     {{/unless}}
     <div class="widget-title">
-      <div class="widget-title-text">Prediction Quality</div>
+      <div class="widget-title-text" style="width: 180px;">Calidad en la Predicción</div>
       <iron-icon class="widget-title-icon quality-info" icon="icons:info"></iron-icon>
     </div>
     {{#if loading}}
@@ -18,8 +18,8 @@
       <iron-icon class="close-info" icon="icons:clear"></iron-icon>
       <div class="help-info-container">
         <div class="help-text">
-          The prediction is based on <u>{{quality.cases}}</u> number of cases.
-          Thus, the prediction is considered <u>{{quality.casestext}}</u>
+          Muestra la calidad de la estimación.  Esta estimación está basada en  <u>{{quality.cases}}</u> casos.
+          Por lo tanto, es <u>{{quality.casestext}}</u>.
         </div>
       </div>
     </div>
