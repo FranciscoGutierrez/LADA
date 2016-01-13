@@ -136,7 +136,7 @@ Template.gradescard.helpers({
     var sc   = Grades.find({grade: { $gte : "9.0"}}).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#25a085";
-      sc[i].grade        = sc[i].grade * 35;
+      sc[i].grade        = ((sc[i].grade - 5.5) * 350)/4.5;
       sc[i].performance  = 190 - (sc[i].performance * 190);
     }
     return sc;
@@ -145,7 +145,7 @@ Template.gradescard.helpers({
     var sc   = Grades.find({ grade: { $gte : "8.0", $lt : "9.0" } }).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#27ae60";
-      sc[i].grade        = sc[i].grade * 35;
+      sc[i].grade        = ((sc[i].grade - 5.5) * 350)/4.5;
       sc[i].performance  = 190 - (sc[i].performance * 190);
     }
     return sc;
@@ -154,7 +154,7 @@ Template.gradescard.helpers({
     var sc = Grades.find({ grade: { $gte :"7.0", $lt :"8.0" } }).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#f0c30e";
-      sc[i].grade        = sc[i].grade * 35;
+      sc[i].grade        = ((sc[i].grade - 5.5) * 350)/4.5;
       sc[i].performance  = 190 - (sc[i].performance * 190);
     }
     return sc;
@@ -163,7 +163,7 @@ Template.gradescard.helpers({
     var sc   = Grades.find({ grade: { $gte :"6", $lt :"7" } }).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#e67d22";
-      sc[i].grade        = sc[i].grade * 35;
+      sc[i].grade        = ((sc[i].grade - 5.5) * 350)/4.5;
       sc[i].performance  = 190 - (sc[i].performance * 190);
     }
     return sc;
@@ -180,7 +180,7 @@ Template.gradescard.helpers({
   thisStudent: function() {
     var sc = Students.findOne({});
     if(sc) {
-      if(sc.gpa >= 6) sc.gpa = (((sc.gpa - 4.5) * 350) / 5.45);
+      if(sc.gpa >= 6) sc.gpa = (((sc.gpa - 5) * 350) / 5);
       if(sc.gpa <  6) sc.gpa = 15
       sc.performance = 190 - (sc.performance * 190);
     }
