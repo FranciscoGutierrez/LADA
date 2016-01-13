@@ -133,38 +133,38 @@ Template.registerHelper('isCourse',function(input){
 */
 Template.gradescard.helpers({
   excellent: function () {
-    var sc   = Grades.find({grade: { $gte : "18", $lte : "20" }}).fetch();
+    var sc   = Grades.find({grade: { $gte : "9.0"}}).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#25a085";
-      sc[i].grade        = ((sc[i].grade-9) * 280)/9;
-      sc[i].performance  = 190 - (sc[i].performance * 190)/20;
+      sc[i].grade        = sc[i].grade * 35;
+      sc[i].performance  = 190 - (sc[i].performance * 190);
     }
     return sc;
   },
   good: function () {
-    var sc   = Grades.find({ grade: { $gte : "15", $lt : "18" } }).fetch();
+    var sc   = Grades.find({ grade: { $gte : "8.0", $lt : "9.0" } }).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#27ae60";
-      sc[i].grade        = ((sc[i].grade-9) * 280)/9;
-      sc[i].performance  = 190 - (sc[i].performance * 190)/20;
+      sc[i].grade        = sc[i].grade * 35;
+      sc[i].performance  = 190 - (sc[i].performance * 190);
     }
     return sc;
   },
   regular: function () {
-    var sc = Grades.find({ grade: { $gte :"13", $lt :"15" } }).fetch();
+    var sc = Grades.find({ grade: { $gte :"7.0", $lt :"8.0" } }).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#f0c30e";
-      sc[i].grade        = ((sc[i].grade-9) * 280)/9;
-      sc[i].performance  = 190 - (sc[i].performance * 190)/20;
+      sc[i].grade        = sc[i].grade * 35;
+      sc[i].performance  = 190 - (sc[i].performance * 190);
     }
     return sc;
   },
   lazy: function () {
-    var sc   = Grades.find({ grade: { $gte :"10", $lt :"13" } }).fetch();
+    var sc   = Grades.find({ grade: { $gte :"6", $lt :"7" } }).fetch();
     for (i = 0; i < sc.length; i++) {
       sc[i].gp           = "#e67d22";
-      sc[i].grade        = ((sc[i].grade-9) * 280)/9;
-      sc[i].performance  = 190 - (sc[i].performance * 190)/20;
+      sc[i].grade        = sc[i].grade * 35;
+      sc[i].performance  = 190 - (sc[i].performance * 190);
     }
     return sc;
   },
@@ -180,9 +180,9 @@ Template.gradescard.helpers({
   thisStudent: function() {
     var sc = Students.findOne({});
     if(sc) {
-      if(sc.gpa >= 10) sc.gpa = ((sc.gpa-9) * 280)/9;
-      if(sc.gpa <  10) sc.gpa = 15;
-      sc.performance = 190 - (sc.performance * 190)/20;
+      if(sc.gpa >= 6) sc.gpa = (((sc.gpa - 4.5) * 350) / 5.45);
+      if(sc.gpa <  6) sc.gpa = 15
+      sc.performance = 190 - (sc.performance * 190);
     }
     return sc;
   },

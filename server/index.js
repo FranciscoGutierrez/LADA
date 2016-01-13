@@ -13,23 +13,23 @@ Sessions = new Meteor.Collection('sessions');
 /***/
 
 Meteor.publish('excellentgrades', function(who){
-  return Grades.find({course: who, grade: { $gte : "16", $lte : "20" } }, {limit: 50});
+  return Grades.find({course: who, grade: { $gte : "9"} }, {limit: 50});
 });
 
 Meteor.publish('verygoodgrades', function(who){
-  return Grades.find({course: who, grade: { $gte : "15", $lt : "16" } }, {limit: 50});
+  return Grades.find({course: who, grade: { $gte : "8", $lt : "9" } }, {limit: 50});
 });
 
 Meteor.publish('goodgrades', function(who){
-  return Grades.find({course: who, grade: { $gte : "13", $lte : "15" } }, {limit: 50});
+  return Grades.find({course: who, grade: { $gte : "7", $lte : "8" } }, {limit: 50});
 });
 
 Meteor.publish('sufficientgrades', function(who){
-  return Grades.find({course: who, grade: { $gte : "10", $lte : "13" } }, {limit: 50});
+  return Grades.find({course: who, grade: { $gte : "6", $lte : "7" } }, {limit: 50});
 });
 
 Meteor.publish('failuregrades', function(who){
-  return Grades.find({course: who, grade: { $gte : "1", $lt : "10" } }, {limit: 50});
+  return Grades.find({course: who, grade: { $lt : "6" } }, {limit: 50});
 });
 
 /***/

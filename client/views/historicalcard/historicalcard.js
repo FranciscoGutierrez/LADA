@@ -219,7 +219,7 @@ Template.historicalcard.rendered = function () {
             for (var i=0; i<courses.length-1; i++){ string += '{"id": "'+courses[i]+'"},'; }
             string += '{"id": "'+courses[courses.length-1]+'"}';
             request = '{"requestId": "'+ Meteor.connection._lastSessionId +'",'+
-            '"source": "kuleuven",'+
+            '"source": "espol",'+
             '"student": [{"id": '+ student +',"gpa": 7.0793,'+
             '"performance": 0.6}],'+
             '"courses": ['+ string + '],'+

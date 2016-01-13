@@ -106,16 +106,18 @@ Template.semesterplan.events({
             Meteor.subscribe('goodgrades',      course._id, function(){});
             Meteor.subscribe('verygoodgrades',  course._id, function(){});
             Meteor.subscribe('excellentgrades', course._id, function(){});
+            console.log("added");
           });
         });
       });
+
       var str = "";
       if(courses) {
         for (var i=0; i<courses.length-1; i++) str += '{"id": "'+courses[i]+'"},';
         str+= '{"id": "'+courses[courses.length-1]+'"}';
         Websocket.send('{"requestId": "5645f7f7ef0bde57344c84de",'+
         '"student": [{"id": '+Session.get("student")+',"gpa": 7.0793,'+
-        '"source": "kuleuven",'+
+        '"source": "espol",'+
         '"performance": 0.6}],'+
         '"courses": ['+ str + '],'+
         '"data": [{"from": 2010,"to": 2015,'+
@@ -151,7 +153,7 @@ Template.semesterplan.events({
         str+= '{"id": "'+courses[courses.length-1]+'"}';
         Websocket.send('{"requestId": "5645f7f7ef0bde57344c84de",'+
         '"student": [{"id": '+Session.get("student")+',"gpa": 7.0793,'+
-        '"source": "kuleuven",'+
+        '"source": "espol",'+
         '"performance": 0.6}],'+
         '"courses": ['+ str + '],'+
         '"data": [{"from": 2010,"to": 2015,'+
