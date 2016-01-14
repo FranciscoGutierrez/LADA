@@ -168,6 +168,7 @@ Template.semesterplan.events({
     var id = this._id;
     $(".gradescard-paper").find("circle").css("fill-opacity","0.2");
     $(".gradescard-paper").find("."+id).css("fill-opacity","1");
+    $(".sg-this").css("fill-opacity","1");
     //$(".gradescard-paper").find("circle").css("stroke","none");
     //
     // $("."+id+" .sg-excellent").css("fill","#25a085");
