@@ -106,7 +106,6 @@ Template.semesterplan.events({
             Meteor.subscribe('goodgrades',      course._id, function(){});
             Meteor.subscribe('verygoodgrades',  course._id, function(){});
             Meteor.subscribe('excellentgrades', course._id, function(){});
-            console.log("added");
           });
         });
       });
@@ -167,24 +166,24 @@ Template.semesterplan.events({
   },
   "click .cc-course": function(event,template) {
     var id = this._id;
-    //$(".gradescard-paper").find("circle").css("fill","#eceff1");
     $(".gradescard-paper").find("circle").css("fill-opacity","0.2");
-    $(".gradescard-paper").find("circle").css("stroke","none");
-
-    $("."+id+".sg-excellent").css("fill","#25a085");
-    $("."+id+".sg-good").css("fill","#27ae60");
-    $("."+id+".sg-regular").css("fill","#f0c30e");
-    $("."+id+".sg-lazy").css("fill","#e67d22");
-    // $("."+ id+".sg-bad").css("fill","#b25d7e");
-    $(".sg-this").css("fill","#b25d7e");
-
-    $("."+id+".sg-excellent").css("fill-opacity","1");
-    $("."+id+".sg-good").css("fill-opacity","1");
-    $("."+id+".sg-regular").css("fill-opacity","1");
-    $("."+id+".sg-lazy").css("fill-opacity","1");
-    // $("."+ id+".sg-bad").css("fill-opacity","1");
-    $(".sg-this").css("fill-opacity","1");
-    $("."+id).css("stroke","#ececec");
+    $(".gradescard-paper").find("."+id).css("fill-opacity","1");
+    //$(".gradescard-paper").find("circle").css("stroke","none");
+    //
+    // $("."+id+" .sg-excellent").css("fill","#25a085");
+    // $("."+id+" .sg-good").css("fill","#27ae60");
+    // $("."+id+" .sg-regular").css("fill","#f0c30e");
+    // $("."+id+" .sg-lazy").css("fill","#e67d22");
+    // // $("."+ id+".sg-bad").css("fill","#b25d7e");
+    // $(".sg-this").css("fill","#b25d7e");
+    //
+    // $("."+id+" .sg-excellent").css("fill-opacity","1");
+    // $("."+id+" .sg-good").css("fill-opacity","1");
+    // $("."+id+" .sg-regular").css("fill-opacity","1");
+    // $("."+id+" .sg-lazy").css("fill-opacity","1");
+    // // $("."+ id+".sg-bad").css("fill-opacity","1");
+    // $(".sg-this").css("fill-opacity","1");
+    // $("."+id).css("stroke","#ececec");
 
     /* background coloring */
     template.$(".cc-course").css("background","white");
