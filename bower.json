@@ -9,5 +9,8 @@
     "progress-bubble": "~1.1.0",
     "jquery.easyPaginate": "https://github.com/st3ph/jquery.easyPaginate.git",
     "Chart.js": "~1.0.2"
+  },
+  "resolutions": {
+    "polymer": "^1.2.4"
   }
 }

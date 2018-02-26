@@ -152,6 +152,7 @@ paper-toast {
   display: flex;
   justify-content: center;
   align-items: center;
+  display: none;
 }
 
 .container {

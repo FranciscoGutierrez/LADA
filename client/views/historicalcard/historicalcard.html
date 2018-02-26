@@ -5,7 +5,7 @@
       <div class="card-content-top" track="historicalrecords.topcontent">
         <div class="card-content-top-text" track="historicalrecords.topcontent">
           <div class="card-title" track="historicalrecords.topcontent.title">
-            <div class="card-title-text" track="historicalrecords.topcontent.title">Fuente de Datos</div>
+            <div class="card-title-text" track="historicalrecords.topcontent.title">Historical Records</div>
             <iron-icon class="card-info" icon="icons:info" track="historicalrecords.topcontent.infoicon"></iron-icon>
           </div>
           {{#if isOn}}
@@ -21,7 +21,7 @@
       <div class="card-content-middle" style="margin-top: 40px;" track="historicalrecords.middlecontent">
         <div class="sg-chart-container" track="historicalrecords.middlecontent">
           <div class="sg-vertical-axis" style="left: -7px;" track="historicalrecords.middlecontent.verticalbar">
-            <div class="sg-vertical-axis-title" track="historicalrecords.middlecontent.verticalbar">Estudiantes</div>
+            <div class="sg-vertical-axis-title" track="historicalrecords.middlecontent.verticalbar">Students</div>
           </div>
           <div class="hc-svg-container" track="historicalrecords.middlecontent.chart">
             <svg id="area" class="svghistorical" track="historicalrecords.middlecontent.chart">
@@ -47,17 +47,17 @@
       <!-- Bottom Content -->
       <div class="card-content-bottom" style="margin-top: 15px;" track="historicalrecords.bottomcontent">
         <div class="card-content-control" track="historicalrecords.bottomcontent">
-          <div class="control-title" track="historicalrecords.bottomcontent.title">Predicción basada en</div>
+          <div class="control-title" track="historicalrecords.bottomcontent.title">Prediction based on</div>
           <div class="hc-horizontal-section" track="historicalrecords.bottomcontent.results">
-            <div class="hc-students" track="historicalrecords.bottomcontent.students">{{students}} estudiantes en {{courses}} cursos</div>
-            <div class="hc-fromto"   track="historicalrecords.bottomcontent.fromto">Desde {{from}} Hasta {{to}}</div>
+            <div class="hc-students" track="historicalrecords.bottomcontent.students">{{students}} students in {{courses}} courses</div>
+            <div class="hc-fromto"   track="historicalrecords.bottomcontent.fromto">From {{from}} To {{to}}</div>
           </div>
         </div>
       </div>
       {{else}}
       <div class="card-content-middle" track="historicalrecords.middlecontent.cardisoff">
         <div class="cc-nothing animated fadeIn" style="background: none; height: 400px;" track="historicalrecords.middlecontent.cardisoff">
-          <div class="cc-nothing-message" track="historicalrecords.middlecontent.cardisoff">Esta tarjeta esta apagada</div>
+          <div class="cc-nothing-message" track="historicalrecords.middlecontent.cardisoff">This card is turned off</div>
         </div>
       </div>
       {{/if}}

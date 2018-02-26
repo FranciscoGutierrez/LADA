@@ -5,7 +5,7 @@
         <div class="card-content-top-text" track="grades.topcontent">
           <div class="card-title" track="grades.topcontent">
             <div class="card-title-text" track="grades.topcontent.title">
-              Rendimiento Histórico
+              Grades
             </div>
             <iron-icon class="card-info" icon="icons:info" track="grades.topcontent.infoicon"></iron-icon>
           </div>
@@ -78,7 +78,7 @@
         </div>
         {{else}}
         <div class="cc-nothing animated fadeIn" track="grades.middlecontent.cardisoff">
-          <div class="cc-nothing-message" style="margin-top: 80px;" track="grades.middlecontent.cardisoff">Por favor, agrega algún curso.</div>
+          <div class="cc-nothing-message" style="margin-top: 80px;" track="grades.middlecontent.cardisoff">Please, add a course.</div>
           <div class="cc-nothing-add" track="grades.middlecontent.cardisoff"></div>
         </div>
         {{/if}}
@@ -86,18 +86,18 @@
       <!-- Bottom Content -->
       <div class="card-content-bottom" style="margin-top: 25px;" track="grades.bottomcontent">
         <div class="card-content-control" track="grades.bottomcontent">
-          <div class="control-title" track="grades.bottomcontent.title">Calificaciones</div>
+          <div class="control-title" track="grades.bottomcontent.title">Grades</div>
           <div class="card-content-columns" track="grades.bottomcontent">
             <div class="card-content-column" track="grades.bottomcontent">
-              <paper-checkbox class="good-grades" style="margin-top: 10px;" checked track="grades.bottomcontent.checkbox.Bueno">Bueno</paper-checkbox>
+              <paper-checkbox class="good-grades" style="margin-top: 10px;" checked track="grades.bottomcontent.checkbox.Bueno">Good</paper-checkbox>
               <paper-checkbox class="lazy-grades" style="margin-top: 10px;" checked track="grades.bottomcontent.checkbox.Muy Deficientes">Muy Deficientes</paper-checkbox>
             </div>
             <div class="card-content-column" track="grades.bottomcontent">
-              <paper-checkbox class="best-grades" style="margin-top: 10px;" checked track="grades.bottomcontent.checkbox.Muy Bueno">Muy Bueno</paper-checkbox>
+              <paper-checkbox class="best-grades" style="margin-top: 10px;" checked track="grades.bottomcontent.checkbox.Muy Bueno">Very Good</paper-checkbox>
               <paper-checkbox class="regular-grades" style="margin-top: 10px;" checked track="grades.bottomcontent.checkbox.Deficientes">Deficientes</paper-checkbox>
             </div>
             <div class="card-content-column" track="grades.bottomcontent">
-              <paper-checkbox class="student-grades" style="margin-top: 10px;" checked track="grades.bottomcontent.checkbox.Este Estudiante">Este Estudiante</paper-checkbox>
+              <paper-checkbox class="student-grades" style="margin-top: 10px;" checked track="grades.bottomcontent.checkbox.Este Estudiante">This student</paper-checkbox>
             </div>
           </div>
         </div>
@@ -114,7 +114,7 @@
           Muestra los el promedio de estudiantes previos que han tomado semestres similares (Calificaciones - eje X) y su tasa general de aprobación (Desempeño -  eje Y).  También se muestra donde dentro de esta distribución se encuentra el estudiante siendo evaluado.
         </div>
         <div class="ht-bottom" style="color: white; font-size: 13px;" track="grades.maincontainer.help">
-          [Click en cualquier parte para cerrar]
+          [Click anywhere to close]
         </div>
       </div>
     </div>
