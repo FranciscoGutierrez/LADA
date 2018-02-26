@@ -40,7 +40,7 @@ paper-slider {
 }
 
 .card-content-middle {
-  height: 100%;
+  /* height: 100%; */
   position: relative;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
