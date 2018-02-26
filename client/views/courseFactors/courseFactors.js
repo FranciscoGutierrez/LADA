@@ -114,7 +114,7 @@ Template.coursefactors.rendered = function(){
     }
     var ctx = document.getElementById("cf-chart").getContext("2d");
     var data = {
-      labels: ["Fundamentos", "Tópicos Avanzados", "Programación", "Humanidades", "Matemáticas"],
+      labels: ["Fundamentals", "Adv. Topics", "Programming", "Humanities", "Math"],
       datasets: [
         {
           label: "Éste Estudiante",

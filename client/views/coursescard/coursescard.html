@@ -26,7 +26,7 @@
             <div class="cc-topdata" track="semesterplan.middlecontent.course.{{_id}}">{{{students}}}</div>
             <div class="cc-bottom" style="height: {{both}}%;" track="semesterplan.middlecontent.course.{{_id}}"></div>
             <div class="cc-top"    style="height: {{toph}}%;" track="semesterplan.middlecontent.course.{{_id}}">
-              <div class="cc-passed-legend" track="semesterplan.middlecontent.course.{{_id}}">{{passed}} ({{toph}}%) Aprobados</div>
+              <div class="cc-passed-legend" track="semesterplan.middlecontent.course.{{_id}}">{{passed}} ({{toph}}%) Passed</div>
             </div>
           </div>
           <div class="cc-metadata" track="semesterplan.middlecontent.course.{{_id}}" title="{{name}}">
@@ -43,27 +43,27 @@
       <div class="card-content-bottom cc-content-bottom" track="semesterplan.bottomcontent">
         <div class="card-content-control" style="margin-top: 15px;" track="semesterplan.bottomcontent">
           {{#if selectedCourse}}
-          <div class="control-title" track="semesterplan.bottomcontent.title">Detales del Curso</div>
+          <div class="control-title" track="semesterplan.bottomcontent.title">Course Details</div>
           <div class="horizontal-section" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">
             <div class="selected-container animated fadeIn" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">
               <div class="selected-course" style="cursor: default;" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">
                 <div id="checkboxLabel" class="selected-course-meta" style="width: 100%;" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">
                   <div class="course-name" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">{{selectedCourse.name}}</div>
                   <div class="course-id" style="display: flex; justify-content: space-between;" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">
-                    <div class="course-id" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">{{selectedCourse.id}} {{selectedCourse.credits}} creditos</div>
-                    <div class="course-id" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}" style="align-self: flex-end;">{{selectedCourse.passed}} ({{selectedCourse.percent}}%) aprobados.</div>
+                    <div class="course-id" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}">{{selectedCourse.id}} {{selectedCourse.credits}} credits</div>
+                    <div class="course-id" track="semesterplan.bottomcontent.details.{{selectedCourse.id}}" style="align-self: flex-end;">{{selectedCourse.passed}} ({{selectedCourse.percent}}%) passed.</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           {{else}}
-          <div class="control-title" track="semesterplan.bottomcontent.details.none">Detalles del Curso</div>
+          <div class="control-title" track="semesterplan.bottomcontent.details.none">Course Details</div>
           <div class="horizontal-section" track="semesterplan.bottomcontent.details.none">
             <div class="selected-container animated fadeIn" track="semesterplan.bottomcontent.details.none">
               <div class="selected-course" style="cursor: default;" track="semesterplan.bottomcontent.details.none">
                 <div id="checkboxLabel" class="selected-course-meta" track="semesterplan.bottomcontent.details.none">
-                  <div class="course-name" track="semesterplan.bottomcontent.details.none">Escoge un curso para ver más detalles.</div>
+                  <div class="course-name" track="semesterplan.bottomcontent.details.none">Select a course to see the details.</div>
                 </div>
               </div>
             </div>
@@ -72,7 +72,7 @@
         </div>
         <div class="card-content-control" style="position: relative; margin-top: 10px;" track="semesterplan.bottomcontent.suggestedload">
           <div class="control-title" track="semesterplan.bottomcontent.suggestedload">
-            Créditos
+            Credits
             {{#if numberCredits.warning}}
             <iron-icon icon="icons:warning" class="cc-icon-warning" track="semesterplan.bottomcontent.suggestedload.warning"></iron-icon>
             {{/if}}
@@ -86,7 +86,7 @@
             <div class="cc-number progress-bar-number" track="semesterplan.bottomcontent.suggestedload">
               <div class="cc-value" track="semesterplan.bottomcontent.suggestedload">{{numberCourses.number}}</div>
               &nbsp;{{numberCourses.text}},&nbsp;
-              <div class="cc-value" track="semesterplan.bottomcontent.suggestedload">{{numberCredits.credits}}</div>&nbsp;Créditos
+              <div class="cc-value" track="semesterplan.bottomcontent.suggestedload">{{numberCredits.credits}}</div>&nbsp;Credits
             </div>
           </div>
         </div>
@@ -98,12 +98,12 @@
         <div class="card-content-top-text" track="semesterplan.settings">
           <div class="card-title" track="semesterplan.settings.title">
             <div class="card-title-text" track="semesterplan.settings.title">
-              Editar
+              Edit
             </div>
             <iron-icon class="card-info" icon="icons:info" track="semesterplan.settings.icon"></iron-icon>
           </div>
           <div class="card-subtitle-tool" track="semesterplan.settings.searchbox">
-            <paper-input class="settings-search-input" label="Buscar cursos" id="search-box" track="semesterplan.settings.searchbox">
+            <paper-input class="settings-search-input" label="Search for courses" id="search-box" track="semesterplan.settings.searchbox">
               <iron-icon icon="search" prefix track="semesterplan.settings.searchbox"></iron-icon>
             </paper-input>
             {{#if getCourses}}
@@ -111,7 +111,7 @@
               {{#each getCourses}}
               <div class="result-course" style="position: relative; display: {{display}}; " track="semesterplan.settings.searchresult.{{_id}}">
                 <div class="result-name" track="semesterplan.settings.searchresult.{{_id}}">{{{name}}}</div>
-                <div class="result-desc" track="semesterplan.settings.searchresult.{{_id}}">{{{_id}}} <b>-</b> {{credits}} Créditos</div>
+                <div class="result-desc" track="semesterplan.settings.searchresult.{{_id}}">{{{_id}}} <b>-</b> {{credits}} Credits</div>
                 <paper-ripple></paper-ripple>
               </div>
               {{/each}}
@@ -123,14 +123,14 @@
       <!-- <div class="card-content-middle"></div> -->
       <div class="card-content-bottom" track="semesterplan.settings.listcourses">
         {{#if sessionCourses}}
-        <div class="control-title" style="padding-top: 0px;" track="semesterplan.settings.listcourses">Cursos Escogidos</div>
+        <div class="control-title" style="padding-top: 0px;" track="semesterplan.settings.listcourses">Selected Courses</div>
         <div class="selected-courses" track="semesterplan.settings.listcourses">
           {{#each sessionCourses}}
           <div class="selected-container animated fadeIn" track="semesterplan.settings.listcourse.{{_id}}">
             <div class="selected-course" checked track="semesterplan.settings.listcourse.{{_id}}">
               <div id="checkboxLabel" class="selected-course-meta" track="semesterplan.settings.listcourse.{{_id}}">
                 <div class="course-name" track="semesterplan.settings.listcourse.{{_id}}">{{name}}</div>
-                <div class="course-id" style="width: 270px;" track="semesterplan.settings.listcourse.{{_id}}">{{{_id}}} <b>-</b> {{credits}} Créditos</div>
+                <div class="course-id" style="width: 270px;" track="semesterplan.settings.listcourse.{{_id}}">{{{_id}}} <b>-</b> {{credits}} Credits</div>
               </div>
             </div>
             <iron-icon class="remove-selected-course" icon="icons:close" track="semesterplan.settings.removecourse.{{_id}}"></iron-icon>
@@ -140,7 +140,7 @@
         </div>
         {{/if}}
       </div>
-      <div class="settings-warning-message" style="display:none; color: #e64c3c; font-size: 13px; margin-top: 5px;" track="semesterplan.settings.warning">No se pueden agregar mas cursos.</div>
+      <div class="settings-warning-message" style="display:none; color: #e64c3c; font-size: 13px; margin-top: 5px;" track="semesterplan.settings.warning">You can't add more courses.</div>
       <!-- {{#if loading}}
       <paper-spinner-lite style="position: absolute; bottom:5px; right: 8px;" class="sw-spinner pink" active></paper-spinner-lite>
       {{/if}} -->
@@ -155,7 +155,7 @@
         Muestra los cursos tentativos en que el estudiante se registrará el próximo semestre. Los cursos se pueden agregar o quitar pulsando el botón de configuración.  Añadir o eliminar cursos tiene un impacto directo en la estimación de la probabilidad de éxito.
       </div>
       <div class="ht-bottom" style="color: white; font-size: 13px;" track="semesterplan.maincontainer.help">
-        [Click en cualquier parte para cerrar]
+        [Click anywhere to close]
       </div>
     </div>
   </div>
